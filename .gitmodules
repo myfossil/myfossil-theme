@@ -5,9 +5,3 @@
 [submodule "buddypress"]
 	path = wp-content/plugins/buddypress
 	url = https://github.com/buddypress/BuddyPress.git
-[submodule "wp-content/themes/frisco"]
-	path = wp-content/themes/frisco
-	url = https://github.com/davidtcarson/frisco.git
-[submodule "wp-content/themes/bp-default"]
-	path = wp-content/themes/bp-default
-	url = https://github.com/buddypress/BP-Default.git
