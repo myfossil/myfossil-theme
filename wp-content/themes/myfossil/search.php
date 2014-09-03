@@ -1,32 +1,45 @@
 <?php
 /**
- * The template for displaying Search Results pages.
+ * The template for displaying search results pages.
  *
- * @package _tk
+ * @package myfossil
  */
 
 get_header(); ?>
 
-	<?php if ( have_posts() ) : ?>
+	<section id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
 
-		<header class="page-header">
-			<h2 class="page-title"><?php printf( __( 'Search Results for: %s', '_tk' ), '<span>' . get_search_query() . '</span>' ); ?></h2>
-		</header><!-- .page-header -->
+		<?php if ( have_posts() ) : ?>
 
-		<?php // start the loop. ?>
-		<?php while ( have_posts() ) : the_post(); ?>
+			<header class="page-header">
+				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'myfossil' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			</header><!-- .page-header -->
 
-			<?php get_template_part( 'content', 'search' ); ?>
+			<?php /* Start the Loop */ ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php endwhile; ?>
+				<?php
+				/**
+				 * Run the loop for the search to output the results.
+				 * If you want to overload this in a child theme then include a file
+				 * called content-search.php and that will be used instead.
+				 */
+				get_template_part( 'content', 'search' );
+				?>
 
-		<?php _tk_content_nav( 'nav-below' ); ?>
+			<?php endwhile; ?>
 
-	<?php else : ?>
+			<?php myfossil_paging_nav(); ?>
 
-		<?php get_template_part( 'no-results', 'search' ); ?>
+		<?php else : ?>
 
-	<?php endif; // end of loop. ?>
+			<?php get_template_part( 'content', 'none' ); ?>
+
+		<?php endif; ?>
+
+		</main><!-- #main -->
+	</section><!-- #primary -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -1,16 +1,16 @@
 <?php
 /**
- * The template for displaying Archive pages.
+ * The template for displaying archive pages.
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package _tk
+ * @package myfossil
  */
 
 get_header(); ?>
 
-	<?php // add the class "panel" below here to wrap the content-padder in Bootstrap style ;) ?>
-	<div class="content-padder">
+	<section id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -24,43 +24,46 @@ get_header(); ?>
 							single_tag_title();
 
 						elseif ( is_author() ) :
-							/* Queue the first post, that way we know
-							 * what author we're dealing with (if that is the case).
-							*/
-							the_post();
-							printf( __( 'Author: %s', '_tk' ), '<span class="vcard">' . get_the_author() . '</span>' );
-							/* Since we called the_post() above, we need to
-							 * rewind the loop back to the beginning that way
-							 * we can run the loop properly, in full.
-							 */
-							rewind_posts();
+							printf( __( 'Author: %s', 'myfossil' ), '<span class="vcard">' . get_the_author() . '</span>' );
 
 						elseif ( is_day() ) :
-							printf( __( 'Day: %s', '_tk' ), '<span>' . get_the_date() . '</span>' );
+							printf( __( 'Day: %s', 'myfossil' ), '<span>' . get_the_date() . '</span>' );
 
 						elseif ( is_month() ) :
-							printf( __( 'Month: %s', '_tk' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
+							printf( __( 'Month: %s', 'myfossil' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'myfossil' ) ) . '</span>' );
 
 						elseif ( is_year() ) :
-							printf( __( 'Year: %s', '_tk' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
+							printf( __( 'Year: %s', 'myfossil' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'myfossil' ) ) . '</span>' );
 
 						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
-							_e( 'Asides', '_tk' );
+							_e( 'Asides', 'myfossil' );
+
+						elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
+							_e( 'Galleries', 'myfossil' );
 
 						elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-							_e( 'Images', '_tk');
+							_e( 'Images', 'myfossil' );
 
 						elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
-							_e( 'Videos', '_tk' );
+							_e( 'Videos', 'myfossil' );
 
 						elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
-							_e( 'Quotes', '_tk' );
+							_e( 'Quotes', 'myfossil' );
 
 						elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
-							_e( 'Links', '_tk' );
+							_e( 'Links', 'myfossil' );
+
+						elseif ( is_tax( 'post_format', 'post-format-status' ) ) :
+							_e( 'Statuses', 'myfossil' );
+
+						elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
+							_e( 'Audios', 'myfossil' );
+
+						elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
+							_e( 'Chats', 'myfossil' );
 
 						else :
-							_e( 'Archives', '_tk' );
+							_e( 'Archives', 'myfossil' );
 
 						endif;
 					?>
@@ -79,7 +82,7 @@ get_header(); ?>
 
 				<?php
 					/* Include the Post-Format-specific template for the content.
-					 * If you want to overload this in a child theme then include a file
+					 * If you want to override this in a child theme, then include a file
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
 					get_template_part( 'content', get_post_format() );
@@ -87,15 +90,16 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php _tk_content_nav( 'nav-below' ); ?>
+			<?php myfossil_paging_nav(); ?>
 
 		<?php else : ?>
 
-			<?php get_template_part( 'no-results', 'archive' ); ?>
+			<?php get_template_part( 'content', 'none' ); ?>
 
 		<?php endif; ?>
 
-	</div><!-- .content-padder -->
+		</main><!-- #main -->
+	</section><!-- #primary -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
