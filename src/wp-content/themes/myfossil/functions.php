@@ -92,7 +92,9 @@ add_action( 'widgets_init', 'myfossil_widgets_init' );
  * Enqueue scripts and styles.
  */
 function myfossil_scripts() {
-	wp_enqueue_style( 'myfossil-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'myfossil-style', get_stylesheet_uri() ); 
+        wp_enqueue_script('js', get_theme_root_uri().'/assets/staging/myfossil.js');
+        wp_enqueue_style('style', get_theme_root_uri().'/assets/staging/style.css');
 
 	wp_enqueue_script( 'myfossil-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
@@ -128,18 +130,4 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
-
-
-//enqueue scripts
-function fossil_scripts() {
-  //wp_enqueue_script('headroom', 'http://cdn.jsdelivr.net/headroomjs/0.5.0/headroom.min.js');
-  wp_enqueue_style('fonts', 'http://fonts.googleapis.com/css?family=Roboto:400,300|Merriweather');
-  wp_enqueue_style('font-awesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
-  wp_enqueue_script('js', get_theme_root_uri().'/assets/staging/myfossil.js');
-  wp_enqueue_style('style', get_theme_root_uri().'/assets/staging/style.css');
-  
-}
-
-add_action('wp_enqueue_scripts', 'fossil_scripts');
-
 

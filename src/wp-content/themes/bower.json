@@ -25,6 +25,5 @@
     "meyer-reset": "latest"
   },
   "devDependencies": {
-    "bootstrap-sass-official": "~3.2.0+2"
   }
 }
