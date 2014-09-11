@@ -7,7 +7,6 @@
 	ul {
 		list-style: none;
 		margin: 0;
-		padding-left: 0;
 
 		ul {
 			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -43,6 +42,7 @@
 			left: auto;
 		}
 	}
+
 	li {
 		float: left;
 		position: relative;
@@ -50,6 +50,7 @@
 		&:hover > a {
 		}
 	}
+
 	a {
 		display: block;
 		text-decoration: none;
