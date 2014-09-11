@@ -1,3 +1,4 @@
+.vagrant
 .htaccess
 wp-content/uploads/
 wp-content/blogs.dir/
@@ -10,3 +11,4 @@ sitemap.xml
 wp-content/cache/
 wp-content/backups/
 sitemap.xml.gz
+wp-config.php
