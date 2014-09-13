@@ -34,14 +34,25 @@
         <a class="navbar-brand" href="/">myFossil</a>
       </div>
 
+      <?php
+        $items = wp_get_nav_menu_items('primary'); 
+      ?>
+
+
       <!-- Nav links themselves -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">COMMUNITY</a></li>
-          <li><a href="#">FOSSILS</a></li>
-          <li><a href="#">COLLABORATE</a></li>
-          <li><a href="#">RESOURCES</a></li>
-          <li><a href="#">EVENTS</a></li>
+          <?php 
+            foreach($items as $item) {
+          ?>
+              <li>
+                <a href="<?php echo $item->url; ?>">
+                  <?php echo $item->title; ?>
+                </a>
+              </li>
+          <?php 
+            }
+          ?>
         </ul>
         
         <!-- to the right nav -->
