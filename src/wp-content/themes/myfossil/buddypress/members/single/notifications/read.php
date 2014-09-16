@@ -1,4 +1,4 @@
-<?php if ( bp_has_notifications() ) : ?>
+<?php if (bp_has_notifications()): ?>
 
 	<div id="pag-top" class="pagination no-ajax">
 		<div class="pag-count" id="notifications-count-top">
@@ -10,7 +10,7 @@
 		</div>
 	</div>
 
-	<?php bp_get_template_part( 'members/single/notifications/notifications-loop' ); ?>
+	<?php bp_get_template_part('members/single/notifications/notifications-loop'); ?>
 
 	<div id="pag-bottom" class="pagination no-ajax">
 		<div class="pag-count" id="notifications-count-bottom">
@@ -22,8 +22,10 @@
 		</div>
 	</div>
 
-<?php else : ?>
+<?php
+else: ?>
 
-	<?php bp_get_template_part( 'members/single/notifications/feedback-no-notifications' ); ?>
+	<?php bp_get_template_part('members/single/notifications/feedback-no-notifications'); ?>
 
-<?php endif;
+<?php
+endif;

@@ -11,18 +11,18 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta charset="<?php bloginfo('charset'); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?php wp_title( '|', true, 'right' ); ?></title>
+<title><?php wp_title('|', true, 'right'); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
 <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-  <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'myfossil' ); ?></a>
+  <a class="skip-link screen-reader-text" href="#content"><?php _e('Skip to content', 'myfossil'); ?></a>
   
   <nav class="navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
@@ -40,11 +40,12 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <?php $items = wp_get_nav_menu_items('primary'); ?>
-          <?php foreach($items as $item): ?>
+          <?php foreach ($items as $item): ?>
             <li>
               <a href="<?=$item->url; ?>"><?=$item->title; ?></a>
             </li>
-          <?php endforeach; ?>
+          <?php
+endforeach; ?>
         </ul>
         
         <!-- right nav -->
@@ -61,12 +62,14 @@
                   <li role="presentation"><a role="menuitem" href="#">Action</a></li>
                 </ul>
               </li>
-          <?php else: ?>
+          <?php
+else: ?>
             <!-- anonymous user, show login -->
             <li>
                 <a href="#">Login</a>
             </li>
-          <?php endif; ?>
+          <?php
+endif; ?>
         </ul>
       </div> 
     </div>
