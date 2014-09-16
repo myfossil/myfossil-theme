@@ -38,7 +38,7 @@ gulp.task('scripts', function() {
       //.pipe(plugins.concat(project+'.js'))
       .pipe(gulp.dest('assets/staging'))
       .pipe(plugins.rename({ suffix: '.min' }))
-      .pipe(plugins.uglify())
+      //.pipe(plugins.uglify())
       .pipe(plugins.livereload(server))
       .pipe(gulp.dest(build + '/js/'));
 });

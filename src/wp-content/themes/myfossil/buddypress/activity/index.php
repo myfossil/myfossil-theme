@@ -1,5 +1,4 @@
-<?php
-do_action('bp_before_directory_activity'); ?>
+<?php do_action('bp_before_directory_activity'); ?>
 
 <div id="buddypress">
 

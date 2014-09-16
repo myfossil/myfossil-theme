@@ -28,13 +28,13 @@
 
 		<div id="whats-new-options">
 			<div id="whats-new-submit">
-				<button type="submit" class="btn btn-default" name="aw-whats-new-submit" id="aw-whats-new-submit"><?php esc_attr_e('Post Update', 'buddypress'); ?></button>
+				<button type="submit" class="reset btn btn-default" name="aw-whats-new-submit" id="aw-whats-new-submit_"><?php esc_attr_e('Post Update', 'buddypress'); ?></button>
 			</div>
 
 			<?php if (bp_is_active('groups') && !bp_is_my_profile() && !bp_is_group()): ?>
 				<div id="whats-new-post-in-box">
-					<?php _e('Post in', 'buddypress'); ?>:
-					<select id="whats-new-post-in" name="whats-new-post-in" class="form-control">
+					<label for="whats-new-post-in"><?php _e('Post in', 'buddypress'); ?>:</label>
+					<select id="whats-new-post-in" name="whats-new-post-in">
 						<option selected="selected" value="0"><?php _e('My Profile', 'buddypress'); ?></option>
 						<?php if (bp_has_groups('user_id=' . bp_loggedin_user_id() . '&type=alphabetical&max=100&per_page=100&populate_extras=0&update_meta_cache=0')): ?>
                             <?php while (bp_groups()): ?>

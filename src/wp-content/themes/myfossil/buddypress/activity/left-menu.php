@@ -19,5 +19,21 @@
                 <span class="username">@<?=bp_get_loggedin_user_username(); ?></span>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="#">What's New</a></li>
+                    <li class="list-group-item"><a href="#">What's New</a></li>
+                    <li class="list-group-item"><a href="#">What's New</a></li>
+                    <li class="list-group-item"><a href="#">What's New</a></li>
+                    <li class="list-group-item"><a href="#">What's New</a></li>
+                    <li class="list-group-item"><a href="#">What's New</a></li>
+                    <li class="list-group-item"><a href="#">What's New</a></li>
+                    <li class="list-group-item"><a href="#">What's New</a></li>
+                    <li class="list-group-item"><a href="#">What's New</a></li>
+                    <li class="list-group-item"><a href="#">What's New</a></li>
+                </ul>
+            </div>
+        </div>
 	</div>
 </div>
