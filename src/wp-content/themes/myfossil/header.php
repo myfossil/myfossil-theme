@@ -1,7 +1,5 @@
 <?php
-
 /* vim: set expandtab ts=2 sw=2: */
-
 /**
  * The header for the myFOSSIL theme.
  *
@@ -11,29 +9,21 @@
  */
 ?>
 <!DOCTYPE html>
-<html <?php
-language_attributes(); ?>>
+<html <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php
-bloginfo('charset'); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?php
-wp_title('|', true, 'right'); ?></title>
-<link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="<?php
-bloginfo('pingback_url'); ?>">
-
-<?php
-wp_head(); ?>
+  <meta charset="<?php bloginfo('charset'); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><?php wp_title('|', true, 'right'); ?></title>
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+  <?php wp_head(); ?>
 </head>
 
-<body <?php
-body_class(); ?>>
+<body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-  <a class="skip-link screen-reader-text" href="#content"><?php
-_e('Skip to content', 'myfossil'); ?></a>
+  <a class="skip-link screen-reader-text" href="#content"><?php _e('Skip to content', 'myfossil'); ?></a>
   
-  <nav class="navbar navbar-inverse" role="navigation">
+  <nav class="nav navbar navbar-default navbar-static-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -42,7 +32,7 @@ _e('Skip to content', 'myfossil'); ?></a>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">myFossil</a>
+        <a class="navbar-brand" href="/">myFOSSIL</a>
       </div>
 
       <!-- nav links themselves -->
