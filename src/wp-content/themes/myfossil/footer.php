@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab ts=2 sw=2 autoindent smartindent: */
 /**
  * The template for displaying the footer.
  *
@@ -7,7 +8,6 @@
  * @package myfossil
  */
 ?>
-
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">

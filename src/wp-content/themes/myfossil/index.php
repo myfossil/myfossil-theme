@@ -1,4 +1,5 @@
 <?php
+/* vim: set expandtab ts=4 sw=4 autoindent smartindent: */
 /**
  * The main template file.
  *

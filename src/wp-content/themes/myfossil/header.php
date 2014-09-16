@@ -1,12 +1,14 @@
 <?php
+/* vim: set expandtab ts=2 sw=2 autoindent smartindent: */
 /**
- * The header for our theme.
+ * The header for the myFOSSIL theme.
  *
- * Displays all of the <head> section and everything up till <div id="content">
+ * Displays all of the <head> section and everything up to <div id="content">
  *
  * @package myfossil
  */
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -34,28 +36,18 @@
         <a class="navbar-brand" href="/">myFossil</a>
       </div>
 
-      <?php
-        $items = wp_get_nav_menu_items('primary'); 
-      ?>
-
-
-      <!-- Nav links themselves -->
+      <!-- nav links themselves -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <?php 
-            foreach($items as $item) {
-          ?>
-              <li>
-                <a href="<?php echo $item->url; ?>">
-                  <?php echo $item->title; ?>
-                </a>
-              </li>
-          <?php 
-            }
-          ?>
+          <?php $items = wp_get_nav_menu_items('primary'); ?>
+          <?php foreach($items as $item): ?>
+            <li>
+              <a href="<?=$item->url; ?>"><?=$item->title; ?></a>
+            </li>
+          <?php endforeach; ?>
         </ul>
         
-        <!-- to the right nav -->
+        <!-- right nav -->
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
           <li class="dropdown">
