@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The sidebar containing the main widget area.
  *
@@ -6,6 +7,7 @@
  * FIXME somehow the sidebar is getting called in when not requested right now
  * @package myfossil
  */
+
 /*
  * if ( ! is_active_sidebar( 'sidebar-1' ) ) {
  * 	return;

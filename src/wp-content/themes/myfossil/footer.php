@@ -1,5 +1,7 @@
 <?php
+
 /* vim: set expandtab ts=2 sw=2 autoindent smartindent: */
+
 /**
  * The template for displaying the footer.
  *
@@ -15,7 +17,8 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
-<?php wp_footer(); ?>
+<?php
+wp_footer(); ?>
 
 </body>
 </html>

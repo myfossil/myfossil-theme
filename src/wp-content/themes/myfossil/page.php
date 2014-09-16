@@ -1,5 +1,7 @@
 <?php
+
 /* vim: set expandtab ts=4 sw=4 autoindent smartindent: */
+
 /**
  * The template for displaying all pages.
  *
@@ -15,12 +17,15 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-			<?php while (have_posts()):
+			<?php
+while (have_posts()):
     the_post(); ?>
 
-				<?php get_template_part('content', 'page'); ?>
+				<?php
+    get_template_part('content', 'page'); ?>
 
 				<?php
+
     // If comments are open or we have at least one comment, load up the comment template
     if (comments_open() || '0' != get_comments_number()):
         comments_template();
@@ -29,10 +34,14 @@ get_header(); ?>
 
 			<?php
 endwhile; // end of the loop.
- ?>
+
+
+?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+<?php
+get_sidebar(); ?>
+<?php
+get_footer(); ?>

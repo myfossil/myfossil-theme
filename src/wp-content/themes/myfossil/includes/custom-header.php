@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Sample implementation of the Custom Header feature
  * http://codex.wordpress.org/Custom_Headers
@@ -12,6 +13,7 @@
  *
  * @package myfossil
  */
+
 /**
  * Set up the WordPress core custom header feature.
  *
@@ -19,28 +21,44 @@
  * @uses myfossil_admin_header_style()
  * @uses myfossil_admin_header_image()
  */
-function myfossil_custom_header_setup() {
-    add_theme_support('custom-header', apply_filters('myfossil_custom_header_args', array('default-image' => '', 'default-text-color' => '000000', 'width' => 1000, 'height' => 250, 'flex-height' => true, 'wp-head-callback' => 'myfossil_header_style', 'admin-head-callback' => 'myfossil_admin_header_style', 'admin-preview-callback' => 'myfossil_admin_header_image',)));
+function myfossil_custom_header_setup()
+{
+    add_theme_support('custom-header', apply_filters('myfossil_custom_header_args', array(
+        'default-image' => '',
+        'default-text-color' => '000000',
+        'width' => 1000,
+        'height' => 250,
+        'flex-height' => true,
+        'wp-head-callback' => 'myfossil_header_style',
+        'admin-head-callback' => 'myfossil_admin_header_style',
+        'admin-preview-callback' => 'myfossil_admin_header_image',
+    )));
 }
 add_action('after_setup_theme', 'myfossil_custom_header_setup');
 if (!function_exists('myfossil_header_style')):
+
     /**
      * Styles the header image and text displayed on the blog
      *
      * @see myfossil_custom_header_setup().
      */
-    function myfossil_header_style() {
+    function myfossil_header_style()
+    {
         $header_text_color = get_header_textcolor();
+
         // If no custom options for text are set, let's bail
         // get_header_textcolor() options: HEADER_TEXTCOLOR is default, hide text (returns 'blank') or any hex value
+
         if (HEADER_TEXTCOLOR == $header_text_color) {
             return;
         }
+
         // If we get this far, we have custom styles. Let's do this.
         
 ?>
 	<style type="text/css">
 	<?php
+
         // Has the text been hidden?
         if ('blank' == $header_text_color):
 ?>
@@ -50,12 +68,14 @@ if (!function_exists('myfossil_header_style')):
 			clip: rect(1px, 1px, 1px, 1px);
 		}
 	<?php
+
             // If the user has set a custom color for the text use that
             else:
 ?>
 		.site-title a,
 		.site-description {
-			color: #<?php echo $header_text_color; ?>;
+			color: #<?php
+                echo $header_text_color; ?>;
 		}
 	<?php
             endif; ?>
@@ -63,13 +83,16 @@ if (!function_exists('myfossil_header_style')):
 	<?php
         }
     endif; // myfossil_header_style
+
     if (!function_exists('myfossil_admin_header_style')):
+
         /**
          * Styles the header image displayed on the Appearance > Header admin panel.
          *
          * @see myfossil_custom_header_setup().
          */
-        function myfossil_admin_header_style() {
+        function myfossil_admin_header_style()
+        {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
@@ -90,24 +113,35 @@ if (!function_exists('myfossil_header_style')):
 <?php
         }
     endif; // myfossil_admin_header_style
+
     if (!function_exists('myfossil_admin_header_image')):
+
         /**
          * Custom header image markup displayed on the Appearance > Header admin panel.
          *
          * @see myfossil_custom_header_setup().
          */
-        function myfossil_admin_header_image() {
+        function myfossil_admin_header_image()
+        {
             $style = sprintf(' style="color:#%s;"', get_header_textcolor());
 ?>
 	<div id="headimg">
-		<h1 class="displaying-header-text"><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a></h1>
-		<div class="displaying-header-text" id="desc"<?php echo $style; ?>><?php bloginfo('description'); ?></div>
-		<?php if (get_header_image()): ?>
-		<img src="<?php header_image(); ?>" alt="">
+		<h1 class="displaying-header-text"><a id="name"<?php
+            echo $style; ?> onclick="return false;" href="<?php
+            echo esc_url(home_url('/')); ?>"><?php
+            bloginfo('name'); ?></a></h1>
+		<div class="displaying-header-text" id="desc"<?php
+            echo $style; ?>><?php
+            bloginfo('description'); ?></div>
+		<?php
+            if (get_header_image()): ?>
+		<img src="<?php
+                header_image(); ?>" alt="">
 		<?php
             endif; ?>
 	</div>
 <?php
         }
     endif; // myfossil_admin_header_image
+
     

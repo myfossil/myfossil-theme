@@ -1,10 +1,12 @@
 <div id="buddypress">
 
-	<?php do_action('bp_before_member_home_content'); ?>
+	<?php
+do_action('bp_before_member_home_content'); ?>
 
 	<div id="item-header" role="complementary">
 
-		<?php bp_get_template_part('members/single/member-header') ?>
+		<?php
+bp_get_template_part('members/single/member-header') ?>
 
 	</div><!-- #item-header -->
 
@@ -12,9 +14,11 @@
 		<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
 			<ul>
 
-				<?php bp_get_displayed_user_nav(); ?>
+				<?php
+bp_get_displayed_user_nav(); ?>
 
-				<?php do_action('bp_member_options_nav'); ?>
+				<?php
+do_action('bp_member_options_nav'); ?>
 
 			</ul>
 		</div>
@@ -22,7 +26,8 @@
 
 	<div id="item-body" role="main">
 
-		<?php do_action('bp_before_member_body');
+		<?php
+do_action('bp_before_member_body');
 if (bp_is_user_activity() || !bp_current_component()):
     bp_get_template_part('members/single/activity');
 elseif (bp_is_user_blogs()):
@@ -41,6 +46,7 @@ elseif (bp_is_user_notifications()):
     bp_get_template_part('members/single/notifications');
 elseif (bp_is_user_settings()):
     bp_get_template_part('members/single/settings');
+
     // If nothing sticks, load a generic template
     else:
         bp_get_template_part('members/single/plugins');
@@ -49,6 +55,7 @@ elseif (bp_is_user_settings()):
 
 	</div><!-- #item-body -->
 
-	<?php do_action('bp_after_member_home_content'); ?>
+	<?php
+    do_action('bp_after_member_home_content'); ?>
 
 </div><!-- #buddypress -->
