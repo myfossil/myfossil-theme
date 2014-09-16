@@ -5227,3 +5227,56 @@ button.close {
 /**
  * Apply a clearfix to an element.
  */
+* {
+  background: rgba(0, 0, 0, 0.05); }
+
+.user-container, .updates-container, .externals-container {
+  height: 100%; }
+
+.user-container {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 22.75%;
+  margin-left: 0%;
+  margin-right: 3%; }
+  .user-container:before, .user-container:after {
+    content: '';
+    display: table; }
+  .user-container:after {
+    clear: both; }
+  .user-container:last-child {
+    margin-right: 0%; }
+
+.updates-container {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 48.5%;
+  margin-left: 0%;
+  margin-right: 3%; }
+  .updates-container:before, .updates-container:after {
+    content: '';
+    display: table; }
+  .updates-container:after {
+    clear: both; }
+  .updates-container:last-child {
+    margin-right: 0%; }
+
+.externals-container {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 22.75%;
+  margin-left: 0%;
+  margin-right: 3%; }
+  .externals-container:before, .externals-container:after {
+    content: '';
+    display: table; }
+  .externals-container:after {
+    clear: both; }
+  .externals-container:last-child {
+    margin-right: 0%; }
