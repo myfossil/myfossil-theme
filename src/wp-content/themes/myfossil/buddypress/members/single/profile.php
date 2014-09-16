@@ -25,33 +25,29 @@ do_action('bp_before_profile_content'); ?>
 switch (bp_current_action()):
 
     // Edit
-    
-case 'edit':
-    bp_get_template_part('members/single/profile/edit');
-    break;
+    case 'edit':
+        bp_get_template_part('members/single/profile/edit');
+        break;
 
     // Change Avatar
-    
-case 'change-avatar':
-    bp_get_template_part('members/single/profile/change-avatar');
-    break;
+    case 'change-avatar':
+        bp_get_template_part('members/single/profile/change-avatar');
+        break;
 
     // Compose
-    
-case 'public':
+    case 'public':
 
-    // Display XProfile
-    if (bp_is_active('xprofile')) bp_get_template_part('members/single/profile/profile-loop');
+        // Display XProfile
+        if (bp_is_active('xprofile')) bp_get_template_part('members/single/profile/profile-loop');
 
-    // Display WordPress profile (fallback)
-    else bp_get_template_part('members/single/profile/profile-wp');
-    break;
+        // Display WordPress profile (fallback)
+        else bp_get_template_part('members/single/profile/profile-wp');
+        break;
 
     // Any other
-    
-default:
-    bp_get_template_part('members/single/plugins');
-    break;
+    default:
+        bp_get_template_part('members/single/plugins');
+        break;
 endswitch; ?>
 </div><!-- .profile -->
 

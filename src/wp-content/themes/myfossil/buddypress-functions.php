@@ -251,16 +251,14 @@ if (!class_exists('BP_Legacy')):
             // Locate the BP JS file
             $asset = $this->locate_asset_in_stack("buddypress{$min}.js", 'js');
 
-            // Enqueue the global JS, if found - AJAX will not work
-            // without it
-
-            if (isset($asset['location'], $asset['handle'])) {
+            // Enqueue the global JS, if found - AJAX will not work without it
+            // NOTE: Disabled BP JS file in lieu of our own
+            if (1 == 2 && isset($asset['location'], $asset['handle'])) {
                 wp_enqueue_script($asset['handle'], $asset['location'], bp_core_get_js_dependencies() , $this->version);
             }
 
             // Add words that we need to use in JS to the end of the page
             // so they can be translated and still used.
-
             $params = apply_filters('bp_core_get_js_strings', array(
                 'accepted' => __('Accepted', 'buddypress') ,
                 'close' => __('Close', 'buddypress') ,
@@ -329,7 +327,6 @@ if (!class_exists('BP_Legacy')):
          */
         private function locate_asset_in_stack($file, $type = 'css')
         {
-
             // Child, parent, theme compat
             $locations = array();
 
@@ -340,10 +337,12 @@ if (!class_exists('BP_Legacy')):
                     'uri' => get_stylesheet_directory_uri() ,
                 );
             }
+
             $locations['bp-parent'] = array(
                 'dir' => get_template_directory() ,
                 'uri' => get_template_directory_uri() ,
             );
+
             $locations['bp-legacy'] = array(
                 'dir' => bp_get_theme_compat_dir() ,
                 'uri' => bp_get_theme_compat_url() ,
@@ -355,6 +354,7 @@ if (!class_exists('BP_Legacy')):
                 'community/' . $type,
                 $type,
             );
+
             $retval = array();
             foreach ($locations as $location_type => $location) {
                 foreach ($subdirs as $subdir) {
@@ -365,6 +365,7 @@ if (!class_exists('BP_Legacy')):
                     }
                 }
             }
+
             return $retval;
         }
 
@@ -375,16 +376,13 @@ if (!class_exists('BP_Legacy')):
          */
         public function head_scripts()
         {
-?>
-
-		<script type="text/javascript">
-			/* <![CDATA[ */
-			var ajaxurl = '<?php
-            echo bp_core_ajax_url(); ?>';
-			/* ]]> */
-		</script>
-
-	<?php
+            ?>
+            <script type="text/javascript">
+                /* <![CDATA[ */
+                var ajaxurl = '<?php echo bp_core_ajax_url(); ?>';
+                /* ]]> */
+            </script>
+            <?php
         }
 
         /**
