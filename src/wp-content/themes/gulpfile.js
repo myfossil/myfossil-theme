@@ -35,12 +35,12 @@ gulp.task('scripts', function() {
   return gulp.src(['assets/src/js/*.js', '!assets/src/js/plugins.js'])
       .pipe(plugins.jshint('.jshintrc'))
       .pipe(plugins.jshint.reporter('default'))
-      .pipe(plugins.concat(project+'.js'))
+      //.pipe(plugins.concat(project+'.js'))
       .pipe(gulp.dest('assets/staging'))
       .pipe(plugins.rename({ suffix: '.min' }))
       .pipe(plugins.uglify())
       .pipe(plugins.livereload(server))
-      .pipe(gulp.dest(build));
+      .pipe(gulp.dest(build + '/js/'));
 });
 
 gulp.task('images', function() {

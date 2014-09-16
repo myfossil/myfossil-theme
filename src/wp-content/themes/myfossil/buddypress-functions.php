@@ -253,7 +253,7 @@ if (!class_exists('BP_Legacy')):
 
             // Enqueue the global JS, if found - AJAX will not work without it
             // NOTE: Disabled BP JS file in lieu of our own
-            if (1 == 2 && isset($asset['location'], $asset['handle'])) {
+            if (isset($asset['location'], $asset['handle'])) {
                 wp_enqueue_script($asset['handle'], $asset['location'], bp_core_get_js_dependencies() , $this->version);
             }
 

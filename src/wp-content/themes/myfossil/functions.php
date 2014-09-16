@@ -117,7 +117,7 @@ function myfossil_scripts()
 
     /* Scripts */
     wp_enqueue_script('bootstrap-js', "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js");
-    wp_enqueue_script('js', get_theme_root_uri() . '/assets/staging/myfossil.js');
+    //wp_enqueue_script('js', get_theme_root_uri() . '/assets/staging/myfossil.js');
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
