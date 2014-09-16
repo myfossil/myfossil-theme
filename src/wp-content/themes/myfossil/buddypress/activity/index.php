@@ -1,9 +1,7 @@
 <?php
-/**
- * Template Name: Full-width Page Template, For BuddyPress
- */
+/* vim: set expandtab ts=2 sw=2 autoindent smartindent: */
+do_action('bp_before_directory_activity_content');
 ?>
-<?php get_header(); ?>
 
   <div class="user-container">
     <h5>John Doe</h5>
@@ -45,5 +43,3 @@
     <h4>ORGANIZATIONS</h4>
     <h4>RESOURCES</h4>
   </div>
-
-<?php get_footer(); ?>
