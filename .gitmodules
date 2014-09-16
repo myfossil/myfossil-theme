@@ -6,5 +6,5 @@
 	path = src/wp-content/plugins/buddypress
 	url = https://github.com/buddypress/BuddyPress.git
 [submodule "src/wp-content/themes/myfossil/inc/bootstrap"]
-	path = src/wp-content/themes/myfossil/inc/bootstrap
+	path = src/wp-content/themes/myfossil/includes/bootstrap
 	url = https://github.com/twbs/bootstrap.git
