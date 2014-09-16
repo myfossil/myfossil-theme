@@ -2,8 +2,8 @@
 /**
  * BuddyPress - Users Notifications
  *
- * @package BuddyPress
- * @subpackage bp-legacy
+ * @package myfossil
+ * @subpackage theme
  */
 ?>
 

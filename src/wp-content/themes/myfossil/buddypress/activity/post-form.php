@@ -2,8 +2,8 @@
 /**
  * BuddyPress - Activity Post Form
  *
- * @package BuddyPress
- * @subpackage bp-legacy
+ * @package myfossil
+ * @subpackage theme
  */
 ?>
 

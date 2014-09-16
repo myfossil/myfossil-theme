@@ -5,8 +5,8 @@
  * 3rd-party plugins should use this template to easily add template
  * support to their plugins for the members component.
  *
- * @package BuddyPress
- * @subpackage bp-legacy
+ * @package myfossil
+ * @subpackage theme
  */
 ?>
 

@@ -2,8 +2,8 @@
 /**
  * BuddyPress - Users Header
  *
- * @package BuddyPress
- * @subpackage bp-legacy
+ * @package myfossil
+ * @subpackage theme
  */
 ?>
 
