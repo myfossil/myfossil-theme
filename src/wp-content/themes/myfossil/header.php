@@ -1,5 +1,5 @@
 <?php
-/* vim: set expandtab ts=2 sw=2 autoindent smartindent: */
+/* vim: set expandtab ts=2 sw=2: */
 /**
  * The header for the myFOSSIL theme.
  *
@@ -49,13 +49,24 @@
         
         <!-- right nav -->
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">John Doe <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Action</a></li>
-            </ul>
-          </li>
+          <?php if (bp_user_logged_in()): ?>
+            <!-- user logged in, show messages and info -->
+              <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" id="dropdown-menu-user" data-toggle="dropdown">
+                  <?=bp_get_loggedin_user_fullname(); ?>
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-menu-user">
+                  <li role="presentation"><a role="menuitem" href="#">Action</a></li>
+                </ul>
+              </li>
+          <?php else: ?>
+            <!-- anonymous user, show login -->
+            <li>
+                <a href="#">Login</a>
+            </li>
+          <?php endif; ?>
         </ul>
       </div> 
     </div>

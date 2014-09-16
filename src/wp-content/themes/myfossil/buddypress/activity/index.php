@@ -1,10 +1,15 @@
 <?php
 /* vim: set expandtab ts=2 sw=2 autoindent smartindent: */
-do_action('bp_before_directory_activity_content');
+/**
+ * BuddyPress, Activity Homepage
+ *
+ * @see http://codex.buddypress.org/themes/theme-compatibility-1-7/template-hierarchy/
+ */
 ?>
 
   <div class="user-container">
-    <h5>John Doe</h5>
+    <?=bp_loggedin_user_avatar(); ?>
+    <h5><?=bp_get_loggedin_user_fullname(); ?></h5>
 
     <ul>
       <li class="active"><a href="#">What's New</a></li>
