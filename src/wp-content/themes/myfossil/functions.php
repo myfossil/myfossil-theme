@@ -109,13 +109,6 @@ add_action( 'wp_enqueue_scripts', 'myfossil_scripts' );
 
 
 /**
- * Helper function to check if user logged in.
- */
-function bp_user_logged_in() {
-    return (bool) bp_loggedin_user_id();
-}
-
-/**
  * Implement the Custom Header feature.
  */
 //require get_template_directory() . '/inc/custom-header.php';

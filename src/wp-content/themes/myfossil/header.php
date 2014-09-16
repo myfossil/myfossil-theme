@@ -49,7 +49,7 @@
         
         <!-- right nav -->
         <ul class="nav navbar-nav navbar-right">
-          <?php if (bp_user_logged_in()): ?>
+          <?php if (is_user_logged_in()): ?>
             <!-- user logged in, show messages and info -->
               <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
               <li class="dropdown">
