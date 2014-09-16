@@ -8,6 +8,7 @@
  */
 // Exit if accessed directly
 if (!defined('ABSPATH')) exit;
+
 /** Theme Setup ***************************************************************/
 if (!class_exists('BP_Legacy')):
     /**

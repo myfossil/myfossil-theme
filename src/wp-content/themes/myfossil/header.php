@@ -75,4 +75,4 @@ endif; ?>
     </div>
   </nav>
 
-  <div id="content" class="site-content">
+  <div id="content" class="site-content container">

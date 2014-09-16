@@ -5,11 +5,8 @@
 	<?php do_action('bp_before_directory_activity_content'); ?>
 
 	<?php if (is_user_logged_in()): ?>
-
 		<?php bp_get_template_part('activity/post-form'); ?>
-
-	<?php
-endif; ?>
+	<?php endif; ?>
 
 	<?php do_action('template_notices'); ?>
 
@@ -89,11 +86,8 @@ endif; ?>
 				<label for="activity-filter-by"><?php _e('Show:', 'buddypress'); ?></label>
 				<select id="activity-filter-by">
 					<option value="-1"><?php _e('&mdash; Everything &mdash;', 'buddypress'); ?></option>
-
 					<?php bp_activity_show_filters(); ?>
-
 					<?php do_action('bp_activity_filter_options'); ?>
-
 				</select>
 			</li>
 		</ul>
@@ -102,17 +96,11 @@ endif; ?>
 	<?php do_action('bp_before_directory_activity_list'); ?>
 
 	<div class="activity" role="main">
-
 		<?php bp_get_template_part('activity/activity-loop'); ?>
-
 	</div><!-- .activity -->
 
 	<?php do_action('bp_after_directory_activity_list'); ?>
-
 	<?php do_action('bp_directory_activity_content'); ?>
-
 	<?php do_action('bp_after_directory_activity_content'); ?>
-
 	<?php do_action('bp_after_directory_activity'); ?>
-
 </div>
