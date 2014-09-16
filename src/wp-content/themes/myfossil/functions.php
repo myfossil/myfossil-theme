@@ -5,6 +5,7 @@
  *
  * @package myfossil
  */
+
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
@@ -52,6 +53,7 @@ if (!function_exists('myfossil_setup')):
     }
 endif; // myfossil_setup
 add_action('after_setup_theme', 'myfossil_setup');
+
 /**
  * Register widget area.
  *
@@ -61,22 +63,26 @@ function myfossil_widgets_init() {
     register_sidebar(array('name' => __('Sidebar', 'myfossil'), 'id' => 'sidebar-1', 'description' => '', 'before_widget' => '<aside id="%1$s" class="widget %2$s">', 'after_widget' => '</aside>', 'before_title' => '<h1 class="widget-title">', 'after_title' => '</h1>',));
 }
 add_action('widgets_init', 'myfossil_widgets_init');
+
 /**
  * Enqueue scripts and styles.
  */
 function myfossil_scripts() {
-    /* Syles */
+    /* Styles */
     wp_enqueue_style('myfossil-style', get_stylesheet_uri());
-    wp_enqueue_script('js', get_theme_root_uri() . '/assets/staging/myfossil.js');
     wp_enqueue_style('style', get_theme_root_uri() . '/assets/staging/style.css');
     wp_enqueue_style('font-awesome', "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
+
     /* Scripts */
     wp_enqueue_script('bootstrap-js', "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js");
+    wp_enqueue_script('js', get_theme_root_uri() . '/assets/staging/myfossil.js');
+
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
 }
 add_action('wp_enqueue_scripts', 'myfossil_scripts');
+
 /**
  * Implement the Custom Header feature.
  */

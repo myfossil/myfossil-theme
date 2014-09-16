@@ -150,6 +150,8 @@ if (!class_exists('BP_Legacy')):
                 }
             }
         }
+
+
         /**
          * Enqueue the required Javascript files
          *
@@ -157,8 +159,10 @@ if (!class_exists('BP_Legacy')):
          */
         public function enqueue_scripts() {
             $min = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+
             // Locate the BP JS file
             $asset = $this->locate_asset_in_stack("buddypress{$min}.js", 'js');
+
             // Enqueue the global JS, if found - AJAX will not work
             // without it
             if (isset($asset['location'], $asset['handle'])) {
