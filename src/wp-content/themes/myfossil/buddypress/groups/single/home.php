@@ -11,13 +11,10 @@
 	</div><!-- #item-header -->
 
 	<div id="item-nav">
-		<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
-			<ul>
-
+        <div id="object-nav" role="navigation">
+			<ul class="nav nav-tabs" role="tablist">
 				<?php bp_get_options_nav(); ?>
-
 				<?php do_action( 'bp_group_options_nav' ); ?>
-
 			</ul>
 		</div>
 	</div><!-- #item-nav -->

@@ -89,3 +89,26 @@ function myfossil_setup_author()
     }
 }
 add_action('wp', 'myfossil_setup_author');
+
+/**
+ * Returns true if $needle is a substring of $haystack
+ */
+function contains($needle, $haystack) {
+    return strpos($haystack, $needle) !== false;
+}
+
+/**
+ * Returns contents of <span>'s in a given string as an integer, or zero.
+ */
+function nav_item_count( $html ) {
+    preg_match('/<span>(.*?)<\/span>/s', $html, $m);
+    return max(0, (int) $m[1]);
+}
+
+/**
+ * Strips count from given HTML in BP template string
+ */
+function strip_tags_contents( $html ) {
+    $regex = '/<[^>]*>[^<]*<[^>]*>/s';
+    return preg_replace($regex, '', $html);
+}

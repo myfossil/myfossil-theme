@@ -16,6 +16,8 @@
 
 	</form><!-- #send-invite-form -->
 
+<?php else: ?>
+    <p>You need to have friends in order to invite them! Try adding a few.</p>
 <?php endif; ?>
 
 <?php do_action( 'bp_after_group_send_invites_content' ); ?>

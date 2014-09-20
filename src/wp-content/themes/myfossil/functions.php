@@ -26,7 +26,6 @@ if (!function_exists('myfossil_setup')):
      */
     function myfossil_setup()
     {
-
         /*
          * Make theme available for translation.
          * Translations can be filed in the /languages/ directory.
@@ -43,10 +42,9 @@ if (!function_exists('myfossil_setup')):
          *
          * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
         */
-
         //add_theme_support( 'post-thumbnails' );
-        // This theme uses wp_nav_menu() in one location (for now).
 
+        // This theme uses wp_nav_menu() in one location (for now).
         register_nav_menus(array(
             'primary' => __('Primary Menu', 'myfossil') ,
         ));
@@ -109,7 +107,6 @@ add_action('widgets_init', 'myfossil_widgets_init');
  */
 function myfossil_scripts()
 {
-
     /* Styles */
     wp_enqueue_style('myfossil-style', get_stylesheet_uri());
     wp_enqueue_style('style', get_theme_root_uri() . '/assets/staging/style.css');
@@ -118,6 +115,7 @@ function myfossil_scripts()
     /* Scripts */
     wp_enqueue_script('bootstrap-js', "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js");
     //wp_enqueue_script('js', get_theme_root_uri() . '/assets/staging/myfossil.js');
+
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
@@ -127,10 +125,12 @@ add_action('wp_enqueue_scripts', 'myfossil_scripts');
 /**
  * Implement the Custom Header feature.
  */
+// require get_template_directory() . '/includes/custom-header.php';
 
-/*
- * require get_template_directory() . '/includes/custom-header.php';
-*/
+/**
+ * Custom WordPress/BuddyPress filter hooks
+ */
+require get_template_directory() . '/includes/filters.php';
 
 /**
  * Custom template tags for this theme.
