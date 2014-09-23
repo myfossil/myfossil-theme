@@ -237,6 +237,47 @@ if (!class_exists('BP_Legacy')):
                     wp_style_add_data($asset['handle'], 'suffix', $min);
                 }
             }
+
+            // Other styles
+            $bp_stylesheets = array(
+                    'bp_activity_admin_css'    => "bp-activity-admin{$min}.css",
+                    'bp-mentions-css'          => "bp-activity-mentions{$min}.css",
+                    'bp-admin-bar'             => "bp-core-admin-bar{$min}.css",
+                    'bp-admin-common-css'      => "bp-core-admin-common{$min}.css",
+                    'bp-admin-bar'             => "bp-core-buddybar{$min}.css",
+                    'bp_groups_admin_css'      => "bp-groups-admin{$min}.css",
+                    'bp-members-css'           => "bp-members-admin{$min}.css",
+                    'xprofile-admin-css'       => "bp-xprofile-admin{$min}.css",
+                );
+
+            foreach ($bp_stylesheets as $wp_style_name => $css_filename) {
+                $is_enqueued = wp_style_is($wp_style_name, 'enqueued');
+                $is_registered = wp_style_is($wp_style_name, 'registered');
+                
+                $asset = $this->locate_asset_in_stack($css_filename);
+
+                if ( isset($asset['location']) ) {
+
+                    if ($is_enqueued) {
+                        // Remove BP default CSS
+                        wp_dequeue_style($wp_style_name);
+
+                        if ($is_registered) {
+                            wp_deregister_style($wp_style_name);
+                            wp_register_style($wp_style_name, $asset['location'], array(), $this->version);
+                        }
+
+                        // Add in the customized version
+                        wp_enqueue_style($wp_style_name);
+                    }
+
+                    //wp_style_add_data($asset['handle'], 'rtl', true);
+
+                    if ($min) {
+                        wp_style_add_data($wp_style_name, 'suffix', $min);
+                    }
+                }
+            }
         }
 
         /**
