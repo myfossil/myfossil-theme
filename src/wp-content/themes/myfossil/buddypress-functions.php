@@ -452,6 +452,7 @@ if (!class_exists('BP_Legacy')):
          */
         public function localize_scripts()
         {
+            load_theme_textdomain('buddypress', get_template_directory() . '/languages');
         }
 
         /**

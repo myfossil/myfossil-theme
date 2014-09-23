@@ -70,3 +70,11 @@ function filter_comment_list( $default ) {
 }
 add_filter( 'bp_activity_recurse_comments_start_ul', 'filter_comment_list' );
 add_filter( 'bp_activity_recurse_comments_end_ul', 'filter_comment_list' );
+
+/**
+ * Add delete icon to delete button (seriously BuddyPress?)
+ */
+function filter_delete_button( $html ) {
+    return str_replace('>Delete', '><i class="fa fa-fw fa-trash-o"></i> Delete', $html);
+}
+add_filter( 'bp_get_activity_delete_link', 'filter_delete_button' );

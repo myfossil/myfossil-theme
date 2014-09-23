@@ -9,5 +9,35 @@
 }
 
 .avatar {
-    @include border-radius(50px);
+    @include border-radius(500px);
+}
+
+.acomment-avatar {
+    padding-right: 15px;
+}
+
+.activity-comments {
+    .acomment {
+        border-left: 1px solid $panel-inner-border;
+        padding: 10px 0 10px 10px;
+    }
+
+    .acomment-meta {
+        color: $gray-light;
+
+        a {
+            color: inherit;
+            border-bottom: 1px dashed $gray-light;
+        }
+
+        a:hover {
+            font-weight: bold;
+            border: 0;
+            text-decoration: none;
+        }
+    }
+
+    .comment-reply-form {
+        margin-top: 10px;
+    }
 }

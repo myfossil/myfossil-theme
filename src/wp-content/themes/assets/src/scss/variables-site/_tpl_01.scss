@@ -9,7 +9,7 @@ $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Gray and brand colors for use across Bootstrap.
  */
-$black:                 #422b25;
+$black:                 #000;
 $white:                 #fff;
 $gray-darker:           lighten( $black, 13.5% ) !default;
 $gray-dark:             lighten( $black, 20.0% ) !default;
@@ -42,7 +42,7 @@ $link-hover-color:      darken($link-color, 15%) !default;
  * Font, line-height, and color for body text, headings, and more.
  */
 $font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$font-family-serif:       "Roboto Slab", Georgia, "Times New Roman", Times, serif !default;
+$font-family-serif:       "Merriweather", "Roboto Slab", Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 
 // Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
@@ -179,9 +179,9 @@ $btn-warning-color:              #fff !default;
 $btn-warning-bg:                 $brand-warning !default;
 $btn-warning-border:             darken($btn-warning-bg, 5%) !default;
 
-$btn-danger-color:               #fff !default;
-$btn-danger-bg:                  $brand-danger !default;
-$btn-danger-border:              darken($btn-danger-bg, 5%) !default;
+$btn-danger-color:               $brand-danger !default;
+$btn-danger-bg:                  $white !default;
+$btn-danger-border:              $brand-danger !default;
 
 $btn-link-disabled-color:        $gray-light !default;
 

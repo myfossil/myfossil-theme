@@ -10,11 +10,11 @@
  */
 do_action('bp_before_activity_comment'); ?>
 
-<div id="acomment-<?php bp_activity_comment_id(); ?>">
+<div id="acomment-<?php bp_activity_comment_id(); ?>" class="acomment">
 
-    <div class="acomment-avatar pull-left">
+    <div class="acomment-avatar pull-left media-object">
         <a href="<?php bp_activity_comment_user_link(); ?>">
-            <?php bp_activity_avatar('class=media-object avatar&type=thumb&user_id=' . bp_get_activity_comment_user_id()); ?>
+            <?php bp_activity_avatar('class=avatar&type=thumb&user_id=' . bp_get_activity_comment_user_id()); ?>
         </a>
     </div>
 
@@ -38,13 +38,15 @@ do_action('bp_before_activity_comment'); ?>
 
         <div class="acomment-options"> 
             <?php if (is_user_logged_in() && bp_activity_can_comment_reply(bp_activity_current_comment())): ?>
-                <a href="#acomment-<?php bp_activity_comment_id(); ?>" class="acomment-reply bp-primary-action" id="acomment-reply-<?php bp_activity_id(); ?>-from-<?php bp_activity_comment_id(); ?>">
+                <a href="#acomment-<?php bp_activity_comment_id(); ?>" class="btn btn-primary acomment-reply bp-primary-action" id="acomment-reply-<?php bp_activity_id(); ?>-from-<?php bp_activity_comment_id(); ?>">
+                    <i class="fa fa-fw fa-reply"></i>
                     <?php _e('Reply', 'buddypress'); ?>
                 </a>
             <?php endif; ?>
 
             <?php if (bp_activity_user_can_delete()): ?>
-                <a href="<?php bp_activity_comment_delete_link(); ?>" class="delete acomment-delete confirm bp-secondary-action" rel="nofollow">
+                <a href="<?php bp_activity_comment_delete_link(); ?>" class="btn btn-danger delete acomment-delete confirm bp-secondary-action" rel="nofollow">
+                    <i class="fa fa-fw fa-trash-o"></i>
                     <?php _e('Delete', 'buddypress'); ?>
                 </a>
             <?php endif; ?>
