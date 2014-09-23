@@ -22,7 +22,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('styles-bp', function() {
-  return gulp.src(['assets/src/css/*.css'])
+  return gulp.src(['assets/src/buddypress/css/*.css'])
       .pipe(gulp.dest('assets/staging'))
       //.pipe(plugins.minifyCss({ keepSpecialComments: 1 }))
       .pipe(plugins.rename({ suffix: '.min' }))
