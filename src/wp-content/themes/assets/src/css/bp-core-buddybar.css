@@ -1,5 +1,5 @@
 body:not(.wp-admin) {
-	padding-top: 25px !important;
+    padding-top: 0;
 }
 #wp-admin-bar {
 	position: fixed;

@@ -21,8 +21,8 @@ gulp.task('styles', function() {
       .pipe(plugins.livereload(server));
 });
 
-gulp.task('styles-bp', function() {
-  return gulp.src(['assets/src/buddypress/css/*.css'])
+gulp.task('styles-css', function() {
+  return gulp.src(['assets/src/css/*.css'])
       .pipe(gulp.dest('assets/staging'))
       //.pipe(plugins.minifyCss({ keepSpecialComments: 1 }))
       .pipe(plugins.rename({ suffix: '.min' }))
@@ -76,10 +76,11 @@ gulp.task('watch', function() {
       return console.log(err)
     };
     gulp.watch('assets/src/scss/**/*.scss', ['styles']);
+    gulp.watch('assets/src/css/**/*.css', ['styles-css']);
     gulp.watch('assets/src/js/**/*.js', ['plugins', 'scripts']);
     gulp.watch('assets/src/img/**/*', ['images']);
-    gulp.watch(build+'**/*.php').on('change', function(file) { plugins.livereload(server).changed(file.path); });
+    gulp.watch(build+'**').on('change', function(file) { plugins.livereload(server).changed(file.path); });
   });
 });
 
-gulp.task('default', ['styles', 'styles-bp', 'plugins', 'scripts', 'images', 'clean', 'watch']);
+gulp.task('default', ['styles', 'styles-css', 'plugins', 'scripts', 'images', 'clean', 'watch']);
