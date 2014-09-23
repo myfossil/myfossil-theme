@@ -650,7 +650,7 @@ jq(document).ready( function() {
 		/* Deleting an activity comment */
 		if ( target.hasClass('acomment-delete') ) {
 			link_href = target.attr('href');
-			comment_li = target.parent().parent();
+			comment_li = target.parent().parent().parent();
 			form = comment_li.parents('div.activity-comments').children('form');
 
 			nonce = link_href.split('_wpnonce=');
@@ -679,7 +679,7 @@ jq(document).ready( function() {
 				if ( response[0] + response[1] === '-1' ) {
 					comment_li.prepend( jq( response.substr( 2, response.length ) ).hide().fadeIn( 200 ) );
 				} else {
-					var children  = jq( '#' + comment_li.attr('id') + ' ul' ).children('li'),
+					var children  = jq( '#' + comment_li.attr('id') + ' div' ).children('div'),
 						child_count = 0,
 						count_span, new_count, show_all_a;
 
@@ -693,7 +693,7 @@ jq(document).ready( function() {
 					});
 
 					/* Decrease the "Reply (X)" button count */
-					count_span = jq('#' + comment_li.parents('#activity-stream > li').attr('id') + ' a.acomment-reply span');
+					count_span = jq('#' + comment_li.parents('#activity-stream > div').attr('id') + ' a.acomment-reply span.badge');
 					new_count = count_span.html() - ( 1 + child_count );
 					count_span.html(new_count);
 
@@ -705,7 +705,7 @@ jq(document).ready( function() {
 
 					/* If that was the last comment for the item, remove the has-comments class to clean up the styling */
 					if ( 0 === new_count ) {
-						jq(comment_li.parents('#activity-stream > li')).removeClass('has-comments');
+						jq(comment_li.parents('#activity-stream > div')).removeClass('has-comments');
 					}
 				}
 			});

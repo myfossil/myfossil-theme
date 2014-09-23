@@ -78,6 +78,11 @@ if (!function_exists('myfossil_setup')):
             'default-color' => 'ffffff',
             'default-image' => '',
         )));
+
+        /*
+         * Disable the admin bar
+         */
+        //add_filter('show_admin_bar', '__return_false');
     }
 endif; // myfossil_setup
 

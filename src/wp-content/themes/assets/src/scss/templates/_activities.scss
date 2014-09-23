@@ -1,0 +1,13 @@
+.activity {
+    .time-since {
+        text-align: right;
+    }
+}
+
+.ac-textarea {
+    padding-bottom: 10px;
+}
+
+.avatar {
+    @include border-radius(50px);
+}

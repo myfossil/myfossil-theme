@@ -21,7 +21,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-  <a class="skip-link screen-reader-text" href="#content"><?php _e('Skip to content', 'myfossil'); ?></a>
+  <a class="skip-link screen-reader-text sr-only" href="#content"><?php _e('Skip to content', 'myfossil'); ?></a>
   
   <nav class="nav navbar navbar-default navbar-static-top" role="navigation">
     <div class="container-fluid">

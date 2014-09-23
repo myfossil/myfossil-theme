@@ -21,28 +21,34 @@
         ?>
     </p>
 
-	<div id="whats-new-content_">
+	<div id="whats-new-content">
 		<div id="whats-new-textarea" class="form-group">
-			<textarea class="bp-suggestions" name="whats-new" id="whats-new" cols="50" rows="10"><?php if (isset($_GET['r'])): ?>@<?php echo esc_textarea($_GET['r']); ?><?php endif; ?></textarea>
+			<textarea class="form-control bp-suggestions" name="whats-new" id="whats-new" rows="5"><?php if (isset($_GET['r'])): ?>@<?php echo esc_textarea($_GET['r']); ?><?php endif; ?></textarea>
 		</div>
 
-		<div id="whats-new-options">
-			<div id="whats-new-submit">
-				<button type="submit" class="reset btn btn-default" name="aw-whats-new-submit" id="aw-whats-new-submit_"><?php esc_attr_e('Post Update', 'buddypress'); ?></button>
+		<div id="whats-new-options row">
+			<div id="whats-new-submit" class="col-md-6"> 
+				<button type="submit" class="btn btn-default" name="aw-whats-new-submit" id="aw-whats-new-submit_"><?php esc_attr_e('Post Update', 'buddypress'); ?></button>
 			</div>
 
 			<?php if (bp_is_active('groups') && !bp_is_my_profile() && !bp_is_group()): ?>
-				<div id="whats-new-post-in-box">
-					<label for="whats-new-post-in"><?php _e('Post in', 'buddypress'); ?>:</label>
-					<select id="whats-new-post-in" name="whats-new-post-in">
-						<option selected="selected" value="0"><?php _e('My Profile', 'buddypress'); ?></option>
-						<?php if (bp_has_groups('user_id=' . bp_loggedin_user_id() . '&type=alphabetical&max=100&per_page=100&populate_extras=0&update_meta_cache=0')): ?>
-                            <?php while (bp_groups()): ?>
-                                <?php bp_the_group(); ?>
-                                <option value="<?php bp_group_id(); ?>"><?php bp_group_name(); ?></option>
-                            <?php endwhile; ?>
-                        <?php endif; ?>
-					</select>
+				<div id="whats-new-post-in-box" class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label for="whats-new-post-in" class="control-label"><?php _e('Post in', 'buddypress'); ?>...</label>
+                        </div>
+                        <div class="col-md-9">
+                            <select id="whats-new-post-in" name="whats-new-post-in" class="form-control">
+                                <option selected="selected" value="0"><?php _e('My Profile', 'buddypress'); ?></option>
+                                <?php if (bp_has_groups('user_id=' . bp_loggedin_user_id() . '&type=alphabetical&max=100&per_page=100&populate_extras=0&update_meta_cache=0')): ?>
+                                    <?php while (bp_groups()): ?>
+                                        <?php bp_the_group(); ?>
+                                        <option value="<?php bp_group_id(); ?>"><?php bp_group_name(); ?></option>
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
+                            </select>
+                        </div>
+                    </div>
 				</div>
 				<input type="hidden" id="whats-new-post-object" name="whats-new-post-object" value="groups" />
 			<?php elseif (bp_is_group_home()): ?>
