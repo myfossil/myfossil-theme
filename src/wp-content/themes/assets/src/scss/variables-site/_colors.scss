@@ -1,20 +1,20 @@
-$color__background-body: #fff;
-$color__background-screen: #f1f1f1;
-$color__background-hr: #ccc;
-$color__background-button: #e6e6e6;
-$color__background-pre: #eee;
-$color__background-ins: #fff9c0;
+$color__background-body: $white;
+$color__background-screen: darken( $white, 5% );
+$color__background-hr: lighten( $black, 25% );
+$color__background-button: $brand-primary;
+$color__background-pre: $white;
+$color__background-ins: lighten( $black, 75% );
 
-$color__text-screen: #21759b;
-$color__text-input: #666;
-$color__text-input-focus: #111;
-$color__link: royalblue;
-$color__link-visited: purple;
-$color__link-hover: midnightblue;
-$color__text-main: #404040;
+$color__text-screen: $text-color;
+$color__text-input: $input-color-placeholder;
+$color__text-input-focus: $input-color;
+$color__link: $link-color;
+$color__link-visited: darken( $link-color, 50% );
+$color__link-hover: $link-hover-color;
+$color__text-main: $text-color;
 
-$color__border-button: #ccc #ccc #bbb;
-$color__border-button-hover: #ccc #bbb #aaa;
-$color__border-button-focus: #aaa #bbb #bbb;
-$color__border-input: #ccc;
-$color__border-abbr: #666;
+$color__border-button: $btn-default-color;
+$color__border-button-hover: $btn-default-border;
+$color__border-button-focus: $btn-default-border;
+$color__border-input: $input-border;
+$color__border-abbr: $input-color;

@@ -1,5 +1,5 @@
-$font__main: sans-serif;
-$font__code: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; 
-$font__pre: "Courier 10 Pitch", Courier, monospace;
-$font__line-height-body: 1.5;
-$font__line-height-pre: 1.6;
+$font__main: $font-family-base;
+$font__code: $font-family-monospace;
+$font__pre: $font-family-monospace;
+$font__line-height-body: $line-height-computed;
+$font__line-height-pre: $line-height-computed;

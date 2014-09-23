@@ -1,5 +1,4 @@
 <?php
-
 /**
  * BuddyPress - Activity Stream (Single Item)
  *
