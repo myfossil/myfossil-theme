@@ -1,15 +1,19 @@
 /**
- * myFOSSIL Template 01
+ * myFOSSIL Template 03
  */
 // Bootstrap helper function necessary for certain variables
 $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")')) !default;
+
+h1,h2,h3,h4,h5,h6 {
+    text-transform: uppercase;
+}
 
 /*
  * Colors
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Gray and brand colors for use across Bootstrap.
  */
-$black:                 #000;
+$black:                 #333333;
 $white:                 #fff;
 $gray-darker:           lighten( $black, 13.5% ) !default;
 $gray-dark:             lighten( $black, 20.0% ) !default;
@@ -17,11 +21,11 @@ $gray:                  lighten( $black, 33.5% ) !default;
 $gray-light:            lighten( $black, 46.7% ) !default;
 $gray-lighter:          lighten( $black, 93.5% ) !default;
 
-$brand-primary:         #77b562 !default;
-$brand-success:         #4d7842 !default;
-$brand-info:            #a0e08c !default;
-$brand-warning:         #b48a58 !default;
-$brand-danger:          #6e4e28 !default;
+$brand-primary:         #a2c23d !default;
+$brand-success:         #708f10 !default;
+$brand-info:            #b05026 !default;
+$brand-warning:         #ff9a6e !default;
+$brand-danger:          #8a3915 !default;
 
 // Background color for `<body>`.
 $body-bg:               $white !default;
@@ -41,14 +45,14 @@ $link-hover-color:      darken($link-color, 15%) !default;
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Font, line-height, and color for body text, headings, and more.
  */
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$font-family-serif:       "Merriweather", "Roboto Slab", Georgia, "Times New Roman", Times, serif !default;
+$font-family-sans-serif:  Bitter, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif:       Lora, "Times New Roman", Times, serif !default;
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 
 // Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-base:        $font-family-serif !default;
 
-$font-size-base:          14px !default;
+$font-size-base:          16px !default;
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
 $font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
@@ -179,9 +183,9 @@ $btn-warning-color:              #fff !default;
 $btn-warning-bg:                 $brand-warning !default;
 $btn-warning-border:             darken($btn-warning-bg, 5%) !default;
 
-$btn-danger-color:               $brand-danger !default;
+$btn-danger-color:               $gray-dark !default;
 $btn-danger-bg:                  $white !default;
-$btn-danger-border:              $brand-danger !default;
+$btn-danger-border:              $gray-dark !default;
 
 $btn-link-disabled-color:        $gray-light !default;
 

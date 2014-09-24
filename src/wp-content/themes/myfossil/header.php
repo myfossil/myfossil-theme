@@ -22,7 +22,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
   <a class="skip-link screen-reader-text sr-only" href="#content"><?php _e('Skip to content', 'myfossil'); ?></a>
-  
+<?php /* 
   <nav class="nav navbar navbar-default navbar-static-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -32,27 +32,23 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">myFOSSIL</a>
+        <a class="navbar-brand" href="/">myFossil</a>
       </div>
 
       <!-- nav links themselves -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <?php
-$items = wp_get_nav_menu_items('primary'); ?>
-          <?php
-foreach ($items as $item): ?>
+          <?php $items = wp_get_nav_menu_items('primary'); ?>
+          <?php foreach ($items as $item): ?>
             <li>
               <a href="<?php echo $item->url; ?>"><?php echo $item->title; ?></a>
             </li>
-          <?php
-endforeach; ?>
+          <?php endforeach; ?>
         </ul>
         
         <!-- right nav -->
         <ul class="nav navbar-nav navbar-right">
-          <?php
-if (is_user_logged_in()): ?>
+          <?php if (is_user_logged_in()): ?>
             <!-- user logged in, show messages and info -->
               <li><a href="#"><i class="fa fa-envelope-o"></i></a></li>
               <li class="dropdown">
@@ -64,17 +60,20 @@ if (is_user_logged_in()): ?>
                   <li role="presentation"><a role="menuitem" href="#">Action</a></li>
                 </ul>
               </li>
-          <?php
-else: ?>
+          <?php else: ?>
             <!-- anonymous user, show login -->
             <li>
                 <a href="#">Login</a>
             </li>
-          <?php
-endif; ?>
+          <?php endif; ?>
         </ul>
       </div> 
     </div>
   </nav>
+  */
+  ?>
+
+  <div style="height: 15px; width: 100%">
+  </div>
 
   <div id="content" class="site-content container">

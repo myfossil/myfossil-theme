@@ -11,7 +11,21 @@
             <?php endif; ?>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-8 left-right-border">
+            <h1 style="margin:0;padding:0">What's New</h1>
+            <div style="margin:5px;width: 100%;height:50px;">&nbsp;</div>
+            <h4>Announcements</h4>
+            <div class="row">
+                <div class="col-sm-1" style="padding-top: 10px; padding-left: 25px">
+                    <i class="fa fa-fw fa-circle fa-info"></i>
+                </div>
+                <div class="col-sm-11">
+                    Morbi pretium dapibus diam, quis fringilla felis vehicula non.
+                    Quisque id elit nisi. In vel facilisis lorem, ut blandit
+                    magna.
+                </div>
+            </div>
+
             <?php if (is_user_logged_in()): ?>
                 <?php bp_get_template_part('activity/post-form'); ?>
             <?php endif; ?>

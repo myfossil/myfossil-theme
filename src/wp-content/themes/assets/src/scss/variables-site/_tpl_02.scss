@@ -1,5 +1,5 @@
 /**
- * myFOSSIL Template 01
+ * myFOSSIL Template 02
  */
 // Bootstrap helper function necessary for certain variables
 $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")')) !default;
@@ -9,7 +9,7 @@ $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Gray and brand colors for use across Bootstrap.
  */
-$black:                 #000;
+$black:                 #422b24;
 $white:                 #fff;
 $gray-darker:           lighten( $black, 13.5% ) !default;
 $gray-dark:             lighten( $black, 20.0% ) !default;
@@ -17,11 +17,11 @@ $gray:                  lighten( $black, 33.5% ) !default;
 $gray-light:            lighten( $black, 46.7% ) !default;
 $gray-lighter:          lighten( $black, 93.5% ) !default;
 
-$brand-primary:         #77b562 !default;
-$brand-success:         #4d7842 !default;
-$brand-info:            #a0e08c !default;
-$brand-warning:         #b48a58 !default;
-$brand-danger:          #6e4e28 !default;
+$brand-primary:         #b37021 !default;
+$brand-success:         #2185b3 !default;
+$brand-info:            #4fc3f7 !default;
+$brand-warning:         #165978 !default;
+$brand-danger:          #704615 !default;
 
 // Background color for `<body>`.
 $body-bg:               $white !default;
@@ -41,14 +41,14 @@ $link-hover-color:      darken($link-color, 15%) !default;
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Font, line-height, and color for body text, headings, and more.
  */
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$font-family-serif:       "Merriweather", "Roboto Slab", Georgia, "Times New Roman", Times, serif !default;
+$font-family-sans-serif:  Lato, Arial, sans-serif !default;
+$font-family-serif:       "Roboto Slab", Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 
 // Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
-$font-family-base:        $font-family-serif !default;
+$font-family-base:        $font-family-sans-serif !default;
 
-$font-size-base:          14px !default;
+$font-size-base:          16px !default;
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
 $font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
@@ -109,9 +109,9 @@ $padding-xs-horizontal:     5px !default;
 $line-height-large:         1.33 !default;
 $line-height-small:         1.5 !default;
 
-$border-radius-base:        10px !default;
-$border-radius-large:       20px !default;
-$border-radius-small:       5px !default;
+$border-radius-base:        5px !default;
+$border-radius-large:       10px !default;
+$border-radius-small:       3px !default;
 
 // Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    #fff !default;
@@ -185,9 +185,10 @@ $btn-danger-border:              $brand-danger !default;
 
 $btn-link-disabled-color:        $gray-light !default;
 
-$btn-border-radius-base:         $border-radius-base * 3;
-$btn-border-radius-small:        $btn-border-radius-base * 0.5;
-$btn-border-radius-large:        $btn-border-radius-base * 2;
+$btn-border-radius-base:         $border-radius-base;
+$btn-border-radius-small:        $btn-border-radius-base;
+$btn-border-radius-large:        $btn-border-radius-base;
+
 
 /*
  * Forms
