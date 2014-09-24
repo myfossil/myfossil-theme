@@ -21,8 +21,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 and Blueprint http://www.blueprintcss.org/
 */
 
-@import "mixins/mixins-master";
+@import "mixins";
 @import "reset";
-@import "variables-site/variables-site";
+@import "variables";
+@import "buddypress";
+
 @import "bootstrap/bootstrap";
-@import "templates/templates";
