@@ -1,18 +1,18 @@
 <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
-	<ul>
-		<li class="feed"><a href="<?php bp_group_activity_feed_link(); ?>" title="<?php esc_attr_e( 'RSS Feed', 'buddypress' ); ?>"><?php _e( 'RSS', 'buddypress' ); ?></a></li>
-
+	<ul class="nav">
 		<?php do_action( 'bp_group_activity_syndication_options' ); ?>
 
 		<li id="activity-filter-select" class="last">
-			<label for="activity-filter-by"><?php _e( 'Show:', 'buddypress' ); ?></label>
-			<select id="activity-filter-by">
-				<option value="-1"><?php _e( '&mdash; Everything &mdash;', 'buddypress' ); ?></option>
-
-				<?php bp_activity_show_filters( 'group' ); ?>
-
-				<?php do_action( 'bp_group_activity_filter_options' ); ?>
-			</select>
+            <form class="form-inline">
+                <label for="activity-filter-by" class="label-control">
+                    <?php _e( 'Showing...', 'buddypress' ); ?>
+                </label>
+                <select id="activity-filter-by" class="form-control">
+                    <option value="-1"><?php _e( 'Everything!', 'buddypress' ); ?></option>
+                    <?php bp_activity_show_filters( 'group' ); ?>
+                    <?php do_action( 'bp_group_activity_filter_options' ); ?>
+                </select>
+            </form>
 		</li>
 	</ul>
 </div><!-- .item-list-tabs -->

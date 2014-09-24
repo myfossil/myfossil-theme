@@ -1,16 +1,17 @@
-<?php
-
-do_action( 'bp_before_group_header' );
-
-?>
+<?php do_action( 'bp_before_group_header' ); ?>
 
 <div id="item-actions">
 
 	<?php if ( bp_group_is_visible() ) : ?>
 
-		<h3><?php _e( 'Group Admins', 'buddypress' ); ?></h3>
-
-		<?php bp_group_list_admins();
+        <?php
+        /**
+         * Hide Group admins (for now)
+         */
+        /*
+		 * <h3><?php _e( 'Group Admins', 'buddypress' ); ?></h3>
+		 * <?php bp_group_list_admins();
+         */
 
 		do_action( 'bp_after_group_menu_admins' );
 
@@ -29,34 +30,42 @@ do_action( 'bp_before_group_header' );
 
 </div><!-- #item-actions -->
 
-<div id="item-header-avatar">
-	<a href="<?php bp_group_permalink(); ?>" title="<?php bp_group_name(); ?>">
+<div class="row" id="groups-header">
+    <div id="item-header-avatar" class="col-md-3">
+        <a href="<?php bp_group_permalink(); ?>" title="<?php bp_group_name(); ?>">
+            <?php bp_group_avatar(); ?>
+        </a>
+    </div><!-- #item-header-avatar -->
 
-		<?php bp_group_avatar(); ?>
+    <div id="item-header-content" class="col-md-6">
+        <span class="highlight">
+            <?php bp_group_type(); ?>
+        </span>
 
-	</a>
-</div><!-- #item-header-avatar -->
+        <?php do_action( 'bp_before_group_header_meta' ); ?>
 
-<div id="item-header-content">
-	<span class="highlight"><?php bp_group_type(); ?></span>
-	<span class="activity"><?php printf( __( 'active %s', 'buddypress' ), bp_get_group_last_active() ); ?></span>
+        <div id="item-meta">
+            <?php bp_group_description(); ?>
 
-	<?php do_action( 'bp_before_group_header_meta' ); ?>
+            <div id="item-buttons">
+                <?php do_action( 'bp_group_header_actions' ); ?>
+            </div><!-- #item-buttons -->
 
-	<div id="item-meta">
+            <?php do_action( 'bp_group_header_meta' ); ?>
+        </div>
+    </div><!-- #item-header-content -->
 
-		<?php bp_group_description(); ?>
-
-		<div id="item-buttons">
-
-			<?php do_action( 'bp_group_header_actions' ); ?>
-
-		</div><!-- #item-buttons -->
-
-		<?php do_action( 'bp_group_header_meta' ); ?>
-
-	</div>
-</div><!-- #item-header-content -->
+    <div class="col-md-3" id="join">
+        <a href="#">
+            <button class="btn btn-lg btn-primary">
+                Join
+            </button>
+        </a>
+        <span class="activity">
+            <?php printf( __( 'active %s', 'buddypress' ), bp_get_group_last_active() ); ?>
+        </span>
+    </div>
+</div>
 
 <?php
 do_action( 'bp_after_group_header' );

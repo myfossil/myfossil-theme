@@ -14,7 +14,7 @@
 
 		<?php do_action( 'template_notices' ); ?>
 
-		<div class="item-list-tabs" role="navigation">
+		<div class="item-list-tabs nav nav-tabs" role="navigation">
 			<ul>
 				<li class="selected" id="groups-all"><a href="<?php bp_groups_directory_permalink(); ?>"><?php printf( __( 'All Groups <span>%s</span>', 'buddypress' ), bp_get_total_group_count() ); ?></a></li>
 
@@ -33,16 +33,17 @@
 
 				<li id="groups-order-select" class="last filter">
 
-					<label for="groups-order-by"><?php _e( 'Order By:', 'buddypress' ); ?></label>
+                    <form class="form-horizontal">
+                        <label for="groups-order-by"><?php _e( 'Order By:', 'buddypress' ); ?></label>
+                        <select id="groups-order-by" class="form-control">
+                            <option value="active"><?php _e( 'Last Active', 'buddypress' ); ?></option>
+                            <option value="popular"><?php _e( 'Most Members', 'buddypress' ); ?></option>
+                            <option value="newest"><?php _e( 'Newly Created', 'buddypress' ); ?></option>
+                            <option value="alphabetical"><?php _e( 'Alphabetical', 'buddypress' ); ?></option>
 
-					<select id="groups-order-by">
-						<option value="active"><?php _e( 'Last Active', 'buddypress' ); ?></option>
-						<option value="popular"><?php _e( 'Most Members', 'buddypress' ); ?></option>
-						<option value="newest"><?php _e( 'Newly Created', 'buddypress' ); ?></option>
-						<option value="alphabetical"><?php _e( 'Alphabetical', 'buddypress' ); ?></option>
-
-						<?php do_action( 'bp_groups_directory_order_options' ); ?>
-					</select>
+                            <?php do_action( 'bp_groups_directory_order_options' ); ?>
+                        </select>
+                    </form>
 				</li>
 			</ul>
 		</div>
