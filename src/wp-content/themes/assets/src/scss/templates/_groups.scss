@@ -1,11 +1,15 @@
 #groups-header {
-
     #join {
-
         button {
             width: 100%;
         }
-
     }
 
+    div.activity {
+        font-style: italic;
+        color: $gray;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
 }

@@ -38,9 +38,13 @@
     </div><!-- #item-header-avatar -->
 
     <div id="item-header-content" class="col-md-6">
-        <span class="highlight">
-            <?php bp_group_type(); ?>
-        </span>
+        <?php
+        /*
+         * <span class="highlight">
+         *   <?php bp_group_type(); ?>
+         * </span>
+         */
+        ?>
 
         <?php do_action( 'bp_before_group_header_meta' ); ?>
 
@@ -61,9 +65,9 @@
                 Join
             </button>
         </a>
-        <span class="activity">
+        <div class="activity">
             <?php printf( __( 'active %s', 'buddypress' ), bp_get_group_last_active() ); ?>
-        </span>
+        </div>
     </div>
 </div>
 
