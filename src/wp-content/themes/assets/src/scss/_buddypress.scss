@@ -1,47 +1,6 @@
-.activity {
-    .time-since {
-        text-align: right;
-    }
-}
-
-.ac-textarea {
-    padding-bottom: 10px;
-}
-
-.avatar {
-    @include border-radius(500px);
-}
-
-.acomment-avatar {
-    padding-right: 15px;
-}
-
-.activity-comments {
-    .acomment {
-        border-left: 1px solid $panel-inner-border;
-        padding: 10px 0 10px 10px;
-    }
-
-    .acomment-meta {
-        color: $gray-light;
-
-        a {
-            color: inherit;
-            border-bottom: 1px dashed $gray-light;
-        }
-
-        a:hover {
-            font-weight: bold;
-            border: 0;
-            text-decoration: none;
-        }
-    }
-
-    .comment-reply-form {
-        margin-top: 10px;
-    }
-}
-
+/**
+ * General
+ */
 .left-right-border {
     border-left: 1px solid #eee;
     border-right: 1px solid #eee;
@@ -63,6 +22,60 @@
     }
 }
 
+
+/**
+ * Activity
+ */
+.activity {
+    .time-since {
+        text-align: right;
+    }
+}
+
+.avatar {
+    @include border-radius(500px);
+}
+
+/**
+ * Comments
+ */
+.acomment {
+    border-left: 1px solid $panel-inner-border;
+    padding: 10px 0 10px 10px;
+
+    .acomment-avatar {
+        padding-right: 15px;
+    }
+
+    .acomment-meta {
+        color: $gray-light;
+
+        a {
+            color: inherit;
+            border-bottom: 1px dashed $gray-light;
+        }
+
+        a:hover {
+            font-weight: bold;
+            border: 0;
+            text-decoration: none;
+        }
+    }
+}
+
+.ac-textarea {
+    padding-bottom: 10px;
+
+    .comment-reply-form {
+        margin-top: 10px;
+    }
+}
+
+
+/**
+ * Groups
+ * ~~~~~~
+ */
 #groups-header {
     #join {
         button {
