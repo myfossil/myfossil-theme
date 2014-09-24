@@ -21,15 +21,11 @@
 		<div id="pag-top" class="pagination">
 
 			<div class="pag-count" id="group-invite-count-top">
-
 				<?php bp_group_invite_pagination_count(); ?>
-
 			</div>
 
 			<div class="pagination-links" id="group-invite-pag-top">
-
 				<?php bp_group_invite_pagination_links(); ?>
-
 			</div>
 
 		</div>
@@ -75,7 +71,7 @@
 		</div>
 
 	<?php else : ?>
-		<div id="message" class="info">
+		<div id="message" class="alert alert-info">
 			<p><?php _e( 'Select people to invite from your friends list.', 'buddypress' ); ?></p>
 		</div>
 	<?php endif; ?>

@@ -6,11 +6,6 @@
     border-right: 1px solid #eee;
 }
 
-.user-container, .updates-container, .externals-container {
-  height: 100%;
-}
-
-
 .list-lines {
     list-style: none;
     margin: 0;
@@ -20,6 +15,22 @@
         padding: 10px;
         border-bottom: 1px solid #eee;
     }
+}
+
+.nav {
+    margin-bottom: 10px;
+}
+
+
+/**
+ * Forms
+ */
+#whats-new-textarea, #whats-new-options {
+    margin-top: 10px;
+}
+
+#whats-new-post-in-box {
+    padding: 0;
 }
 
 
@@ -35,6 +46,7 @@
 .avatar {
     @include border-radius(500px);
 }
+
 
 /**
  * Comments

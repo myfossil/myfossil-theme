@@ -17,7 +17,7 @@
 	</form><!-- #send-invite-form -->
 
 <?php else: ?>
-    <p>You need to have friends in order to invite them! Try adding a few.</p>
+    <div class="alert alert-info">You need to have friends in order to invite them! Try adding a few.</div>
 <?php endif; ?>
 
 <?php do_action( 'bp_after_group_send_invites_content' ); ?>

@@ -5,15 +5,11 @@
 	<div id="pag-top" class="pagination">
 
 		<div class="pag-count" id="member-count-top">
-
 			<?php bp_members_pagination_count(); ?>
-
 		</div>
 
 		<div class="pagination-links" id="member-pag-top">
-
 			<?php bp_members_pagination_links(); ?>
-
 		</div>
 
 	</div>
@@ -26,9 +22,7 @@
 
 			<li>
 				<a href="<?php bp_group_member_domain(); ?>">
-
 					<?php bp_group_member_avatar_thumb(); ?>
-
 				</a>
 
 				<h5><?php bp_group_member_link(); ?></h5>
@@ -37,15 +31,10 @@
 				<?php do_action( 'bp_group_members_list_item' ); ?>
 
 				<?php if ( bp_is_active( 'friends' ) ) : ?>
-
 					<div class="action">
-
 						<?php bp_add_friend_button( bp_get_group_member_id(), bp_get_group_member_is_friend() ); ?>
-
 						<?php do_action( 'bp_group_members_list_item_action' ); ?>
-
 					</div>
-
 				<?php endif; ?>
 			</li>
 
@@ -58,15 +47,11 @@
 	<div id="pag-bottom" class="pagination">
 
 		<div class="pag-count" id="member-count-bottom">
-
 			<?php bp_members_pagination_count(); ?>
-
 		</div>
 
 		<div class="pagination-links" id="member-pag-bottom">
-
 			<?php bp_members_pagination_links(); ?>
-
 		</div>
 
 	</div>
@@ -75,7 +60,7 @@
 
 <?php else: ?>
 
-	<div id="message" class="info">
+	<div id="message" class="alert alert-info">
 		<p><?php _e( 'This group has no members.', 'buddypress' ); ?></p>
 	</div>
 
