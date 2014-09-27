@@ -1,4 +1,6 @@
 <?php
+require get_template_directory() . '/buddypress/groups/filters.php';
+
 /**
  * Modifies Member nav list item
  * 
@@ -8,11 +10,18 @@
  */
 function filter_nav_item( $bp_tpl_contents, $nav_item ) {
     // Consider whether or not this is the current nav item
-    $selected = contains('class="', $bp_tpl_contents);
+    if ( $nav_item['slug'] == bp_current_action() ) {
+        $selected = true;
+    } elseif ( !isset($nav_item) ) {
+        $selected = true;
+    } else {
+        $selected = false;
+    }
+
     if ( !$selected )
         $tpl = "<li>";
     else 
-        $tpl = "<li class=\"active\">";
+        $tpl = "<li class=\"current selected active\">";
 
     // Consider whether there's a count of something involved
     $count = nav_item_count( $bp_tpl_contents );
@@ -21,14 +30,38 @@ function filter_nav_item( $bp_tpl_contents, $nav_item ) {
         $nav_item['name'] = strip_tags_contents( $nav_item['name'] );
         $nav_item['name'] .= " <span class=\"badge\">" . $count . "</span>";
     }
+    
 
     // Put it all back together
     return $tpl . "<a href=\"" . $nav_item['link'] . "\">" . $nav_item['name'] . "</a></li>";
 }
-add_filter( 'bp_get_options_nav_groups', 'filter_nav_item', null, 2 );
-add_filter( 'bp_get_options_nav_members', 'filter_nav_item', null, 2 );
-add_filter( 'bp_get_options_nav_invite', 'filter_nav_item', null, 2 );
-add_filter( 'bp_get_options_nav_admin', 'filter_nav_item', null, 2 ); 
+add_filter( 'bp_get_options_nav_public', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_edit', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_change-avatar', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_just-me', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_activity-mentions', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_activity-favs', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_activity-friends', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_activity-groups', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_friends-my-friends', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_requests', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_groups-my-groups', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_invites', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_home', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_members', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_invite', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_admin', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_inbox', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_sentbox', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_compose', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_notices', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_notifications-my-notifications', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_read', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_general', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_notifications', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_profile', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_capabilities', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_delete-account', 'filter_nav_item', 10, 2 );
 
 
 /**
@@ -71,6 +104,7 @@ function filter_comment_list( $default ) {
 add_filter( 'bp_activity_recurse_comments_start_ul', 'filter_comment_list' );
 add_filter( 'bp_activity_recurse_comments_end_ul', 'filter_comment_list' );
 
+
 /**
  * Add delete icon to delete button (seriously BuddyPress?)
  */
@@ -78,3 +112,12 @@ function filter_delete_button( $html ) {
     return str_replace('>Delete', '><i class="fa fa-fw fa-trash-o"></i> Delete', $html);
 }
 add_filter( 'bp_get_activity_delete_link', 'filter_delete_button' );
+
+
+/**
+ * Change appearance of BuddyPress generated buttons
+ */
+function filter_bp_button( $btn, $type = 'default' ) {
+    $btn['link_class'] .= " btn btn-$type";
+    return $btn;
+}

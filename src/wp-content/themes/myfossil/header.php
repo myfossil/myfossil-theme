@@ -1,5 +1,4 @@
 <?php
-/* vim: set expandtab ts=2 sw=2: */
 /**
  * The header for the myFOSSIL theme.
  *
@@ -20,9 +19,12 @@
 </head>
 
 <body <?php body_class(); ?>>
+
 <div id="page" class="hfeed site">
-  <a class="skip-link screen-reader-text sr-only" href="#content"><?php _e('Skip to content', 'myfossil'); ?></a>
-<?php /* 
+  <a class="skip-link screen-reader-text sr-only" href="#content">
+    <?php _e('Skip to content', 'myfossil'); ?>
+  </a>
+
   <nav class="nav navbar navbar-default navbar-static-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -32,7 +34,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">myFossil</a>
+        <a class="navbar-brand" href="/">myFOSSIL</a>
       </div>
 
       <!-- nav links themselves -->
@@ -63,17 +65,12 @@
           <?php else: ?>
             <!-- anonymous user, show login -->
             <li>
-                <a href="#">Login</a>
+                <a href="/admin">Login</a>
             </li>
           <?php endif; ?>
         </ul>
       </div> 
     </div>
   </nav>
-  */
-  ?>
-
-  <div style="height: 15px; width: 100%">
-  </div>
 
   <div id="content" class="site-content container">

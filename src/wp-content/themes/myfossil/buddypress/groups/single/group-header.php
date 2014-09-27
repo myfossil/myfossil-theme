@@ -15,6 +15,10 @@
 
 		do_action( 'bp_after_group_menu_admins' );
 
+        /**
+         * Hide Group moderators (for now)
+         */
+        /*
 		if ( bp_group_has_moderators() ) :
 			do_action( 'bp_before_group_menu_mods' ); ?>
 
@@ -25,19 +29,20 @@
 			do_action( 'bp_after_group_menu_mods' );
 
 		endif;
+        */
 
 	endif; ?>
 
 </div><!-- #item-actions -->
 
 <div class="row" id="groups-header">
-    <div id="item-header-avatar" class="col-md-3">
+    <div id="item-header-avatar" class="col-md-2">
         <a href="<?php bp_group_permalink(); ?>" title="<?php bp_group_name(); ?>">
             <?php bp_group_avatar(); ?>
         </a>
     </div><!-- #item-header-avatar -->
 
-    <div id="item-header-content" class="col-md-6">
+    <div id="item-header-content" class="col-md-7">
         <?php
         /*
          * <span class="highlight">
@@ -48,23 +53,32 @@
 
         <?php do_action( 'bp_before_group_header_meta' ); ?>
 
+		<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+
         <div id="item-meta">
-            <?php bp_group_description(); ?>
+            <?php // bp_group_description(); ?>
 
             <div id="item-buttons">
-                <?php do_action( 'bp_group_header_actions' ); ?>
+                <?php // do_action( 'bp_group_header_actions' ); ?>
             </div><!-- #item-buttons -->
+
+            <dl class="inline">
+                <dt>Members</dt>
+                <dd>20</dd>
+
+                <dt>Fossils</dt>
+                <dd>14</dd>
+
+                <dt>Location</dt>
+                <dd>New York, NY</dd>
+            </dl>
 
             <?php do_action( 'bp_group_header_meta' ); ?>
         </div>
     </div><!-- #item-header-content -->
 
-    <div class="col-md-3" id="join">
-        <a href="#">
-            <button class="btn btn-lg btn-primary">
-                Join
-            </button>
-        </a>
+    <div class="col-md-3">
+        <?php bp_group_join_button(); ?>
         <div class="activity">
             <?php printf( __( 'active %s', 'buddypress' ), bp_get_group_last_active() ); ?>
         </div>

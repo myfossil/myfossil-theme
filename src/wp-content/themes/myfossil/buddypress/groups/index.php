@@ -16,10 +16,23 @@
 
 		<div class="item-list-tabs nav nav-tabs" role="navigation">
 			<ul>
-				<li class="selected" id="groups-all"><a href="<?php bp_groups_directory_permalink(); ?>"><?php printf( __( 'All Groups <span class="badge">%s</span>', 'buddypress' ), bp_get_total_group_count() ); ?></a></li>
+				<li class="selected" id="groups-all">
+                    <a href="<?php bp_groups_directory_permalink(); ?>">
+                        <?php printf( __( 'All Groups <span class="badge">%s</span>', 'buddypress' ), bp_get_total_group_count() ); ?>
+                    </a>
+                </li>
 
 				<?php if ( is_user_logged_in() && bp_get_total_group_count_for_user( bp_loggedin_user_id() ) ) : ?>
-					<li id="groups-personal"><a href="<?php echo bp_loggedin_user_domain() . bp_get_groups_slug() . '/my-groups/'; ?>"><?php printf( __( 'My Groups <span>%s</span>', 'buddypress' ), bp_get_total_group_count_for_user( bp_loggedin_user_id() ) ); ?></a></li>
+					<li id="groups-personal">
+                        <a href="<?php echo bp_loggedin_user_domain() . bp_get_groups_slug() . '/my-groups/'; ?>">
+                            <?php 
+                                printf( 
+                                    __( 'My Groups <span class="badge">%s</span>', 'buddypress' ), 
+                                    bp_get_total_group_count_for_user( bp_loggedin_user_id() ) 
+                                ); 
+                            ?>
+                        </a>
+                    </li>
 				<?php endif; ?>
 
 				<?php do_action( 'bp_groups_directory_group_filter' ); ?>
@@ -53,9 +66,7 @@
 		</div><!-- #groups-dir-list -->
 
 		<?php do_action( 'bp_directory_groups_content' ); ?>
-
 		<?php wp_nonce_field( 'directory_groups', '_wpnonce-groups-filter' ); ?>
-
 		<?php do_action( 'bp_after_directory_groups_content' ); ?>
 
 	</form><!-- #groups-directory-form -->

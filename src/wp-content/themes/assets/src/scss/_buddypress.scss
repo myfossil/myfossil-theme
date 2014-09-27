@@ -1,6 +1,27 @@
 /**
  * General
  */
+dl.inline {
+    display: inline;
+    width: 100%;
+
+    dd, dt {
+        display: inline;
+    }
+
+    dd {
+        margin-right: 50px;
+    }
+
+    dt:after {
+        content: ": ";
+    }
+}
+
+.entry-title {
+    border-bottom: 1px solid $gray-light;
+}
+
 .left-right-border {
     border-left: 1px solid #eee;
     border-right: 1px solid #eee;
@@ -15,10 +36,6 @@
         padding: 10px;
         border-bottom: 1px solid #eee;
     }
-}
-
-.nav {
-    margin-bottom: 10px;
 }
 
 
@@ -90,9 +107,8 @@
  */
 #groups-header {
     #join {
-        button {
-            width: 100%;
-        }
+        width: 100%;
+        margin-top: 30px;
     }
 
     div.activity {

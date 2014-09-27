@@ -20,7 +20,6 @@
 	</div><!-- #item-nav -->
 
 	<div id="item-body">
-
 		<?php do_action( 'bp_before_group_body' );
 
 		/**

@@ -29,9 +29,7 @@ if (post_password_required()) {
 ?>
 		</h2>
 
-		<?php if (get_comment_pages_count() > 1 && get_option('page_comments')): // are there comments to navigate through
-
-        
+		<?php if (get_comment_pages_count() > 1 && get_option('page_comments')): // are there comments to navigate through      
 ?>
 		<nav id="comment-nav-above" class="comment-navigation" role="navigation">
 			<h1 class="screen-reader-text"><?php _e('Comment navigation', 'myfossil'); ?></h1>
