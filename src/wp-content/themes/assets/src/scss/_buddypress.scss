@@ -38,6 +38,11 @@ dl.inline {
     }
 }
 
+.side-header {
+    color: $gray-light;
+    border-bottom: 1px solid #ccc;
+}
+
 
 /**
  * Forms
@@ -54,6 +59,10 @@ dl.inline {
 /**
  * Activity
  */
+#whats-new-form {
+    margin-bottom: 15px;
+}
+
 .activity {
     .time-since {
         text-align: right;
@@ -117,5 +126,11 @@ dl.inline {
         width: 100%;
         text-align: center;
         padding: 10px;
+    }
+}
+
+ul#member-list {
+    li {
+        display: inline;
     }
 }

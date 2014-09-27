@@ -12,16 +12,15 @@ function filter_nav_item( $bp_tpl_contents, $nav_item ) {
     // Consider whether or not this is the current nav item
     if ( $nav_item['slug'] == bp_current_action() ) {
         $selected = true;
-    } elseif ( !isset($nav_item) ) {
-        $selected = true;
     } else {
         $selected = false;
     }
 
-    if ( !$selected )
+    if ( !$selected ) {
         $tpl = "<li>";
-    else 
+    } else {
         $tpl = "<li class=\"current selected active\">";
+    }
 
     // Consider whether there's a count of something involved
     $count = nav_item_count( $bp_tpl_contents );
@@ -30,7 +29,9 @@ function filter_nav_item( $bp_tpl_contents, $nav_item ) {
         $nav_item['name'] = strip_tags_contents( $nav_item['name'] );
         $nav_item['name'] .= " <span class=\"badge\">" . $count . "</span>";
     }
-    
+
+    // We use the word "Wall" instead of "Home"
+    if ( $nav_item['name'] == 'Home' ) $nav_item['name'] = 'Wall';
 
     // Put it all back together
     return $tpl . "<a href=\"" . $nav_item['link'] . "\">" . $nav_item['name'] . "</a></li>";
