@@ -14,9 +14,9 @@
 
 		<?php do_action( 'template_notices' ); ?>
 
-		<div class="item-list-tabs nav nav-tabs" role="navigation">
-			<ul>
-				<li class="selected" id="groups-all">
+		<div class="item-list-tabs" role="navigation">
+			<ul class="nav nav-tabs">
+				<li class="selected active" id="groups-all">
                     <a href="<?php bp_groups_directory_permalink(); ?>">
                         <?php printf( __( 'All Groups <span class="badge">%s</span>', 'buddypress' ), bp_get_total_group_count() ); ?>
                     </a>
@@ -41,7 +41,7 @@
 		</div><!-- .item-list-tabs -->
 
 		<div class="item-list-tabs" id="subnav" role="navigation">
-			<ul>
+			<ul class="nav nav-tabs">
 				<?php do_action( 'bp_groups_directory_group_types' ); ?>
 
 				<li id="groups-order-select" class="last filter">
