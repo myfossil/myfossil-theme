@@ -152,3 +152,30 @@ function filter_bp_button( $btn, $type = 'default' ) {
     $btn['link_class'] .= " btn btn-$type";
     return $btn;
 }
+
+
+/**
+ * Make paginated links Bootstrap'd
+ */
+function bootstrapify_pagination_links( $html ) {
+    $tpl = "<ul class=\"pagination\">";
+    
+    foreach( explode( PHP_EOL, $html ) as $link_html ) {
+        $tpl .= sprintf( "<li>%s</li>", $link_html );
+    }
+
+    $tpl .= "</ul>";
+
+    return $tpl;
+}
+add_filter( 'bp_get_activity_pagination_links', 'bootstrapify_pagination_links' );
+add_filter( 'bp_get_blogs_pagination_links', 'bootstrapify_pagination_links' );
+add_filter( 'bp_get_forum_pagination', 'bootstrapify_pagination_links' );
+add_filter( 'bp_get_the_topic_pagination', 'bootstrapify_pagination_links' );
+add_filter( 'bp_get_groups_pagination_links', 'bootstrapify_pagination_links' );
+add_filter( 'bp_get_group_member_pagination', 'bootstrapify_pagination_links' );
+add_filter( 'bp_get_group_requests_pagination_links', 'bootstrapify_pagination_links' );
+add_filter( 'bp_get_group_invite_pagination_links', 'bootstrapify_pagination_links' );
+add_filter( 'bp_get_members_pagination_links', 'bootstrapify_pagination_links' );
+add_filter( 'bp_get_messages_pagination', 'bootstrapify_pagination_links' );
+add_filter( 'bp_get_notifications_pagination_links', 'bootstrapify_pagination_links' );
