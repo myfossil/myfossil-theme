@@ -1,12 +1,21 @@
 <?php if ( 'upload-image' == bp_get_avatar_admin_step() ) : ?>
 
-        <p><?php _e("Upload an image to use as a profile photo for this group. The image will be shown on the main group page, and in search results.", 'buddypress' ); ?></p>
-
         <p>
-            <input type="file" name="file" id="file" />
-            <input type="submit" name="upload" id="upload" value="<?php esc_attr_e( 'Upload Image', 'buddypress' ); ?>" />
-            <input type="hidden" name="action" id="action" value="bp_avatar_upload" />
+            <?php _e("Upload an image to use as a profile photo for this group. The image will be shown on the main group page, and in search results.", 'buddypress' ); ?>
         </p>
+
+        <div class="form-group">
+            <span class="file-input btn btn-default btn-file">
+                Browse <input type="file" name="file" id="file" />
+            </span>
+
+            <input type="hidden" name="action" id="action" value="bp_avatar_upload" />
+
+            <button type="submit" class="btn btn-default" name="upload" id="upload">
+                <i class="fa fa-fw fa-upload"></i>
+                Upload Image
+            </button>
+        </div>
 
         <?php if ( bp_get_group_has_avatar() ) : ?>
 

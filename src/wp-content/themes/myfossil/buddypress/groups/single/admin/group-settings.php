@@ -26,7 +26,8 @@
             <li><?php _e( 'Group content and activity will be visible to any site member.', 'buddypress' ); ?></li>
         </ul>
     </label>
-
+</div>
+<div class="radio">
     <label>
         <input type="radio" name="group-status" value="private"<?php bp_group_show_status_setting( 'private' ); ?> />
         <strong><?php _e( 'This is a private group', 'buddypress' ); ?></strong>
@@ -37,6 +38,8 @@
         </ul>
     </label>
 
+</div>
+<div class="radio">
     <label>
         <input type="radio" name="group-status" value="hidden"<?php bp_group_show_status_setting( 'hidden' ); ?> />
         <strong><?php _e( 'This is a hidden group', 'buddypress' ); ?></strong>
@@ -57,17 +60,21 @@
 <div class="radio">
     <label>
         <input type="radio" name="group-invite-status" value="members"<?php bp_group_show_invite_status_setting( 'members' ); ?> />
-        <strong><?php _e( 'All group members', 'buddypress' ); ?></strong>
+        <?php _e( 'All group members', 'buddypress' ); ?>
     </label>
+</div>
 
+<div class="radio">
     <label>
         <input type="radio" name="group-invite-status" value="mods"<?php bp_group_show_invite_status_setting( 'mods' ); ?> />
-        <strong><?php _e( 'Group admins and mods only', 'buddypress' ); ?></strong>
+        <?php _e( 'Group admins and mods only', 'buddypress' ); ?>
     </label>
+</div>
 
+<div class="radio">
     <label>
         <input type="radio" name="group-invite-status" value="admins"<?php bp_group_show_invite_status_setting( 'admins' ); ?> />
-        <strong><?php _e( 'Group admins only', 'buddypress' ); ?></strong>
+        <?php _e( 'Group admins only', 'buddypress' ); ?>
     </label>
 </div>
 
@@ -75,5 +82,9 @@
 
 <?php do_action( 'bp_after_group_settings_admin' ); ?>
 
-<p><input type="submit" value="<?php esc_attr_e( 'Save Changes', 'buddypress' ); ?>" id="save" name="save" /></p>
+<button type="submit" class="btn btn-default" id="save" name="save">
+    <i class="fa fa-fw fa-save"></i>
+    Save Changes
+</button>
+
 <?php wp_nonce_field( 'groups_edit_group_settings' ); ?>

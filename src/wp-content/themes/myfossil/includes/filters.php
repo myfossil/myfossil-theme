@@ -3,6 +3,35 @@ require get_template_directory() . '/buddypress/groups/filters.php';
 require get_template_directory() . '/buddypress/members/filters.php';
 
 /**
+ * Bootstrap-ify the way that notices are displayed
+ */
+function bootstrap_render_message() {
+    $bp = BuddyPress();
+
+    if ( !empty( $bp->template_message ) ) {
+        $type = ( 'success' === $bp->template_message_type ) ? 'success' : 'danger';
+        $content = apply_filters( 'bp_core_render_message_content', $bp->template_message, $type );
+        
+        $tpl  = "<div class=\"alert alert-%s\" role=\"alert\">%s</div>";
+
+        printf($tpl, $type, $content);
+
+        do_action( 'bp_core_render_message' );
+    }
+}
+add_action( 'template_notices', 'bootstrap_render_message' );
+
+
+/**
+ * Remove default notices, sheesh
+ */
+function remove_core_render_message() {
+    remove_action( 'template_notices', 'bp_core_render_message' );
+}
+add_action( 'bp_actions', 'remove_core_render_message' );
+
+
+/**
  * Modifies Member nav list item
  * 
  * @see includes/extras.php
