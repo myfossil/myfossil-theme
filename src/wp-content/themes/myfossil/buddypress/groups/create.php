@@ -9,7 +9,7 @@
 		<?php do_action( 'bp_before_create_group' ); ?>
 
 		<div class="item-list-tabs no-ajax" id="group-create-tabs" role="navigation">
-			<ul>
+			<ul class="nav nav-tabs">
 
 				<?php bp_group_creation_tabs(); ?>
 

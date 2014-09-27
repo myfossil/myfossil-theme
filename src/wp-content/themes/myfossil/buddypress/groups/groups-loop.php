@@ -15,22 +15,6 @@
 
 <?php if ( bp_has_groups( bp_ajax_querystring( 'groups' ) ) ) : ?>
 
-	<div id="pag-top" class="pagination">
-
-		<div class="pag-count" id="group-dir-count-top">
-
-			<?php bp_groups_pagination_count(); ?>
-
-		</div>
-
-		<div class="pagination-links" id="group-dir-pag-top">
-
-			<?php bp_groups_pagination_links(); ?>
-
-		</div>
-
-	</div>
-
 	<?php do_action( 'bp_before_directory_groups_list' ); ?>
 
 	<table id="groups-list" class="table item-list" role="main">
@@ -50,15 +34,14 @@
                     <a href="<?php bp_group_permalink(); ?>">
                         <?php bp_group_name(); ?>
                     </a>
-                </div>
-            </td>
-
-            <td>
-                <div class="item-meta">
+                    <br />
                     <span class="activity">
                         <?php printf( __( 'active %s', 'buddypress' ), bp_get_group_last_active() ); ?>
                     </span>
                 </div>
+            </td>
+
+            <td>
                 <?php do_action( 'bp_directory_groups_item' ); ?>
             </td>
 
