@@ -1,5 +1,6 @@
 <?php
 require get_template_directory() . '/buddypress/groups/filters.php';
+require get_template_directory() . '/buddypress/members/filters.php';
 
 /**
  * Modifies Member nav list item

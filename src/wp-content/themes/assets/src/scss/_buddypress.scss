@@ -1,6 +1,10 @@
 /**
  * General
  */
+#subnav {
+    margin: 10px 0 10px 0;
+}
+
 dl.inline {
     display: inline;
     width: 100%;
@@ -133,4 +137,8 @@ ul#member-list {
     li {
         display: inline;
     }
+}
+
+li#group_members-order-select {
+    display: none;
 }

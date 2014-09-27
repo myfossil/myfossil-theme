@@ -31,28 +31,41 @@
 		</div>
 
 		<?php /* The ID 'friend-list' is important for AJAX support. */ ?>
-		<ul id="friend-list" class="item-list">
+        <table id="friend-list" class="item-list table">
+
+            <tr>
+                <th>Invited Member</th>
+                <th>Actions</th>
+            </tr>
 
 		<?php while ( bp_group_invites() ) : bp_group_the_invite(); ?>
 
-			<li id="<?php bp_group_invite_item_id(); ?>">
-				<?php bp_group_invite_user_avatar(); ?>
+			<tr id="<?php bp_group_invite_item_id(); ?>">
+                <td>
+                    <?php bp_group_invite_user_avatar(); ?>
 
-				<h4><?php bp_group_invite_user_link(); ?></h4>
-				<span class="activity"><?php bp_group_invite_user_last_active(); ?></span>
+                    <?php bp_group_invite_user_link(); ?>
+                    <span class="activity"><?php bp_group_invite_user_last_active(); ?></span>
 
-				<?php do_action( 'bp_group_send_invites_item' ); ?>
+                    <?php do_action( 'bp_group_send_invites_item' ); ?>
+                </td>
+                <td>
+                    <div class="action">
+                        <a class="button remove btn btn-danger" 
+                                href="<?php bp_group_invite_user_remove_invite_url(); ?>" 
+                                id="<?php bp_group_invite_item_id(); ?>">
+                            <i class="fa fa-fw fa-trash"></i>
+                            <?php _e( 'Remove Invite', 'buddypress' ); ?>
+                        </a>
 
-				<div class="action">
-					<a class="button remove" href="<?php bp_group_invite_user_remove_invite_url(); ?>" id="<?php bp_group_invite_item_id(); ?>"><?php _e( 'Remove Invite', 'buddypress' ); ?></a>
-
-					<?php do_action( 'bp_group_send_invites_item_action' ); ?>
-				</div>
-			</li>
+                        <?php do_action( 'bp_group_send_invites_item_action' ); ?>
+                    </div>
+                </td>
+			</tr>
 
 		<?php endwhile; ?>
 
-		</ul><!-- #friend-list -->
+		</table><!-- #friend-list -->
 
 		<div id="pag-bottom" class="pagination">
 
@@ -83,7 +96,7 @@
 <div class="clear"></div>
 
 <div class="submit">
-	<input type="submit" name="submit" id="submit" value="<?php esc_attr_e( 'Send Invites', 'buddypress' ); ?>" />
+	<input type="submit" class="btn btn-default" name="submit" id="submit" value="<?php esc_attr_e( 'Send Invites', 'buddypress' ); ?>" />
 </div>
 
 <?php wp_nonce_field( 'groups_send_invites', '_wpnonce_send_invites' ); ?>

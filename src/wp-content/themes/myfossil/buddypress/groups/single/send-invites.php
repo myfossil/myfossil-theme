@@ -3,7 +3,7 @@
 <?php if ( bp_get_total_friend_count( bp_loggedin_user_id() ) ) : ?>
 
 	<?php /* 'send-invite-form' is important for AJAX support */ ?>
-	<form action="<?php bp_group_send_invite_form_action(); ?>" method="post" id="send-invite-form" class="standard-form" role="main">
+	<form action="<?php bp_group_send_invite_form_action(); ?>" method="post" id="send-invite-form" class="standard-form form" role="main">
 
 		<div class="invite">
 

@@ -16,31 +16,29 @@
 
 	<?php do_action( 'bp_before_group_members_list' ); ?>
 
-	<ul id="member-list" class="item-list" role="main">
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Member Since</th>
+        </tr>
 
 		<?php while ( bp_group_members() ) : bp_group_the_member(); ?>
-
-			<li>
+        
+        <tr>
+            <td>
 				<a href="<?php bp_group_member_domain(); ?>">
 					<?php bp_group_member_avatar_thumb(); ?>
 				</a>
-
-				<h5><?php bp_group_member_link(); ?></h5>
-				<span class="activity"><?php bp_group_member_joined_since(); ?></span>
-
-				<?php do_action( 'bp_group_members_list_item' ); ?>
-
-				<?php if ( bp_is_active( 'friends' ) ) : ?>
-					<div class="action">
-						<?php bp_add_friend_button( bp_get_group_member_id(), bp_get_group_member_is_friend() ); ?>
-						<?php do_action( 'bp_group_members_list_item_action' ); ?>
-					</div>
-				<?php endif; ?>
-			</li>
+                <?php bp_group_member_link(); ?><br />
+            </td>
+            <td>
+                <?php bp_group_member_joined_since(); ?>
+            </td>
+        </tr>
 
 		<?php endwhile; ?>
 
-	</ul>
+	</table>
 
 	<?php do_action( 'bp_after_group_members_list' ); ?>
 

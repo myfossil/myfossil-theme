@@ -1,10 +1,40 @@
-<div class="item-list-tabs no-ajax" id="subnav" role="navigation">
-	<ul>
-		<?php bp_group_admin_tabs(); ?>
+<div class="item-list-tabs no-ajax" id="subnav" role="tablist">
+	<ul class="nav nav-pills">
+        <?php
+        if ( bp_is_item_admin() ) {
+
+            $admin_menu = array(
+                    'edit-details' => 'Details',
+                    'group-settings' => 'Settings',
+                    'group-avatar' => 'Photo',
+                    'manage-members' => 'Members',
+                    'membership-requests' => 'Requests',
+                    'delete-group' => 'Delete',
+                );
+
+            $current_tab = bp_get_group_current_admin_tab();
+            $group = groups_get_current_group();
+
+            foreach ( $admin_menu as $url_key => $name ) {
+                if ( $group->status !== 'private' && $url_key == 'membership-requests' )
+                    continue;
+
+                $url = trailingslashit( bp_get_group_permalink( $group ) ) . 'admin/' . $url_key;
+
+                $tpl = ( $current_tab == $url_key ) ? "<li class=\"active\">" : "<li>";
+                $tpl .= "<a href=\"%s\">%s</a>";
+                $tpl .= "</li>";
+
+                printf($tpl, $url, $name);
+            }
+
+        }
+        ?>
 	</ul>
+
 </div><!-- .item-list-tabs -->
 
-<form action="<?php bp_group_admin_form_action(); ?>" name="group-settings-form" id="group-settings-form" class="standard-form" method="post" enctype="multipart/form-data" role="main">
+<form action="<?php bp_group_admin_form_action(); ?>" name="group-settings-form" id="group-settings-form" class="form standard-form" method="post" enctype="multipart/form-data" role="main">
 
 <?php do_action( 'bp_before_group_admin_content' ); ?>
 
@@ -13,23 +43,31 @@
 
 	<?php do_action( 'bp_before_group_details_admin' ); ?>
 
-	<label for="group-name"><?php _e( 'Group Name (required)', 'buddypress' ); ?></label>
-	<input type="text" name="group-name" id="group-name" value="<?php bp_group_name(); ?>" aria-required="true" />
+    <div class="form-group">
+        <label class="label-control" for="group-name"><?php _e( 'Group Name (required)', 'buddypress' ); ?></label>
+        <input class="form-control" type="text" name="group-name" id="group-name" value="<?php bp_group_name(); ?>" aria-required="true" />
+    </div>
 
-	<label for="group-desc"><?php _e( 'Group Description (required)', 'buddypress' ); ?></label>
-	<textarea name="group-desc" id="group-desc" aria-required="true"><?php bp_group_description_editable(); ?></textarea>
+    <div class="form-group">
+        <label class="label-control" for="group-desc"><?php _e( 'Group Description (required)', 'buddypress' ); ?></label>
+        <textarea class="form-control" name="group-desc" id="group-desc" aria-required="true"><?php bp_group_description_editable(); ?></textarea>
+    </div>
 
 	<?php do_action( 'groups_custom_group_fields_editable' ); ?>
 
-	<p>
-		<label for="group-notifiy-members">
+    <div class="checkbox">
+		<label>
 			<input type="checkbox" name="group-notify-members" value="1" /> <?php _e( 'Notify group members of these changes via email', 'buddypress' ); ?>
 		</label>
-	</p>
+	</div>
 
 	<?php do_action( 'bp_after_group_details_admin' ); ?>
 
-	<p><input type="submit" value="<?php esc_attr_e( 'Save Changes', 'buddypress' ); ?>" id="save" name="save" /></p>
+    <button type="submit" class="btn btn-default" id="save" name="save">
+        <i class="fa fa-fw fa-save"></i>
+        Save Changes
+    </button>
+
 	<?php wp_nonce_field( 'groups_edit_group_details' ); ?>
 
 <?php endif; ?>
