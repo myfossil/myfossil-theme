@@ -1,29 +1,16 @@
 <?php do_action( 'bp_before_member_messages_loop' ); ?>
 
 <?php if ( bp_has_message_threads( bp_ajax_querystring( 'messages' ) ) ) : ?>
-
-	<div class="pagination no-ajax" id="user-pag">
-
-		<div class="pag-count" id="messages-dir-count">
-			<?php bp_messages_pagination_count(); ?>
-		</div>
-
-		<div class="pagination-links" id="messages-dir-pag">
-			<?php bp_messages_pagination(); ?>
-		</div>
-
-	</div><!-- .pagination -->
-
 	<?php do_action( 'bp_after_member_messages_pagination' ); ?>
 
 	<?php do_action( 'bp_before_member_messages_threads'   ); ?>
 
-	<table id="message-threads" class="messages-notices">
+	<table id="message-threads" class="messages-notices table">
 		<?php while ( bp_message_threads() ) : bp_message_thread(); ?>
 
 			<tr id="m-<?php bp_message_thread_id(); ?>" class="<?php bp_message_css_class(); ?><?php if ( bp_message_thread_has_unread() ) : ?> unread<?php else: ?> read<?php endif; ?>">
 				<td width="1%" class="thread-count">
-					<span class="unread-count"><?php bp_message_thread_unread_count(); ?></span>
+					<span class="unread-count badge"><?php bp_message_thread_unread_count(); ?></span>
 				</td>
 				<td width="1%" class="thread-avatar"><?php bp_message_thread_avatar(); ?></td>
 

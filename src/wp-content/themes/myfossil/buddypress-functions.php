@@ -1303,9 +1303,9 @@ function bp_legacy_theme_ajax_messages_send_reply()
             $class = 'even alt';
         } ?>
 
-		<div class="message-box new-message <?php
+		<div class="panel panel-default message-box new-message <?php
         echo $class; ?>">
-			<div class="message-metadata">
+			<div class="panel-heading message-metadata">
 				<?php
         do_action('bp_before_message_meta'); ?>
 				<?php
@@ -1323,7 +1323,7 @@ function bp_legacy_theme_ajax_messages_send_reply()
 			<?php
         do_action('bp_before_message_content'); ?>
 
-			<div class="message-content">
+			<div class="panel-body message-content">
 				<?php
         echo stripslashes(apply_filters('bp_get_the_thread_message_content', $_REQUEST['content'])); ?>
 			</div>
@@ -1331,7 +1331,6 @@ function bp_legacy_theme_ajax_messages_send_reply()
 			<?php
         do_action('bp_after_message_content'); ?>
 
-			<div class="clear"></div>
 		</div>
 	<?php
     }
