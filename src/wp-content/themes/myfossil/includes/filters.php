@@ -1,7 +1,4 @@
 <?php
-require get_template_directory() . '/buddypress/groups/filters.php';
-require get_template_directory() . '/buddypress/members/filters.php';
-
 /**
  * Fix BuddyPress directories.
  */
@@ -46,14 +43,19 @@ add_action( 'bp_actions', 'remove_core_render_message' );
  * @param bp_tpl_contents the default contents of the nav item from BP core template
  * @param nav_item the nav item
  */
-function filter_nav_item( $bp_tpl_contents, $nav_item ) {
-    // Consider whether or not this is the current nav item
-    if ( $nav_item['slug'] == bp_current_action() || 
-            contains("current", $bp_tpl_contents) ||
-            contains("selected", $bp_tpl_contents) ) {
-        $selected = true;
-    } else {
-        $selected = false;
+function filter_nav_item( $bp_tpl_contents ) {
+    $selected = false;
+
+    $doc = new DOMDocument();
+    $doc->loadHTML( $bp_tpl_contents );
+
+    $nav_item_link_elements = $doc->getElementsByTagName('a');
+    foreach ( $nav_item_link_elements as $el ) {
+        $nav_item_name = $el->nodeValue;
+        $nav_item_link = $el->getAttribute('href');
+        
+        if ( contains( 'current', $el->getAttribute('class') ) )
+            $selected = true;
     }
 
     if ( !$selected ) {
@@ -64,45 +66,47 @@ function filter_nav_item( $bp_tpl_contents, $nav_item ) {
 
     // Consider whether there's a count of something involved
     $count = nav_item_count( $bp_tpl_contents );
+
+    // Need to strip out HTML with the count in there
     if ( $count > 0 ) {
-        // Need to strip out HTML with the count in there
-        $nav_item['name'] = strip_tags_contents( $nav_item['name'] );
-        $nav_item['name'] .= " <span class=\"badge\">" . $count . "</span>";
+        $nav_item_name = implode( " ", array_slice( explode( " ", $nav_item_name ), 0, -1 ) );
+        $nav_item_name = sprintf( "%s <span class=\"badge\">%d</span>", $nav_item_name, $count );
     }
 
     // We use the word "Wall" instead of "Home"
-    if ( $nav_item['name'] == 'Home' ) $nav_item['name'] = 'Wall';
+    if ( $nav_item_name == 'Home' || $nav_item_name == 'Activity' ) 
+        $nav_item_name = 'Wall';
 
     // Put it all back together
-    return $tpl . "<a href=\"" . $nav_item['link'] . "\">" . $nav_item['name'] . "</a></li>";
+    return $tpl . "<a href=\"" . $nav_item_link . "\">" . $nav_item_name . "</a></li>";
 }
-add_filter( 'bp_get_options_nav_public', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_edit', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_change-avatar', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_just-me', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_activity-mentions', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_activity-favs', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_activity-friends', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_activity-groups', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_friends-my-friends', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_requests', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_groups-my-groups', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_invites', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_home', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_members', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_invite', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_admin', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_inbox', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_sentbox', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_compose', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_notices', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_notifications-my-notifications', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_read', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_general', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_notifications', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_profile', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_capabilities', 'filter_nav_item', 10, 2 );
-add_filter( 'bp_get_options_nav_delete-account', 'filter_nav_item', 10, 2 );
+add_filter( 'bp_get_options_nav_public', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_edit', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_change-avatar', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_just-me', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_activity-mentions', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_activity-favs', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_activity-friends', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_activity-groups', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_friends-my-friends', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_requests', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_groups-my-groups', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_invites', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_home', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_members', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_invite', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_admin', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_inbox', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_sentbox', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_compose', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_notices', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_notifications-my-notifications', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_read', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_general', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_notifications', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_profile', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_capabilities', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_delete-account', 'filter_nav_item', 10, 1 );
 
 
 /**
@@ -205,3 +209,9 @@ add_filter( 'bp_get_group_invite_pagination_links', 'bootstrapify_pagination_lin
 add_filter( 'bp_get_members_pagination_links', 'bootstrapify_pagination_links' );
 add_filter( 'bp_get_messages_pagination', 'bootstrapify_pagination_links' );
 add_filter( 'bp_get_notifications_pagination_links', 'bootstrapify_pagination_links' );
+
+/**
+ * Includes
+ */
+require get_template_directory() . '/buddypress/groups/filters.php';
+require get_template_directory() . '/buddypress/members/filters.php';
