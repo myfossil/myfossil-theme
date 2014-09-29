@@ -101,7 +101,7 @@ function contains($needle, $haystack) {
  * Returns contents of <span>'s in a given string as an integer, or zero.
  */
 function nav_item_count( $html ) {
-    preg_match('/<span>(.*?)<\/span>/s', $html, $m);
+    preg_match('/<span.*>(.*?)<\/span>/s', $html, $m);
     if (count($m) > 0)
         return (int) $m[1];
     return 0;

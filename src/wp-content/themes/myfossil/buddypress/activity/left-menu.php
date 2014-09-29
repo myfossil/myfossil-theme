@@ -23,29 +23,12 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="list-lines">
-                    <li><a href="#">What's New</a></li>
-                    <li><a href="#">Wall</a></li>
-                    <li>
-                        <a href="#">
-                            Messages
-                            <span class="badge pull-right"><?php echo bp_total_unread_messages_count(); ?></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Notifications 
-                            <span class="badge pull-right"><?php echo bp_total_unread_messages_count(); ?></span>
-                        </a>
-                    </li>
-                    <li><a href="#">My Fossils</a></li>
-                    <li><a href="#">My Activities</a></li>
-                    <li><a href="#">My Resources</a></li>
-                    <li><a href="#">My Events</a></li>
-                    <li><a href="#">My Organizations</a></li>
-                    <li><a href="#">Following</a></li>
-                    <li><a href="#">Followers</a></li>
-                    <li><a href="#">Edit Profile</a></li>
-                    <li><a href="#">Settings</a></li>
+                    <li><a href="/">What's New</a></li>
+                    <?php bp_get_loggedin_user_nav(); ?>
+                    <?php do_action( 'bp_member_options_nav' ); ?>
+                    <li>My Fossils</li>
+                    <li>My Resources</li>
+                    <li>My Events</li>
                 </ul>
             </div>
         </div>
