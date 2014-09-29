@@ -40,7 +40,7 @@ add_action( 'bp_actions', 'remove_core_render_message' );
  */
 function filter_nav_item( $bp_tpl_contents, $nav_item ) {
     // Consider whether or not this is the current nav item
-    if ( $nav_item['slug'] == bp_current_action() ) {
+    if ( $nav_item['slug'] == bp_current_action() || contains("current", $bp_tpl_contents) ) {
         $selected = true;
     } else {
         $selected = false;

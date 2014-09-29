@@ -10,7 +10,7 @@
 ?>
 
 <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
-	<ul>
+	<ul class="nav nav-tabs">
 		<?php if ( bp_core_can_edit_settings() ) : ?>
 
 			<?php bp_get_options_nav(); ?>

@@ -10,7 +10,7 @@
 ?>
 
 <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
-	<ul>
+	<ul class="nav nav-tabs">
 		<?php if ( bp_is_my_profile() ) bp_get_options_nav(); ?>
 
 		<?php if ( !bp_is_current_action( 'requests' ) ) : ?>
@@ -41,9 +41,7 @@ switch ( bp_current_action() ) :
 		do_action( 'bp_before_member_friends_content' ); ?>
 
 		<div class="members friends">
-
 			<?php bp_get_template_part( 'members/members-loop' ) ?>
-
 		</div><!-- .members.friends -->
 
 		<?php do_action( 'bp_after_member_friends_content' );

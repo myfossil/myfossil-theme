@@ -8,7 +8,7 @@ $n_members_shown = 0;
 if ( bp_group_has_members( bp_ajax_querystring( 'group_members' ) ) ) 
 {
     printf('<h5 class="side-header">Members</h5>');
-	printf('<ul id="member-list" class="item-list" role="main">');
+	printf('<ul id="member-list" class="item-list">'); 
 
     while ( bp_group_members() ) 
     {

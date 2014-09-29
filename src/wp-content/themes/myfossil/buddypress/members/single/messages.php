@@ -10,10 +10,8 @@
 ?>
 
 <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
-	<ul>
-
+	<ul class="nav nav-tabs">
 		<?php bp_get_options_nav(); ?>
-
 	</ul>
 
 	<?php if ( bp_is_messages_inbox() || bp_is_messages_sentbox() ) : ?>
