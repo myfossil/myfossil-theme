@@ -37,10 +37,6 @@
                 </div>
             <?php endif; ?>
 
-            <div id="item-buttons">
-                <?php do_action( 'bp_member_header_actions' ); ?>
-            </div><!-- #item-buttons -->
-
             <?php
             /**
              * If you'd like to show specific profile fields here use:
@@ -54,22 +50,11 @@
     </div><!-- #item-header-content -->
 
     <div id="item-header-actions" class="col-md-4">
-        <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-6">
-                <button class="btn btn-block btn-default">
-                    <i class="fa fa-fw fa-user"></i>
-                    Follow
-                </button>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-6">
-                <button class="btn btn-block btn-default">
-                    <i class="fa fa-fw fa-comments-o"></i>
-                    Direct Messsage
-                </button>
-            </div>
+        <div id="item-buttons" class="row">
+            <?php do_action( 'bp_member_header_actions' ); ?>
         </div>
         <div class="row activity time-since">
-            <div class="col-sm-12 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+            <div class="col-sm-12">
                 <?php bp_last_activity( bp_displayed_user_id() ); ?>
             </div>
         </div>
@@ -77,4 +62,8 @@
 
     <?php do_action( 'bp_after_member_header' ); ?>
 
+</div>
+
+<div class="row">
     <?php do_action( 'template_notices' ); ?>
+</div>

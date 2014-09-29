@@ -149,10 +149,26 @@ add_filter( 'bp_get_activity_delete_link', 'filter_delete_button' );
  * Change appearance of BuddyPress generated buttons
  */
 function filter_bp_button( $btn, $type = 'default' ) {
-    $btn['link_class'] .= " btn btn-$type";
+    if ( $btn ) {
+        $btn['link_class'] .= " btn btn-$type";
+    }
     return $btn;
 }
-
+add_filter( 'bp_get_send_public_message_button', 'filter_bp_button' );
+add_filter( 'bp_get_blog_create_button', 'filter_bp_button' );
+add_filter( 'bp_get_blogs_visit_blog_button', 'filter_bp_button' );
+add_filter( 'bp_get_add_friend_button', 'filter_bp_button' );
+add_filter( 'bp_get_group_new_topic_button', 'filter_bp_button' );
+add_filter( 'bp_get_group_join_button', 'filter_bp_button' );
+add_filter( 'bp_get_group_create_button', 'filter_bp_button' );
+add_filter( 'bp_get_send_public_message_button', 'filter_bp_button' );
+add_filter( 'bp_get_blog_create_button', 'filter_bp_button' );
+add_filter( 'bp_get_blogs_visit_blog_button', 'filter_bp_button' );
+add_filter( 'bp_get_add_friend_button', 'filter_bp_button' );
+add_filter( 'bp_get_group_new_topic_button', 'filter_bp_button' );
+add_filter( 'bp_get_group_join_button', 'filter_bp_button' );
+add_filter( 'bp_get_group_create_button', 'filter_bp_button' );
+add_filter( 'bp_get_send_message_button_args', 'filter_bp_button' );
 
 /**
  * Make paginated links Bootstrap'd
