@@ -146,3 +146,21 @@ ul#member-list, ul#group-list {
 li#group_members-order-select {
     display: none;
 }
+
+/**
+ * Extended Profile
+ */
+.current-visibility-level {
+    font-weight: bold;
+}
+
+.field-visibility-settings {
+    display: none;
+}
+
+.field-visibility-options {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+

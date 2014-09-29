@@ -10,9 +10,9 @@
 
 			<div class="bp-widget <?php bp_the_profile_group_slug(); ?>">
 
-				<h4><?php bp_the_profile_group_name(); ?></h4>
+				<h4>General Information</h4>
 
-				<table class="profile-fields">
+				<table class="table profile-fields">
 
 					<?php while ( bp_profile_fields() ) : bp_the_profile_field(); ?>
 
@@ -20,7 +20,7 @@
 
 							<tr<?php bp_field_css_class(); ?>>
 
-								<td class="label"><?php bp_the_profile_field_name(); ?></td>
+								<td class="label-control"><?php bp_the_profile_field_name(); ?></td>
 
 								<td class="data"><?php bp_the_profile_field_value(); ?></td>
 

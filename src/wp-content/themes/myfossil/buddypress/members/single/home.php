@@ -6,19 +6,14 @@
 		<?php bp_get_template_part( 'members/single/member-header' ) ?>
 	</div><!-- #item-header -->
 
-    <?php
-    if ( is_user_logged_in() && bp_is_my_profile() && 
-            ( !bp_current_action() || bp_is_current_action( 'just-me' ) ) ):
-    ?>
 	<div id="item-nav">
 		<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
 			<ul class="nav nav-tabs">
-				<?php bp_get_displayed_user_nav(); ?>
+                <?php bp_get_displayed_user_nav(); ?>
 				<?php do_action( 'bp_member_options_nav' ); ?>
 			</ul>
 		</div>
 	</div><!-- #item-nav -->
-    <?php endif; ?>
 
 	<div id="item-body" role="main">
 
