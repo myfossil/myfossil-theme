@@ -6,6 +6,10 @@
 		<?php bp_get_template_part( 'members/single/member-header' ) ?>
 	</div><!-- #item-header -->
 
+    <?php
+    if ( is_user_logged_in() && bp_is_my_profile() && 
+            ( !bp_current_action() || bp_is_current_action( 'just-me' ) ) ):
+    ?>
 	<div id="item-nav">
 		<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
 			<ul class="nav nav-tabs">
@@ -14,6 +18,7 @@
 			</ul>
 		</div>
 	</div><!-- #item-nav -->
+    <?php endif; ?>
 
 	<div id="item-body" role="main">
 
