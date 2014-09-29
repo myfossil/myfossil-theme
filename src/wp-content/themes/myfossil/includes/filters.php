@@ -3,6 +3,14 @@ require get_template_directory() . '/buddypress/groups/filters.php';
 require get_template_directory() . '/buddypress/members/filters.php';
 
 /**
+ * Fix BuddyPress directories.
+ */
+function filter_bp_get_theme_compat_dir( $_ ) {
+    return get_template_directory_uri() . '/static/';
+}
+add_filter( 'bp_get_theme_compat_dir', 'filter_bp_get_theme_compat_dir' );
+
+/**
  * Bootstrap-ify the way that notices are displayed
  */
 function bootstrap_render_message() {
