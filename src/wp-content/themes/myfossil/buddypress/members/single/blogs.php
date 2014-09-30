@@ -10,7 +10,7 @@
 ?>
 
 <div class="item-list-tabs" id="subnav" role="navigation">
-	<ul>
+	<ul class="nav nav-tabs">
 
 		<?php bp_get_options_nav(); ?>
 

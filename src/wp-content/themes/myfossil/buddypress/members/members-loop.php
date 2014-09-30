@@ -15,46 +15,25 @@
 
 <?php if ( bp_has_members( bp_ajax_querystring( 'members' ) ) ) : ?>
 
-	<div id="pag-top" class="pagination">
-
-		<div class="pag-count" id="member-dir-count-top">
-
-			<?php bp_members_pagination_count(); ?>
-
-		</div>
-
-		<div class="pagination-links" id="member-dir-pag-top">
-
-			<?php bp_members_pagination_links(); ?>
-
-		</div>
-
-	</div>
-
 	<?php do_action( 'bp_before_directory_members_list' ); ?>
 
-	<ul id="members-list" class="item-list" role="main">
+	<table id="members-list" class="table item-list" role="main">
+        <tr>
+            <th>Name</th>
+            <th>Fossils</th>
+            <th>Location</th>
+        </tr>
 
 	<?php while ( bp_members() ) : bp_the_member(); ?>
 
-		<li>
-			<div class="item-avatar">
-				<a href="<?php bp_member_permalink(); ?>"><?php bp_member_avatar(); ?></a>
-			</div>
+		<tr>
+			<td class="item-avatar">
+				<a href="<?php bp_member_permalink(); ?>" class="pull-left" style="margin-right: 10px;"><?php bp_member_avatar(); ?></a>
 
-			<div class="item">
 				<div class="item-title">
 					<a href="<?php bp_member_permalink(); ?>"><?php bp_member_name(); ?></a>
-
-					<?php if ( bp_get_member_latest_update() ) : ?>
-
-						<span class="update"> <?php bp_member_latest_update(); ?></span>
-
-					<?php endif; ?>
-
+                    <div class="item-meta"><span class="activity"><?php bp_member_last_active(); ?></span></div>
 				</div>
-
-				<div class="item-meta"><span class="activity"><?php bp_member_last_active(); ?></span></div>
 
 				<?php do_action( 'bp_directory_members_item' ); ?>
 
@@ -67,20 +46,22 @@
 				  * bp_member_profile_data( 'field=the field name' );
 				  */
 				?>
-			</div>
+			</td>
 
-			<div class="action">
-
+            <?php /*
+			<td class="action">
 				<?php do_action( 'bp_directory_members_actions' ); ?>
+			</td> */ ?>
 
-			</div>
+            <td>Fossils: 0</td>
 
-			<div class="clear"></div>
-		</li>
+            <td>Location: Unknown</td>
+
+		</tr>
 
 	<?php endwhile; ?>
 
-	</ul>
+	</table>
 
 	<?php do_action( 'bp_after_directory_members_list' ); ?>
 

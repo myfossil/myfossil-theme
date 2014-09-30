@@ -9,6 +9,10 @@
     margin: 20px 0 20px 0;
 }
 
+.submit {
+    margin-top: 10px;
+}
+
 dl.inline {
     display: inline;
     width: 100%;
@@ -119,10 +123,10 @@ dl.inline {
 
 
 /**
- * Groups
- * ~~~~~~
+ * Groups and Members
+ * ~~~~~~~~~~~~~~~~~~
  */
-#groups-header {
+#groups-header, #members-header {
     #join {
         width: 100%;
         margin-top: 30px;
@@ -137,7 +141,7 @@ dl.inline {
     }
 }
 
-ul#member-list {
+ul#member-list, ul#group-list {
     li {
         display: inline;
     }
@@ -146,3 +150,21 @@ ul#member-list {
 li#group_members-order-select {
     display: none;
 }
+
+/**
+ * Extended Profile
+ */
+.current-visibility-level {
+    font-weight: bold;
+}
+
+.field-visibility-settings {
+    display: none;
+}
+
+.field-visibility-options {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+

@@ -3,19 +3,14 @@
 	<?php do_action( 'bp_before_member_home_content' ); ?>
 
 	<div id="item-header" role="complementary">
-
 		<?php bp_get_template_part( 'members/single/member-header' ) ?>
-
 	</div><!-- #item-header -->
 
 	<div id="item-nav">
 		<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
-			<ul>
-
-				<?php bp_get_displayed_user_nav(); ?>
-
+			<ul class="nav nav-tabs">
+                <?php bp_get_displayed_user_nav(); ?>
 				<?php do_action( 'bp_member_options_nav' ); ?>
-
 			</ul>
 		</div>
 	</div><!-- #item-nav -->

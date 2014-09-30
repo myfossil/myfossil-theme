@@ -315,7 +315,7 @@ if (!class_exists('BP_Legacy')):
                 'unsaved_changes' => __('Your profile has unsaved changes. If you leave the page, the changes will be lost.', 'buddypress') ,
                 'view' => __('View', 'buddypress') ,
             ));
-            wp_localize_script($asset['handle'], 'BP_DTheme', $params);
+            //wp_localize_script($asset['handle'], 'BP_Theme', $params);
 
             // Maybe enqueue comment reply JS
             if (is_singular() && bp_is_blog_page() && get_option('thread_comments')) {
@@ -393,6 +393,7 @@ if (!class_exists('BP_Legacy')):
             $subdirs = array(
                 'buddypress/' . $type,
                 'community/' . $type,
+                'static/' . $type,
                 $type,
             );
 
@@ -1302,9 +1303,9 @@ function bp_legacy_theme_ajax_messages_send_reply()
             $class = 'even alt';
         } ?>
 
-		<div class="message-box new-message <?php
+		<div class="panel panel-default message-box new-message <?php
         echo $class; ?>">
-			<div class="message-metadata">
+			<div class="panel-heading message-metadata">
 				<?php
         do_action('bp_before_message_meta'); ?>
 				<?php
@@ -1322,7 +1323,7 @@ function bp_legacy_theme_ajax_messages_send_reply()
 			<?php
         do_action('bp_before_message_content'); ?>
 
-			<div class="message-content">
+			<div class="panel-body message-content">
 				<?php
         echo stripslashes(apply_filters('bp_get_the_thread_message_content', $_REQUEST['content'])); ?>
 			</div>
@@ -1330,7 +1331,6 @@ function bp_legacy_theme_ajax_messages_send_reply()
 			<?php
         do_action('bp_after_message_content'); ?>
 
-			<div class="clear"></div>
 		</div>
 	<?php
     }
@@ -1447,4 +1447,43 @@ function bp_legacy_theme_ajax_messages_autocomplete_results()
     exit;
 }
 
+function myfossil_group_creation_tabs() {
+    global $bp;
 
+    if ( !is_array( $bp->groups->group_creation_steps ) )
+        return false;
+
+    if ( !bp_get_groups_current_create_step() ) {
+        $keys = array_keys( $bp->groups->group_creation_steps );
+        $bp->groups->current_create_step = array_shift( $keys );
+    }
+
+    foreach ( (array) $bp->groups->group_creation_steps as $slug => $step ) {
+        $is_enabled = bp_are_previous_group_creation_steps_complete( $slug );
+
+        $selected = ( bp_get_groups_current_create_step() == $slug );
+        if ( $selected ) {
+            $tpl = '<li class="current active selected">';
+        } else {
+            $tpl = "<li>";
+        }
+        
+        if ( $is_enabled ) {
+            $tpl .= sprintf( '<a href="%s/%s/create/step/%s">%s</a>', 
+                    bp_get_root_domain(), 
+                    bp_get_groups_root_slug(), 
+                    $slug, 
+                    $step['name'] );
+        } else {
+            $tpl .= sprintf( '<a>%s</a>', $step['name'] );
+        }
+
+        $tpl .= "</li>";
+
+        print $tpl;
+    }
+
+    unset( $is_enabled );
+
+    do_action( 'groups_creation_tabs' );
+}

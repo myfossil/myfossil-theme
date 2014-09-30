@@ -1,4 +1,4 @@
-<table class="notifications">
+<table class="notifications table">
 	<thead>
 		<tr>
 			<th class="icon"></th>

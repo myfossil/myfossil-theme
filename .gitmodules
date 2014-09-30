@@ -6,3 +6,6 @@
 	path = src/wp-content/plugins/buddypress
 	url = https://github.com/buddypress/BuddyPress.git
     ignore = untracked
+[submodule "src/wp-content/plugins/bbpress"]
+	path = src/wp-content/plugins/bbpress
+	url = https://github.com/geometeor/bbpress.git

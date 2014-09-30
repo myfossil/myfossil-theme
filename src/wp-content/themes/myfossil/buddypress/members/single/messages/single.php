@@ -21,16 +21,19 @@
 
 			</span>
 
-			<a class="button confirm" href="<?php bp_the_thread_delete_link(); ?>" title="<?php esc_attr_e( "Delete Message", "buddypress" ); ?>"><?php _e( 'Delete', 'buddypress' ); ?></a> &nbsp;
+			<a class="btn btn-danger button confirm" href="<?php bp_the_thread_delete_link(); ?>" title="<?php esc_attr_e( "Delete Message", "buddypress" ); ?>">
+                <i class="fa fa-fw fa-trash"></i>
+                <?php _e( 'Delete', 'buddypress' ); ?>
+            </a>
 		</p>
 
 		<?php do_action( 'bp_before_message_thread_list' ); ?>
 
 		<?php while ( bp_thread_messages() ) : bp_thread_the_message(); ?>
 
-			<div class="message-box <?php bp_the_thread_message_css_class(); ?>">
+			<div class="panel panel-default message-box <?php bp_the_thread_message_css_class(); ?>">
 
-				<div class="message-metadata">
+				<div class="panel-heading message-metadata">
 
 					<?php do_action( 'bp_before_message_meta' ); ?>
 
@@ -54,15 +57,13 @@
 
 				<?php do_action( 'bp_before_message_content' ); ?>
 
-				<div class="message-content">
+				<div class="panel-body message-content">
 
 					<?php bp_the_thread_message_content(); ?>
 
 				</div><!-- .message-content -->
 
 				<?php do_action( 'bp_after_message_content' ); ?>
-
-				<div class="clear"></div>
 
 			</div><!-- .message-box -->
 
@@ -72,11 +73,11 @@
 
 		<?php do_action( 'bp_before_message_thread_reply' ); ?>
 
-		<form id="send-reply" action="<?php bp_messages_form_action(); ?>" method="post" class="standard-form">
+		<form id="send-reply" action="<?php bp_messages_form_action(); ?>" method="post" class="standard-form form">
 
-			<div class="message-box">
+			<div class="panel panel-primary message-box">
 
-				<div class="message-metadata">
+				<div class="panel-heading message-metadata">
 
 					<?php do_action( 'bp_before_message_meta' ); ?>
 
@@ -90,16 +91,16 @@
 
 				</div><!-- .message-metadata -->
 
-				<div class="message-content">
+				<div class="panel-body message-content">
 
 					<?php do_action( 'bp_before_message_reply_box' ); ?>
 
-					<textarea name="content" id="message_content" rows="15" cols="40"></textarea>
+					<textarea name="content" class="form-control" id="message_content" rows="15" cols="40"></textarea>
 
 					<?php do_action( 'bp_after_message_reply_box' ); ?>
 
 					<div class="submit">
-						<input type="submit" name="send" value="<?php esc_attr_e( 'Send Reply', 'buddypress' ); ?>" id="send_reply_button"/>
+						<input class="btn btn-primary" type="submit" name="send" value="<?php esc_attr_e( 'Send Reply', 'buddypress' ); ?>" id="send_reply_button"/>
 					</div>
 
 					<input type="hidden" id="thread_id" name="thread_id" value="<?php bp_the_thread_id(); ?>" />
