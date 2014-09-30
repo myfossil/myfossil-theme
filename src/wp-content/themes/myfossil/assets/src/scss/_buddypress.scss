@@ -2,15 +2,15 @@
  * General
  */
 #subnav {
-    margin: 10px 0 10px 0;
+    margin: $padding-base-vertical 0 $padding-base-vertical 0;
 }
 
 .item-list-tabs {
-    margin: 20px 0 20px 0;
+    margin: $padding-base-vertical 0 $padding-base-vertical 0;
 }
 
 .submit {
-    margin-top: 10px;
+    margin-top: $padding-base-vertical;
 }
 
 dl.inline {
@@ -22,7 +22,7 @@ dl.inline {
     }
 
     dd {
-        margin-right: 50px;
+        margin-right: $padding-large-horizontal;
     }
 
     dt:after {
@@ -45,7 +45,7 @@ dl.inline {
     padding: 0;
 
     li {
-        padding: 10px;
+        padding: $padding-base-vertical;
         border-bottom: 1px solid #eee;
     }
 }
@@ -60,7 +60,7 @@ dl.inline {
  * Forms
  */
 #whats-new-textarea, #whats-new-options {
-    margin-top: 10px;
+    margin-top: $padding-base-vertical;
 }
 
 #whats-new-post-in-box {
@@ -72,7 +72,7 @@ dl.inline {
  * Activity
  */
 #whats-new-form {
-    margin-bottom: 15px;
+    margin-bottom: $padding-base-vertical;
 }
 
 .activity {
@@ -82,7 +82,7 @@ dl.inline {
 }
 
 .avatar {
-    @include border-radius(500px);
+    @include border-radius($border-radius-base);
 }
 
 
@@ -91,10 +91,10 @@ dl.inline {
  */
 .acomment {
     border-left: 1px solid $panel-inner-border;
-    padding: 10px 0 10px 10px;
+    padding: $padding-base-vertical $padding-base-horizontal $padding-base-vertical $padding-base-horizontal;
 
     .acomment-avatar {
-        padding-right: 15px;
+        padding-right: $padding-base-horizontal;
     }
 
     .acomment-meta {
@@ -114,10 +114,10 @@ dl.inline {
 }
 
 .ac-textarea {
-    padding-bottom: 10px;
+    padding-bottom: $padding-base-vertical;
 
     .comment-reply-form {
-        margin-top: 10px;
+        margin-top: $padding-base-vertical;
     }
 }
 
@@ -137,7 +137,7 @@ dl.inline {
         color: $gray;
         width: 100%;
         text-align: center;
-        padding: 10px;
+        padding: $padding-base-horizontal;
     }
 }
 
