@@ -16,7 +16,7 @@ gulp.task('styles', function() {
       .pipe(sass())
       .pipe(plugins.autoprefixer('last 2 versions', 'ie 9', 'ios 6', 'android 4'))
       .pipe(gulp.dest('assets/staging'))
-      .pipe(plugins.minifyCss({ keepSpecialComments: 1 }))
+      //.pipe(plugins.minifyCss({ keepSpecialComments: 1 }))
       .pipe(gulp.dest(build + 'css/'))
       .pipe(plugins.livereload(server));
 });

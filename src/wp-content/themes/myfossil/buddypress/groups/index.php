@@ -3,6 +3,7 @@
 <div id="buddypress">
 
     <h1>Community</h1>
+    <?php echo bp_get_group_create_button(); ?>
 
     <?php do_action( 'template_notices' ); ?>
 

@@ -1447,4 +1447,43 @@ function bp_legacy_theme_ajax_messages_autocomplete_results()
     exit;
 }
 
+function myfossil_group_creation_tabs() {
+    global $bp;
 
+    if ( !is_array( $bp->groups->group_creation_steps ) )
+        return false;
+
+    if ( !bp_get_groups_current_create_step() ) {
+        $keys = array_keys( $bp->groups->group_creation_steps );
+        $bp->groups->current_create_step = array_shift( $keys );
+    }
+
+    foreach ( (array) $bp->groups->group_creation_steps as $slug => $step ) {
+        $is_enabled = bp_are_previous_group_creation_steps_complete( $slug );
+
+        $selected = ( bp_get_groups_current_create_step() == $slug );
+        if ( $selected ) {
+            $tpl = '<li class="current active selected">';
+        } else {
+            $tpl = "<li>";
+        }
+        
+        if ( $is_enabled ) {
+            $tpl .= sprintf( '<a href="%s/%s/create/step/%s">%s</a>', 
+                    bp_get_root_domain(), 
+                    bp_get_groups_root_slug(), 
+                    $slug, 
+                    $step['name'] );
+        } else {
+            $tpl .= sprintf( '<a>%s</a>', $step['name'] );
+        }
+
+        $tpl .= "</li>";
+
+        print $tpl;
+    }
+
+    unset( $is_enabled );
+
+    do_action( 'groups_creation_tabs' );
+}
