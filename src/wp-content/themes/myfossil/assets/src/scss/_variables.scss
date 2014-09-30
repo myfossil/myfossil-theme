@@ -9,7 +9,7 @@ $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Gray and brand colors for use across Bootstrap.
  */
-$black:                 #333333;
+$black:                 #422b24;
 $white:                 #fff;
 $gray-darker:           lighten( $black, 13.5% ) !default;
 $gray-dark:             lighten( $black, 20.0% ) !default;
@@ -17,11 +17,11 @@ $gray:                  lighten( $black, 33.5% ) !default;
 $gray-light:            lighten( $black, 46.7% ) !default;
 $gray-lighter:          lighten( $black, 93.5% ) !default;
 
-$brand-primary:         #77b562 !default;
-$brand-success:         #4d7842 !default;
-$brand-info:            #a0e08c !default;
-$brand-warning:         #b48a58 !default;
-$brand-danger:          #6e4e28 !default;
+$brand-primary:         #b37021 !default;
+$brand-success:         #2185b3 !default;
+$brand-info:            #4fc3f7 !default;
+$brand-warning:         #165978 !default;
+$brand-danger:          #704615 !default;
 
 // Background color for `<body>`.
 $body-bg:               $white !default;
@@ -162,32 +162,46 @@ $btn-font-weight:                normal !default;
 $btn-default-color:              #333 !default;
 $btn-default-bg:                 #fff !default;
 $btn-default-border:             #ccc !default;
+$btn-default-gradient-start:     $btn-default-bg !default;
+$btn-default-gradient-end:       lighten($btn-default-gradient-start, 30%) !default;
 
 $btn-primary-color:              #fff !default;
 $btn-primary-bg:                 $brand-primary !default;
 $btn-primary-border:             darken($btn-primary-bg, 5%) !default;
+$btn-primary-gradient-start:     $brand-primary !default;
+$btn-primary-gradient-end:       lighten($btn-primary-gradient-start, 30%) !default;
 
 $btn-success-color:              #fff !default;
 $btn-success-bg:                 $brand-success !default;
 $btn-success-border:             darken($btn-success-bg, 5%) !default;
+$btn-success-gradient-start:     $brand-success !default;
+$btn-success-gradient-end:       $white !default;
+$btn-success-gradient-end:       lighten($btn-success-gradient-start, 30%) !default;
 
 $btn-info-color:                 #fff !default;
 $btn-info-bg:                    $brand-info !default;
 $btn-info-border:                darken($btn-info-bg, 5%) !default;
+$btn-info-gradient-start:        $brand-info !default;
+$btn-info-gradient-end:          lighten($btn-info-gradient-start, 30%) !default;
 
 $btn-warning-color:              #fff !default;
 $btn-warning-bg:                 $brand-warning !default;
 $btn-warning-border:             darken($btn-warning-bg, 5%) !default;
+$btn-warning-gradient-start:     $brand-warning !default;
+$btn-warning-gradient-end:       lighten($btn-warning-gradient-start, 30%) !default;
 
-$btn-danger-color:               $brand-danger !default;
+$btn-danger-color:               $gray-dark !default;
 $btn-danger-bg:                  $white !default;
-$btn-danger-border:              $brand-danger !default;
+$btn-danger-border:              $gray-dark !default;
+$btn-danger-gradient-start:      $brand-danger !default;
+$btn-danger-gradient-end:        lighten($btn-danger-gradient-start, 30%) !default;
 
 $btn-link-disabled-color:        $gray-light !default;
 
-$btn-border-radius-base:         $border-radius-base * 3;
+$btn-border-radius-base:         $border-radius-base;
 $btn-border-radius-small:        $btn-border-radius-base * 0.5;
 $btn-border-radius-large:        $btn-border-radius-base * 2;
+
 
 /*
  * Forms
@@ -384,19 +398,19 @@ $container-lg:                 $container-large-desktop !default;
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 // Basics of a navbar
-$navbar-height:                    50px !default;
+$navbar-height:                    100px !default;
 $navbar-margin-bottom:             $line-height-computed !default;
 $navbar-border-radius:             $border-radius-base !default;
 $navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
 $navbar-collapse-max-height:       340px !default;
 
-$navbar-default-color:             #777 !default;
-$navbar-default-bg:                #f8f8f8 !default;
+$navbar-default-color:             $black !default;
+$navbar-default-bg:                $white !default;
 $navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
 
 // Navbar links
-$navbar-default-link-color:                #777 !default;
+$navbar-default-link-color:                $black !default;
 $navbar-default-link-hover-color:          #333 !default;
 $navbar-default-link-hover-bg:             transparent !default;
 $navbar-default-link-active-color:         #555 !default;
