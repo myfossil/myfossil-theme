@@ -3,8 +3,8 @@ WordPress based CMS for the myFOSSIL project.
 
 ## Development
 ```
-$ ./bootstrap-dev.sh
-$ ./update-dev.sh
+$ ./git-update.sh
+$ vagrant up
 $ vagrant ssh
 vagrant$ /vagrant/puppet/dev_db_deploy.sh
 ```
