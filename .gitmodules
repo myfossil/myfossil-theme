@@ -1,0 +1,21 @@
+[submodule "src/wp-core"]
+	path = src/wp-core
+	url = git@github.com:myfossil/WordPress.git
+[submodule "src/wp-content/plugins/buddypress"]
+	path = src/wp-content/plugins/buddypress
+	url = git@github.com:myfossil/BuddyPress.git
+[submodule "src/wp-content/plugins/myfossil-specimen"]
+	path = src/wp-content/plugins/myfossil-specimen
+	url = git@github.com:myfossil/wp-plugin-specimen.git
+[submodule "src/wp-content/plugins/wp-plugin-logging"]
+	path = src/wp-content/plugins/myfossil-logging
+	url = git@github.com:myfossil/wp-plugin-logging.git
+[submodule "src/wp-content/plugins/myfossil-logging"]
+	path = src/wp-content/plugins/myfossil-logging
+	url = git@github.com:myfossil/wp-plugin-logging.git
+[submodule "src/wp-content/themes/myfossil"]
+	path = src/wp-content/themes/myfossil
+	url = git@github.com:myfossil/wp-theme-myfossil.git
+[submodule "src/wp-content/plugins/bbpress"]
+	path = src/wp-content/plugins/bbpress
+	url = git@github.com:myfossil/bbpress.git
