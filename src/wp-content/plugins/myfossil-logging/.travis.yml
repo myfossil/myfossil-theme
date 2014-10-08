@@ -1,0 +1,30 @@
+# Travis CI Configuration File
+
+# Tell Travis CI we're using PHP
+language: php
+
+# PHP version used in first build configuration.
+php:
+    - 5.4
+    - 5.5
+    - 5.6
+
+# WordPress versions uses Git 'develop' repo branches
+env:
+    - WP_VERSION=master # Git equivalent of SVN /trunk
+    - WP_VERSION=4.0    # Includes latest 4.0.x release
+    - WP_VERSION=3.9    # Includes latest 3.9.x release
+
+# Build matrix options
+matrix:
+  include:
+    - php: hhvm
+      env: WP_VERSION=master
+  allow_failures:
+    - php: hhvm
+
+before_script:
+    - composer install
+    - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION 
+
+script: phpunit
