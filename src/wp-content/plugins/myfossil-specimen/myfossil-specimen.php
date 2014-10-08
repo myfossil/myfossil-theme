@@ -1,4 +1,5 @@
 <?php
+namespace myFOSSIL\Plugin\Specimen;
 
 /**
  * The plugin bootstrap file

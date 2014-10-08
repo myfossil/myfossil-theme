@@ -1,4 +1,5 @@
 <?php
+namespace myFOSSIL\Plugin\Specimen;
 
 /**
  * The dashboard-specific functionality of the plugin.

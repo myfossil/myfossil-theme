@@ -1,4 +1,5 @@
 <?php
+namespace myFOSSIL\Plugin\Specimen;
 
 /**
  * Define the internationalization functionality

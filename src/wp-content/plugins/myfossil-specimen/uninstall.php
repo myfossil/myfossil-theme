@@ -1,4 +1,5 @@
 <?php
+namespace myFOSSIL\Plugin\Specimen;
 
 /**
  * Fired when the plugin is uninstalled.
