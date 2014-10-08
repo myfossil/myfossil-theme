@@ -6,8 +6,8 @@
  * @link       http://atmoapps.com
  * @since      0.0.1
  *
- * @package    myFOSSIL_Specimen
- * @subpackage myFOSSIL_Specimen/includes
+ * @package    myFOSSIL
+ * @subpackage myFOSSIL/includes
  */
 
 /**
@@ -17,8 +17,8 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    myFOSSIL_Specimen
- * @subpackage myFOSSIL_Specimen/includes
+ * @package    myFOSSIL
+ * @subpackage myFOSSIL/includes
  * @author     Brandon Wood <bwood@atmoapps.com>
  */
 class myFOSSIL_Specimen_Loader {

@@ -22,7 +22,7 @@
  * @link       http://atmoapps.com
  * @since      0.0.1
  *
- * @package    myFOSSIL_Specimen
+ * @package    myFOSSIL
  */
 
 // If uninstall not called from WordPress, then exit.

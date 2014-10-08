@@ -9,8 +9,8 @@
  * @link       http://atmoapps.com
  * @since      0.0.1
  *
- * @package    myFOSSIL_Specimen
- * @subpackage myFOSSIL_Specimen/includes
+ * @package    myFOSSIL
+ * @subpackage myFOSSIL/includes
  */
 
 /**
@@ -23,8 +23,8 @@
  * version of the plugin.
  *
  * @since      0.0.1
- * @package    myFOSSIL_Specimen
- * @subpackage myFOSSIL_Specimen/includes
+ * @package    myFOSSIL
+ * @subpackage myFOSSIL/includes
  * @author     Brandon Wood <bwood@atmoapps.com>
  */
 class myFOSSIL_Specimen {

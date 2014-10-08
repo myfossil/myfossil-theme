@@ -6,8 +6,8 @@
  * @link       http://atmoapps.com
  * @since      0.0.1
  *
- * @package    myFOSSIL_Specimen
- * @subpackage myFOSSIL_Specimen/includes
+ * @package    myFOSSIL
+ * @subpackage myFOSSIL/includes
  */
 
 /**
@@ -16,8 +16,8 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the dashboard-specific stylesheet and JavaScript.
  *
- * @package    myFOSSIL_Specimen
- * @subpackage myFOSSIL_Specimen/admin
+ * @package    myFOSSIL
+ * @subpackage myFOSSIL/admin
  * @author     Brandon Wood <bwood@atmoapps.com>
  */
 class myFOSSIL_Specimen_Public {
