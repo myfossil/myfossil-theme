@@ -1,0 +1,31 @@
+{
+    "name": "myfossil/wp-plugin-specimen",
+    "description": "WordPress plugin that adds Fossil Specimens management",
+    "license": "BSD",
+    "keywords": ["myfossil"],
+    "authors": [
+        {
+            "name": "Brandon Wood",
+            "email": "bwood@atmoapps.com"
+        }
+    ],
+    "repositories": [
+        {
+            "url": "https://github.com/myfossil/pbdb-php.git",
+            "type": "git"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "myfossil/pbdb": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*",
+        "myfossil/pbdb": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "myFOSSIL\\WordPress\\Plugins\\Specimen\\": "src"
+        }
+    }
+}
