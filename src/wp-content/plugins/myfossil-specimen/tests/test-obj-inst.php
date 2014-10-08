@@ -53,4 +53,3 @@ class PluginObjectTest extends \WP_UnitTestCase {
     }
 
 }
-
