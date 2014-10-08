@@ -3,8 +3,8 @@
 /**
  * The file that defines the core plugin class
  *
- * A class definition that includes attributes and functions used across both the
- * public-facing side of the site and the dashboard.
+ * A class definition that includes attributes and functions used across both
+ * the public-facing side of the site and the dashboard.
  *
  * @link       http://atmoapps.com
  * @since      0.0.1
@@ -30,8 +30,8 @@
 class myFOSSIL_Specimen {
 
     /**
-     * The loader that's responsible for maintaining and registering all hooks that power
-     * the plugin.
+     * The loader that's responsible for maintaining and registering all hooks
+     * that power the plugin.
      *
      * @since    0.0.1
      * @access   protected
@@ -60,9 +60,9 @@ class myFOSSIL_Specimen {
     /**
      * Define the core functionality of the plugin.
      *
-     * Set the plugin name and the plugin version that can be used throughout the plugin.
-     * Load the dependencies, define the locale, and set the hooks for the Dashboard and
-     * the public-facing side of the site.
+     * Set the plugin name and the plugin version that can be used throughout
+     * the plugin.  Load the dependencies, define the locale, and set the hooks
+     * for the Dashboard and the public-facing side of the site.
      *
      * @since    0.0.1
      */
@@ -88,8 +88,8 @@ class myFOSSIL_Specimen {
      * - myFOSSIL_Specimen_Admin. Defines all hooks for the dashboard.
      * - myFOSSIL_Specimen_Public. Defines all hooks for the public side of the site.
      *
-     * Create an instance of the loader which will be used to register the hooks
-     * with WordPress.
+     * Create an instance of the loader which will be used to register the
+     * hooks with WordPress.
      *
      * @since    0.0.1
      * @access   private
@@ -100,30 +100,36 @@ class myFOSSIL_Specimen {
          *
          * @see composer.json
          */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'vendor/autoload.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) .
+            'vendor/autoload.php';
 
         /**
-         * The class responsible for orchestrating the actions and filters of the
-         * core plugin.
+         * The class responsible for orchestrating the actions and filters of
+         * the core plugin.
          */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-myfossil-specimen-loader.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) .
+            'includes/class-myfossil-specimen-loader.php';
 
         /**
-         * The class responsible for defining internationalization functionality
-         * of the plugin.
+         * The class responsible for defining internationalization
+         * functionality of the plugin.
          */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-myfossil-specimen-i18n.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) .
+            'includes/class-myfossil-specimen-i18n.php';
 
         /**
-         * The class responsible for defining all actions that occur in the Dashboard.
+         * The class responsible for defining all actions that occur in the
+         * Dashboard.
          */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-myfossil-specimen-admin.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) .
+            'admin/class-myfossil-specimen-admin.php';
 
         /**
-         * The class responsible for defining all actions that occur in the public-facing
-         * side of the site.
+         * The class responsible for defining all actions that occur in the
+         * public-facing side of the site.
          */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-myfossil-specimen-public.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) .
+            'public/class-myfossil-specimen-public.php';
 
         $this->loader = new myFOSSIL_Specimen_Loader();
 
@@ -132,8 +138,8 @@ class myFOSSIL_Specimen {
     /**
      * Define the locale for this plugin for internationalization.
      *
-     * Uses the myFOSSIL_Specimen_i18n class in order to set the domain and to register the hook
-     * with WordPress.
+     * Uses the myFOSSIL_Specimen_i18n class in order to set the domain and to
+     * register the hook with WordPress.
      *
      * @since    0.0.1
      * @access   private
@@ -148,8 +154,8 @@ class myFOSSIL_Specimen {
     }
 
     /**
-     * Register all of the hooks related to the dashboard functionality
-     * of the plugin.
+     * Register all of the hooks related to the dashboard functionality of the
+     * plugin.
      *
      * @since    0.0.1
      * @access   private
@@ -164,8 +170,8 @@ class myFOSSIL_Specimen {
     }
 
     /**
-     * Register all of the hooks related to the public-facing functionality
-     * of the plugin.
+     * Register all of the hooks related to the public-facing functionality of
+     * the plugin.
      *
      * @since    0.0.1
      * @access   private
@@ -189,8 +195,8 @@ class myFOSSIL_Specimen {
     }
 
     /**
-     * The name of the plugin used to uniquely identify it within the context of
-     * WordPress and to define internationalization functionality.
+     * The name of the plugin used to uniquely identify it within the context
+     * of WordPress and to define internationalization functionality.
      *
      * @since     0.0.1
      * @return    string    The name of the plugin.

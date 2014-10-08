@@ -13,9 +13,9 @@
 /**
  * Register all actions and filters for the plugin.
  *
- * Maintain a list of all hooks that are registered throughout
- * the plugin, and register them with the WordPress API. Call the
- * run function to execute the list of actions and filters.
+ * Maintain a list of all hooks that are registered throughout the plugin, and
+ * register them with the WordPress API. Call the run function to execute the
+ * list of actions and filters.
  *
  * @package    myFOSSIL
  * @subpackage myFOSSIL/includes
@@ -117,11 +117,15 @@ class myFOSSIL_Specimen_Loader {
     public function run() {
 
         foreach ( $this->filters as $hook ) {
-            add_filter( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
+            add_filter( $hook['hook'], array( $hook['component'],
+                        $hook['callback'] ), $hook['priority'],
+                        $hook['accepted_args'] );
         }
 
         foreach ( $this->actions as $hook ) {
-            add_action( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
+            add_action( $hook['hook'], array( $hook['component'],
+                        $hook['callback'] ), $hook['priority'],
+                        $hook['accepted_args'] );
         }
 
     }

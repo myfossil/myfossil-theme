@@ -3,8 +3,8 @@
 /**
  * Define the internationalization functionality
  *
- * Loads and defines the internationalization files for this plugin
- * so that its ready for translation.
+ * Loads and defines the internationalization files for this plugin so that its
+ * ready for translation.
  *
  * @link       http://atmoapps.com
  * @since      0.0.1
@@ -16,8 +16,8 @@
 /**
  * Define the internationalization functionality.
  *
- * Loads and defines the internationalization files for this plugin
- * so that its ready for translation.
+ * Loads and defines the internationalization files for this plugin so that its
+ * ready for translation.
  *
  * @since      0.0.1
  * @package    myFOSSIL

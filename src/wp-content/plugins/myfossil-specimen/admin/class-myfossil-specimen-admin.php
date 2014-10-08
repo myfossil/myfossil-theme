@@ -13,8 +13,8 @@
 /**
  * The dashboard-specific functionality of the plugin.
  *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the dashboard-specific stylesheet and JavaScript.
+ * Defines the plugin name, version, and two examples hooks for how to enqueue
+ * the dashboard-specific stylesheet and JavaScript.
  *
  * @package    myFOSSIL
  * @subpackage myFOSSIL/admin
@@ -48,10 +48,8 @@ class myFOSSIL_Specimen_Admin {
 	 * @var      string    $version    The version of this plugin.
 	 */
 	public function __construct( $name, $version ) {
-
 		$this->name = $name;
 		$this->version = $version;
-
 	}
 
 	/**
@@ -62,18 +60,19 @@ class myFOSSIL_Specimen_Admin {
 	public function enqueue_styles() {
 
 		/**
-		 * This function is provided for demonstration purposes only.
+         * This function is provided for demonstration purposes only.
 		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in myFOSSIL_Specimen_Admin_Loader as all of the hooks are defined
-		 * in that particular class.
+         * An instance of this class should be passed to the run() function
+         * defined in myFOSSIL_Specimen_Admin_Loader as all of the hooks are
+         * defined in that particular class.
 		 *
-		 * The myFOSSIL_Specimen_Admin_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
+         * The myFOSSIL_Specimen_Admin_Loader will then create the relationship
+         * between the defined hooks and the functions defined in this class.
 		 */
 
-		wp_enqueue_style( $this->name, plugin_dir_url( __FILE__ ) . 'css/myfossil-specimen-admin.css', array(), $this->version, 'all' );
+        wp_enqueue_style( $this->name, plugin_dir_url( __FILE__ ) .
+                'css/myfossil-specimen-admin.css', array(), $this->version,
+                'all' );
 
 	}
 
@@ -85,18 +84,19 @@ class myFOSSIL_Specimen_Admin {
 	public function enqueue_scripts() {
 
 		/**
-		 * This function is provided for demonstration purposes only.
+         * This function is provided for demonstration purposes only.
 		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in myFOSSIL_Specimen_Admin_Loader as all of the hooks are defined
-		 * in that particular class.
+         * An instance of this class should be passed to the run() function
+         * defined in myFOSSIL_Specimen_Admin_Loader as all of the hooks are
+         * defined in that particular class.
 		 *
-		 * The myFOSSIL_Specimen_Admin_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
+         * The myFOSSIL_Specimen_Admin_Loader will then create the relationship
+         * between the defined hooks and the functions defined in this class.
 		 */
 
-		wp_enqueue_script( $this->name, plugin_dir_url( __FILE__ ) . 'js/myfossil-specimen-admin.js', array( 'jquery' ), $this->version, false );
+        wp_enqueue_script( $this->name, plugin_dir_url( __FILE__ ) .
+                'js/myfossil-specimen-admin.js', array( 'jquery' ),
+                $this->version, false );
 
 	}
 
