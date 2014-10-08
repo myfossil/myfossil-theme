@@ -14,11 +14,19 @@
  * @package WordPress
  */
 
+/** Hotfix for Vagrant/host OS compatability. */
+if ( !isset( $_SERVER['SERVER_NAME'] ) || empty( $_SERVER['SERVER_NAME'] ) )
+    $_SERVER['SERVER_NAME'] = 'myfossil.local';
+
 /** Point to WordPress core */
 define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . ':8080/wp-core');
 define('WP_HOME',    'http://' . $_SERVER['SERVER_NAME'] . ':8080');
 define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
 define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . ':8080/wp-content');
+
+/** Fix WordPress paths */
+define('WP_PLUGIN_DIR', dirname( __FILE__ ) . '/wp-content/plugins' );
+define('WP_PLUGIN_URL', 'http://' . $_SERVER['SERVER_NAME'] . ':8080/wp-content/plugins' );
 
 /** Production settings */
 /*
@@ -26,6 +34,8 @@ define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-core');
 define('WP_HOME',    'http://' . $_SERVER['SERVER_NAME']);
 define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
 define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
+define('WP_PLUGIN_DIR', dirname( __FILE__ ), 'wp-content/plugins' );
+define('WP_PLUGIN_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content/plugins' );
 */
 
 // ** MySQL settings - You can get this info from your web host ** //
@@ -94,6 +104,7 @@ define('WPLANG', '');
  * in their development environments.
  */
 define('WP_DEBUG', false);
+
 
 /* That's all, stop editing! Happy blogging. */
 
