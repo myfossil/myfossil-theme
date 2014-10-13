@@ -31,7 +31,7 @@ class mysql {
 
   # We set the root password here
   exec { 'set-mysql-password':
-    unless  => "mysql --user=root --password=${mysql_root_passwd} ${wp_databsae} -e exit",
+    unless  => "mysql --user=root --password=${mysql_root_passwd} ${wp_database} -e exit",
     command => "mysqladmin --user=root password ${mysql_root_passwd}",
     path    => ['/bin', '/usr/bin'],
     require => Service['mysql'],

@@ -1,10 +1,4 @@
 class nginx {
-  # Symlink /var/www/app on our guest with 
-  # host /path/to/vagrant/app on our system
-  file { '/var/www/myfossil':
-    ensure  => 'link',
-    target  => '/vagrant/src',
-  }
 
   # Install the nginx package. This relies on apt-get update
   package { 'nginx':
@@ -20,7 +14,7 @@ class nginx {
 
   # Add a vhost template
   file { 'vagrant-nginx':
-    path => '/etc/nginx/sites-available/myfossil',
+    path => '/etc/nginx/sites-available/myfossil-dev',
     ensure => file,
     require => Package['nginx'],
     source => 'puppet:///modules/nginx/myfossil.conf',
@@ -35,8 +29,8 @@ class nginx {
 
   # Symlink our vhost in sites-enabled to enable it
   file { 'vagrant-nginx-enable':
-    path => '/etc/nginx/sites-enabled/myfossil',
-    target => '/etc/nginx/sites-available/myfossil',
+    path => '/etc/nginx/sites-enabled/myfossil-dev',
+    target => '/etc/nginx/sites-available/myfossil-dev',
     ensure => link,
     notify => Service['nginx'],
     require => [
