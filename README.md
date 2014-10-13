@@ -25,7 +25,7 @@ Then perform the following actions:
 $ vagrant plugin install vagrant-hostmanager
 $ vagrant up
 $ vagrant ssh
-vagrant$ /vagrant/puppet/vagrant/dev_db_import.sh
+vagrant$ /vagrant/puppet/local/dev_db_import.sh
 vagrant$ vim /etc/nginx/nginx.conf
 ```
 
