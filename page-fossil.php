@@ -20,10 +20,8 @@ $fossil->id = $wp_query->query_vars['page'];
 
 if ( $fossil->id ):
 $fossil->load();
-
 ?>
-
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area container">
 		<main id="main" class="site-main" role="main">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
