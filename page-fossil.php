@@ -16,16 +16,46 @@ get_header();
 use \myFOSSIL\Plugin\Specimen\FossilOccurence;
 
 $fossil = new FossilOccurence;
-$fossil->id = 1;
+$fossil->id = $wp_query->query_vars['page'];
+
+if ( $fossil->id ):
 $fossil->load();
 
 ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-            <h1>Fossil atmoapps/<?=sprintf( "%04d", $fossil->id ) ?></h1>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
+                    <img class="img-responsive" src="http://placehold.it/1024x1024" />
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
+                    <h1>Fossil atmoapps/<?=sprintf( "%04d", $fossil->id ) ?></h1>
+            
+                    <ul class="list-inline">
+                        <li>Author: <a>Jane Doe</a></li>
+                        <li>Updated: <?=$fossil->created_at ?></li>
+                        <li>Location: <?=$fossil->location->country ?></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
+                    <button class="btn btn-primary btn-block">Follow</button>
+                </div>
+            </div>
+
+            <hr />
             
             <div class="row">
+                <div class="col-lg-12">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a>Information</a></li>
+                        <li class="inactive disabled"><a>History</a></li>
+                        <li class="inactive disabled"><a>Contributors</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row clearfix">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
                     <h2>Classification</h2>
 
@@ -172,4 +202,46 @@ $fossil->load();
         google.maps.event.addDomListener(window, 'load', init_map);
     </script>
 
+<?php
+else:
+?>
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+        <h1>Fossils</h1>
+        <hr />
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Taxon</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $tpl = "SELECT * FROM %s;";
+                $sql = sprintf( $tpl, FossilOccurence::get_table_name() );
+
+                foreach ( $wpdb->get_results( $sql ) as $fp ) {
+                    $fossil = new FossilOccurence;
+                    $fossil->id = $fp->id;
+                    $fossil->taxon_id = $fp->taxon_id;
+                    $fossil->location_id = $fp->location_id;
+                ?>
+                <tr>
+                    <td><a href="/fossils/<?=$fossil->id ?>">atmoapps/<?=sprintf( "%04d", $fossil->id ) ?></a></td>
+                    <td><?=$fossil->taxon->name ?></td>
+                    <td><?=$fossil->location->country ?></td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+ 
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+<?php
+endif;
+?>
 <?php get_footer(); ?>
