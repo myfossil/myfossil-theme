@@ -1,0 +1,137 @@
+@import "myfossil/navbar";
+
+$size-buddypress-padding-top		: 20px;
+$size-buddypress-header-padding		: 20px;
+
+#buddypress
+{
+	padding-top : $size-buddypress-padding-top;
+	background-color: white;
+	// border-left: 1px solid $color-backgrond-border;
+	// border-right: 1px solid $color-backgrond-border;
+	border: 1px solid $color-backgrond-border;
+}
+
+#buddypress-header
+{
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+
+	#item-header
+	{
+		padding-top: $size-buddypress-header-padding;
+		padding-bottom: $size-buddypress-header-padding;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+
+	#item-header-avatar
+	{
+		// padding-left: 0 !important;
+		// padding-right: 0 !important;
+	}
+
+	 #item-header-avatar + #item-header-content
+	 {}
+
+	h1
+	{
+		border-bottom: none;
+	}
+
+	&.dark
+	{
+		border-top: 4px solid black;
+		background-color: $black;
+		color: darken( white, 50% );
+
+		h1, h1 a,
+		h2, h2 a
+		{
+			color: white;
+			text-shadow: 0px 4px 2px black;
+		}
+
+		.nav-tabs li
+		{
+			margin-bottom: 0;
+			border-right: 1px solid $black;
+
+			&.active
+			{
+				@include box-shadow( 0px 1px 0px 0px white );
+			}
+		}
+	}
+
+	#item-nav
+	{
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+
+	.item-list-tabs
+	{
+		margin: 0;
+	}
+
+	.nav-tabs
+	{
+		border-bottom: none;
+
+		li
+		{
+
+			&.active > a
+			{
+				&,
+				&:hover,
+				&:focus
+				{
+					background-color: white;
+
+					color: $black;
+					text-shadow: none;
+				}
+			}
+
+			a
+			{
+				padding-top: 10px;
+				padding-bottom: 10px;
+				padding-left: 30px;
+				padding-right: 30px;
+
+				background-color: darken( white, 70% );
+
+		        text-shadow: 0px -1px black;
+
+		        &:hover
+		        {
+		        	border: none !important;
+		        }
+			}
+		}
+	}
+}
+
+.nav-tabs
+{
+	li
+	{
+
+	}
+
+	li a
+	{
+		margin-right: 0;
+
+		border-radius: 0;
+
+		font-family: $headings-font-family;
+        font-weight: $headings-font-weight;
+        color: $color-gray-medium;
+        text-transform: uppercase;
+        text-decoration: none;
+	}
+}

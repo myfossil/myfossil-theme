@@ -1,0 +1,63 @@
+.navbar
+{
+	font-family: $font-family-sans-serif;
+	color: $color-gray-medium;
+	font-size: 16px;
+}
+
+.navbar a
+{
+	text-decoration: none;
+}
+
+
+a.navbar-brand
+{
+	display: inline-block;
+	width: 230px;
+
+	background-image : url("#{$path-images}/nav/myfossil-logo.png"); 
+	background-repeat: no-repeat;
+	background-position: center center;
+
+	text-indent: -1000px;
+}
+
+.navbar-nav
+{}
+
+.navbar-nav#nav-main li a
+{
+	text-transform: uppercase;
+	font-weight: 600;
+	color: $color-gray-medium;
+
+	&.selected,
+	&:hover
+	{
+		color: $color-black;
+
+		span
+		{
+			border-bottom: 2px solid $color-brown-light;
+		}
+	}
+}
+
+.navbar-nav#nav-loggedin
+{
+	a#dropdown-menu-user
+	{
+		padding-top: 20px;
+		padding-bottom: 18px;
+	}
+
+	a#notifications
+	{
+		padding-left: 40px;
+		padding-right: 20px;
+
+		font-size: 22px;
+		// color: red;
+	}
+}
