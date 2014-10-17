@@ -1,5 +1,5 @@
 <?php do_action( 'bp_before_directory_groups_page' ); ?>
-<div id="buddypress-header" class="container">
+<div id="buddypress-header">
 
     <div id="item-header" role="complementary" class="container">
 
@@ -54,11 +54,11 @@
 
 </div>
 
-<div id="buddypress" class="container">
+<div id="buddypress" class="container container-no-padding page-styling no-border-top">
 
-    <div class="row">
+    
 
-        <div class="col-md-8">
+        <div class="col-md-8 page-padding next-to-right-sidebar">
                 <div id="groups-dir-list" class="groups dir-list">
                     <?php bp_get_template_part( 'groups/groups-loop' ); ?>
                 </div><!-- #groups-dir-list -->
@@ -68,12 +68,12 @@
                 <?php do_action( 'bp_after_directory_groups_content' ); ?>
         </div>
 
-        <div class="col-md-4">
-            <div id="group-dir-search" class="dir-search" role="search">
+        <div class="col-md-4 sidebar sidebar-right page-padding">
+            <div id="group-dir-search" class="dir-search section" role="search">
                 <?php bp_directory_groups_search_form(); ?>
             </div><!-- #group-dir-search -->
 
-            <div class="item-list-tabs" id="subnav" role="navigation">
+            <div class="item-list-tabs section" id="subnav" role="navigation">
                 <ul>
                     <?php do_action( 'bp_groups_directory_group_types' ); ?>
 
@@ -94,7 +94,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    
 
 	<?php do_action( 'bp_after_directory_groups' ); ?>
 

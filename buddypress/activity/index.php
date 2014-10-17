@@ -5,17 +5,18 @@
 	<?php do_action('bp_before_directory_activity_content'); ?>
     
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <?php if (is_user_logged_in()): ?>
                 <?php bp_get_template_part('activity/left-menu'); ?>
             <?php endif; ?>
         </div>
 
-        <div class="col-md-8 left-right-border">
-            <h1 style="margin:0;padding:0">What's New</h1>
-            <div style="margin:5px;width: 100%;height:50px;">&nbsp;</div>
+        <div class="col-md-10 no-padding">
+            <h2 class="no-padding">What's New</h2>
+        </div>
 
-            <h4>Announcements</h4>
+        <div class="col-md-10 page-styling separate">
+            <h5 class="no-margin">Announcements</h5>
             <div class="row">
                 <div class="col-sm-1" style="padding-top: 10px; padding-left: 25px">
                     <i class="fa fa-fw fa-circle fa-info"></i>
@@ -26,18 +27,23 @@
                     magna.
                 </div>
             </div>
-
+        </div>
+        <div class="col-md-10 page-styling">
             <?php if (is_user_logged_in()): ?>
                 <?php bp_get_template_part('activity/post-form'); ?>
             <?php endif; ?>
-
+        </div>
+        <div class="col-md-10">
             <?php do_action('template_notices'); ?>
+        </div>
+
+        <div class="col-md-10 col-no-padding separate-top">
 
             <div class="item-list-tabs activity-type-tabs" role="navigation">
                 <ul class="nav nav-tabs" role="tablist">
                     <?php do_action('bp_before_activity_type_tab_all'); ?>
 
-                    <li id="activity-all">
+                    <li id="activity-all" class="selected active">
                         <a href="<?php bp_activity_directory_permalink(); ?>" title="<?php esc_attr_e('The public activity for everyone on this site.', 'buddypress'); ?>">
                             <?php printf(__('All Members <span class="badge">%s</span>', 'buddypress') , bp_get_total_member_count()); ?>
                         </a>
@@ -98,6 +104,8 @@
                     <?php do_action('bp_activity_type_tabs'); ?>
                 </ul>
             </div><!-- .item-list-tabs -->
+        </div>
+        <div class="col-md-10 page-styling">
 
             <div class="item-list-tabs no-ajax pull-right" id="subnav" role="navigation">
                 <ul style="margin-top: 10px;">

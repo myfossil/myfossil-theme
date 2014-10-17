@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5, h6,
 
   &, a 
   { color: $headings-color; }
-
+  
   small,
   .small {
     font-weight: normal;
@@ -27,7 +27,7 @@ h1, .h1,
 h2, .h2,
 h3, .h3 {
   margin-top: $line-height-computed;
-  margin-bottom: ($line-height-computed / 2);
+  margin-bottom: ($line-height-computed);
 
   small,
   .small {
@@ -45,14 +45,6 @@ h6, .h6 {
   .small {
     font-size: 75%;
   }
-}
-
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6
-{
-  text-transform: uppercase;
 }
 
 h1, .h1 { font-size: $font-size-h1; }

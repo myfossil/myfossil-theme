@@ -21,7 +21,7 @@
 
 </div>
 
-<div id="buddypress" class="container">
+<div id="buddypress" class="container page-styling">
 
 	<div id="item-body">
 		<?php do_action( 'bp_before_group_body' );

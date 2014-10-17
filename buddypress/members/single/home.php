@@ -15,7 +15,7 @@
 	</div><!-- #item-nav -->
 </div>
 
-<div id="buddypress" class="container">
+<div id="buddypress" class="container page-styling">
 
 	<div id="item-body" role="main">
 
