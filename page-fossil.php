@@ -73,7 +73,7 @@ $fossil->load();
                         ?>
                             <tr>
                                 <td><?=ucwords( $k ) ?></td>
-                                <?php if ( $v = @$fossil->{ $k }->name ): ?>
+                                <?php if ( $v = $fossil->{ $k }->name ): ?>
                                     <td><?=$v ?></td>
                                 <?php else: ?>
                                     <td><span class="text-muted">Unknown</span></td>
