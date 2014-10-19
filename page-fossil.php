@@ -34,6 +34,9 @@ $fossil->load();
                         <li>Author: <a>Jane Doe</a></li>
                         <li>Updated: <?=$fossil->created_at ?></li>
                         <li>Location: <?=$fossil->location->country ?></li>
+                        <?php if ( $fossil->pbdbid ): ?>
+                            <li>PBDB: <a href="<?=$fossil->pbdb->url(); ?>&show=phylo"><?=$fossil->pbdbid ?></a></li>
+                        <?php endif; ?>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
@@ -57,9 +60,9 @@ $fossil->load();
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
                     <h2>Classification</h2>
 
-                    <h4>Common Name</h3>
+                    <h4>Name</h3>
                     <p style="font-style: italic">
-                        <?=$fossil->taxon->common_name ? $fossil->taxon->common_name : $fossil->taxon->name ?>
+                        <?=@$fossil->taxon->common_name ? $fossil->taxon->common_name : $fossil->taxon->name ?>
                     </p>
 
                     <table class="table table-hover table-condensed">
@@ -228,7 +231,7 @@ else:
                     $fossil->location_id = $fp->location_id;
                 ?>
                 <tr>
-                    <td><a href="/fossils/<?=$fossil->id ?>">atmoapps/<?=sprintf( "%04d", $fossil->id ) ?></a></td>
+                    <td><a href="/fossils/<?=$fossil->id ?>">myfossil/<?=sprintf( "%04d", $fossil->id ) ?></a></td>
                     <td><?=$fossil->taxon->name ?></td>
                     <td><?=$fossil->location->country ?></td>
                 </tr>
