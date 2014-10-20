@@ -31,6 +31,7 @@
 			<link rel="stylesheet" href="/wp-content/themes/myfossil/static/css/style-homepage.min.css" />
 			<link rel="stylesheet" href="/wp-content/themes/myfossil/static/css/style-wide.min.css" />
 		</noscript>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lte IE 8]><link rel="stylesheet" href="/wp-content/themes/myfossil/static/css/ie/v8.css" /><![endif]-->
         <style>
         </style>
@@ -81,8 +82,15 @@
 						<h2>We're building a community of
 						<br />
 						amateur and professional paleontologists.</h2>
-                        <p>Meet fossil enthusiasts and paleontologists. Share your
-                        fossil collection and contribute to science.</p>
+                        <h3>Come meet us at GSA 2014!</h3>
+                        <p>
+                        Meet fossil enthusiasts and paleontologists. Share your
+                        fossil collection and contribute to science.
+                        <br />
+                        FOSSIL will be at the the Geological Society of America
+                        Annual Meeting in Vancouver (Oct. 19-22, 2014). We'll
+                        get you connected!
+                        </p>
 					</header>
 					<span class="featured"></span>
                     <div class="flexible-container">
@@ -120,7 +128,7 @@
 			</section>
 			
 		<!-- CTA -->
-			<section id="cta">
+			<section id="cta" style="display: none">
 				
 				<h2>Sign up for our newsletter</h2>
 				<p>We'll keep you posted.</p>
