@@ -18,13 +18,9 @@
         <div class="col-md-10 page-styling separate">
             <h5 class="no-margin">Announcements</h5>
             <div class="row">
-                <div class="col-sm-1" style="padding-top: 10px; padding-left: 25px">
+                <div class="col-sm-12"><br />
                     <i class="fa fa-fw fa-circle fa-info"></i>
-                </div>
-                <div class="col-sm-11">
-                    Morbi pretium dapibus diam, quis fringilla felis vehicula non.
-                    Quisque id elit nisi. In vel facilisis lorem, ut blandit
-                    magna.
+                    Welcome to the myFOSSIL development site. Breaking changes, data loss and downtime <strong>will</strong> happen!
                 </div>
             </div>
         </div>
