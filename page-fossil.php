@@ -206,7 +206,7 @@ $fossil->load();
 <?php
 else:
 ?>
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area container">
 		<main id="main" class="site-main" role="main">
         <h1>Fossils</h1>
         <hr />
