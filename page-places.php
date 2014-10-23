@@ -7,6 +7,7 @@
  * @package myFOSSIL
  */
 get_header(); 
+
 ?>
 
 <script id="tpl-places" type="text/x-handlebars-template">
@@ -44,6 +45,9 @@ $place_properties = array( 'type', 'country', 'state', 'city', 'zip',
 <div id="primary" class="container content-area">
     <main id="main" class="site-main" role="main">
         <h1>Find Fossils</h1>
+        <div class="row">
+            <div class="hidden-xs hidden-sm col-md-12" style="margin: 0 0 20px 0; height:600px;" id="map-canvas"></div>
+        </div>
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-3">
                 <h3>Filters</h3>
