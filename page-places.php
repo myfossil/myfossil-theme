@@ -11,8 +11,9 @@ get_header();
 
 <script id="tpl-places" type="text/x-handlebars-template">
 <?php
-$place_properties = array( 'title', 'content', 'type', 'country', 'state',
-        'city', 'zip', 'address', 'latitude', 'longitude', 'url', 'map_url' );
+/* @todo redesign/refactor such that PHP not required for template */
+$place_properties = array( 'type', 'country', 'state', 'city', 'zip',
+        'address', 'latitude', 'longitude' );
 ?>
 {{#each places}}
     <div class="panel panel-default col-xs-12 col-sm-12 col-md-6" 
@@ -21,14 +22,20 @@ $place_properties = array( 'title', 'content', 'type', 'country', 'state',
         <div class="panel-body">
             <h5>{{ title }}</h5>
             <p>{{ content }}</p>
-            <dl>
-            <?php foreach ( $place_properties as $pp ): ?>
+            <table class="table">
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+                <?php foreach ( $place_properties as $pp ): ?>
                 {{#if <?=$pp ?>}}
-                <dt><?=ucfirst( $pp ) ?></dt>
-                <dd>{{ <?=$pp ?> }}</dd>
+                <tr>
+                    <td><?=ucfirst( $pp ) ?></td>
+                    <td>{{ <?=$pp ?> }}</td>
+                </tr>
                 {{/if}}
-            <?php endforeach; ?>
-            </dl>
+                <?php endforeach; ?>
+            </table>
         </div>
     </div>
 {{/each}}
