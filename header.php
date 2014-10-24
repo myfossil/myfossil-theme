@@ -42,7 +42,26 @@
           <ul class="nav navbar-nav navbar-right" id="nav-loggedin">
             <?php if (is_user_logged_in()): ?>
               <!-- user logged in, show messages and info -->
-                <li><a href="#" id="notifications"><i class="fa fa-bell-o"></i></a></li>
+                <?php
+                if ( $nn = bp_notifications_get_unread_notification_count( bp_loggedin_user_id() ) ): ?>
+                    <li>
+                        <a href="<?=bp_core_get_user_domain( bp_loggedin_user_id() ); ?>/notifications" 
+                                id="notifications">
+                            <div class="unread">
+                                <i class="fa fa-bell-o"></i>
+                            </div>
+                        </a>
+                    </li>
+                <?php else: ?>
+                    <li>
+                        <a href="<?=bp_core_get_user_domain( bp_loggedin_user_id() ); ?>/notifications" 
+                                id="notifications">
+                            <div> 
+                                <i class="fa fa-bell-o"></i>
+                            </div>
+                        </a>
+                    </li>
+                <?php endif; ?>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" id="dropdown-menu-user" data-toggle="dropdown">
                     <?php bp_loggedin_user_avatar('width=' . bp_core_avatar_thumb_width() . '&height=' . bp_core_avatar_thumb_height()); ?>
