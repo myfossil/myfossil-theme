@@ -2,12 +2,6 @@
 @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic");
 @import url("http://fonts.googleapis.com/css?family=Merriweather:300,400,300italic,400italic");
 
-/*
-	Alpha by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 /* Basic */
 
 	body {
@@ -160,6 +154,23 @@
 
 /* Section/Article */
 
+    .updates ul {
+        list-style: none;
+        text-align: left !important;
+    }
+
+    .updates ul li {
+        padding: 10px;
+        margin: 5px;
+        font-size: 0.8em;
+    }
+
+    span.update {
+        position: relative; 
+        top: -15px;
+        left: 5px;
+    }
+
 	section.special, article.special {
 		text-align: center;
 	}
@@ -305,6 +316,7 @@
 		padding: 0.75em 1em;
 	}
 
+    /*
 	input[type="checkbox"],
 	input[type="radio"] {
 		-moz-appearance: none;
@@ -319,7 +331,7 @@
 		width: 1em;
 		z-index: -1;
 	}
-
+    */
 		input[type="checkbox"] + label,
 		input[type="radio"] + label {
 			text-decoration: none;

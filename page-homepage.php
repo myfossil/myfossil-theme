@@ -11,6 +11,9 @@
  *
  * @package myfossil
  */
+
+if ( is_user_logged_in() && is_front_page() )
+    wp_redirect( '/activity' );
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -31,9 +34,13 @@
 			<link rel="stylesheet" href="/wp-content/themes/myfossil/static/css/style-homepage.min.css" />
 			<link rel="stylesheet" href="/wp-content/themes/myfossil/static/css/style-wide.min.css" />
 		</noscript>
+
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<!--[if lte IE 8]><link rel="stylesheet" href="/wp-content/themes/myfossil/static/css/ie/v8.css" /><![endif]-->
         <style>
+        .avatar {
+            border-radius: 100px;
+        }
         </style>
 	</head>
 	<body class="landing">
@@ -59,7 +66,6 @@
                                 <li><a href="http://www.myfossil.org/resources/national-fossil-day/">National Fossil Day</a></li>
                             </ul>
                         </li>
-						<li><a href="<?=wp_login_url( "/activity" ) ?>" class="button">Sign In</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -69,8 +75,8 @@
                 <h2>Social Paleontology</h2>
                 <p>Building connections in the paleontological community.</p>
 				<ul class="actions">
-					<li><a href="<?=wp_login_url( "/activity" ) ?>" class="button special">Sign In</a></li>
-					<li><a href="#" class="button">Learn More</a></li>
+                    <li><a href="<?=wp_login_url( '/activity' ) ?>" class="button">Sign In</a></li>
+					<li><a href="#learn-more" class="button">Learn More</a></li>
 				</ul>
 			</section>
 
@@ -82,22 +88,18 @@
 						<h2>We're building a community of
 						<br />
 						amateur and professional paleontologists.</h2>
-                        <h3>Come meet us at GSA 2014!</h3>
                         <p>
                         Meet fossil enthusiasts and paleontologists. Share your
                         fossil collection and contribute to science.
-                        <br />
-                        FOSSIL will be at the the Geological Society of America
-                        Annual Meeting in Vancouver (Oct. 19-22, 2014). We'll
-                        get you connected!
                         </p>
 					</header>
 					<span class="featured"></span>
                     <div class="flexible-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d83328.79048033235!2d-123.123904!3d49.25697769999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1413404509753" width="600" height="450" frameborder="0" style="border:0"></iframe>
+                        <div id="map-canvas" style="width: 100%; height: 600px;" />
                     </div>
 				</section>
 						
+                <a name="learn-more"></a>
 				<section class="box special features">
 					<div class="features-row">
 						<section>
@@ -124,7 +126,33 @@
 						</section>
 					</div>
 				</section>
-					
+			    <section class="special">
+                    <div class="row uniform half collapse-at-2">
+                        <div class="6u">
+                            <h3>Sign in</h3>
+                            <div class="box">
+                                <?php wp_login_form(); ?>
+                            </div>
+                        </div>
+                        <div class="6u">
+                            <div class="updates">
+                                <h3>Recent Activity</h3>
+                                <ul>
+                                <?php if ( bp_has_activities( 'display_comments=false&per_page=8' ) ) : ?>
+                                    <?php while ( bp_activities() ) : bp_the_activity(); ?>
+                                        <li class="box">
+                                            <?php bp_activity_avatar(); ?>
+                                            <span class="update">
+                                                <?=$activities_template->activity->action; ?>
+                                            </span>
+                                        </li>
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    </section>    
 			</section>
 			
 		<!-- CTA -->
@@ -147,16 +175,102 @@
 			</section>
 			
 		<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="https://www.facebook.com/TheFossilProject" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="https://twitter.com/projectFOSSIL" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="https://github.com/myfossil" class="icon fa-github"><span class="label">Github</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; myFOSSIL. All rights reserved.</li>
-				</ul>
-			</footer>
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="https://www.facebook.com/TheFossilProject" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="https://twitter.com/projectFOSSIL" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="https://github.com/myfossil" class="icon fa-github"><span class="label">Github</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; myFOSSIL. All rights reserved.</li>
+            </ul>
+        </footer>
 
+        <!-- Google Maps -->
+        <script type="text/javascript"
+              src="https://maps.googleapis.com/maps/api/js"></script>
+
+        <script type="text/javascript">
+            // {{{ init_map
+            function init_map() {
+                var mapOptions = {
+                        center: { 
+                            lat: 39.50, 
+                            lng: -98.35
+                        },
+                        zoom: 4
+                    };
+
+                var map = new google.maps.Map(
+                        document.getElementById("map-canvas"), mapOptions );
+
+                <?php
+                    // get fossil listing
+                    global $wpdb;
+                    use \myFOSSIL\Plugin\Specimen\FossilOccurence;
+
+                    $tpl = "SELECT * FROM %s;";
+                    $sql = sprintf( $tpl, FossilOccurence::get_table_name() );
+
+                    $fossils = array();
+                    foreach ( $wpdb->get_results( $sql ) as $fp ) {
+                        $fossil = new FossilOccurence;
+                        $fossil->id = $fp->id;
+                        $fossil->taxon_id = $fp->taxon_id;
+                        $fossil->location_id = $fp->location_id;
+
+                        $fossils[] = ( 
+                                array(
+                                    'name' => $fossil->taxon->name,
+                                    'latitude' =>  $fossil->location->latitude,
+                                    'longitude' =>  $fossil->location->longitude,
+                                )
+                            );
+                    }
+
+                    printf( 'fossils = %s', json_encode( $fossils ) );
+                ?>
+
+                // Add a marker for each place on the map.
+                fossils.forEach(
+                    function( fossil ) {
+                        // Produce the marker on the map.
+                        var marker = new google.maps.Marker(
+                                {
+                                    position: new google.maps.LatLng(
+                                        fossil.latitude,
+                                        fossil.longitude
+                                    ),
+                                    map: map,
+                                    icon: '/wp-content/themes/myfossil/static/img/mine-map-icon.png'
+                                }
+                            );
+
+                        // Create an info pop-up window for the marker.
+                        var info = new google.maps.InfoWindow(
+                                { content: fossil.name }
+                            );
+
+                        // Show additional information when clicked.
+                        ( function( marker, fossil ) {
+                            google.maps.event.addListener( marker, 'click', 
+                                    function() {
+                                        info.setContent( 
+                                            '<h3>' + fossil.name + '</h3>'
+                                        ),
+                                        info.open( map, marker );
+                                    }
+                                );
+                        } )( marker, fossil );
+                    }
+                );
+            }
+            // }}}
+
+            // Load up Google map with markers.
+            $( function() {
+                google.maps.event.addDomListener( window, 'load', init_map );
+            });
+        </script>
 	</body>
 </html>
