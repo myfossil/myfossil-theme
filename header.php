@@ -50,7 +50,7 @@
                     <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-menu-user">
-                    <li role="presentation"><a role="menuitem" href="#">Action</a></li>
+                    <?php bp_get_loggedin_user_nav(); ?>
                   </ul>
                 </li>
             <?php else: ?>
