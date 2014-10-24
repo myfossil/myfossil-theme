@@ -59,7 +59,7 @@
             <?php // bp_group_description(); ?>
 
             <div id="item-buttons">
-                <?php do_action( 'bp_group_header_actions' ); ?>
+                <?php // do_action( 'bp_group_header_actions' ); ?>
             </div><!-- #item-buttons -->
 
             <?php do_action( 'bp_group_header_meta' ); ?>

@@ -202,7 +202,7 @@ $btn-default-border:             lighten( $color-gray-medium, 30% ) !default;
 $btn-default-gradient-start:     $btn-default-bg !default;
 $btn-default-gradient-end:       darken($btn-default-gradient-start, 5%) !default;
 
-$btn-primary-color:              $color-primary !default;
+$btn-primary-color:              $white !default;
 $btn-primary-bg:                 $brand-primary !default;
 $btn-primary-border:             darken($btn-primary-bg, 5%) !default;
 $btn-primary-gradient-start:     $brand-primary !default;
