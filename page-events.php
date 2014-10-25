@@ -33,10 +33,21 @@ get_header();
     <main id="main" class="site-main" role="main">
         <h1>Events</h1>
         <div class="row">
+	    <div class="col-sm-12 col-md-4 col-lg-3">
+              <h3>Filters</h3>
+              
+	      <form role="form" id="filters">
+		<h4>Start Date</h4>
+		<input type="text" id="start-date-picker">
+		<h4>End Date</h4>
+		<input type="text" id="end-date-picker">
+	      </form>
+	    </div>
+          
+  
             <?php wp_nonce_field( 'myfr_filter', 'myfr_filter_nonce' ); ?>
-            <div class="col-lg-12" id="events-list" />
+            <div class="col-sm-12 col-md-8 col-lg-9" id="events-list" />
         </div>
     </main>
 </div>
-
 <?php get_footer(); ?>

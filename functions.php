@@ -115,6 +115,8 @@ function myfossil_scripts()
     /* Styles */
     wp_enqueue_style('myfossil-style', get_template_directory_uri() . '/static/css/style.css');
     wp_enqueue_style('font-awesome', "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
+    wp_enqueue_style('jquery-ui-theme', get_template_directory_uri() . '/static/css/jquery-ui.theme.min.css');
+    wp_enqueue_style('jquery-ui-structure', get_template_directory_uri() . '/static/css/jquery-ui.structure.min.css');
 
     /* Scripts */
     //wp_enqueue_script('bootstrap-js', "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js");
@@ -126,6 +128,7 @@ function myfossil_scripts()
     wp_enqueue_script( 'html5', get_template_directory_uri() . '/static/js/html5.min.js' );
     wp_enqueue_script( 'password-verify', get_template_directory_uri() . '/static/js/password-verify.min.js' );
     wp_enqueue_script( 'respond', get_template_directory_uri() . '/static/js/respond.min.js' );
+    wp_enqueue_script( 'jquery-ui', get_template_directory_uri() . '/static/js/jquery-ui.min.js' );
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
