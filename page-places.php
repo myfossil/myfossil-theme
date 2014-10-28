@@ -100,6 +100,7 @@ get_header();
                     </div>
                 </form>
             </div>
+            <?php wp_nonce_field( 'myfr_filter', 'myfr_filter_nonce' ); ?>
             <div class="col-sm-12 col-md-8 col-lg-9" id="places-list" />
         </div>
     </main>
