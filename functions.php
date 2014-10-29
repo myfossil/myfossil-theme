@@ -79,6 +79,8 @@ if (!function_exists('myfossil_setup')):
             'default-image' => '',
         )));
 
+        add_theme_support( 'post-thumbnails' );
+
         /*
          * Disable the admin bar
          */

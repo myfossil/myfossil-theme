@@ -15,6 +15,7 @@ $fossils = new WP_Query(
             <thead>
                 <tr>
                     <th>Author</th>
+                    <th>Thumbnail</th>
                     <th>Location</th>
                     <th>Taxon</th>
                     <th>Geochronology</th>
@@ -26,7 +27,10 @@ $fossils = new WP_Query(
             <?php $fossil = new Fossil( get_the_id() ); ?>
                 <tr data-href="<?=get_the_id() ?>">
                     <td>
-                        <?php echo get_avatar( get_the_author_meta( 'ID' ), 50 ); ?>
+                        <?=get_avatar( get_the_author_meta( 'ID' ), 50 ); ?>
+                    </td>
+                    <td>
+                        <img style="max-width: 75px" src="<?=$fossil->image ?>" class="img-responsive" />
                     </td>
                     <td>
                         <?=$fossil->location ?>
@@ -35,10 +39,10 @@ $fossils = new WP_Query(
                         <?=$fossil->taxon ?>
                     </td>
                     <td>
-                        <?=$fossil->stratum ?>
+                        <?=$fossil->time_interval ?>
                     </td>
                     <td>
-                        <?=$fossil->time_interval ?>
+                        <?=$fossil->stratum ?>
                     </td>
                 </tr>
             <?php endwhile; ?>
@@ -46,6 +50,7 @@ $fossils = new WP_Query(
             <tfoot>
                 <tr>
                     <th>Author</th>
+                    <th>Thumbnail</th>
                     <th>Location</th>
                     <th>Taxon</th>
                     <th>Geochronology</th>

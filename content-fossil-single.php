@@ -2,37 +2,39 @@
 use myFOSSIL\Plugin\Specimen\Fossil;
 $fossil = new Fossil( $page );
 ?>
-<div id="primary" class="content-area container">
-    <main id="main" class="site-main" role="main">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
-                <img class="img-responsive" src="http://placehold.it/1024x1024" />
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
-                <h1>Fossil <?=sprintf( "%06d", $fossil->id ) ?></h1>
-                <ul class="list-inline">
-                    <li>Author: <?=$fossil->author ?></li>
-                    <li>Updated: <?=$fossil->updated_at ?></li>
-                    <li>Location: <?=$fossil->location ?></li>
-                </ul>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
-                <button class="btn btn-primary btn-block">Follow</button>
-            </div>
-        </div>
-
-        <hr />
-        
-        <div class="row">
-            <div class="col-lg-12">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a>Information</a></li>
-                    <li class="inactive disabled"><a>History</a></li>
-                    <li class="inactive disabled"><a>Contributors</a></li>
-                </ul>
+<div id="primary" class="content-area">
+    <div id="buddypress-header" class="dark">
+        <div id="item-header" class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
+                    <img class="avatar img-responsive" src="<?=$fossil->image ?>" />
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
+                    <h1>Fossil <?=sprintf( "%06d", $fossil->id ) ?></h1>
+                    <dl class="inline">
+                        <li>Author</dt><dd><?=$fossil->author ?></dd>
+                        <dt>Updated</dt><dd><?=$fossil->updated_at ?></dd>
+                        <dt>Location</dt><dd><?=$fossil->location ?></dd>
+                    </dl>
+                </div>
+                <?php /*
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
+                    <button class="btn btn-primary btn-block">Follow</button>
+                </div>
+                */ ?>
             </div>
         </div>
 
+        <div id="item-nav" class="container">
+            <ul class="nav nav-tabs">
+                <li class="active"><a>Information</a></li>
+                <li class="inactive disabled"><a>History</a></li>
+                <li class="inactive disabled"><a>Contributors</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="buddypress" class="container page-styling site-main" role="main">
         <div class="row clearfix">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
                 <h2>Classification</h2>
@@ -90,14 +92,20 @@ $fossil = new Fossil( $page );
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
                 <h2>Images</h2>
-                <img class="img-responsive" src="http://placehold.it/350x350" />
+                <img class="img-responsive" src="<?=$fossil->image ?>" />
             </div>
         </div>
 
         <h2>Location</h2>
         <div class="row">
-            <div id="map-container" class="hidden-xs hidden-sm col-md-6 col-lg-6" style="height: 300px">
-            </div>
+            <?php if ( $fossil->location->latitude && $fossil->location->longitude ): ?>
+                <div id="map-container" class="hidden-xs hidden-sm col-md-6 col-lg-6" style="height: 300px">
+                </div>
+            <?php else: ?>
+                <div id="map-container" class="hidden-xs hidden-sm col-md-6 col-lg-6" style="height: 300px; background-color: #eee;">
+                    <p class="text-muted" style="position: absolute; top: 45%; width: 100%; text-align: center">Insufficient information available to create map</p>
+                </div>
+            <?php endif; ?>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <table class="table table-hover table-condensed">
                     <?php
@@ -118,7 +126,7 @@ $fossil = new Fossil( $page );
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <h2>Geochronology</h2>
-                <span id="geochronology"><?=$fossil->time_interval->name ?></span>
+                <span id="geochronology" class="sr-only"><?=$fossil->time_interval->name ?></span>
                 <table class="table table-hover table-condensed">
                     <?php
                     foreach ( array( 'era', 'period', 'epoch', 'age' ) as $n => $k ):
@@ -138,19 +146,34 @@ $fossil = new Fossil( $page );
                 <h2>Lithostratigraphy</h2>
                 <table class="table table-hover table-condensed">
                     <?php
-                    foreach ( array( 'group', 'formation', 'member', 'notes' ) as $k ):
+                    foreach ( array( 'group', 'formation', 'member', 'notes' ) as $n => $k ):
                         ?>
                         <tr>
                             <td><?=ucwords( $k ) ?></td>
-                            <td><span class="text-muted">Unknown</span></td>
+                            <td id="lithostratigraphy-<?=($n + 1 ) ?>">
+                            <?php if ( $fossil->stratum->level == $k ): ?>
+                                <span><?=$fossil->stratum->name ?></span>
+                            <?php else: ?>
+                                <span class="text-muted">Unknown</span>
+                            <?php endif; ?> 
+                            </td>
                         </tr>
                         <?php
                     endforeach; ?>
                 </table>
             </div>
         </div>
+
+        <?php if ( comments_open() || '0' != get_comments_number() ): ?>
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Comments</h2>
+				<?php bp_activity_comments() ?>
+            </div>
+        </div>
+        <?php endif; ?>
      
-    </main><!-- #main -->
+    </div><!-- #main -->
 </div><!-- #primary -->
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -243,7 +266,6 @@ $fossil = new Fossil( $page );
                 console.log( err );
             }
         });
-
     }
 
     $( function() {
