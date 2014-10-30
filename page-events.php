@@ -32,6 +32,12 @@ get_header();
 <div id="primary" class="container content-area">
     <main id="main" class="site-main" role="main">
         <h1>Events</h1>
+	<div class="row">
+	  <div class="hidden-xs hidden-sm col-md-12" 
+	       style="margin: 0 0 20px 0; height: 600px;"
+	       id="map-canvas" />
+	</div>
+	
         <div class="row">
 	    <div class="col-sm-12 col-md-4 col-lg-3">
               <h3>Filters</h3>
