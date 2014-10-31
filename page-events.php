@@ -13,8 +13,9 @@ get_header();
 <script id="tpl-events" type="text/x-handlebars-template">
 {{#each events}}
     <div class="panel panel-default col-xs-12 col-sm-12 col-md-6" 
-            data-place-state="{{ state }}"
-            data-place-type="{{ type }}">
+            data-event-state="{{ state }}"
+            data-event-type="{{ type }}"
+            data-event-date="{{ month_year }}">
         <div class="panel-body">
             <h5 class="pull-left">{{ title }}</h5>
             <p class="pull-right">
