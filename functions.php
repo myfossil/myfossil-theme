@@ -180,6 +180,8 @@ require get_template_directory() . '/includes/bbpress.php';
 
 
 function parse_meta( $meta ) {
+    if ( ! $meta ) return array();
+
     $parsed_meta = array();
     foreach ( $meta as $k => $v )
         if ( !( strpos( $k, '_', 0) === 0 ) )

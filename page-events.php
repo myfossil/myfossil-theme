@@ -9,7 +9,7 @@
 get_header(); 
 ?>
 
-<!-- {{{ places template -->
+<!-- {{{ events template -->
 <script id="tpl-events" type="text/x-handlebars-template">
 {{#each events}}
     <div class="panel panel-default col-xs-12 col-sm-12 col-md-6" 
@@ -42,16 +42,20 @@ get_header();
 	    <div class="col-sm-12 col-md-4 col-lg-3">
               <h3>Filters</h3>
               
-	      <form role="form" id="filters">
-		<h4>Start Date</h4>
-		<input type="text" id="start-date-picker">
-		<h4>End Date</h4>
-		<input type="text" id="end-date-picker">
-	      </form>
-	    </div>
+              <form role="form" id="filters">
+                <?php wp_nonce_field( 'myfr_filter', 'myfr_filter_nonce' ); ?>
+                <h4>State</h4>
+                <select class="form-control" id="state"></select>
+
+                <h4>When</h4>
+                <select class="form-control" id="month-year"> </select>
+
+                <h4>Type</h4>
+                <div id="types-selected"></div>
+
+              </form>
+            </div>
           
-  
-            <?php wp_nonce_field( 'myfr_filter', 'myfr_filter_nonce' ); ?>
             <div class="col-sm-12 col-md-8 col-lg-9" id="events-list" />
         </div>
     </main>
