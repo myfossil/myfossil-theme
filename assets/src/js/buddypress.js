@@ -644,9 +644,9 @@ jq(document).ready( function() {
 		}
 
 		/* Deleting an activity comment */
-		if ( target.hasClass('acomment-delete') ) {
+		if ( target.hasClass( 'acomment-delete' ) ) {
 			link_href = target.attr('href');
-			comment_li = target.parent().parent();
+			comment_li = target.parent().parent().parent();
 			form = comment_li.parents('div.activity-comments').children('form');
 
 			nonce = link_href.split('_wpnonce=');

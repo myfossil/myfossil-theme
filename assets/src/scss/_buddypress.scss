@@ -2,7 +2,7 @@
  * General
  */
 #subnav {
-    margin: $padding-base-vertical 0 $padding-base-vertical 0;
+    // margin: $padding-base-vertical 0 $padding-base-vertical 0;
 }
 
 .item-list-tabs {
@@ -81,7 +81,8 @@ dl.inline {
  * Activity
  */
 #whats-new-form {
-    margin-bottom: $padding-base-vertical;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .activity {
@@ -92,6 +93,10 @@ dl.inline {
 
 .avatar {
     @include border-radius( $border-radius-base );
+}
+
+.avatar-25, .avatar-30 {
+    @include border-radius( 30px );
 }
 
 .avatar-50 {
@@ -113,25 +118,51 @@ dl.inline {
  * Comments
  */
 .acomment {
-    border-left: 1px solid $panel-inner-border;
-    padding: $padding-base-vertical $padding-base-horizontal $padding-base-vertical $padding-base-horizontal;
+    margin: 10px 0 10px 0;
 
     .acomment-avatar {
         padding-right: $padding-base-horizontal;
     }
 
-    .acomment-meta {
-        color: $gray-light;
+    .acomment-content {
+        font-size: 24px;
 
-        a {
-            color: inherit;
-            border-bottom: 1px dashed $gray-light;
+        p {
+            padding: 10px 0 0 0;
+        }
+    }
+
+    .acomment-meta {
+
+        color: $color-gray-light;
+              
+        a { 
+            color: inherit; 
         }
 
         a:hover {
             font-weight: bold;
             border: 0;
             text-decoration: none;
+        }
+    }
+
+    .acomment-options {
+        font-size: 0.6em;
+        font-weight: none;
+
+        .delete {
+            @extend .pull-right;
+        }
+    }
+}
+
+.panel-footer {
+    a {
+        text-decoration: none;
+
+        span.badge {
+            background-color: $color-brown;
         }
     }
 }

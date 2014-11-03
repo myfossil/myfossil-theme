@@ -72,3 +72,29 @@ a.navbar-brand
         }
 	}
 }
+
+#nav-footer {
+    a {
+        color: $white;
+        text-decoration: none;
+        text-transform: capitalize !important;
+
+        &:hover {
+            background-color: $black;
+            text-decoration: underline;
+        }
+    }
+}
+
+#footer-disclaimer {
+    font-size: 0.8em;
+    color: $white;
+}
+
+#footer-logos {
+    text-align: right;
+    
+    .row {
+        text-align: center;
+    }
+}
