@@ -27,11 +27,12 @@
 
 <?php if ( bbp_current_user_can_access_create_topic_form() ) : ?>
 
-	<div id="new-topic-<?php bbp_topic_id(); ?>" class="bbp-topic-form well well-sm">
+	<div id="new-topic-<?php bbp_topic_id(); ?>" class="bbp-topic-form panel panel-default">
 
-		<form id="new-post" name="new-post" method="post" action="<?php the_permalink(); ?>">
+		<form id="new-post" name="new-post" method="post" action="<?php the_permalink(); ?>" class="form">
 
 			<?php do_action( 'bbp_theme_before_topic_form' ); ?>
+            <div class="panel-body">
 
 			<fieldset class="bbp-form">
 				<legend>
@@ -55,27 +56,30 @@
 
 				<?php endif; ?>
 
-				<?php if ( current_user_can( 'unfiltered_html' ) ) : ?>
+				<?php /* if ( current_user_can( 'unfiltered_html' ) ) : ?>
 
 					<div class="bbp-template-notice alert alert-info">
 						<p><?php _e( 'Your account has the ability to post unrestricted HTML content.', 'myfossil' ); ?></p>
 					</div>
 
-				<?php endif; ?>
+				<?php endif; */ ?>
 
 				<?php do_action( 'bbp_template_notices' ); ?>
-
-				<div>
 
 					<?php bbp_get_template_part( 'form', 'anonymous' ); ?>
 
 					<?php do_action( 'bbp_theme_before_topic_form_title' ); ?>
 
                     <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="icon-comments"></i></span>
-                            <input type="text" class="form-control" id="bbp_topic_title" placeholder="<?php printf( __( 'Topic Title (Maximum Length: %d):', 'myfossil' ), bbp_get_title_max_length() ); ?>" value="<?php bbp_form_topic_title(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_title" maxlength="<?php bbp_title_max_length(); ?>" />
-                        </div>
+                        <label for="bbp_topic_title">Subject:</label>
+                        <input type="text" 
+                                class="form-control" 
+                                id="bbp_topic_title" 
+                                placeholder="<?php printf( __( 'Topic Title (Maximum Length: %d)', 'myfossil' ), bbp_get_title_max_length() ); ?>" 
+                                value="<?php bbp_form_topic_title(); ?>" 
+                                tabindex="<?php bbp_tab_index(); ?>" 
+                                name="bbp_topic_title" 
+                                maxlength="<?php bbp_title_max_length(); ?>" />
                     </div>
 
 					<?php do_action( 'bbp_theme_after_topic_form_title' ); ?>
@@ -87,14 +91,14 @@
                     
 					<?php do_action( 'bbp_theme_before_topic_form_content' ); ?>
 
-					<?php bbp_the_content( array( 'context' => 'topic', 'tinymce' => false ) ); ?>
-
+                    <div class="form-group well well-sm">
+                        <?php bbp_the_content( array( 'context' => 'topic', 'tinymce' => false ) ); ?>
+                    </div>
 
 					<?php do_action( 'bbp_theme_after_topic_form_content' ); ?>
 
 					<?php if ( bbp_is_anonymous() || ( bbp_is_topic_edit() && bbp_is_topic_anonymous() ) || ( bbp_is_reply_edit() && bbp_is_reply_anonymous() ) ) { ?>
                             </div><!-- col-xs-12 col-sm-8 col-md-8 -->
-                          </div><!-- row -->
                     <?php } ?>
 
 					<?php /*if ( ! ( bbp_use_wp_editor() || current_user_can( 'unfiltered_html' ) ) ) : ?>
@@ -112,7 +116,7 @@
 
 						<p>
 							<label for="bbp_topic_tags"><?php _e( 'Topic Tags:', 'myfossil' ); ?></label><br />
-							<input type="text" value="<?php bbp_form_topic_tags(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
+							<input type="text" value="<?php bbp_form_topic_tags(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> class="form-control" />
 						</p>
 
 						<?php do_action( 'bbp_theme_after_topic_form_tags' ); ?>
@@ -214,7 +218,9 @@
 
 						<?php do_action( 'bbp_theme_before_topic_form_submit_button' ); ?>
 
-						<button type="submit" class="btn btn-primary" tabindex="<?php bbp_tab_index(); ?>" id="bbp_topic_submit" name="bbp_topic_submit" class="button submit"><?php _e( 'Submit', 'myfossil' ); ?></button>
+						<button type="submit" class="btn btn-default" tabindex="<?php bbp_tab_index(); ?>" id="bbp_topic_submit" name="bbp_topic_submit" class="button submit">
+                            <?php _e( 'Post', 'myfossil' ); ?>
+                        </button>
 
 						<?php do_action( 'bbp_theme_after_topic_form_submit_button' ); ?>
 
