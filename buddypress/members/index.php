@@ -7,7 +7,7 @@
         <div class="row" id="groups-header">
 
             <div id="item-header-content" class="col-md-9">
-                <h1>Collaborate</h1>
+                <h1>Members</h1>
             </div><!-- #item-header-content -->
 
             <div class="col-md-3">
