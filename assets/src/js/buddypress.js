@@ -1662,9 +1662,9 @@ function bp_init_activity() {
 	/* Activity Tab Set */
 	if ( null != jq.cookie('bp-activity-scope') && jq('.activity-type-tabs').length ) {
 		jq('.activity-type-tabs li').each( function() {
-			jq(this).removeClass('selected');
+			jq(this).removeClass('selected active');
 		});
-		jq('#activity-' + jq.cookie('bp-activity-scope') + ', .item-list-tabs li.current').addClass('selected');
+		jq('#activity-' + jq.cookie('bp-activity-scope') + ', .item-list-tabs li.current').addClass('selected active');
 	}
 }
 
@@ -1677,9 +1677,9 @@ function bp_init_objects(objects) {
 
 		if ( null != jq.cookie('bp-' + objects[i] + '-scope') && jq('div.' + objects[i]).length ) {
 			jq('.item-list-tabs li').each( function() {
-				jq(this).removeClass('selected');
+				jq(this).removeClass('selected active');
 			});
-			jq('#' + objects[i] + '-' + jq.cookie('bp-' + objects[i] + '-scope') + ', #object-nav li.current').addClass('selected');
+			jq('#' + objects[i] + '-' + jq.cookie('bp-' + objects[i] + '-scope') + ', #object-nav li.current').addClass('selected active');
 		}
 	});
 }
@@ -1707,9 +1707,9 @@ function bp_filter_request( object, filter, scope, target, search_terms, page, e
 
 	/* Set the correct selected nav and filter */
 	jq('.item-list-tabs li').each( function() {
-		jq(this).removeClass('selected');
+		jq(this).removeClass('selected active');
 	});
-	jq('#' + object + '-' + scope + ', #object-nav li.current').addClass('selected');
+	jq('#' + object + '-' + scope + ', #object-nav li.current').addClass('selected active');
 	jq('.item-list-tabs li.selected').addClass('loading');
 	jq('.item-list-tabs select option[value="' + filter + '"]').prop( 'selected', true );
 
@@ -1770,10 +1770,10 @@ function bp_activity_request(scope, filter) {
 
 	/* Remove selected and loading classes from tabs */
 	jq('.item-list-tabs li').each( function() {
-		jq(this).removeClass('selected loading');
+		jq(this).removeClass('selected active loading');
 	});
 	/* Set the correct selected nav and filter */
-	jq('#activity-' + scope + ', .item-list-tabs li.current').addClass('selected');
+	jq('#activity-' + scope + ', .item-list-tabs li.current').addClass('selected active');
 	jq('#object-nav.item-list-tabs li.selected, div.activity-type-tabs li.selected').addClass('loading');
 	jq('#activity-filter-select select option[value="' + filter + '"]').prop( 'selected', true );
 
