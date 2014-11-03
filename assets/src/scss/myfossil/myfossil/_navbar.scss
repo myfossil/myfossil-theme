@@ -57,17 +57,18 @@ a.navbar-brand
 
 	a#notifications
 	{
-        padding: 22px 20px 0 40px;
+        padding: 32px 20px 0 40px;
 		font-size: 22px;
-
-        div {
-            padding: 10px;
-        }
 
         .unread {
             color: $white;
-            background-color: $gray;
-            border-radius: 100px;
+            position: absolute;
+            top: 20px;
+            right: 10px;
+
+            span {
+                background-color: $color-brown-light;
+            }
         }
 	}
 }

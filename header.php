@@ -47,8 +47,9 @@
                     <li>
                         <a href="<?=bp_core_get_user_domain( bp_loggedin_user_id() ); ?>/notifications" 
                                 id="notifications">
+                            <i class="fa fa-bell-o"></i>
                             <div class="unread">
-                                <i class="fa fa-bell-o"></i>
+                                <span class="badge"><?=$nn ?></span>
                             </div>
                         </a>
                     </li>
