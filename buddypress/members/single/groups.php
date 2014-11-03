@@ -13,21 +13,23 @@
 	<ul class="nav nav-tabs">
 		<?php if ( bp_is_my_profile() ) bp_get_options_nav(); ?>
 
-		<?php if ( !bp_is_current_action( 'invites' ) ) : ?>
+		<?php if ( ! bp_is_current_action( 'invites' ) ) : ?>
 
+            <?php /*
 			<li id="groups-order-select" class="last filter">
 
-				<label for="groups-sort-by"><?php _e( 'Order By:', 'buddypress' ); ?></label>
-				<select id="groups-sort-by">
-					<option value="active"><?php _e( 'Last Active', 'buddypress' ); ?></option>
-					<option value="popular"><?php _e( 'Most Members', 'buddypress' ); ?></option>
-					<option value="newest"><?php _e( 'Newly Created', 'buddypress' ); ?></option>
-					<option value="alphabetical"><?php _e( 'Alphabetical', 'buddypress' ); ?></option>
-
+                <div class="form-horizontal form-group">
+                    <label for="groups-sort-by" class="control-label"><?php _e( 'Order By:', 'buddypress' ); ?></label>
+                    <select id="groups-sort-by" class="form-control">
+                        <option value="active"><?php _e( 'Last Active', 'buddypress' ); ?></option>
+                        <option value="popular"><?php _e( 'Most Members', 'buddypress' ); ?></option>
+                        <option value="newest"><?php _e( 'Newly Created', 'buddypress' ); ?></option>
+                        <option value="alphabetical"><?php _e( 'Alphabetical', 'buddypress' ); ?></option>
 					<?php do_action( 'bp_member_group_order_options' ); ?>
-
-				</select>
+                    </select>
+                </div>
 			</li>
+            */ ?>
 
 		<?php endif; ?>
 
