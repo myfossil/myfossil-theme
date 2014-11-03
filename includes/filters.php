@@ -120,6 +120,7 @@ function filter_activity_link( $html ) {
     $html = str_replace('<span>' , '<span class="badge">', $html);
     return str_replace('button', 'btn btn-default button', $html);
 }
+/*
 add_filter( 'bp_get_activity_delete_link'         , 'filter_activity_link' );
 add_filter( 'bp_activity_comment_delete_link'     , 'filter_activity_link' );
 add_filter( 'bp_activity_comment_user_link'       , 'filter_activity_link' );
@@ -137,6 +138,7 @@ add_filter( 'bp_get_activity_permalink_id'        , 'filter_activity_link' );
 add_filter( 'bp_get_activity_thread_permalink'    , 'filter_activity_link' );
 add_filter( 'bp_get_activity_unfavorite_link'     , 'filter_activity_link' );
 add_filter( 'bp_get_activity_user_link'           , 'filter_activity_link' );
+*/
 add_filter( 'bp_get_send_public_message_link'     , 'filter_activity_link' );
 add_filter( 'bp_get_sitewide_activity_feed_link'  , 'filter_activity_link' );
 
@@ -145,7 +147,7 @@ add_filter( 'bp_get_sitewide_activity_feed_link'  , 'filter_activity_link' );
  * Change comment list to media objects
  */
 function filter_comment_list( $default ) {
-    return $default == '<ul>' ? '<div class="media">' : '</div>';
+    return null;
 }
 add_filter( 'bp_activity_recurse_comments_start_ul', 'filter_comment_list' );
 add_filter( 'bp_activity_recurse_comments_end_ul', 'filter_comment_list' );

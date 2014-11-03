@@ -113,25 +113,47 @@ dl.inline {
  * Comments
  */
 .acomment {
-    border-left: 1px solid $panel-inner-border;
-    padding: $padding-base-vertical $padding-base-horizontal $padding-base-vertical $padding-base-horizontal;
+    // border-left: 1px solid $panel-inner-border;
+    //padding: $padding-base-vertical $padding-base-horizontal $padding-base-vertical $padding-base-horizontal;
 
     .acomment-avatar {
         padding-right: $padding-base-horizontal;
     }
 
-    .acomment-meta {
-        color: $gray-light;
+    .acomment-content {
+        font-size: 24px;
+    }
 
-        a {
-            color: inherit;
-            border-bottom: 1px dashed $gray-light;
+    .acomment-meta {
+        color: $color-gray-light;
+              
+        a { 
+            color: inherit; 
         }
 
         a:hover {
             font-weight: bold;
             border: 0;
             text-decoration: none;
+        }
+    }
+
+    .acomment-options {
+        font-size: 0.6em;
+        font-weight: none;
+
+        .delete {
+            @extend .pull-right;
+        }
+    }
+}
+
+.panel-footer {
+    a {
+        text-decoration: none;
+
+        span.badge {
+            background-color: $color-brown;
         }
     }
 }
