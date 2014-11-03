@@ -6,18 +6,23 @@
 
 	<p><?php _e( 'Your profile photo will be used on your profile and throughout the site. If there is a <a href="http://gravatar.com">Gravatar</a> associated with your account email we will use that, or you can upload an image from your computer.', 'buddypress' ); ?></p>
 
-	<form action="" method="post" id="avatar-upload-form" class="standard-form" enctype="multipart/form-data">
+	<form action="" method="post" id="avatar-upload-form" class="form standard-form" enctype="multipart/form-data">
 
 		<?php if ( 'upload-image' == bp_get_avatar_admin_step() ) : ?>
 
 			<?php wp_nonce_field( 'bp_avatar_upload' ); ?>
 			<p><?php _e( 'Click below to select a JPG, GIF or PNG format photo from your computer and then click \'Upload Image\' to proceed.', 'buddypress' ); ?></p>
 
-			<p id="avatar-upload">
-				<input type="file" name="file" id="file" />
-				<input type="submit" name="upload" id="upload" value="<?php esc_attr_e( 'Upload Image', 'buddypress' ); ?>" />
-				<input type="hidden" name="action" id="action" value="bp_avatar_upload" />
-			</p>
+            <div class="form-group">
+                <p id="avatar-upload">
+                    <span class="file-input btn btn-default btn-file">
+                        Browse
+                        <input type="file" name="file" id="file" />
+                    </span>
+                    <input class="btn btn-default" type="submit" name="upload" id="upload" value="<?php esc_attr_e( 'Upload Image', 'buddypress' ); ?>" />
+                    <input type="hidden" name="action" id="action" value="bp_avatar_upload" />
+                </p>
+            </div>
 
 			<?php if ( bp_get_user_has_avatar() ) : ?>
 				<p><?php _e( "If you'd like to delete your current profile photo but not upload a new one, please use the delete profile photo button.", 'buddypress' ); ?></p>
@@ -36,7 +41,7 @@
 				<img src="<?php bp_avatar_to_crop(); ?>" id="avatar-crop-preview" class="avatar" alt="<?php esc_attr_e( 'Profile Photo preview', 'buddypress' ); ?>" />
 			</div>
 
-			<input type="submit" name="avatar-crop-submit" id="avatar-crop-submit" value="<?php esc_attr_e( 'Crop Image', 'buddypress' ); ?>" />
+			<input class="btn btn-default" type="submit" name="avatar-crop-submit" id="avatar-crop-submit" value="<?php esc_attr_e( 'Crop Image', 'buddypress' ); ?>" />
 
 			<input type="hidden" name="image_src" id="image_src" value="<?php bp_avatar_to_crop_src(); ?>" />
 			<input type="hidden" id="x" name="x" />
