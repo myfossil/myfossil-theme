@@ -12,7 +12,7 @@ var gulp      = require('gulp')
 ;
 
 gulp.task('styles', function() {
-  return gulp.src(['assets/src/scss/style.scss'])
+  return gulp.src(['assets/src/scss/style.scss', 'assets/src/scss/style-login.scss'])
       .pipe(sass())
       .pipe(plugins.autoprefixer('last 2 versions', 'ie 9', 'ios 6', 'android 4'))
       .pipe(gulp.dest('assets/staging'))
