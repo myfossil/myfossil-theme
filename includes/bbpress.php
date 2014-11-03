@@ -1,10 +1,9 @@
 <?php
 // We are adding thumbnail support for forums
-add_action('init', 'myfossil_social_bbpress_init');
 function myfossil_social_bbpress_init() {
 	add_post_type_support( 'forum', 'thumbnail' );
-
 }
+add_action('init', 'myfossil_social_bbpress_init');
 
 // We are adding bbpress support for theme special systems
 /*add_filter('myfossil_pre_get_posts_ekle', 'myfossil_bbpress_pre_get_posts_ekle');
@@ -278,14 +277,14 @@ if ( class_exists( 'BBP_Walker_Reply' ) ) {
 			// Style for div or list element
 			if ( 'div' === $args['style'] ) {
 				$tag = 'div';
-			} else if ($depth>1)  {
+			} else if ( $depth > 1 )  {
 				$tag = 'li class="list-unstyled panel panel-default"';
 			} else {
 				$tag = 'li class="list-unstyled"';
 			}?>
 
 			<<?php echo $tag ?>>
-				<?php if ($depth>1) { ?>
+				<?php if ( $depth > 1 ) { ?>
 				<?php bbp_get_template_part( 'loop', 'single-reply-threaded' ); ?>
 				<?php } else { ?>
 				<?php bbp_get_template_part( 'loop', 'single-reply' ); ?>
@@ -298,3 +297,148 @@ if ( class_exists( 'BBP_Walker_Reply' ) ) {
 
 	}
 }
+
+/**
+ * Style dropdowns
+ */
+function myfossil_bbp_form_topic_type_dropdown( $html, $r ) {
+    $tab = ! empty( $r['tab'] ) ? ' tabindex="' . (int) $r['tab'] . '"' : '';
+    ob_start();
+    ?>
+		<select name="<?php echo esc_attr( $r['select_id'] ); ?>" 
+                id="<?php echo esc_attr( $r['select_id'] ); ?>_select"<?php echo $tab; ?> 
+                class="form-control">
+            <?php foreach ( bbp_get_topic_types() as $key => $label ): ?>
+				<option value="<?php echo esc_attr( $key ); ?>"
+                    <?php selected( $key, $r['selected'] ); ?>>
+                    <?php echo esc_html( $label ); ?>
+                </option>
+			<?php endforeach; ?>
+		</select>
+    <?php
+    return ob_get_clean();
+}
+add_filter( 'bbp_get_form_topic_type_dropdown', "myfossil_bbp_form_topic_type_dropdown", 10, 2 );
+add_filter( 'bbp_get_form_topic_status_dropdown', "myfossil_bbp_form_topic_type_dropdown", 10, 2 );
+
+/**
+ * Just filter all the dropdowns... ugh...
+ */
+function myfossil_bbp_get_dropdown( $_, $args = '' ) {
+    /* 
+     * Arguments 
+     */
+    $defaults = array (
+            'post_type'          => bbp_get_forum_post_type(),
+            'selected'           => 0,
+            'sort_column'        => 'menu_order',
+            'child_of'           => '0',
+            'numberposts'        => -1,
+            'orderby'            => 'menu_order',
+            'order'              => 'ASC',
+            'walker'             => '',
+
+            // Output-related
+            'select_id'          => 'bbp_forum_id',
+            'tab'                => bbp_get_tab_index(),
+            'options_only'       => false,
+            'show_none'          => false,
+            'none_found'         => false,
+            'disable_categories' => true,
+            'disabled'           => ''
+        );
+    $r = bbp_parse_args( $args, $defaults, 'get_dropdown' );
+
+    if ( empty( $r['walker'] ) ) {
+        $r['walker']            = new BBP_Walker_Dropdown();
+        $r['walker']->tree_type = $r['post_type'];
+    }
+
+    // Force 0
+    if ( is_numeric( $r['selected'] ) && $r['selected'] < 0 )
+        $r['selected'] = 0;
+
+    extract( $r );
+
+    // Unset the args not needed for WP_Query to avoid any possible conflicts.
+    // Note: walker and disable_categories are not unset
+    unset( $r['select_id'], $r['tab'], $r['options_only'], $r['show_none'], $r['none_found'] );
+
+    /*
+     * Post Status 
+     */
+    // Define local variable(s)
+    $post_stati = array();
+
+    // Public
+    $post_stati[] = bbp_get_public_status_id();
+
+    // Forums
+    if ( bbp_get_forum_post_type() == $post_type ) {
+
+        // Private forums
+        if ( current_user_can( 'read_private_forums' ) ) {
+            $post_stati[] = bbp_get_private_status_id();
+        }
+
+        // Hidden forums
+        if ( current_user_can( 'read_hidden_forums' ) ) {
+            $post_stati[] = bbp_get_hidden_status_id();
+        }
+    }
+
+    // Setup the post statuses
+    $r['post_status'] = implode( ',', $post_stati );
+
+    /*
+     * Setup variables
+     */
+    $name      = esc_attr( $select_id );
+    $select_id = $name;
+    $tab       = (int) $tab;
+    $retval    = '';
+    $posts     = get_posts( $r );
+    $disabled  = disabled( isset( bbpress()->options[$disabled] ), true, false );
+
+    /*
+     * Drop Down
+     */
+    // Items found
+    if ( !empty( $posts ) ) {
+        if ( empty( $options_only ) ) {
+            $tab     = !empty( $tab ) ? ' tabindex="' . $tab . '"' : '';
+            $retval .= '<select name="' . $name . '" id="' . $select_id . '"' . $tab  . $disabled . ' class="form-control">' . "\n";
+        }
+
+        $retval .= !empty( $show_none ) ? "\t<option value=\"\" class=\"level-0\">" . $show_none . '</option>' : '';
+        $retval .= walk_page_dropdown_tree( $posts, 0, $r );
+
+        if ( empty( $options_only ) )
+            $retval .= '</select>';
+
+        // No items found - Display feedback if no custom message was passed
+    } elseif ( empty( $none_found ) ) {
+
+        // Switch the response based on post type
+        switch ( $post_type ) {
+
+            // Topics
+            case bbp_get_topic_post_type() :
+                $retval = __( 'No topics available', 'bbpress' );
+                break;
+
+            // Forums
+            case bbp_get_forum_post_type() :
+                $retval = __( 'No forums available', 'bbpress' );
+                break;
+
+            // Any other
+            default :
+                $retval = __( 'None available', 'bbpress' );
+                break;
+        }
+    }
+
+    return apply_filters( 'bbp_get_dropdown', $retval, $args );
+}
+add_filter( 'bbp_get_dropdown', "myfossil_bbp_get_dropdown", 10, 2 );

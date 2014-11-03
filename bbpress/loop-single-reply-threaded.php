@@ -50,7 +50,7 @@
 <?php $reply_manage = ob_get_contents(); ob_end_clean(); ?>
 
 <div id="post-<?php bbp_reply_id(); ?>" <?php bbp_reply_class(); ?>>
-<div class="<?php echo myfossil_social_bbp_get_reply_class_modal();?>">
+<div>
 	<div class="bbp-reply-content pull-left">
 
 		<?php do_action( 'bbp_theme_before_reply_content' ); ?>

@@ -49,10 +49,10 @@
 </div><!-- .bbp-reply-header -->
 <?php $reply_manage = ob_get_contents(); ob_end_clean(); ?>
 
-<div id="post-<?php bbp_reply_id(); ?>" <?php bbp_reply_class(bbp_get_reply_id(), array("modal myfossil-modal-static no-margin-bot")); ?>>
-<div class="modal-dialog no-margin-bot">
-<div class="modal-content">
-<div class="<?php echo myfossil_social_bbp_get_reply_class_modal();?> clearfix">
+<div id="post-<?php bbp_reply_id(); ?>" <?php bbp_reply_class(bbp_get_reply_id(), array("no-margin-bot")); ?>>
+<div class="panel panel-default no-margin-bot">
+<div class="panel-body">
+<div class="clearfix">
 	<div class="col-xs-4 col-md-3 pull-left bbp-reply-author text-muted fs-content-thumbnail">
 
 		<?php do_action( 'bbp_theme_before_reply_author_details' ); ?>
