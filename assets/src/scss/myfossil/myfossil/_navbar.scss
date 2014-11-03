@@ -35,6 +35,7 @@ a.navbar-brand
 	color: $color-gray-medium;
 
 	&.selected,
+	&.active,
 	&:hover
 	{
 		color: $color-black;

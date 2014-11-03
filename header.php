@@ -86,7 +86,25 @@
             <?php $items = wp_get_nav_menu_items('primary'); ?>
             <?php foreach ($items as $item): ?>
               <li>
-                <a href="<?php echo $item->url; ?>"><span><?php echo $item->title; ?></span></a>
+                <?php 
+                $page_array = get_option( 'bp-pages' );
+                if ( $post->post_title == "Site-Wide Activity" ) {
+                    $post->post_title = 'Activity';
+                    $post->title = 'Activity';
+                }
+
+                if ( array_key_exists( strtolower( $item->title ), $page_array ) ) {
+                    $item->object_id = $page_array[strtolower( $item->title )];
+                }
+                $class = ( $item->object_id == $post->ID || strtolower( $item->title ) == strtolower( $post->post_title ) ) ? ' class="selected"' : null;
+                /*
+                echo "<pre>";
+                print_r( $item );
+                print_r( $post );
+                echo "</pre>";
+                */
+                ?>
+                <a href="<?php echo $item->url; ?>"<?=$class ?>><span><?php echo $item->title; ?></span></a>
               </li>
             <?php endforeach; ?>
           </ul>

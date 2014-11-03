@@ -135,7 +135,7 @@ if (!class_exists('BP_Legacy')):
                     add_action('bp_group_header_actions', 'bp_group_join_button', 5);
                     add_action('bp_group_header_actions', 'bp_group_new_topic_button', 20);
                     add_action('bp_directory_groups_actions', 'bp_group_join_button');
-                    add_filter('bp_groups_directory_header', 'bp_legacy_theme_group_create_button');
+                    //add_filter('bp_groups_directory_header', 'bp_legacy_theme_group_create_button');
                     add_filter('bp_blogs_directory_header', 'bp_legacy_theme_blog_create_button');
                 }
 
