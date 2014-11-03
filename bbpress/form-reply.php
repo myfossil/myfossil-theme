@@ -59,7 +59,7 @@
 
 					<?php do_action( 'bbp_theme_before_reply_form_content' ); ?>
 
-					<?php bbp_the_content( array( 'context' => 'reply', 'tinymce' => true ) ); ?>
+					<?php bbp_the_content( array( 'context' => 'reply', 'tinymce' => false ) ); ?>
 
 					<?php do_action( 'bbp_theme_after_reply_form_content' ); ?>
 

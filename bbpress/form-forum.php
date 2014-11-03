@@ -72,7 +72,7 @@
 
 					<?php do_action( 'bbp_theme_before_forum_form_content' ); ?>
 
-					<?php bbp_the_content( array( 'context' => 'forum', 'tinymce' => true ) ); ?>
+					<?php bbp_the_content( array( 'context' => 'forum', 'tinymce' => false ) ); ?>
 
 					<?php do_action( 'bbp_theme_after_forum_form_content' ); ?>
 
