@@ -39,8 +39,8 @@
         </div>
 
         <!-- right nav -->
+        <?php if (is_user_logged_in()): ?>
           <ul class="nav navbar-nav navbar-right" id="nav-loggedin">
-            <?php if (is_user_logged_in()): ?>
               <!-- user logged in, show messages and info -->
                 <?php
                 if ( $nn = bp_notifications_get_unread_notification_count( bp_loggedin_user_id() ) ): ?>
@@ -73,13 +73,8 @@
                     <?php bp_get_loggedin_user_nav(); ?>
                   </ul>
                 </li>
-            <?php else: ?>
-              <!-- anonymous user, show login -->
-              <li>
-                  <a href="/admin">Login</a>
-              </li>
-            <?php endif; ?>
           </ul>
+        <?php endif; ?>
 
         <!-- nav links themselves -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -98,16 +93,16 @@
                     $item->object_id = $page_array[strtolower( $item->title )];
                 }
                 $class = ( $item->object_id == $post->ID || strtolower( $item->title ) == strtolower( $post->post_title ) ) ? ' class="selected"' : null;
-                /*
-                echo "<pre>";
-                print_r( $item );
-                print_r( $post );
-                echo "</pre>";
-                */
                 ?>
                 <a href="<?php echo $item->url; ?>"<?=$class ?>><span><?php echo $item->title; ?></span></a>
               </li>
             <?php endforeach; ?>
+            <?php if ( ! is_user_logged_in() ): ?>
+                <!-- anonymous user, show login -->
+                <li>
+                    <a href="<?=wp_login_url(); ?>"><span>Login</span></a>
+                </li>
+            <?php endif; ?>
           </ul>
           
           
