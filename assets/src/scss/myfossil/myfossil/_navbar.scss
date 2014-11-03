@@ -94,8 +94,7 @@ a.navbar-brand
 #footer-logos {
     text-align: right;
     
-    img {
-        @extend .img-responsive;
+    .row {
+        text-align: center;
     }
 }
-

@@ -3,7 +3,7 @@
     <footer id="colophon" class="site-footer" role="contentinfo">
 
         <div class="container">
-            <div class="row">
+            <div class="row" id="nav">
                 <div class="col-sm-12 col-lg-6">
                     <img 
                         src="<?=get_template_directory_uri() ?>/static/img/myfossil-logo-white-small.png" 
@@ -36,19 +36,19 @@
                     </ul>
                 </div><!-- .col-sm-12 .col-lg-6 -->
 
-                <div class="col-sm-12 col-lg-offset-2 col-lg-4" id="footer-logos">
+                <div class="col-sm-12 col-sm-12 col-lg-6" id="footer-logos">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-xs-12 col-md-4">
                             <a href="http://ufl.edu" rel="nofollow">
                                 <img src="<?=get_template_directory_uri() ?>/static/img/logos/uf.png" />
                             </a>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-xs-12 col-md-4">
                             <a href="https://www.flmnh.ufl.edu/" rel="nofollow">
                                 <img src="<?=get_template_directory_uri() ?>/static/img/logos/flmnh.png" />
                             </a>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-xs-12 col-md-4">
                             <a href="http://www.nsf.gov/" rel="nofollow">
                                 <img src="<?=get_template_directory_uri() ?>/static/img/logos/nsf.png" />
                             </a>

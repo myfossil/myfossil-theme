@@ -143,6 +143,16 @@ label
 	padding-right: 0;
 }
 
+.row-centered {
+    text-align: center;
+}
+
+.col-centered {
+    display:inline-block;
+    float:none;
+    text-align:left;
+}
+
 .no-border-top		{ border-top: none !important; }
 .no-border-bottom	{ border-bottom: none !important; }
 .no-border-left		{ border-left: none !important; }
@@ -503,4 +513,9 @@ $size-buddypress-header-padding		: 20px;
     width: 100%;
     background-color: $black;
     padding: 50px;
+    text-align: center;
+
+    #nav {
+        text-align: left;
+    }
 }
