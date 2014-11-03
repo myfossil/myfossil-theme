@@ -218,13 +218,42 @@ function myfossil_login_logo() {
     ?>
     <style type="text/css">
         body.login div#login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/static/img/myfossil-login-logo.png);
+            background-image: none;
             padding-bottom: 30px;
         }
     </style>
     <?php
 }
 add_action( 'login_headertitle', 'myfossil_login_logo' );
+
+function myfossil_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'myfossil_login_logo_url' );
+
+function myfossil_login_logo_url_title() {
+    return 'myFOSSIL';
+}
+add_filter( 'login_headertitle', 'myfossil_login_logo_url_title' );
+
+function myfossil_login_stylesheet() {
+    wp_enqueue_style( 'custom-login', get_template_directory_uri() .
+            '/static/css/style-login.css' );
+}
+add_action( 'login_enqueue_scripts', 'myfossil_login_stylesheet' );
+
+function myfossil_login_message() {
+    return sprintf( "<img src=\"%s/%s\" />", get_template_directory_uri(),
+            '/static/img/myfossil-login-logo.png' );
+}
+add_filter( 'login_message', 'myfossil_login_message' );
+
+function myfossil_login_remove_styles() {
+    wp_dequeue_style( 'buttons' );
+    wp_deregister_style( 'buttons' );
+}
+add_action( 'login_enqueue_scripts', 'myfossil_login_remove_styles', 0 );
+add_action( 'wp_enqueue_scripts', 'myfossil_login_remove_styles', 0 );
 
 /**
  * Includes

@@ -1,0 +1,31 @@
+@import "mixins";
+@import "reset";
+@import "variables";
+@import "bootstrap/bootstrap";
+@import "myfossil/myfossil";
+
+.button, .button-primary, .button-large
+{
+    background: none !important;
+    background-color: none !important;
+    border-color: #eee !important;
+    color: none !important;
+    height: auto !important;
+    padding: 10px;
+}
+
+#wp-submit {
+    padding: 10px;
+    @extend .btn;
+    @extend .btn-default;
+}
+
+.forgetmenot {
+    label {
+        input {
+            position: relative;
+            top: -2px;
+            margin: 3px;
+        }
+    }
+}
