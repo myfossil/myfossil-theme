@@ -19,11 +19,13 @@
 
 <?php if ( bbp_current_user_can_access_create_reply_form() ) : ?>
 
-	<div id="new-reply-<?php bbp_topic_id(); ?>" class="bbp-reply-form well well-sm">
+	<div id="new-reply-<?php bbp_topic_id(); ?>" class="bbp-reply-form panel panel-default">
 
-		<form id="new-post" name="new-post" method="post" action="<?php the_permalink(); ?>">
+		<form id="new-post" class="form" name="new-post" method="post" action="<?php the_permalink(); ?>">
 
 			<?php do_action( 'bbp_theme_before_reply_form' ); ?>
+
+            <div class="panel-body">
 
 			<fieldset class="bbp-form">
 				<legend><?php printf( __( 'Reply To: %s', 'myfossil' ), bbp_get_topic_title() ); ?></legend>
@@ -38,13 +40,13 @@
 
 				<?php endif; ?>
 
-				<?php if ( current_user_can( 'unfiltered_html' ) ) : ?>
+				<?php /* if ( current_user_can( 'unfiltered_html' ) ) : ?>
 
 					<div class="bbp-template-notice alert alert-info">
 						<p><?php _e( 'Your account has the ability to post unrestricted HTML content.', 'myfossil' ); ?></p>
 					</div>
 
-				<?php endif; ?>
+				<?php endif; */ ?>
 
 				<?php do_action( 'bbp_template_notices' ); ?>
 
@@ -59,7 +61,9 @@
 
 					<?php do_action( 'bbp_theme_before_reply_form_content' ); ?>
 
-					<?php bbp_the_content( array( 'context' => 'reply', 'tinymce' => false ) ); ?>
+                    <div class="well well-sm">
+                        <?php bbp_the_content( array( 'context' => 'reply', 'tinymce' => false ) ); ?>
+                    </div>
 
 					<?php do_action( 'bbp_theme_after_reply_form_content' ); ?>
 
@@ -83,7 +87,7 @@
 
 						<p>
 							<label for="bbp_topic_tags"><?php _e( 'Tags:', 'myfossil' ); ?></label><br />
-							<input type="text" value="<?php bbp_form_topic_tags(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
+							<input type="text" value="<?php bbp_form_topic_tags(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> class="form-control" />
 						</p>
 
 						<?php do_action( 'bbp_theme_after_reply_form_tags' ); ?>
@@ -127,7 +131,7 @@
 
 							<div>
 								<label for="bbp_reply_edit_reason"><?php printf( __( 'Optional reason for editing:', 'myfossil' ), bbp_get_current_user_name() ); ?></label><br />
-								<input type="text" value="<?php bbp_form_reply_edit_reason(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_reply_edit_reason" id="bbp_reply_edit_reason" />
+								<input type="text" value="<?php bbp_form_reply_edit_reason(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_reply_edit_reason" id="bbp_reply_edit_reason" class="form-control" />
 							</div>
 						</fieldset>
 
@@ -143,7 +147,7 @@
 
 						<?php if(class_exists( 'BBP_Walker_Reply' )) bbp_cancel_reply_to_link(); ?>
 
-						<button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_reply_submit" name="bbp_reply_submit" class="button submit btn btn-primary"><?php _e( 'Submit', 'myfossil' ); ?></button>
+						<button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_reply_submit" name="bbp_reply_submit" class="button submit btn btn-default"><?php _e( 'Submit', 'myfossil' ); ?></button>
 
 						<?php do_action( 'bbp_theme_after_reply_form_submit_button' ); ?>
 
