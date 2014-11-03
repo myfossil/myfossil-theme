@@ -15,7 +15,7 @@ do_action('bp_before_activity_comment'); ?>
     <div class="panel-heading">
 
         <div class="acomment-meta">
-            <?php bp_activity_avatar('class=avatar&type=thumb&user_id=' . bp_get_activity_comment_user_id()); ?>
+            <?php bp_activity_avatar('class=avatar&type=thumb&user_id=' . bp_get_activity_comment_user_id() . '&width=30&height=30' ); ?>
             <?php
             /* translators: 1: user profile link, 2: user name, 3: activity permalink, 4: activity timestamp */
             printf(

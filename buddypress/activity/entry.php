@@ -21,7 +21,7 @@ global $activities_template;
         <div class="panel-heading">
             <div class="row">
                 <div class="col-md-8 col-sm-12">
-                    <?=get_avatar( $activities_template->activity->user_id, 50 ) ?>
+                    <?=get_avatar( $activities_template->activity->user_id, 30 ) ?>
                     <?=$activities_template->activity->action; ?>
                 </div>
                 <div class="col-md-4 time-since">
@@ -31,24 +31,28 @@ global $activities_template;
             </div>
         </div>
 
+        <?php if ( bp_activity_has_content() || bp_activity_get_comment_count()
+                || bp_activity_can_comment() || bp_is_single_activity() ): ?>
         <div class="panel-body">
-            <div class="activity-content">
-                <?php if (bp_activity_has_content()): ?>
+            <?php if ( bp_activity_has_content() ): ?>
+                <div class="activity-content">
                     <div class="activity-inner">
                         <?php bp_activity_content_body(); ?>
                     </div>
-                <?php endif; ?>
 
-                <?php do_action('bp_activity_entry_content'); ?>
+                    <?php do_action('bp_activity_entry_content'); ?>
 
-                <div class="activity-meta">
                     <?php if (bp_get_activity_type() == 'activity_comment'): ?>
-                        <a href="<?php bp_activity_thread_permalink(); ?>" class=" button view bp-secondary-action" title="<?php esc_attr_e('View Conversation', 'buddypress'); ?>">
-                            <?php _e('View Conversation', 'buddypress'); ?></a>
+                    <div class="activity-meta">
+                        <a href="<?php bp_activity_thread_permalink(); ?>" 
+                                class="button view bp-secondary-action" 
+                                title="<?php esc_attr_e('View Conversation', 'buddypress'); ?>">
+                            <?php _e('View Conversation', 'buddypress'); ?>
+                        </a>
+                    </div>
                     <?php endif; ?>
-
                 </div>
-            </div>
+            <?php endif; ?>
 
             <?php do_action('bp_before_activity_entry_comments'); ?>
 
@@ -81,13 +85,12 @@ global $activities_template;
                                 <?php wp_nonce_field('new_activity_comment', '_wpnonce_new_activity_comment'); ?>
                             </div>
                         </form>
-
                     <?php endif; ?>
-
                 </div>
             <?php endif; ?>
 
         </div><!-- end panel-body -->
+        <?php endif; ?>
 
         <div class="panel-footer">
             <?php if (is_user_logged_in()): ?>
