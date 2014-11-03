@@ -13,9 +13,9 @@ global $myfossil_bbpress_count;
 	$myfossil_bbpress_count++;
 	$search_class = ( (int) $myfossil_bbpress_count % 2 ) ? ' panel-footer' : ' panel-body';
 ?>
-	<div class="bbp-body modal myfossil-modal-static no-margin-bot">
-   		<div class="modal-dialog no-margin-bot">
-        <div class="modal-content">
+	<div class="bbp-body no-margin-bot">
+   		<div class="panel no-margin-bot">
+        <div class="panel-body">
 <div id="topic-<?php bbp_topic_id(); ?>" <?php bbp_topic_class(); echo $search_class; ?>>
   <div class="pull-left">
 	<div class="bbp-topic-title">

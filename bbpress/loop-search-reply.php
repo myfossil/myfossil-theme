@@ -28,15 +28,15 @@
 </div><!-- .bbp-reply-header -->
 <?php $reply_manage = ob_get_contents(); ob_end_clean(); ?>
 
-<div id="post-<?php bbp_reply_id(); ?>" <?php bbp_reply_class(bbp_get_reply_id(), array("modal myfossil-modal-static no-margin-bot")); ?>>
-<div class="modal-dialog no-margin-bot">
-<div class="modal-content">
+<div id="post-<?php bbp_reply_id(); ?>" <?php bbp_reply_class(bbp_get_reply_id(), array("no-margin-bot")); ?>>
+<div class="panel no-margin-bot">
+<div class="panel-body">
 <?php 
 global $myfossil_bbpress_count;
 	$myfossil_bbpress_count++;
 	$search_class = ( (int) $myfossil_bbpress_count % 2 ) ? ' panel-footer' : ' panel-body';
 ?>
-<div class="<?php echo myfossil_social_bbp_get_reply_class_modal(bbp_reply_id()). $search_class; ?>">
+<div class="">
 	<h5 class="bbp-search-replies-result-meta text-muted">
 
 		<a href="<?php bbp_reply_url(); ?>" class="bbp-reply-permalink">#<?php bbp_reply_id(); ?></a>
