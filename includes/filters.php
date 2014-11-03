@@ -67,10 +67,9 @@ function filter_nav_item( $bp_tpl_contents ) {
     $count = nav_item_count( $bp_tpl_contents );
 
     // Need to strip out HTML with the count in there
-    if ( $count > 0 ) {
+    if ( $count > 0 || $nav_item_name == 'Messages 0' ) {
         // Trim off the number, so ridiculous...
         $nav_item_name = implode( " ", array_slice( explode( " ", $nav_item_name ), 0, -1 ) );
-
         $nav_item_name = sprintf( "%s <span class=\"badge\">%d</span>", $nav_item_name, $count );
     }
 
@@ -81,6 +80,7 @@ function filter_nav_item( $bp_tpl_contents ) {
     // Put it all back together
     return $tpl . "<a href=\"" . $nav_item_link . "\">" . $nav_item_name . "</a></li>";
 }
+
 add_filter( 'bp_get_options_nav_public', 'filter_nav_item', 10, 1 );
 add_filter( 'bp_get_options_nav_edit', 'filter_nav_item', 10, 1 );
 add_filter( 'bp_get_options_nav_change-avatar', 'filter_nav_item', 10, 1 );

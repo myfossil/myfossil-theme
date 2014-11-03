@@ -102,7 +102,7 @@ function contains($needle, $haystack) {
  */
 function nav_item_count( $html ) {
     preg_match('/<span.*>(.*?)<\/span>/s', $html, $m);
-    if (count($m) > 0)
+    if ( count( $m ) > 0 )
         return (int) $m[1];
     return 0;
 }
