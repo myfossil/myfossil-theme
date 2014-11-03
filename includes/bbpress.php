@@ -277,14 +277,14 @@ if ( class_exists( 'BBP_Walker_Reply' ) ) {
 			// Style for div or list element
 			if ( 'div' === $args['style'] ) {
 				$tag = 'div';
-			} else if ($depth>1)  {
+			} else if ( $depth > 1 )  {
 				$tag = 'li class="list-unstyled panel panel-default"';
 			} else {
 				$tag = 'li class="list-unstyled"';
 			}?>
 
 			<<?php echo $tag ?>>
-				<?php if ($depth>1) { ?>
+				<?php if ( $depth > 1 ) { ?>
 				<?php bbp_get_template_part( 'loop', 'single-reply-threaded' ); ?>
 				<?php } else { ?>
 				<?php bbp_get_template_part( 'loop', 'single-reply' ); ?>
