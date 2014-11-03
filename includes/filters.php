@@ -212,6 +212,21 @@ add_filter( 'bp_get_messages_pagination', 'bootstrapify_pagination_links' );
 add_filter( 'bp_get_notifications_pagination_links', 'bootstrapify_pagination_links' );
 
 /**
+ * Login Form
+ */
+function myfossil_login_logo() {
+    ?>
+    <style type="text/css">
+        body.login div#login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/static/img/myfossil-login-logo.png);
+            padding-bottom: 30px;
+        }
+    </style>
+    <?php
+}
+add_action( 'login_headertitle', 'myfossil_login_logo' );
+
+/**
  * Includes
  */
 require get_template_directory() . '/buddypress/groups/filters.php';
