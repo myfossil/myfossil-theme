@@ -1,0 +1,201 @@
+/**
+ * myFOSSIL, general stylings.
+ */
+
+/**
+ * General
+ * ~~~~~~~
+ */
+h4, .h4,
+h5, .h5,
+h6, .h6
+{
+	border-bottom: 1px solid $color-gray-lighter;
+}
+
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+	margin: 0;
+	padding-top: $line-height-computed;
+	padding-bottom: ($line-height-computed);
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	// margin: 0;
+	padding-top: ($line-height-computed /2 );
+	padding-bottom: ($line-height-computed /2 );
+
+	
+}
+
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6
+{
+	text-transform: uppercase;
+}
+
+label
+{
+	font-family: $headings-font-family;
+	text-transform: uppercase;
+	color: $color-secondary-dark;
+	// font-weight: normal;
+}
+
+/**
+ * Tables
+ * ~~~~~~
+ */
+.table
+{
+	font-size: $font-size-small;
+	color: $color-gray-medium;	
+}
+
+.table th
+{
+	font-family: $headings-font-family;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: $headings-color;
+}
+
+.table th, .table.item-list th { border-top: none; }
+
+.table tbody tr td
+{
+	vertical-align: middle;
+}
+
+.table td.avatar
+{
+	width: 50px;
+}
+
+.table td .item-title
+{
+	font-weight: bold;
+	font-size: $font-size-h5;
+
+	a{ text-decoration: none; }
+
+	.item-meta
+	{
+		font-size: $font-size-small;
+		font-weight: normal;
+	}
+}
+
+#group-dir-search
+{ float: none !important; }
+
+/**
+ * Bootstrap 
+ * ~~~~~~~~~
+ */
+
+.btn
+{
+	text-transform: uppercase; 
+	border-bottom: 1px solid darken( $btn-default-border, 10% );
+	@include box-shadow( inset 0px 0px 0px 1px rgba(255,255,255,0.9), 0px 2px 2px rgba(0,0,0,0.1) );
+}
+
+.btn-default
+{
+	@include gradient-vertical( $btn-default-gradient-start, $btn-default-gradient-end, 50%, 100% );
+}
+
+/*/  /*/
+
+.page-styling
+{
+	background-color: white;
+	border: 1px solid $color-background-border;
+}
+
+.page-styling,
+.page-padding
+{
+	padding-top: $padding-large-horizontal;
+	padding-bottom: $padding-large-horizontal;
+	padding-left: $padding-large-horizontal;
+	padding-right: $padding-large-horizontal;
+}
+
+.sidebar
+{
+	font-size: 14px;
+}
+
+.sidebar .section
+{
+	padding-top: $padding-large-vertical;
+	padding-bottom: $padding-large-vertical;
+
+	border-top: 1px solid $color-gray-lighter;
+
+	&:first-of-type
+	{
+		padding-top: 0;
+		border-top: none;
+
+	}
+}
+
+.next-to-left-sidebar { border-left: 1px solid $color-gray-lighter; }
+.next-to-right-sidebar { border-right: 1px solid $color-gray-lighter; }
+
+/**
+ * Fix Classes
+ * ~~~~~~~~~~~
+ */
+.separate,
+.separate-top,
+.separate-bottom,
+{
+	margin-top: $padding-large-vertical;
+	margin-bottom: $padding-large-vertical;
+}
+
+.separate-top { margin-bottom: 0; }
+.separate-bottom { margin-top: 0; }
+
+
+.no-margin
+{
+	margin: 0 !important;
+}
+
+.no-padding,
+.container-no-padding
+{
+	padding: 0 !important;
+}
+
+.col-no-padding
+{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.row-centered {
+    text-align: center;
+}
+
+.col-centered {
+    display:inline-block;
+    float:none;
+    text-align:left;
+}
+
+.no-border-top		{ border-top: none !important; }
+.no-border-bottom	{ border-bottom: none !important; }
+.no-border-left		{ border-left: none !important; }
+.no-border-right	{ border-right: none !important; }

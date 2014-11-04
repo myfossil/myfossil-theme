@@ -1,0 +1,55 @@
+/**
+ * Navigation, Activity.
+ */
+#user-left
+{
+	font-size: $font-size-base;
+}
+
+#whats-new-avatar #user-info
+{
+	*
+	{
+		// text-align: center;
+	}
+
+	h4
+	{
+		margin: 0;
+		text-transform: none;
+	}
+
+	span.username
+	{
+
+	}
+}
+
+#whats-new-avatar .row
+{
+	margin-bottom: 20px;
+}
+
+#user-left .list-lines
+{
+	color: $color-gray-medium;
+
+	&, a
+	{
+		font-family: $headings-font-family;
+		// text-transform: uppercase;
+	}
+
+	li
+	{
+		padding-left: 0;
+		padding-right: 0;
+
+		a
+		{
+			// color : $color-primary;
+			// font-weight: bold;
+			text-decoration: none;
+		}
+	}
+}

@@ -1,0 +1,14 @@
+/**
+ * BuddyPress Container
+ * ~~~~~~~~~~~~~~~~~~~~
+ */
+#buddypress
+{
+	//margin-top : 40px;
+	padding-top : $size-buddypress-padding-top;
+}
+
+#buddypress-header + #buddypress
+{
+	margin-top : 0px;
+}
