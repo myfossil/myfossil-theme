@@ -109,9 +109,12 @@ function filter_nav_item_no_count( $bp_tpl_contents ) {
     // Consider whether there's a count of something involved
     $count = nav_item_count( $bp_tpl_contents );
 
-    // Need to strip out HTML with the count in there
-    if ( $count > 0 )
+    $nav_item_exploded = explode( " ", $nav_item_name );
+    if ( $count > 0 || end( $nav_item_exploded ) == '0' ) {
+        // Trim off the number, so ridiculous...
         $nav_item_name = implode( " ", array_slice( explode( " ", $nav_item_name ), 0, -1 ) );
+        $nav_item_name = $nav_item_name;
+    }
 
     // Put it all back together
     return $tpl . "<a href=\"" . $nav_item_link . "\">" . $nav_item_name . "</a></li>";
@@ -123,14 +126,14 @@ add_filter( 'bp_get_options_nav_change-avatar', 'filter_nav_item', 10, 1 );
 add_filter( 'bp_get_options_nav_just-me', 'filter_nav_item', 10, 1 );
 add_filter( 'bp_get_options_nav_activity-mentions', 'filter_nav_item', 10, 1 );
 add_filter( 'bp_get_options_nav_activity-favs', 'filter_nav_item', 10, 1 );
-add_filter( 'bp_get_options_nav_activity-friends', 'filter_nav_item', 10, 1 );
-add_filter( 'bp_get_options_nav_activity-groups', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_activity-friends', 'filter_nav_item_no_count', 10, 1 );
+add_filter( 'bp_get_options_nav_activity-groups', 'filter_nav_item_no_count', 10, 1 );
 add_filter( 'bp_get_options_nav_friends-my-friends', 'filter_nav_item', 10, 1 );
 add_filter( 'bp_get_options_nav_requests', 'filter_nav_item', 10, 1 );
-add_filter( 'bp_get_options_nav_groups-my-groups', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_groups-my-groups', 'filter_nav_item_no_count', 10, 1 );
 add_filter( 'bp_get_options_nav_invites', 'filter_nav_item', 10, 1 );
 add_filter( 'bp_get_options_nav_home', 'filter_nav_item', 10, 1 );
-add_filter( 'bp_get_options_nav_members', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_members', 'filter_nav_item_no_count', 10, 1 );
 add_filter( 'bp_get_options_nav_invite', 'filter_nav_item', 10, 1 );
 add_filter( 'bp_get_options_nav_admin', 'filter_nav_item', 10, 1 );
 add_filter( 'bp_get_options_nav_inbox', 'filter_nav_item', 10, 1 );
