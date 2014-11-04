@@ -169,17 +169,6 @@ dl.inline {
     border-right: 1px solid #eee;
 }
 
-.list-lines {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    li {
-        padding: $padding-base-vertical;
-        border-bottom: 1px solid #eee;
-    }
-}
-
 .side-header {
     color: $gray-light;
     border-bottom: 1px solid #ccc;
