@@ -56,19 +56,7 @@
 
 <div id="buddypress" class="container container-no-padding page-styling no-border-top">
 
-    
-
-        <div class="col-md-8 page-padding next-to-right-sidebar">
-                <div id="groups-dir-list" class="groups dir-list">
-                    <?php bp_get_template_part( 'groups/groups-loop' ); ?>
-                </div><!-- #groups-dir-list -->
-
-                <?php do_action( 'bp_directory_groups_content' ); ?>
-                <?php wp_nonce_field( 'directory_groups', '_wpnonce-groups-filter' ); ?>
-                <?php do_action( 'bp_after_directory_groups_content' ); ?>
-        </div>
-
-        <div class="col-md-4 sidebar sidebar-right page-padding">
+        <div class="col-md-4 sidebar sidebar-right page-padding pull-right">
             <div id="group-dir-search" class="dir-search section" role="search">
                 <?php bp_directory_groups_search_form(); ?>
             </div><!-- #group-dir-search -->
@@ -94,7 +82,16 @@
                 </ul>
             </div>
         </div>
-    
+
+        <div class="col-md-8 page-padding next-to-right-sidebar">
+                <div id="groups-dir-list" class="groups dir-list">
+                    <?php bp_get_template_part( 'groups/groups-loop' ); ?>
+                </div><!-- #groups-dir-list -->
+
+                <?php do_action( 'bp_directory_groups_content' ); ?>
+                <?php wp_nonce_field( 'directory_groups', '_wpnonce-groups-filter' ); ?>
+                <?php do_action( 'bp_after_directory_groups_content' ); ?>
+        </div>
 
 	<?php do_action( 'bp_after_directory_groups' ); ?>
 
