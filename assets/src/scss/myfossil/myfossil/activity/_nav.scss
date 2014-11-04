@@ -24,7 +24,8 @@ ul#nav-user {
         font-weight: bold;
         padding-left: 10px;
 
-        &:hover {
+        &:hover 
+        {
             color: $color-blue;
         }
     }
@@ -37,20 +38,27 @@ ul#nav-user {
         border-bottom: 1px solid #eee;
         margin-right: 0;
 
-        .separator {
-            margin-bottom: 30px;
+        &:hover 
+        {
+            background-color: $white;
         }
 
-        span.badge {
+        span.badge 
+        {
             background-color: $color-brown-light;
             float: right;
             margin-right: $padding-base-horizontal;
             border-radius: 3px;
         }
 
+    }
+
+    li.separator
+    {
         &:hover {
-            background-color: $white;
+            background-color: $body-bg !important;
         }
+
     }
 
 }

@@ -5,24 +5,24 @@
 	<?php do_action('bp_before_directory_activity_content'); ?>
     
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-2">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
             <?php if (is_user_logged_in()): ?>
                 <?php bp_get_template_part('activity/left-menu'); ?>
             <?php endif; ?>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-10" style="border-left: 1px solid #eee;">
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10" style="border-left: 1px solid #eee;">
             <div id="announcements" class="separate">
-                <h5 class="no-margin">Announcements</h5>
-                <div class="row">
-                    <div class="col-sm-12"><br />
+                <h4>Announcements</h4>
+                <ul>
+                    <li>
                         <span class="fa-stack">
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-info fa-stack-1x fa-inverse"></i>
                         </span>
                         Welcome to the myFOSSIL development site. Breaking changes, data loss and downtime <strong>will</strong> happen!
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
             <div>
                 <?php if (is_user_logged_in()): ?>
@@ -35,7 +35,7 @@
 
             <div>
                 <div class="item-list-tabs no-ajax pull-right" id="subnav" role="navigation">
-                    <ul style="margin-top: 10px;">
+                    <ul>
                         <li id="activity-filter-select" class="last">
                             <form class="form-inline">
                                 <label for="activity-filter-by"><?php _e('Showing...', 'buddypress'); ?></label>
