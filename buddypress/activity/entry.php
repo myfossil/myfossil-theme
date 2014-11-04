@@ -17,15 +17,11 @@ global $activities_template;
 <li class="<?php bp_activity_css_class(); ?>" id="activity-<?php bp_activity_id(); ?>">
     <div class="activity-entry">
         <div class="activity-heading">
-            <div class="row">
-                <div class="col-md-8 col-sm-12">
-                    <?=get_avatar( $activities_template->activity->user_id, 30 ) ?>
-                    <?=$activities_template->activity->action; ?>
-                </div>
-                <div class="col-md-4 time-since">
-                    <i class="fa fa-fw fa-clock-o"></i>
-                    <?=bp_core_time_since( $activities_template->activity->date_recorded ); ?>
-                </div>
+            <?=get_avatar( $activities_template->activity->user_id, 30 ) ?>
+            <?=$activities_template->activity->action; ?>
+            <div class="time-since">
+                <i class="fa fa-fw fa-clock-o"></i>
+                <?=bp_core_time_since( $activities_template->activity->date_recorded ); ?>
             </div>
         </div>
 
@@ -113,7 +109,7 @@ global $activities_template;
                     <?php else: ?>
                         <a href="<?php bp_activity_unfavorite_link(); ?>" class=" button unfav bp-secondary-action" title="<?php esc_attr_e('Remove Favorite', 'buddypress'); ?>">
                             <i class="fa fa-fw fa-star"></i>
-                            <?php _e('Remove Favorite', 'buddypress'); ?></a>
+                            <?php _e('Unfavorite', 'buddypress'); ?></a>
                     <?php endif; ?>
                 <?php endif; ?>
                 <?php 

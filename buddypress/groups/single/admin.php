@@ -2,7 +2,7 @@
 
 <div class="item-list-tabs no-ajax" id="subnav" role="tablist">
 
-	<ul class="nav nav-pills">
+	<ul class="nav nav-pills" id="nav-sub">
         <?php
         /* 
          * Note that for the including of templates, we follow that the files

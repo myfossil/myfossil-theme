@@ -26,7 +26,7 @@
 
 <div class="row">
 
-    <div class="col-md-8">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
         <?php do_action( 'bp_before_group_activity_post_form' ); ?>
 
@@ -47,10 +47,6 @@
 
         <?php do_action( 'bp_after_group_activity_content' ); ?>
 
-    </div>
-
-    <div class="col-md-4">
-            <?php bp_get_template_part( 'groups/single/front/members' ); ?>
     </div>
 
 </div>

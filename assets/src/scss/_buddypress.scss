@@ -195,12 +195,6 @@ dl.inline {
     padding-bottom: 0;
 }
 
-.activity {
-    .time-since {
-        text-align: right;
-    }
-}
-
 .avatar {
     @include border-radius( $border-radius-base );
 }

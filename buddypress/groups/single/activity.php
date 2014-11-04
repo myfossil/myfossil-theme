@@ -1,5 +1,5 @@
 <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
-	<ul class="nav">
+	<ul class="nav nav-pills" id="nav-sub">
 		<?php do_action( 'bp_group_activity_syndication_options' ); ?>
 
 		<li id="activity-filter-select" class="last">

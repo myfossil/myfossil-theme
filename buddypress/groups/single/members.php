@@ -2,19 +2,9 @@
 
 	<?php do_action( 'bp_before_group_members_content' ); ?>
 
-	<div id="pag-top" class="pagination">
-
-		<div class="pag-count" id="member-count-top">
-			<?php bp_members_pagination_count(); ?>
-		</div>
-
-		<div class="pagination-links" id="member-pag-top">
-			<?php bp_members_pagination_links(); ?>
-		</div>
-
-	</div>
-
 	<?php do_action( 'bp_before_group_members_list' ); ?>
+
+    <h3>Members</h3>
 
     <table class="table">
         <tr>

@@ -21,7 +21,12 @@
         color: $gray;
 
         a {
-            color: $gray;
+            color: $gray-darker;
+        }
+
+        .time-since {
+            display: inline;
+            color: $gray-darker;
         }
     }
 
@@ -29,12 +34,24 @@
         @extend .panel-body;
         background-color: $white;
         border: none !important;
-        font-weight: bold;
         font-size: 1.4em;
-        padding: 15px;
+        padding: 0;
+
+        p {
+            margin: 0;
+        }
 
         .activity-comments {
-            padding: 0;
+            padding: 0 15px 0 15px;
+            margin: 0;
+        }
+
+        .acomment-content {
+            padding: 15px;
+        }
+
+        .activity-content {
+            padding: 15px 15px 5px 15px;
         }
 
         .activity-meta
