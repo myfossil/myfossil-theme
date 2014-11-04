@@ -19,13 +19,13 @@
 
 <?php if ( bbp_current_user_can_access_create_reply_form() ) : ?>
 
-	<div id="new-reply-<?php bbp_topic_id(); ?>" class="bbp-reply-form panel panel-default">
+	<div id="new-reply-<?php bbp_topic_id(); ?>" class="bbp-reply-form forum-entry">
 
 		<form id="new-post" class="form" name="new-post" method="post" action="<?php the_permalink(); ?>">
 
 			<?php do_action( 'bbp_theme_before_reply_form' ); ?>
 
-            <div class="panel-body">
+            <div class="forum-body">
 
 			<fieldset class="bbp-form">
 				<legend><?php printf( __( 'Reply To: %s', 'myfossil' ), bbp_get_topic_title() ); ?></legend>

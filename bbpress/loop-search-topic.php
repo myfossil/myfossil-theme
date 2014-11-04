@@ -11,11 +11,11 @@
 <?php 
 global $myfossil_bbpress_count;
 	$myfossil_bbpress_count++;
-	$search_class = ( (int) $myfossil_bbpress_count % 2 ) ? ' panel-footer' : ' panel-body';
+	$search_class = ( (int) $myfossil_bbpress_count % 2 ) ? ' forum-footer' : ' forum-body';
 ?>
 	<div class="bbp-body no-margin-bot">
-   		<div class="panel no-margin-bot">
-        <div class="panel-body">
+   		<div class="forum no-margin-bot">
+        <div class="forum-body">
 <div id="topic-<?php bbp_topic_id(); ?>" <?php bbp_topic_class(); echo $search_class; ?>>
   <div class="pull-left">
 	<div class="bbp-topic-title">

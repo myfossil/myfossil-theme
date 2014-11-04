@@ -10,12 +10,12 @@
 ?>
 
 <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
-	<ul class="nav nav-tabs">
+	<ul class="nav nav-pills" id="nav-sub">
 		<?php if ( bp_is_my_profile() ) bp_get_options_nav(); ?>
 
 		<?php if ( !bp_is_current_action( 'requests' ) ) : ?>
 
-			<li id="members-order-select" class="last filter">
+			<li id="members-order-select" class="sr-only last filter">
 
 				<label for="members-friends"><?php _e( 'Order By:', 'buddypress' ); ?></label>
 				<select id="members-friends">

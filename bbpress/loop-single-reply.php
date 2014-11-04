@@ -50,38 +50,31 @@
 <?php $reply_manage = ob_get_contents(); ob_end_clean(); ?>
 
 <div id="post-<?php bbp_reply_id(); ?>" <?php bbp_reply_class(bbp_get_reply_id(), array("no-margin-bot")); ?>>
-<div class="panel panel-default no-margin-bot">
-<div class="panel-body">
-<div class="clearfix">
-	<div class="col-xs-4 col-md-3 pull-left bbp-reply-author text-muted fs-content-thumbnail">
+    <div class="forum-entry no-margin-bot">
+        <div class="forum-heading">
+            <?php bbp_reply_author_link( array( 'show_role' => false, 'type' => 'name' ) ); ?>
+            replied to this topic at
+            <i class="fa fa-fw fa-clock-o"></i>
+            <?=bbp_get_reply_post_date(); ?>
+        </div>
+        <div class="forum-body">
+            <div class="col-xs-3 col-sm-2 col-md-1 bbp-reply-author text-muted fs-content-thumbnail">
+                <?php do_action( 'bbp_theme_before_reply_author_details' ); ?>
+                
+                <?php bbp_reply_author_link( array( 'show_role' => false, 'type' => 'avatar' ) ); ?>
 
-		<?php do_action( 'bbp_theme_before_reply_author_details' ); ?>
+                <?php do_action( 'bbp_theme_after_reply_author_details' ); ?>
 
-		<?php bbp_reply_author_link( array( 'sep' => '<div class=clearfix></div>', 'show_role' => true ) ); ?>
+            </div><!-- .bbp-reply-author -->
 
-		<a href="#<?php bbp_reply_id(); ?>" class="" data-container="body" data-toggle="popover" data-rel="popover" data-html="true" data-placement="right" data-original-title="" data-content="<?php echo esc_attr($reply_manage); ?>">
-            <span class="edit-link text-muted"><span class="icon-cog"></span> <?php _e( 'Details', 'myfossil' );?></span>
-         </a>
+            <div class="col-xs-9 col-sm-10 col-md-11 bbp-reply-content fs-have-thumbnail">
 
-		 <?php if ( class_exists( 'BBP_Walker_Reply' ) && bbp_thread_replies() ) : ?>
-         <div class="pull-left text-muted">
-            <?php bbp_reply_to_link(array('id' => bbp_get_reply_id(), 'link_before' => '<span class="icon-reply"></span> ', 'link_after' => ' &nbsp; ' )); ?>
-         </div> 
-		<?php endif; ?>
-		 
-		<?php do_action( 'bbp_theme_after_reply_author_details' ); ?>
+                <?php do_action( 'bbp_theme_before_reply_content' ); ?>
 
-	</div><!-- .bbp-reply-author -->
+                <?php bbp_reply_content(); ?>
 
-	<div class="bbp-reply-content fs-have-thumbnail">
-
-		<?php do_action( 'bbp_theme_before_reply_content' ); ?>
-
-		<?php bbp_reply_content(); ?>
-
-		<?php do_action( 'bbp_theme_after_reply_content' ); ?>
-	</div><!-- .bbp-reply-content -->
-</div>
-</div>
-</div>
+                <?php do_action( 'bbp_theme_after_reply_content' ); ?>
+            </div><!-- .bbp-reply-content -->
+        </div>
+    </div>
 </div><!-- #post-<?php bbp_reply_id(); ?> -->

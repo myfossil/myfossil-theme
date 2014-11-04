@@ -31,7 +31,7 @@
 
 		<?php bbp_single_forum_description(); ?>
         
-        <div class="bbp-forum-content panel panel-default"><div class="panel-body"><?php bbp_forum_content(); ?></div></div>
+        <div class="bbp-forum-content forum-entry"><div class="forum-body"><?php bbp_forum_content(); ?></div></div>
 
 		<?php if ( bbp_get_forum_subforum_count() && bbp_has_forums() ) : ?>
 

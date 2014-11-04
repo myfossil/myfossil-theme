@@ -22,7 +22,7 @@ do_action('bp_before_topics'); ?>
 	<form action="" method="post" id="forums-directory-form" class="dir-form">
 
 		<div class="item-list-tabs" role="navigation">
-			<ul>
+			<ul class="nav nav-pills">
 				<li class="selected" id="forums-all"><a href="<?php
 echo trailingslashit(bp_get_root_domain() . '/' . bp_get_forums_root_slug()); ?>"><?php
 printf(__('All Topics <span>%s</span>', 'buddypress') , bp_get_forum_topic_count()); ?></a></li>
@@ -44,7 +44,7 @@ do_action('bp_forums_directory_group_types'); ?>
 		</div>
 
 		<div class="item-list-tabs" id="subnav" role="navigation">
-			<ul>
+			<ul class="nav nav-pills" id="nav-sub">
 
 				<?php
 do_action('bp_forums_directory_group_sub_types'); ?>

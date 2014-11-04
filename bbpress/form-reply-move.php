@@ -15,9 +15,9 @@
 
 	<?php if ( is_user_logged_in() && current_user_can( 'edit_topic', bbp_get_topic_id() ) ) : ?>
 
-		<div id="move-reply-<?php bbp_topic_id(); ?>" class="bbp-reply-move panel panel-default">
+		<div id="move-reply-<?php bbp_topic_id(); ?>" class="bbp-reply-move forum-entry">
 
-			<form id="move_reply" class="panel-body" name="move_reply" method="post" action="<?php the_permalink(); ?>">
+			<form id="move_reply" class="forum-body" name="move_reply" method="post" action="<?php the_permalink(); ?>">
 
 				<fieldset class="bbp-form">
 

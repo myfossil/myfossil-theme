@@ -10,7 +10,7 @@
 ?>
 
 <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
-	<ul class="nav nav-tabs">
+	<ul class="nav nav-pills" id="nav-sub">
 		<?php if ( bp_core_can_edit_settings() ) : ?>
 
 			<?php bp_get_options_nav(); ?>

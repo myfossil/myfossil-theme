@@ -29,12 +29,12 @@
 <?php $reply_manage = ob_get_contents(); ob_end_clean(); ?>
 
 <div id="post-<?php bbp_reply_id(); ?>" <?php bbp_reply_class(bbp_get_reply_id(), array("no-margin-bot")); ?>>
-<div class="panel no-margin-bot">
-<div class="panel-body">
+<div class="forum-entry no-margin-bot">
+<div class="forum-body">
 <?php 
 global $myfossil_bbpress_count;
 	$myfossil_bbpress_count++;
-	$search_class = ( (int) $myfossil_bbpress_count % 2 ) ? ' panel-footer' : ' panel-body';
+	$search_class = ( (int) $myfossil_bbpress_count % 2 ) ? ' forum-footer' : ' forum-body';
 ?>
 <div class="">
 	<h5 class="bbp-search-replies-result-meta text-muted">

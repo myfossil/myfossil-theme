@@ -39,3 +39,36 @@
         }
 	}
 }
+
+ul#nav-sub {
+    margin: 0 0 20px 0;
+
+    li 
+    {
+        margin: 5px;
+
+        a 
+        {
+            text-decoration: none;
+            color: $color-secondary;
+            border: 1px solid $body-bg;
+            background-color: $white;
+
+            &:hover 
+            {
+                border: 1px solid #eee;
+            }
+
+        }
+
+    }
+
+    li.current, li.active, li.selected 
+    {
+        a {
+            background-color: $color-secondary !important;
+            color: $white;
+        }
+
+    }
+}

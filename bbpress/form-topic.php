@@ -27,12 +27,12 @@
 
 <?php if ( bbp_current_user_can_access_create_topic_form() ) : ?>
 
-	<div id="new-topic-<?php bbp_topic_id(); ?>" class="bbp-topic-form panel panel-default">
+	<div id="new-topic-<?php bbp_topic_id(); ?>" class="bbp-topic-form forum-entry">
 
 		<form id="new-post" name="new-post" method="post" action="<?php the_permalink(); ?>" class="form">
 
 			<?php do_action( 'bbp_theme_before_topic_form' ); ?>
-            <div class="panel-body">
+            <div class="forum-body">
 
 			<fieldset class="bbp-form">
 				<legend>

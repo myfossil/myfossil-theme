@@ -10,9 +10,11 @@
 ?>
 
 <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
-	<ul class="nav nav-pills">
+	<ul class="nav nav-pills" id="nav-sub">
 		<?php bp_get_options_nav(); ?>
+    </ul>
 
+    <?php /*
 		<li id="forums-order-select" class="last filter">
 
 			<label for="forums-order-by"><?php _e( 'Order By:', 'buddypress' ); ?></label>
@@ -26,6 +28,7 @@
 			</select>
 		</li>
 	</ul>
+    */ ?>
 </div><!-- .item-list-tabs -->
 
 <?php

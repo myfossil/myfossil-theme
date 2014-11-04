@@ -10,7 +10,7 @@
 <div class="row">
 
     <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
-        <ul class="nav nav-pills" id="nav-member-sub">
+        <ul class="nav nav-pills" id="nav-sub">
             <?php bp_get_options_nav(); ?>
         </ul>
     </div><!-- .item-list-tabs -->

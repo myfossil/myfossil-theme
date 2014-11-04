@@ -10,7 +10,7 @@
 ?>
 
 <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
-	<ul class="nav nav-tabs">
+	<ul class="nav nav-pills" id="nav-sub">
 		<?php bp_get_options_nav(); ?>
 
 		<li id="members-order-select" class="last filter">

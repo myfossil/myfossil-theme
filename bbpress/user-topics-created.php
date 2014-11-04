@@ -12,7 +12,7 @@
 	<?php do_action( 'bbp_template_before_user_topics_created' ); ?>
 
 	<div id="bbp-user-topics-started" class="bbp-user-topics-started">
-		<h2 class="entry-title"><?php _e( 'Forum Topics Started', 'myfossil' ); ?></h2>
+		<h4 class="entry-title"><?php _e( 'Forum Topics Started', 'myfossil' ); ?></h4>
 		<div class="bbp-user-section">
 
 			<?php if ( bbp_get_user_topics_started() ) : ?>

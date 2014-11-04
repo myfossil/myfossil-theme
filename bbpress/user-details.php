@@ -23,7 +23,7 @@
 	<div id="bbp-single-user-details" class="clearfix">
 
 		<div id="bbp-user-navigation" class="tabs-top">
-			<ul class="nav nav-pills">
+			<ul class="nav nav-pills" id="nav-sub">
 				<li class="<?php if ( bbp_is_single_user_profile() ) :?>current active<?php endif; ?>">
 						<a class="url fn n" href="<?php bbp_user_profile_url(); ?>" title="<?php printf( esc_attr__( "%s's Profile", 'myfossil' ), bbp_get_displayed_user_field( 'display_name' ) ); ?>" rel="me"><?php _e( 'Profile', 'myfossil' ); ?></a>
 				</li>
