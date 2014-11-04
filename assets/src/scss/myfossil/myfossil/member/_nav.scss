@@ -1,0 +1,22 @@
+#nav-member-activity {
+    margin: 0 0 20px 0;
+
+    li {
+        a {
+            text-decoration: none;
+            color: $color-secondary;
+
+            &:hover {
+                background-color: $body-bg;
+            }
+        }
+
+    }
+
+    li.current, li.active, li.selected {
+        a {
+            background-color: $color-secondary !important;
+            color: $white;
+        }
+    }
+}

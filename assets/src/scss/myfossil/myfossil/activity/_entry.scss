@@ -17,6 +17,7 @@
         font-size: 13px;
         border-bottom: 1px solid $color-gray-light;
         padding: 10px;
+        min-height: 45px;
     }
 
     .activity-body {
@@ -33,6 +34,7 @@
 
         .activity-meta
         {
+            font-size: 0.6em;
             border-top: 1px solid $color-gray-lighter;
 
             .btn
@@ -60,6 +62,7 @@
         @extend .panel-footer;
         background: #fafafa;
         padding: 10px;
+        min-height: 45px;
     }
 
 }

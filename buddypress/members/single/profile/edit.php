@@ -8,7 +8,7 @@ if ( bp_has_profile( 'profile_group_id=' . bp_get_current_profile_group_id() ) )
 	<?php do_action( 'bp_before_profile_field_content' ); ?>
 
 		<?php //<h4><?php printf( __( "Editing '%s' Profile Group", "buddypress" ), bp_get_the_profile_group_name() ); </h4> ?>
-        <h3>Edit Profile</h3>
+        <h4>Edit Profile</h4>
 
 		<?php if ( bp_profile_has_multiple_groups() > 1 ) : ?>
 			<ul class="nav nav-pills button-nav">
