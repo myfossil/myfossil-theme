@@ -4,39 +4,42 @@
 
         <div class="container">
             <div class="row" id="nav">
-                <div class="col-sm-12 col-lg-6">
-                    <img 
-                        src="<?=get_template_directory_uri() ?>/static/img/myfossil-logo-white-small.png" 
-                        alt="myFOSSIL Logo" />
+                <div class="col-sm-12 col-lg-8">
+                    <div class="row">
+                        <img 
+                            src="<?=get_template_directory_uri() ?>/static/img/myfossil-logo-white-small.png" 
+                            alt="myFOSSIL Logo" />
+                    </div>
+                    <div class="row">
+                        <ul class="nav navbar-nav" id="nav-footer">
+                            <?php $items = wp_get_nav_menu_items('primary'); ?>
+                            <?php foreach ($items as $item): ?>
+                                <li>
+                                    <?php 
+                                    $page_array = get_option( 'bp-pages' );
+                                    if ( $post->post_title == "Site-Wide Activity" ) {
+                                        $post->post_title = 'Activity';
+                                        $post->title = 'Activity';
+                                    }
 
-                    <ul class="nav navbar-nav" id="nav-footer">
-                        <?php $items = wp_get_nav_menu_items('primary'); ?>
-                        <?php foreach ($items as $item): ?>
-                            <li>
-                                <?php 
-                                $page_array = get_option( 'bp-pages' );
-                                if ( $post->post_title == "Site-Wide Activity" ) {
-                                    $post->post_title = 'Activity';
-                                    $post->title = 'Activity';
-                                }
+                                    if ( array_key_exists( strtolower( $item->title ), $page_array ) )
+                                        $item->object_id = $page_array[strtolower( $item->title )];
 
-                                if ( array_key_exists( strtolower( $item->title ), $page_array ) )
-                                    $item->object_id = $page_array[strtolower( $item->title )];
-
-                                $class = ( $item->object_id == $post->ID ||
-                                        strtolower( $item->title ) ==
-                                        strtolower( $post->post_title ) ) 
-                                        ? 'class="selected"' : null;
-                                ?>
-                                <a href="<?php echo $item->url; ?>"<?=$class ?>>
-                                <span><?php echo $item->title; ?></span>
-                                </a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
+                                    $class = ( $item->object_id == $post->ID ||
+                                            strtolower( $item->title ) ==
+                                            strtolower( $post->post_title ) ) 
+                                            ? 'class="selected"' : null;
+                                    ?>
+                                    <a href="<?php echo $item->url; ?>"<?=$class ?>>
+                                    <span><?php echo $item->title; ?></span>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
                 </div><!-- .col-sm-12 .col-lg-6 -->
 
-                <div class="col-sm-12 col-sm-12 col-lg-6" id="footer-logos">
+                <div class="hidden-xs hidden-sm hidden-md col-md-6 col-lg-4" id="footer-logos">
                     <div class="row">
                         <div class="col-xs-12 col-md-4">
                             <a href="http://ufl.edu" rel="nofollow">

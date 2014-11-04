@@ -97,4 +97,8 @@ a.navbar-brand
     .row {
         text-align: center;
     }
+
+    img {
+        @extend .img-responsive;
+    }
 }

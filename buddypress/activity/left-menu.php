@@ -24,12 +24,8 @@
         <div class="row section">
             <div class="col-lg-12">
                 <ul class="list-lines">
-                    <li><a href="/">What's New</a></li>
                     <?php bp_get_loggedin_user_nav(); ?>
                     <?php do_action( 'bp_member_options_nav' ); ?>
-                    <li>My Fossils</li>
-                    <li>My Resources</li>
-                    <li>My Events</li>
                 </ul>
             </div>
         </div>
