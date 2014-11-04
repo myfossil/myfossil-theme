@@ -17,6 +17,7 @@
 
 	<?php do_action( 'bp_before_directory_members_list' ); ?>
 
+    <div class="table-responsive">
 	<table id="members-list" class="table item-list" role="main">
         <tr>
             <th colspan="2">Name</th>
@@ -65,6 +66,7 @@
 	<?php endwhile; ?>
 
 	</table>
+    </div>
 
 	<?php do_action( 'bp_after_directory_members_list' ); ?>
 
