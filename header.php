@@ -40,7 +40,7 @@
 
         <!-- right nav -->
         <?php if (is_user_logged_in()): ?>
-          <ul class="nav navbar-nav navbar-right" id="nav-loggedin">
+          <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs" id="nav-loggedin">
               <!-- user logged in, show messages and info -->
                 <?php
                 if ( $nn = bp_notifications_get_unread_notification_count( bp_loggedin_user_id() ) ): ?>

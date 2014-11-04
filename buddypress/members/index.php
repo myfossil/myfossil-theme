@@ -42,7 +42,7 @@
 
 </div>
 
-<div id="buddypress" class="container container-no-padding page-styling no-border-top">
+<div class="container container-no-padding page-styling no-border-top">
 
 	<?php do_action( 'bp_before_directory_members' ); ?>
 	<?php do_action( 'bp_before_directory_members_content' ); ?>
