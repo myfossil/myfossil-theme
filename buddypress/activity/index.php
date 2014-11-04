@@ -12,11 +12,14 @@
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-10" style="border-left: 1px solid #eee;">
-            <div class="separate">
+            <div id="announcements" class="separate">
                 <h5 class="no-margin">Announcements</h5>
                 <div class="row">
                     <div class="col-sm-12"><br />
-                        <i class="fa fa-fw fa-circle fa-info"></i>
+                        <span class="fa-stack">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                        </span>
                         Welcome to the myFOSSIL development site. Breaking changes, data loss and downtime <strong>will</strong> happen!
                     </div>
                 </div>
