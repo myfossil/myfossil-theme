@@ -8,11 +8,6 @@
 
 #whats-new-avatar #user-info
 {
-	*
-	{
-		// text-align: center;
-	}
-
 	h4
 	{
 		margin: 0;
@@ -21,7 +16,6 @@
 
 	span.username
 	{
-
 	}
 }
 
@@ -52,4 +46,15 @@
 			text-decoration: none;
 		}
 	}
+}
+
+/**
+ * Avatar settings
+ */
+#item-header-avatar {
+    text-align: center;
+}
+
+#user-info {
+    margin-top: 20px;
 }

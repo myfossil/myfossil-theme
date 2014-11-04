@@ -1,7 +1,6 @@
 /**
  * Navigation, secondary.
  */
-
 .item-list-tabs
 {
 	margin: 0;
@@ -9,17 +8,17 @@
 
 .nav-tabs
 {
-	// background-color: $color-background;
-	// border-top: 1px solid $color-gray-lighter;
-
 	li
 	{
-		//
+        // background-color: $color-background;
+        // border-top: 1px solid $color-gray-lighter;
+        // border-left: 1px solid $color-gray-lighter;
+        // border-right: 1px solid $color-gray-lighter;
+        // margin-right: -1px;
 	}
 
 	li.active
 	{
-		//
 	}
 
 	li a
@@ -36,8 +35,7 @@
 
         &:hover
         {
-        	border-color: transparent;
+        	// border-color: transparent;
         }
 	}
 }
-
