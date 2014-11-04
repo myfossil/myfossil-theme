@@ -1,6 +1,6 @@
 <?php do_action( 'bp_before_member_settings_template' ); ?>
 
-<form action="<?php echo trailingslashit( bp_displayed_user_domain() . bp_get_settings_slug() . '/profile' ); ?>" method="post" class="standard-form" id="settings-form">
+<form action="<?php echo trailingslashit( bp_displayed_user_domain() . bp_get_settings_slug() . '/profile' ); ?>" method="post" class="form standard-form" id="settings-form">
 
 	<?php if ( bp_xprofile_get_settings_fields() ) : ?>
 
@@ -8,7 +8,7 @@
 
 			<?php if ( bp_profile_fields() ) : ?>
 
-				<table class="profile-settings" id="xprofile-settings-<?php bp_the_profile_group_slug(); ?>">
+				<table class="table" id="xprofile-settings-<?php bp_the_profile_group_slug(); ?>">
 					<thead>
 						<tr>
 							<th class="title field-group-name"><?php bp_the_profile_group_name(); ?></th>
@@ -39,7 +39,7 @@
 	<?php do_action( 'bp_core_xprofile_settings_before_submit' ); ?>
 
 	<div class="submit">
-		<input id="submit" type="submit" name="xprofile-settings-submit" value="<?php esc_attr_e( 'Save Settings', 'buddypress' ); ?>" class="auto" />
+		<input id="submit" type="submit" class="btn btn-default" name="xprofile-settings-submit" value="<?php esc_attr_e( 'Save Settings', 'buddypress' ); ?>" class="auto" />
 	</div>
 
 	<?php do_action( 'bp_core_xprofile_settings_after_submit' ); ?>

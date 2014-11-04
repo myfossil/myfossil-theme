@@ -222,3 +222,41 @@ li#group_members-order-select {
     left: 0;
 }
 
+#activity-notification-settings, 
+#activity-notification-settings, 
+#messages-notification-settings,
+#friends-notification-settings,
+#groups-notification-settings {
+    @extend .table;
+    @extend .table-hover;
+
+    width: 100%;
+           
+    td:first-child {
+        width: 0%;
+    }
+
+    td:first-child + td {
+        width: 80%;
+    }
+
+    td:first-child + td + td {
+        width: 10%;
+        text-align: center;
+    }
+
+    td:first-child + td + td + td {
+        width: 10%;
+        text-align: center;
+    }
+
+    th {
+        @extend h4;
+        text-align: center;
+        font-weight: bold;
+
+        &:first-child + th {
+            text-align: left;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 <?php do_action( 'bp_before_member_settings_template' ); ?>
 
-<div id="message" class="info">
+<div id="message" class="alert alert-warning">
 
 	<?php if ( bp_is_my_profile() ) : ?>
 
@@ -14,17 +14,19 @@
 
 </div>
 
-<form action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/delete-account'; ?>" name="account-delete-form" id="account-delete-form" class="standard-form" method="post">
+<form action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/delete-account'; ?>" name="account-delete-form" id="account-delete-form" class="standard-form form" method="post">
 
 	<?php do_action( 'bp_members_delete_account_before_submit' ); ?>
 
-	<label>
-		<input type="checkbox" name="delete-account-understand" id="delete-account-understand" value="1" onclick="if(this.checked) { document.getElementById('delete-account-button').disabled = ''; } else { document.getElementById('delete-account-button').disabled = 'disabled'; }" />
-		 <?php _e( 'I understand the consequences.', 'buddypress' ); ?>
-	</label>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="delete-account-understand" id="delete-account-understand" class="form-control" value="1" onclick="if(this.checked) { document.getElementById('delete-account-button').disabled = ''; } else { document.getElementById('delete-account-button').disabled = 'disabled'; }" />
+             <?php _e( 'I understand the consequences.', 'buddypress' ); ?>
+        </label>
+    </div>
 
 	<div class="submit">
-		<input type="submit" disabled="disabled" value="<?php esc_attr_e( 'Delete Account', 'buddypress' ); ?>" id="delete-account-button" name="delete-account-button" />
+		<input type="submit" disabled="disabled" value="<?php esc_attr_e( 'Delete Account', 'buddypress' ); ?>" id="delete-account-button" name="delete-account-button btn btn-default" />
 	</div>
 
 	<?php do_action( 'bp_members_delete_account_after_submit' ); ?>
