@@ -5,20 +5,20 @@ add_filter( 'bp_directory_members_search_form', '__return_null' );
 // Displayed member in member navigation Bootstrap-ify
 add_filter( 'bp_get_displayed_user_nav_activity', 'filter_nav_item', 10, 1 );
 add_filter( 'bp_get_displayed_user_nav_xprofile', 'filter_nav_item', 10, 1 );
-add_filter( 'bp_get_displayed_user_nav_notifications', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_displayed_user_nav_notifications', '__return_null', 10, 1 );
 add_filter( 'bp_get_displayed_user_nav_messages', 'filter_nav_item', 10, 1 );
-add_filter( 'bp_get_displayed_user_nav_friends', 'filter_nav_item', 10, 1 );
-add_filter( 'bp_get_displayed_user_nav_groups', 'filter_nav_item', 10, 1 );
-add_filter( 'bp_get_displayed_user_nav_settings', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_displayed_user_nav_friends', 'filter_nav_item_no_count', 10, 1 );
+add_filter( 'bp_get_displayed_user_nav_groups', 'filter_nav_item_no_count', 10, 1 );
+add_filter( 'bp_get_displayed_user_nav_settings', '__return_null', 10, 1 );
 
 // Logged in member navigation Bootstrap-ify
 add_filter( 'bp_get_loggedin_user_nav_activity', 'filter_nav_item', 999, 1 );
 add_filter( 'bp_get_loggedin_user_nav_xprofile', 'filter_nav_item', 999, 1 );
-add_filter( 'bp_get_loggedin_user_nav_notifications', 'filter_nav_item', 999, 1 );
+add_filter( 'bp_get_loggedin_user_nav_notifications', '__return_null', 999, 1 );
 add_filter( 'bp_get_loggedin_user_nav_messages', 'filter_nav_item', 999, 1 );
-add_filter( 'bp_get_loggedin_user_nav_friends', 'filter_nav_item', 999, 1 );
-add_filter( 'bp_get_loggedin_user_nav_groups', 'filter_nav_item', 999, 1 );
-add_filter( 'bp_get_loggedin_user_nav_settings', 'filter_nav_item', 999, 1 );
+add_filter( 'bp_get_loggedin_user_nav_friends', 'filter_nav_item_no_count', 999, 1 );
+add_filter( 'bp_get_loggedin_user_nav_groups', 'filter_nav_item_no_count', 999, 1 );
+add_filter( 'bp_get_loggedin_user_nav_settings', '__return_null', 999, 1 );
 
 /**
  * Style User profile buttons appropriately

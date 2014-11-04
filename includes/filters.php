@@ -67,15 +67,51 @@ function filter_nav_item( $bp_tpl_contents ) {
     $count = nav_item_count( $bp_tpl_contents );
 
     // Need to strip out HTML with the count in there
-    if ( $count > 0 || $nav_item_name == 'Messages 0' ) {
+    $nav_item_exploded = explode( " ", $nav_item_name );
+    if ( $count > 0 || end( $nav_item_exploded ) == '0' ) {
         // Trim off the number, so ridiculous...
         $nav_item_name = implode( " ", array_slice( explode( " ", $nav_item_name ), 0, -1 ) );
-        $nav_item_name = sprintf( "%s <span class=\"badge\">%d</span>", $nav_item_name, $count );
+
+        if ( $count > 0 )
+            $nav_item_name = sprintf( "%s <span class=\"badge\">%d</span>", $nav_item_name, $count );
+        else
+            $nav_item_name = $nav_item_name;
     }
 
     // We use the word "Wall" instead of "Home"
     if ( $nav_item_name == 'Home' || $nav_item_name == 'Activity' ) 
         $nav_item_name = 'Wall';
+
+    // Put it all back together
+    return $tpl . "<a href=\"" . $nav_item_link . "\">" . $nav_item_name . "</a></li>";
+}
+
+function filter_nav_item_no_count( $bp_tpl_contents ) {
+    $tpl = "<li>";
+
+    $doc = new DOMDocument();
+    $doc->loadHTML( $bp_tpl_contents );
+
+    $nav_item_link_elements = $doc->getElementsByTagName('a');
+    foreach ( $nav_item_link_elements as $el ) {
+        $nav_item_name = $el->nodeValue;
+        $nav_item_link = $el->getAttribute('href');
+    }
+
+    $nav_item_li = $doc->getElementsByTagName('li');
+    foreach ( $nav_item_li as $el ) {
+        foreach ( $el->attributes as $attr ) {
+            if ( contains( 'selected', $attr->nodeValue ) )
+                $tpl = "<li class=\"current selected active\">";
+        }
+    }
+
+    // Consider whether there's a count of something involved
+    $count = nav_item_count( $bp_tpl_contents );
+
+    // Need to strip out HTML with the count in there
+    if ( $count > 0 )
+        $nav_item_name = implode( " ", array_slice( explode( " ", $nav_item_name ), 0, -1 ) );
 
     // Put it all back together
     return $tpl . "<a href=\"" . $nav_item_link . "\">" . $nav_item_name . "</a></li>";

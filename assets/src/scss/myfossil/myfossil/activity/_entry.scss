@@ -14,15 +14,20 @@
     .activity-heading {
         @extend .panel-heading;
         background-color: $white;
-        font-size: 13px;
+        font-size: 14px;
         border-bottom: 1px solid $color-gray-light;
         padding: 10px;
         min-height: 45px;
+        color: $gray;
+
+        a {
+            color: $gray;
+        }
     }
 
     .activity-body {
         @extend .panel-body;
-        background-color: white;
+        background-color: $white;
         border: none !important;
         font-weight: bold;
         font-size: 1.4em;
@@ -63,6 +68,14 @@
         background: #fafafa;
         padding: 10px;
         min-height: 45px;
+
+        span.badge {
+            background-color: $link-color;
+        }
+
+        a {
+            text-decoration: none;
+        }
     }
 
 }

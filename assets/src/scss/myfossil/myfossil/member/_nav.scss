@@ -1,22 +1,36 @@
-#nav-member-activity {
+#nav-member {
+    
+    li {
+    }
+
+}
+
+#nav-member-sub {
     margin: 0 0 20px 0;
 
-    li {
-        a {
+    li 
+    {
+        a 
+        {
             text-decoration: none;
             color: $color-secondary;
 
-            &:hover {
+            &:hover 
+            {
                 background-color: $body-bg;
             }
+
         }
 
     }
 
-    li.current, li.active, li.selected {
+    li.current, li.active, li.selected 
+    {
         a {
             background-color: $color-secondary !important;
             color: $white;
         }
+
     }
+
 }
