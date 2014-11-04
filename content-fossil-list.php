@@ -9,9 +9,39 @@ $fossils = new WP_Query(
     );
 
 ?>
-<div id="primary" class="content-area container">
+
+<div id="buddypress-header">
+
+    <div id="item-header" role="complementary" class="container">
+
+        <div class="row" id="groups-header">
+
+            <div id="item-header-content" class="col-md-9">
+                <h1>Fossils</h1>
+
+                <?php do_action( 'template_notices' ); ?>
+
+            </div><!-- #item-header-content -->
+        </div>
+
+    </div>
+
+    <div id="item-nav" class="container">
+        <div class="item-list-tabs" role="navigation">
+            <ul class="nav nav-tabs">
+                <li class="selected active">
+                    <a>
+                        <?php printf( __( 'All Fossils', 'buddypress' ) ); ?>
+                    </a>
+                </li>
+            </ul>
+        </div><!-- .item-list-tabs -->
+    </div>
+</div>
+
+<div id="buddypress" class="container container-no-padding page-styling no-border-top">
     <main id="main" class="site-main" role="main">
-        <table class="table">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Author</th>
@@ -47,16 +77,6 @@ $fossils = new WP_Query(
                 </tr>
             <?php endwhile; ?>
             </tbody>
-            <tfoot>
-                <tr>
-                    <th>Author</th>
-                    <th>Thumbnail</th>
-                    <th>Location</th>
-                    <th>Taxon</th>
-                    <th>Geochronology</th>
-                    <th>Lithostratigraphy</th>
-                </tr>
-            </tfoot>
         </table>
     </main><!-- #main -->
 </div><!-- #primary -->
