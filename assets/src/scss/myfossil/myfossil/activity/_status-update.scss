@@ -1,0 +1,85 @@
+.status-update {
+    @extend .activity-entry;
+
+    width: 100%;
+    background-color: $white;
+
+    .status-update-heading {
+        @extend .activity-heading;
+
+        h4 {
+            text-transform: uppercase;
+            font-weight: bold;
+            color: $black;    
+            margin: 0;
+        }
+
+        .post-in {
+            display: none;
+
+            label {
+                display: inline-block;
+            }
+
+            select {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .status-update-body {
+        @extend .panel-body;
+        @extend .row;
+
+        padding: 0;
+        margin: 5px;
+
+        #whats-new-user-avatar {
+            @extend .hidden-xs;
+            @extend .hidden-sm;
+            @extend .col-md-1;
+            @extend .col-lg-1;
+
+            text-align: center;
+            padding-top: 5px;
+
+            img {
+                @extend .img-responsive;
+                margin: 10px 0;
+                float: right;
+            }
+        }
+
+        #whats-new-textarea {
+            @extend .col-xs-12;
+            @extend .col-sm-12;
+            @extend .col-md-8;
+            @extend .col-lg-9;
+
+            height: 60px !important;
+            min-height: 60px !important;
+            max-height: 60px !important;
+            padding: 0 5px;
+        }
+
+        #whats-new-options {
+            @extend .col-xs-12;
+            @extend .col-sm-12;
+            @extend .col-md-3;
+            @extend .col-lg-2;
+
+            text-align: left;
+            margin: 10px 0;
+
+            button {
+                @extend .col-xs-12;
+                @extend .col-sm-12;
+            }
+        }
+    }
+
+    .status-update-footer {
+        @extend .activity-footer;
+    }
+}

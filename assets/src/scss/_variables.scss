@@ -5,12 +5,13 @@
 $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")')) !default;
 
 
-/*
-
+/**
+ * BuddyPress
  */
+$size-buddypress-padding-top		: 20px;
+$size-buddypress-header-padding		: 20px;
 
- /*/ Variables /*/
-
+/*/ Variables /*/
 $path-images 			: "/wp-content/themes/myfossil/static/img";
 
 

@@ -1,0 +1,46 @@
+/**
+ * Navigation, footer.
+ *
+ * Primary menu located at the bottom of every page.
+ */
+#nav-footer {
+    a {
+        color: $white;
+        text-decoration: none;
+        text-transform: capitalize !important;
+
+        &:hover {
+            background-color: $black;
+            text-decoration: underline;
+        }
+    }
+}
+
+#footer-disclaimer {
+    font-size: 0.8em;
+    color: $white;
+}
+
+#footer-logos {
+    text-align: right;
+    
+    .row {
+        text-align: center;
+    }
+
+    img {
+        @extend .img-responsive;
+    }
+}
+
+.site-footer {
+    width: 100%;
+    background-color: $black;
+    padding: 50px;
+    text-align: center;
+
+    #nav {
+        text-align: left;
+    }
+}
+

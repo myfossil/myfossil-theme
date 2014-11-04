@@ -1,0 +1,41 @@
+/**
+ * Navigation, secondary.
+ */
+.item-list-tabs
+{
+	margin: 0;
+}
+
+.nav-tabs
+{
+	li
+	{
+        // background-color: $color-background;
+        // border-top: 1px solid $color-gray-lighter;
+        // border-left: 1px solid $color-gray-lighter;
+        // border-right: 1px solid $color-gray-lighter;
+        // margin-right: -1px;
+	}
+
+	li.active
+	{
+	}
+
+	li a
+	{
+		margin-right: 0;
+
+		border-radius: 0;
+
+		font-family: $headings-font-family;
+        font-weight: $headings-font-weight;
+        color: $color-gray-medium;
+        text-transform: uppercase;
+        text-decoration: none;
+
+        &:hover
+        {
+        	// border-color: transparent;
+        }
+	}
+}

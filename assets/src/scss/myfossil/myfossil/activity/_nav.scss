@@ -1,0 +1,89 @@
+/**
+ * Navigation, Activity.
+ */
+#user-left
+{
+	font-size: $font-size-base;
+    font-family: $font-family-serif; 
+}
+
+#navbar-user {
+    margin-right: 0;
+    padding-right: 0;
+}
+
+ul#nav-user {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a
+    {
+        color : $gray;
+        text-decoration: none;
+        font-weight: bold;
+        padding-left: 10px;
+
+        &:hover 
+        {
+            color: $color-blue;
+        }
+    }
+
+    li
+    {
+        padding: 0;
+        padding-bottom: $padding-base-vertical * 1.5;
+        padding-top: $padding-base-vertical * 1.5;
+        border-bottom: 1px solid #eee;
+        margin-right: 0;
+
+        &:hover 
+        {
+            background-color: $white;
+        }
+
+        span.badge 
+        {
+            background-color: $color-brown-light;
+            float: right;
+            margin-right: $padding-base-horizontal;
+            border-radius: 3px;
+        }
+
+    }
+
+    li.separator
+    {
+        &:hover {
+            background-color: $body-bg !important;
+        }
+
+    }
+
+}
+
+#user-info
+{
+    margin-top: 20px;
+
+	h4
+	{
+		margin: 0;
+		text-transform: none;
+	}
+
+    #item-header-avatar {
+        text-align: center;
+    }
+
+	span.username
+	{
+        @extend .text-muted;
+	}
+
+    .row
+    {
+        margin-bottom: 20px;
+    }
+}

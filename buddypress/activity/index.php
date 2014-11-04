@@ -5,21 +5,24 @@
 	<?php do_action('bp_before_directory_activity_content'); ?>
     
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-2">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
             <?php if (is_user_logged_in()): ?>
                 <?php bp_get_template_part('activity/left-menu'); ?>
             <?php endif; ?>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-10" style="border-left: 1px solid #eee;">
-            <div class="separate">
-                <h5 class="no-margin">Announcements</h5>
-                <div class="row">
-                    <div class="col-sm-12"><br />
-                        <i class="fa fa-fw fa-circle fa-info"></i>
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10" style="border-left: 1px solid #eee;">
+            <div id="announcements" class="separate">
+                <h4>Announcements</h4>
+                <ul>
+                    <li>
+                        <span class="fa-stack">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                        </span>
                         Welcome to the myFOSSIL development site. Breaking changes, data loss and downtime <strong>will</strong> happen!
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
             <div>
                 <?php if (is_user_logged_in()): ?>
@@ -30,81 +33,9 @@
                 <?php do_action('template_notices'); ?>
             </div>
 
-            <?php /* {{{ tabs
-            <div class="col-md-10 col-no-padding separate-top">
-                <?php 
-                <div class="item-list-tabs activity-type-tabs" role="navigation">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <?php do_action('bp_before_activity_type_tab_all'); ?>
-
-                        <li id="activity-all" class="selected active">
-                            <a href="<?php bp_activity_directory_permalink(); ?>" title="<?php esc_attr_e('The public activity for everyone on this site.', 'buddypress'); ?>">
-                                <?php printf(__('All Members <span class="badge">%s</span>', 'buddypress') , bp_get_total_member_count()); ?>
-                            </a>
-                        </li>
-
-                        <?php if (is_user_logged_in()): ?>
-                            <?php do_action('bp_before_activity_type_tab_friends'); ?>
-                            <?php if (bp_is_active('friends')): ?>
-                                <?php if (bp_get_total_friend_count(bp_loggedin_user_id())): ?>
-                                    <li id="activity-friends">
-                                        <a href="<?php echo bp_loggedin_user_domain() . bp_get_activity_slug() . '/' . bp_get_friends_slug() . '/'; ?>" title="<?php esc_attr_e('The activity of my friends only.', 'buddypress'); ?>">
-                                            <?php printf(__('My Friends <span class="badge">%s</span>', 'buddypress') , bp_get_total_friend_count(bp_loggedin_user_id())); ?>
-                                        </a>
-                                    </li>
-                                <?php endif; ?>
-                            <?php endif; ?>
-
-                            <?php do_action('bp_before_activity_type_tab_groups'); ?>
-
-                            <?php if (bp_is_active('groups')): ?>
-                                <?php if (bp_get_total_group_count_for_user(bp_loggedin_user_id())): ?>
-                                    <li id="activity-groups">
-                                        <a href="<?php echo bp_loggedin_user_domain() . bp_get_activity_slug() . '/' . bp_get_groups_slug() . '/'; ?>" title="<?php esc_attr_e('The activity of groups I am a member of.', 'buddypress'); ?>">
-                                            <?php printf(__('My Groups <span class="badge">%s</span>', 'buddypress') , bp_get_total_group_count_for_user(bp_loggedin_user_id())); ?>
-                                        </a>
-                                    </li>
-                                <?php endif; ?>
-                            <?php endif; ?>
-
-                            <?php do_action('bp_before_activity_type_tab_favorites'); ?>
-
-                            <?php if(bp_get_total_favorite_count_for_user(bp_loggedin_user_id())): ?>
-                                <li id="activity-favorites">
-                                    <a href="<?php echo bp_loggedin_user_domain() . bp_get_activity_slug() . '/favorites/'; ?>" title="<?php esc_attr_e("The activity I've marked as a favorite.", 'buddypress'); ?>">
-                                        <?php printf(__('My Favorites <span class="badge">%s</span>', 'buddypress') , bp_get_total_favorite_count_for_user(bp_loggedin_user_id())); ?>
-                                    </a>
-                                </li>
-                            <?php endif; ?>
-
-                            <?php if (bp_activity_do_mentions()): ?>
-                                <?php do_action('bp_before_activity_type_tab_mentions'); ?>
-                                <li id="activity-mentions">
-                                    <a href="<?php echo bp_loggedin_user_domain() . bp_get_activity_slug() . '/mentions/'; ?>" title="<?php esc_attr_e('Activity that I have been mentioned in.', 'buddypress'); ?>">
-                                        <?php _e('Mentions', 'buddypress'); ?>
-                                        <?php if (bp_get_total_mention_count_for_user(bp_loggedin_user_id())): ?> 
-                                            <strong>
-                                                <span>
-                                                    <?php printf(_nx('%s new', '%s new', bp_get_total_mention_count_for_user(bp_loggedin_user_id()) , 'Number of new activity mentions', 'buddypress') , bp_get_total_mention_count_for_user(bp_loggedin_user_id())); ?>
-                                                </span>
-                                            </strong>
-                                        <?php endif; ?>
-                                    </a>
-                                </li>
-                            <?php endif; ?>
-
-                        <?php endif; ?>
-
-                        <?php do_action('bp_activity_type_tabs'); ?>
-                    </ul>
-                </div><!-- .item-list-tabs -->
-                ?>
-            </div>
-            }}} */ ?>
-
             <div>
                 <div class="item-list-tabs no-ajax pull-right" id="subnav" role="navigation">
-                    <ul style="margin-top: 10px;">
+                    <ul>
                         <li id="activity-filter-select" class="last">
                             <form class="form-inline">
                                 <label for="activity-filter-by"><?php _e('Showing...', 'buddypress'); ?></label>

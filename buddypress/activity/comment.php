@@ -10,9 +10,9 @@
  */
 do_action('bp_before_activity_comment'); ?>
 
-<div id="acomment-<?php bp_activity_comment_id(); ?>" class="acomment panel">
+<div id="acomment-<?php bp_activity_comment_id(); ?>" class="acomment activity-entry">
 
-    <div class="panel-heading">
+    <div class="activity-heading">
 
         <div class="acomment-meta">
             <?php bp_activity_avatar('class=avatar&type=thumb&user_id=' . bp_get_activity_comment_user_id() . '&width=30&height=30' ); ?>
@@ -29,7 +29,7 @@ do_action('bp_before_activity_comment'); ?>
         </div>
     </div>
 
-    <div class="panel-body">
+    <div class="activity-body">
 
         <div class="acomment-content">
             <?php bp_activity_comment_content(); ?>
@@ -37,7 +37,7 @@ do_action('bp_before_activity_comment'); ?>
 
     </div>
 
-    <div class="panel-footer">
+    <div class="activity-footer">
         <div class="acomment-options"> 
             <?php if ( is_user_logged_in() 
                     && bp_activity_can_comment_reply( bp_activity_current_comment() ) ): ?>

@@ -8,17 +8,15 @@
  * @package myfossil
  * @subpackage theme
  */
-?>
 
-<?php 
 do_action('bp_before_activity_entry'); 
 
 global $activities_template;
 ?>
 
 <li class="<?php bp_activity_css_class(); ?>" id="activity-<?php bp_activity_id(); ?>">
-    <div class="panel panel-default">
-        <div class="panel-heading">
+    <div class="activity-entry">
+        <div class="activity-heading">
             <div class="row">
                 <div class="col-md-8 col-sm-12">
                     <?=get_avatar( $activities_template->activity->user_id, 30 ) ?>
@@ -33,7 +31,7 @@ global $activities_template;
 
         <?php if ( bp_activity_has_content() || bp_activity_get_comment_count()
                 || bp_activity_can_comment() || bp_is_single_activity() ): ?>
-        <div class="panel-body">
+        <div class="activity-body">
             <?php if ( bp_activity_has_content() ): ?>
                 <div class="activity-content">
                     <div class="activity-inner">
@@ -89,10 +87,10 @@ global $activities_template;
                 </div>
             <?php endif; ?>
 
-        </div><!-- end panel-body -->
+        </div>
         <?php endif; ?>
 
-        <div class="panel-footer">
+        <div class="activity-footer">
             <?php if (is_user_logged_in()): ?>
                 <?php if (bp_activity_can_comment()): ?>
                     <a href="<?php bp_activity_comment_link(); ?>" class="button acomment-reply bp-primary-action" id="acomment-comment-<?php bp_activity_id(); ?>">
