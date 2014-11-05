@@ -1,6 +1,8 @@
 <?php
 use myFOSSIL\Plugin\Specimen\Fossil;
+
 $fossil = new Fossil( $page );
+
 ?>
 <div id="primary" class="content-area">
     <div id="buddypress-header" class="dark">
@@ -11,8 +13,13 @@ $fossil = new Fossil( $page );
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
                     <h1>Fossil <?=sprintf( "%06d", $fossil->id ) ?></h1>
-                    <dl class="inline">
-                        <li>Author</dt><dd><?=$fossil->author ?></dd>
+                    <dl class="inline fossil-header">
+                        <dt>Author</dt>
+                        <dd>
+                            <a href="<?=bp_core_get_user_domain( $fossil->author->ID ) ?>">
+                                <?=trim( $fossil->author->display_name ) ?>
+                            </a>
+                        </dd>
                         <dt>Updated</dt><dd><?=$fossil->updated_at ?></dd>
                         <dt>Location</dt><dd><?=$fossil->location ?></dd>
                     </dl>
@@ -49,7 +56,6 @@ $fossil = new Fossil( $page );
                     <tr class="sr-only">
                         <th>Taxonomy Level</th>
                         <th>Value</th>
-                        <th>Options</th>
                     </tr>
                     <?php
                     foreach ( array( 'phylum', 'class', 'order', 'family', 'genus', 'species' ) as $k ):
@@ -63,11 +69,6 @@ $fossil = new Fossil( $page );
                                     <span class="text-muted">Unknown</span>
                                 </td>
                             <?php endif; ?>
-                            <td>
-                                <a class="disabled">
-                                    <i class="fa fa-fw fa-edit"></i>
-                                </a>
-                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </table>
@@ -178,7 +179,6 @@ $fossil = new Fossil( $page );
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script>    
     function init_map() {
         var var_location = new google.maps.LatLng( 
