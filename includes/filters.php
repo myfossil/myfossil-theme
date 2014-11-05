@@ -147,6 +147,7 @@ add_filter( 'bp_get_options_nav_notifications', 'filter_nav_item', 10, 1 );
 add_filter( 'bp_get_options_nav_profile', 'filter_nav_item', 10, 1 );
 add_filter( 'bp_get_options_nav_capabilities', 'filter_nav_item', 10, 1 );
 add_filter( 'bp_get_options_nav_delete-account', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_nav-forum', 'filter_nav_item', 10, 1 );
 
 
 /**
