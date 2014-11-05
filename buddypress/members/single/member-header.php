@@ -11,13 +11,13 @@
 <?php do_action( 'bp_before_member_header' ); ?>
 
 <div class="row" id="members-header">
-    <div id="item-header-avatar" class="col-md-2">
+    <div id="item-header-avatar" class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
         <a href="<?php bp_displayed_user_link(); ?>">
             <?php bp_displayed_user_avatar( 'type=full' ); ?>
         </a>
     </div><!-- #item-header-avatar -->
 
-    <div id="item-header-content" class="col-md-6">
+    <div id="item-header-content" class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
 
         <?php if ( bp_is_active( 'activity' ) && bp_activity_do_mentions() ) : ?>
             <h2 class="user-fullname">
@@ -48,12 +48,12 @@
 
     </div><!-- #item-header-content -->
 
-    <div id="item-header-actions" class="col-md-4">
+    <div id="item-header-actions" class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
         <div id="item-buttons" class="row">
             <?php do_action( 'bp_member_header_actions' ); ?>
         </div>
-        <div class="row activity time-since">
-            <div class="col-sm-12">
+        <div class="row row-centered time-since">
+            <div class="col-xs-12 col-lg-12">
                 <?php bp_last_activity( bp_displayed_user_id() ); ?>
             </div>
         </div>

@@ -49,13 +49,13 @@ function filter_bp_button_members( $btn ) {
 
     $btn['link_class'] .= " btn-block";
 
-    $btn['wrapper_class'] = "col-sm-12 col-md-6";
+    $btn['wrapper_class'] = "col-lg-12 separate separate-top";
 
     return $btn;
 }
 add_filter( 'bp_get_add_friend_button', 'filter_bp_button_members' );
-add_filter( 'bp_get_send_public_message_button', '__return_null' );
 add_filter( 'bp_get_send_message_button_args', 'filter_bp_button_members' );
+add_filter( 'bp_get_send_public_message_button', '__return_null' );
 
 
 /**
