@@ -21,6 +21,10 @@ dl.fossil-header {
     vertical-align: middle; 
 }
 
+button.edit-fossil-taxon_open {
+    margin: 22px 0;
+}
+
 .edit-fossil {
     @extend .panel;
     @extend .panel-default;
@@ -62,8 +66,12 @@ dl.fossil-header {
 
         ul {
             li {
-                padding: 10px 0;
-                border-bottom: 1px solid #eee;
+                padding: 10px;
+                border-top: 1px solid #eee;
+
+                &:hover {
+                    background-color: $body-bg;
+                }
             }
         }
     }

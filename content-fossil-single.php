@@ -24,11 +24,6 @@ $fossil = new Fossil( $page );
                         <dt>Location</dt><dd><?=$fossil->location ?></dd>
                     </dl>
                 </div>
-                <?php /*
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
-                    <button class="btn btn-primary btn-block">Follow</button>
-                </div>
-                */ ?>
             </div>
         </div>
 
@@ -44,12 +39,18 @@ $fossil = new Fossil( $page );
     <div id="buddypress" class="container page-styling site-main" role="main">
         <div class="row clearfix">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
-                <h2>Classification</h2>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <h2>Classification</h2>
+                    </div>
 
-                <button class="btn btn-default edit-fossil-taxon_open" data-popup-ordinal="1">
-                    <i class="fa fa-fw fa-edit"></i>
-                    Edit Classification
-                </button>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-right">
+                        <button class="btn btn-default edit-fossil-taxon_open" data-popup-ordinal="1">
+                            <i class="fa fa-fw fa-edit"></i>
+                            Edit Classification
+                        </button>
+                    </div>
+                </div>
 
                 <div id="edit-fossil-taxon" class="edit-fossil-popup">
                     <div class="edit-fossil">
@@ -69,11 +70,6 @@ $fossil = new Fossil( $page );
                         </div>
                     </div>
                 </div>
-
-                <h3>Common Name</h3>
-                <p style="font-style: italic">
-                    <?=@$fossil->taxon->common_name ? $fossil->taxon->common_name : $fossil->taxon->name ?>
-                </p>
 
                 <input type="hidden" id="taxon-name" value="<?=$fossil->taxon->name ?>" />
 
@@ -239,6 +235,8 @@ $fossil = new Fossil( $page );
 
         url += $( '#taxon-name' ).val() + "&rel=all_parents&vocab=pbdb";
 
+        console.warn( url );
+
         $.ajax({
             type: 'post',
             url: url,
@@ -246,6 +244,9 @@ $fossil = new Fossil( $page );
             success: function( resp ) {
                 resp.records.forEach( 
                     function( taxon ) {
+                        console.log( taxon );
+                        taxon = normalize_taxon( taxon );
+                        console.info( taxon );
                         $( '#taxon-' + taxon.rank ).text( taxon.taxon_name );
                     }
                 );
@@ -278,11 +279,11 @@ $fossil = new Fossil( $page );
                 var current_interval = intervals[match];
 
                 while ( current_interval ) {
-                    $( '#geochronology-' + current_interval.level ).text( current_interval.interval_name );
+                    $( '#geochronology-' + current_interval.level )
+                        .text( current_interval.interval_name );
                     current_interval = intervals[current_interval.parent_no];
                 }
             },
-
             error: function( err ) {
                 console.log( err );
             }
@@ -314,6 +315,35 @@ $fossil = new Fossil( $page );
         return img;
     }
 
+    function taxon_normalize_rank( rank ) {
+        var _rank = rank.split( '' );
+
+        if ( _rank.slice( 0, 3 ) == 'sub' )
+            return _rank.slice( 3 ).join( '' );
+
+        if ( _rank.slice( 0, 4 ) == 'infra' )
+            return _rank.slice( 4 ).join( '' );
+
+        if ( _rank.slice( 0, 5 ) == 'super' )
+            return _rank.slice( 5 ).join( '' );
+
+        return rank;
+    }
+
+    function normalize_taxon( taxon ) {
+        if ( taxon.rank )
+            taxon.rank = taxon_normalize_rank( taxon.rank );
+        if ( taxon.taxon_rank )
+            taxon.taxon_rank = taxon_normalize_rank( taxon.taxon_rank );
+        return taxon;
+    }
+
+    function set_taxon( taxon ) {
+        $( '#taxon-name' ).val( taxon.taxon_name );
+        $( 'td#taxon-' + taxon.taxon_rank ).text( taxon.taxon_name );
+        load_taxa();
+    }
+
     function autocomplete_taxon() {
         // PBDB auto-complete requires least 3 characters before returning a
         // response.
@@ -340,11 +370,21 @@ $fossil = new Fossil( $page );
 
                     // foreach taxon result from the auto-complete
                     $.map( data.records, function( taxon ) {
+                            taxon = normalize_taxon( taxon );
+
+                            // Filter out misspellings.
+                            if ( !! taxon.misspelling ) return true;
+
                             // Build list item, including phylopic.
                             var taxon_li = $( '<li></li>' )
+                                    .addClass( 'hover-hand' )
                                     .append( get_taxon_img( taxon.taxon_no ) )
                                     .append( ' ' )
-                                    .append( taxon.taxon_name );
+                                    .append( taxon.taxon_name )
+                                    .click( function() {
+                                            set_taxon( taxon );
+                                        }
+                                    );
 
                             // Add list item to the results.
                             ul.append( taxon_li );
