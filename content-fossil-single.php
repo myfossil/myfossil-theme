@@ -257,16 +257,15 @@ $fossil = new Fossil( $page );
     }
 
     function load_geochronology() {
-        var url = "http://paleobiodb.org/data1.1/intervals/list.json?scale=1&vocab=pbdb";
+        var url = "http://paleobiodb.org/data1.1/intervals/list.json"
+                + "?scale=1&vocab=pbdb";
 
         $.ajax({
             type: 'post',
             url: url,
             dataType: 'json',
             success: function( resp ) {
-                /* @todo clean this up, sheesh */
-
-                // reorganize records
+                // Re-organize results from the PBFDB.
                 var intervals = [], match;
                 resp.records.forEach(
                     function( interval ) {
@@ -291,16 +290,24 @@ $fossil = new Fossil( $page );
     }
 
     function get_taxon_img( taxon_no ) {
-        var url = "http://paleobiodb.org/data1.1/taxa/single.json?show=img&vocab=pbdb&id=" + taxon_no;
+        if ( taxon_no <= 0 ) return;
+
+        var url = "http://paleobiodb.org/data1.1/taxa/single.json"
+                + "?show=img&vocab=pbdb&id=" 
+                + taxon_no;
         var img_url = "http://paleobiodb.org/data1.1/taxa/thumb.png?id=";
-        var img = $( '<img />' );
+        var img = $( '<img />' ).addClass( 'phylopic' );
+
+        // Query the PBDB with the taxon id.
         $.ajax({
             url: url,
             type: 'GET',
             dataType: 'json',
             success: function( data ) {
-                if ( data.records && data.records[0].image_no > 0 ) 
-                    img.attr( 'src', img_url + data.records[0].image_no ).addClass( 'phylopic' );
+                var taxon = data.records.pop();
+                if ( taxon.image_no ) {
+                    img.attr( 'src', img_url + taxon.image_no );
+                }
             }
         });
 
@@ -308,37 +315,47 @@ $fossil = new Fossil( $page );
     }
 
     function autocomplete_taxon() {
+        // PBDB auto-complete requires least 3 characters before returning a
+        // response.
         if ( parseInt( $( this ).val().length ) < 3 )
             return;
 
+        // Auto-complete unordered list.
         var ul = $( 'ul#edit-fossil-taxon-results' );
-        var url = "http://paleobiodb.org/data1.1/taxa/auto.json?limit=5&vocab=pbdb&name=";
-        url += $( this ).val();
 
-        console.log( ul );
+        // @todo Make the PBDB URL some kind of constant.
+        var url = "http://paleobiodb.org/data1.1/taxa/auto.json"
+                + "?limit=5&vocab=pbdb&name="
+                + $( this ).val();
 
-        $.ajax({
-            url: url,
-            type: 'GET',
-            dataType: 'json',
-            success: function( data ) {
-                ul.empty();
-                $.map( data.records, function( taxon ) {
-                    var taxon_li = $( '<li></li>' );
-                    var taxon_label = $( '<span></span>')
-                        .addClass( 'label label-taxon-rank' )
-                        .addClass( 'label-taxon-rank-' + taxon.taxon_rank )
-                        .text( taxon.taxon_rank );
+        // Query the PBDB with the current taxon name partial.
+        $.ajax(
+            {
+                url: url,
+                type: 'GET',
+                dataType: 'json',
+                success: function( data ) {
+                    // Remove current taxa from the auto-complete list.
+                    ul.empty(); 
 
-                    ul.append( 
-                            taxon_li
-                                .append( get_taxon_img( taxon.taxon_no ) )
-                                .append( ' ' + taxon.taxon_name ) 
-                        );
-                });
-            },
-            error: function( err ) { console.log( err ) }
-        });
+                    // foreach taxon result from the auto-complete
+                    $.map( data.records, function( taxon ) {
+                            // Build list item, including phylopic.
+                            var taxon_li = $( '<li></li>' )
+                                    .append( get_taxon_img( taxon.taxon_no ) )
+                                    .append( ' ' )
+                                    .append( taxon.taxon_name );
+
+                            // Add list item to the results.
+                            ul.append( taxon_li );
+                        }
+                    );
+                },
+                error: function( err ) { 
+                    console.log( err ) 
+                }
+            }
+        );
     }
 
     $( function() {
