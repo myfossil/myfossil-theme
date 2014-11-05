@@ -19,17 +19,16 @@
     <div id="item-nav" class="container">
         <div class="item-list-tabs" role="navigation">
 			<ul class="nav nav-tabs">
-				<li class="selected active" id="members-all"><a href="<?php bp_members_directory_permalink(); ?>"><?php printf( __( 'All Members <span class="badge">%s</span>', 'buddypress' ), bp_get_total_member_count() ); ?></a></li>
+				<li class="selected active" id="members-all">
+                    <a href="<?php bp_members_directory_permalink(); ?>">
+                        <?php printf( __( 'All Members', 'buddypress' ) ); ?>
+                    </a>
+                </li>
 
 				<?php if ( is_user_logged_in() && bp_is_active( 'friends' ) && bp_get_total_friend_count( bp_loggedin_user_id() ) ) : ?>
 					<li id="members-personal">
                         <a href="<?php echo bp_loggedin_user_domain() . bp_get_friends_slug() . '/my-friends/'; ?>">
-                            <?php 
-                                printf( 
-                                        __( 'My Friends <span class="badge">%s</span>', 'buddypress' ), 
-                                        bp_get_total_friend_count( bp_loggedin_user_id() ) 
-                                    ); 
-                            ?>
+                            <?php printf( __( 'My Friends', 'buddypress' ) ); ?>
                         </a>
                     </li>
 				<?php endif; ?>
@@ -47,20 +46,7 @@
 	<?php do_action( 'bp_before_directory_members' ); ?>
 	<?php do_action( 'bp_before_directory_members_content' ); ?>
 
-	<div class="col-md-8 page-padding next-to-right-sidebar">
-		<!-- Member Listing --> 
-		<div id="members-dir-list" class="members dir-list">
-			<?php bp_get_template_part( 'members/members-loop' ); ?>
-		</div><!-- #members-dir-list -->
-
-		<?php do_action( 'bp_directory_members_content' ); ?>
-
-		<?php wp_nonce_field( 'directory_members', '_wpnonce-member-filter' ); ?>
-
-		<?php do_action( 'bp_after_directory_members_content' ); ?>
-	</div>
-
-	<div class="col-md-4 sidebar sidebar-right page-padding">
+	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 sidebar sidebar-right page-padding pull-right">
 		<div id="members-dir-search" class="dir-search section" role="search">
 			<?php bp_directory_members_search_form(); ?>
 		</div><!-- #members-dir-search -->
@@ -94,6 +80,20 @@
 
 
 		<?php do_action( 'bp_after_directory_members' ); ?>
+	</div>
+
+
+	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 page-padding next-to-right-sidebar">
+		<!-- Member Listing --> 
+		<div id="members-dir-list" class="members dir-list">
+			<?php bp_get_template_part( 'members/members-loop' ); ?>
+		</div><!-- #members-dir-list -->
+
+		<?php do_action( 'bp_directory_members_content' ); ?>
+
+		<?php wp_nonce_field( 'directory_members', '_wpnonce-member-filter' ); ?>
+
+		<?php do_action( 'bp_after_directory_members_content' ); ?>
 	</div>
 
 </div><!-- #buddypress -->
