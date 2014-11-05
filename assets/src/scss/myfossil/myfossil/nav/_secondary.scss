@@ -72,3 +72,20 @@ ul#nav-sub {
 
     }
 }
+
+
+/**
+ * bootstrap fixes
+ */
+@media ( max-width: $grid-float-breakpoint ) 
+{
+    .nav-tabs > li 
+    {
+        float: none;
+    }
+
+    .navbar-collapse.in {
+        overflow: hidden;
+    }
+
+}
