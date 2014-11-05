@@ -114,3 +114,38 @@ function strip_tags_contents( $html ) {
     $regex = '/<[^>]*>[^<]*<[^>]*>/s';
     return preg_replace($regex, '', $html);
 }
+
+/**
+ * Custom link pagination
+ */
+function myfossil_paginate_links( $wp_query ) {
+    $return_str = '';
+    $prev_text = '<span class="sr-only">Previous</span><i class="fa fa-fw fa-caret-left"></i>';
+    $next_text = '<i class="fa fa-fw fa-caret-right"></i><span class="sr-only">Next</span>';
+    $big = 9999999;
+    $pages = paginate_links(
+            array(
+                'base'         => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+                'format'       => '?paged=%#%',
+                'total'        => $wp_query->max_num_pages,
+                'current'      => max( 1, get_query_var( 'paged' ) ),
+                'prev_text'    => $prev_text,
+                'next_text'    => $next_text,
+                'type'         => 'array',
+            )
+        ); 
+
+    if ( is_array( $pages ) ) {
+        $paged = get_query_var( 'paged' ) ? 1 : get_query_var( 'paged' );
+        $return_str .= sprintf( '<ul class="pagination">' );
+        foreach ( $pages as $page ) {
+            if ( strpos( $page, 'current' ) === false )
+                $return_str .= sprintf( "\n\t<li>%s</li>", $page );
+            else
+                $return_str .= sprintf( "\n\t<li class=\"active\">%s</li>", $page );
+        }
+        $return_str .= sprintf( "\n</ul>" );
+    }
+
+    return $return_str;
+}

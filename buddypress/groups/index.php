@@ -5,7 +5,7 @@
 
         <div class="row" id="groups-header">
 
-            <div id="item-header-content" class="col-md-9">
+            <div id="item-header-content" class="col-sm-12 col-md-9">
                 <h1>Community</h1>
 
                 <?php do_action( 'template_notices' ); ?>
@@ -14,12 +14,13 @@
                 <?php do_action( 'bp_before_directory_groups_content' ); ?>
             </div><!-- #item-header-content -->
 
-            <div class="col-md-3">
+            <div class="col-sm-12 col-md-3">
                 <?php echo bp_get_group_create_button(); ?>
             </div>
         </div>
 
     </div>
+
     <div id="item-nav" class="container">
         <form action="" method="post" id="groups-directory-form" class="dir-form form">
             <div class="item-list-tabs" role="navigation">
