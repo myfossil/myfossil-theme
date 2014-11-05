@@ -4,7 +4,7 @@ use myFOSSIL\Plugin\Specimen\Fossil;
 $fossil = new Fossil( $page );
 
 ?>
-<div id="primary" class="content-area">
+<div id="fossil" class="content-area">
     <div id="buddypress-header" class="dark">
         <div id="item-header" class="container">
             <div class="row">
@@ -46,20 +46,43 @@ $fossil = new Fossil( $page );
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
                 <h2>Classification</h2>
 
-                <h4>Name</h3>
+                <button class="btn btn-default edit-fossil-taxon_open" data-popup-ordinal="1">
+                    <i class="fa fa-fw fa-edit"></i>
+                    Edit Classification
+                </button>
+
+                <div id="edit-fossil-taxon" class="edit-fossil-popup">
+                    <div class="edit-fossil">
+                        <div class="edit-fossil-body">
+                            <form class="form">
+                                <div class="form-group">
+                                    <label class="control-label">Edit Taxon:</label>
+                                    <input class="form-control" type="text" 
+                                            id="edit-fossil-taxon-name"
+                                            placeholder="Begin typing your Taxon" />
+                                </div>
+                            </form>
+                        </div>
+                        <div class="edit-fossil-footer">
+                            <ul id="edit-fossil-taxon-results">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Common Name</h3>
                 <p style="font-style: italic">
                     <?=@$fossil->taxon->common_name ? $fossil->taxon->common_name : $fossil->taxon->name ?>
                 </p>
-                <span class="sr-only" id="taxon-name"><?=$fossil->taxon->name ?></span>
+
+                <input type="hidden" id="taxon-name" value="<?=$fossil->taxon->name ?>" />
 
                 <table class="table table-hover table-condensed">
                     <tr class="sr-only">
                         <th>Taxonomy Level</th>
                         <th>Value</th>
                     </tr>
-                    <?php
-                    foreach ( array( 'phylum', 'class', 'order', 'family', 'genus', 'species' ) as $k ):
-                    ?>
+                    <?php foreach ( array( 'phylum', 'class', 'order', 'family', 'genus', 'species' ) as $k ): ?>
                         <tr>
                             <td><?=ucwords( $k ) ?></td>
                             <?php if ( 1 == 2 && $v = $fossil->{ $k }->name ): ?>
@@ -177,8 +200,7 @@ $fossil = new Fossil( $page );
     </div><!-- #main -->
 </div><!-- #primary -->
 
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="http://vast-engineering.github.io/jquery-popup-overlay/jquery.popupoverlay.js"></script>
 <script>    
     function init_map() {
         var var_location = new google.maps.LatLng( 
@@ -215,7 +237,7 @@ $fossil = new Fossil( $page );
     function load_taxa() {
         var url = "http://paleobiodb.org/data1.1/taxa/list.json?name=";
 
-        url += $( '#taxon-name' ).text() + "&rel=all_parents&vocab=pbdb";
+        url += $( '#taxon-name' ).val() + "&rel=all_parents&vocab=pbdb";
 
         $.ajax({
             type: 'post',
@@ -268,9 +290,70 @@ $fossil = new Fossil( $page );
         });
     }
 
+    function get_taxon_img( taxon_no ) {
+        var url = "http://paleobiodb.org/data1.1/taxa/single.json?show=img&vocab=pbdb&id=" + taxon_no;
+        var img_url = "http://paleobiodb.org/data1.1/taxa/thumb.png?id=";
+        var img = $( '<img />' );
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'json',
+            success: function( data ) {
+                if ( data.records && data.records[0].image_no > 0 ) 
+                    img.attr( 'src', img_url + data.records[0].image_no ).addClass( 'phylopic' );
+            }
+        });
+
+        return img;
+    }
+
+    function autocomplete_taxon() {
+        if ( parseInt( $( this ).val().length ) < 3 )
+            return;
+
+        var ul = $( 'ul#edit-fossil-taxon-results' );
+        var url = "http://paleobiodb.org/data1.1/taxa/auto.json?limit=5&vocab=pbdb&name=";
+        url += $( this ).val();
+
+        console.log( ul );
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'json',
+            success: function( data ) {
+                ul.empty();
+                $.map( data.records, function( taxon ) {
+                    var taxon_li = $( '<li></li>' );
+                    var taxon_label = $( '<span></span>')
+                        .addClass( 'label label-taxon-rank' )
+                        .addClass( 'label-taxon-rank-' + taxon.taxon_rank )
+                        .text( taxon.taxon_rank );
+
+                    ul.append( 
+                            taxon_li
+                                .append( get_taxon_img( taxon.taxon_no ) )
+                                .append( ' ' + taxon.taxon_name ) 
+                        );
+                });
+            },
+            error: function( err ) { console.log( err ) }
+        });
+    }
+
     $( function() {
         load_taxa();
         load_geochronology();
+        $( '#edit-fossil-taxon' ).popup(
+                {
+                    type: 'tooltip',
+                    opacity: 1,
+                    background: false,
+                    transition: 'all 0.2s',
+                }
+            );
+
+        $( '#edit-fossil-taxon-name' ).keyup( autocomplete_taxon );
     } );
 
 }( jQuery ) );

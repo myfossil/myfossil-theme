@@ -10,3 +10,92 @@ dl.fossil-header {
         }
     }
 }
+
+.edit-fossil-popup {
+    opacity: 1; 
+    visibility: visible; 
+    display: inline-block; 
+    outline: none; 
+    text-align: left; 
+    position: relative; 
+    vertical-align: middle; 
+}
+
+.edit-fossil {
+    @extend .panel;
+    @extend .panel-default;
+	@include box-shadow( 0px 1px 1px 0px rgba( 0, 0, 0, 0.25 ) );
+	border: 1px solid $color-gray-light;
+    background-color: $white;
+    font-family: inherit;
+    font-size: 1em;
+    padding: 20px;
+
+    .edit-fossil-heading {
+        @extend .panel-heading;
+        background-color: $white;
+        border-bottom: 1px solid $color-gray-light;
+        padding: 10px;
+        min-height: 45px;
+
+        h3 {
+            font-size: 1em;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .edit-fossil-body {
+        @extend .panel-body;
+
+        background-color: $white;
+        border: none !important;
+        padding: 0;
+    }
+
+    .edit-fossil-footer {
+        @extend .panel-footer;
+        border: 0;
+        background: $white;
+        margin: 0;
+        padding: 0;
+
+        ul {
+            li {
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+            }
+        }
+    }
+
+}
+
+/**
+ * Taxon Rank Labels for Edit Form
+ */
+.label-taxon-rank {
+    @extend .label-default;
+}
+
+$taxon-rank-levels: sub super infra;
+
+@each $taxon-rank, $taxon-color in $taxon-rank-colors {
+
+    .label-taxon-rank-#{$taxon-rank} {
+        background-color: $taxon-color;
+        color: $black;
+    }
+
+    @each $taxon-rank-level in $taxon-rank-levels {
+        .label-taxon-rank-#{$taxon-rank-level}#{$taxon-rank} {
+            background-color: $taxon-color;
+            color: $black;
+        }
+    }
+
+}
+
+img.phylopic {
+    width: 30px;
+    height: auto;
+}
