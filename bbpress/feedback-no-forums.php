@@ -9,6 +9,6 @@
 
 ?>
 
-<div class="bbp-template-notice alert alert-info">
-	<p><?php _e( 'Oh bother! No forums were found here!', 'myfossil' ); ?></p>
+<div class="bbp-template-notice alert alert-warning">
+	<p><?php _e( 'No forums were found here!', 'myfossil' ); ?></p>
 </div>

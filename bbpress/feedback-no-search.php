@@ -9,6 +9,6 @@
 
 ?>
 
-<div class="bbp-template-notice alert alert-warning">
-	<p><?php _e( 'Oh bother! No search results were found here!', 'myfossil' ); ?></p>
+<div class="bbp-template-notice alert alert-info">
+	<p><?php _e( 'We were unable to find anything from your search query, please try a slightly different search phrase.', 'myfossil' ); ?></p>
 </div>
