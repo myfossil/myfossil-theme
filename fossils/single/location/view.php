@@ -2,7 +2,7 @@
 // @todo find a better solution
 global $fossil;
 ?>
-<h3>
+<h3 style="margin: 20px 0">
     Location
     <i style="display: none" class="fa fa-fw fa-circle-o-notch fa-spin"
             id="fossil-location-loading"></i>
@@ -13,7 +13,10 @@ global $fossil;
 </h3>
 
 <?php if ( $fossil->location->latitude && $fossil->location->longitude ): ?>
-    <div id="map-container" class="hidden-xs hidden-sm col-md-6 col-lg-6" style="height: 300px">
+    <div class="edit-fossil hidden-xs hidden-sm col-md-6 col-lg-6">
+        <div class="edit-fossil-body">
+            <div id="map-container"></div>
+        </div>
     </div>
 <?php else: ?>
     <div id="map-container" class="hidden-xs hidden-sm col-md-6 col-lg-6" style="height: 300px; background-color: #eee;">
@@ -28,7 +31,9 @@ global $fossil;
             if ( $v = $fossil->location->{ $k } ) { ?>
                 <tr>
                     <td class="fossil-property"><?=ucwords( $k ) ?></td>
-                    <td class="fossil-property-value"><?=$v ?></td>
+                    <td class="fossil-property-value" id="fossil-location-<?=$k ?>">
+                        <?=$v ?>
+                    </td>
                     <td class="fossil-property-options">
                         <a class="edit-fossil-location_open" data-popup-ordinal="1">
                             <i class="ion-compose"></i>
