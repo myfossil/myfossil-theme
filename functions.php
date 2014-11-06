@@ -132,6 +132,7 @@ function myfossil_scripts()
     wp_enqueue_script( 'password-verify', get_template_directory_uri() . '/static/js/password-verify.min.js' );
     wp_enqueue_script( 'respond', get_template_directory_uri() . '/static/js/respond.min.js' );
     wp_enqueue_script( 'jquery-ui', get_template_directory_uri() . '/static/js/jquery-ui.min.js' );
+    wp_enqueue_script( 'jquery-popup-overlay', get_template_directory_uri() . '/static/js/jquery.popupoverlay.min.js' );
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
