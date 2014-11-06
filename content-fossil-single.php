@@ -271,7 +271,8 @@ $fossil = new Fossil( $page );
                 {
                     position: var_location,
                     map: var_map,
-                    title: "<?=$fossil->taxon->name ?>"
+                    title: "<?=$fossil->taxon->name ?>",
+                    clickable: false,
                 }
             );
 
