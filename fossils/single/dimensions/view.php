@@ -11,13 +11,13 @@ global $fossil;
     <?php foreach ( array( 'length', 'width', 'height' ) as $k ) { ?>
         <tr>
             <td class="fossil-property"><?=ucwords( $k ) ?></td>
-            <?php if ( $v = $fossil->{ $k } ): ?>
-                <td class="fossil-property-value"><?=$v ?></td>
-            <?php else: ?>
-                <td class="fossil-property-value">
+            <td class="fossil-property-value" id="fossil-dimension-<?=$k ?>">
+                <?php if ( $v = $fossil->{ $k } ): ?>
+                    <?=$v ?>
+                <?php else: ?>
                     <span class="unknown">Unknown</span>
-                </td>
-            <?php endif; ?>
+                <?php endif; ?>
+            </td>
             <td class="fossil-property-options">
                 <a class="edit-fossil-dimensions_open" data-popup-ordinal="1">
                     <i class="ion-compose"></i>

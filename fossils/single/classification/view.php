@@ -2,6 +2,7 @@
 // @todo find a better solution
 global $fossil;
 ?>
+<input type="hidden" id="fossil-taxon-name" value="<?=$fossil->taxon->name ?>" />
 
 <h3>Classification</h3>
 
@@ -14,8 +15,8 @@ global $fossil;
     <?php foreach ( array( 'phylum', 'class', 'order', 'family', 'genus', 'species' ) as $k ): ?>
         <tr>
             <td class="fossil-property"><?=ucwords( $k ) ?></td>
-            <td class="fossil-property-value" id="taxon-<?=$k ?>">
-                <?php if ( 1 == 2 && $v = $fossil->{ $k }->name ): ?>
+            <td class="fossil-property-value" id="fossil-taxon-<?=$k ?>">
+                <?php if ( ( $fossil->taxon->{ $k } ) && ( $v = $fossil->taxon->{ $k }->name ) ): ?>
                     <?=$v ?>
                 <?php else: ?>
                     <span class="unknown">Unknown</span>
