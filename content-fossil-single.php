@@ -44,25 +44,6 @@ $fossil = new Fossil( $page );
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
                 <h3>Classification</h3>
 
-                <div id="edit-fossil-taxon" class="edit-fossil-popup">
-                    <div class="edit-fossil">
-                        <div class="edit-fossil-body">
-                            <form class="form">
-                                <div class="form-group">
-                                    <label class="control-label">Edit Taxon:</label>
-                                    <input class="form-control" type="text" 
-                                            id="edit-fossil-taxon-name"
-                                            placeholder="Begin typing your Taxon" />
-                                </div>
-                            </form>
-                        </div>
-                        <div class="edit-fossil-footer">
-                            <ul id="edit-fossil-taxon-results">
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
                 <input type="hidden" id="taxon-name" value="<?=$fossil->taxon->name ?>" />
 
                 <table class="table">
@@ -104,7 +85,11 @@ $fossil = new Fossil( $page );
                             <?php else: ?>
                                 <td class="fossil-property-value"><span class="unknown">Unknown</span></td>
                             <?php endif; ?>
-                            <td class="fossil-property-options"></td>
+                            <td class="fossil-property-options">
+                                <a class="edit-fossil-dimensions_open" data-popup-ordinal="1">
+                                    <i class="ion-compose"></i>
+                                </a>
+                            </td>
                         </tr>
                     <?php } ?>
                 </table>
@@ -134,7 +119,11 @@ $fossil = new Fossil( $page );
                             <tr>
                                 <td class="fossil-property"><?=ucwords( $k ) ?></td>
                                 <td class="fossil-property-value"><?=$v ?></td>
-                                <td class="fossil-property-options"></td>
+                                <td class="fossil-property-options">
+                                    <a class="edit-fossil-location_open" data-popup-ordinal="1">
+                                        <i class="ion-compose"></i>
+                                    </a>
+                                </td>
                             </tr>
                             <?php
                         }
@@ -156,7 +145,11 @@ $fossil = new Fossil( $page );
                             <td class="fossil-property-value" id="geochronology-<?=($n + 1) ?>">
                                 <span class="unknown">Unknown</span>
                             </td>
-                            <td class="fossil-property-options"></td>
+                            <td class="fossil-property-options">
+                                <a class="edit-fossil-geochronology_open" data-popup-ordinal="1">
+                                    <i class="ion-compose"></i>
+                                </a>
+                            </td>
                         </tr>
                         <?php
                     endforeach; 
@@ -180,6 +173,9 @@ $fossil = new Fossil( $page );
                                 <?php endif; ?> 
                             </td>
                             <td class="fossil-property-options">
+                                <a class="edit-fossil-lithostratigraphy_open" data-popup-ordinal="1">
+                                    <i class="ion-compose"></i>
+                                </a>
                             </td>
                         </tr>
                         <?php
@@ -199,6 +195,64 @@ $fossil = new Fossil( $page );
      
     </div><!-- #main -->
 </div><!-- #primary -->
+
+
+<div id="edit-fossil-taxon" class="edit-fossil-popup">
+    <div class="edit-fossil">
+        <div class="edit-fossil-heading">
+            <h4>Taxonomy</h4>
+        </div>
+        <div class="edit-fossil-body">
+            <form class="form">
+                <div class="form-group">
+                    <label class="control-label">Taxon</label>
+                    <input class="form-control" type="text" 
+                            id="edit-fossil-taxon-name"
+                            placeholder="Begin typing your Taxon" />
+                </div>
+            </form>
+        </div>
+        <div class="edit-fossil-footer">
+            <ul id="edit-fossil-taxon-results">
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="edit-fossil-dimensions" class="edit-fossil-popup">
+    <div class="edit-fossil">
+        <div class="edit-fossil-heading">
+            <h4>Dimensions</h4>
+        </div>
+        <div class="edit-fossil-body">
+            <form class="form">
+                <div class="form-group">
+                    <label class="control-label">Length</label>
+                    <div class="input-group">
+                        <input class="form-control" type="text" id="fossil-dimension-length" />
+                        <span class="input-group-addon">cm</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Width</label>
+                    <div class="input-group">
+                        <input class="form-control" type="text" id="fossil-dimension-width" />
+                        <span class="input-group-addon">cm</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Height</label>
+                    <div class="input-group">
+                        <input class="form-control" type="text" id="fossil-dimension-height" />
+                        <span class="input-group-addon">cm</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="edit-fossil-footer">
+        </div>
+    </div>
+</div>
 
 <script src="http://vast-engineering.github.io/jquery-popup-overlay/jquery.popupoverlay.js"></script>
 <script>    
@@ -439,6 +493,15 @@ $fossil = new Fossil( $page );
         load_taxa();
         load_geochronology();
         $( '#edit-fossil-taxon' ).popup(
+                {
+                    type: 'tooltip',
+                    opacity: 1,
+                    background: false,
+                    transition: 'all 0.2s',
+                }
+            );
+
+        $( '#edit-fossil-dimensions' ).popup(
                 {
                     type: 'tooltip',
                     opacity: 1,

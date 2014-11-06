@@ -97,6 +97,7 @@ dl.fossil-header {
     text-align: left; 
     position: relative; 
     vertical-align: middle; 
+    max-width: 600px;
 }
 
 button.edit-fossil-taxon_open {
@@ -117,13 +118,16 @@ button.edit-fossil-taxon_open {
         @extend .panel-heading;
         background-color: $white;
         border-bottom: 1px solid $color-gray-light;
-        padding: 10px;
-        min-height: 45px;
+        padding: 0 0 10px 0;
+        margin-bottom: 10px;
 
-        h3 {
-            font-size: 1em;
+        h4 {
             margin: 0;
             padding: 0;
+            border: none;
+            font-weight: lighter;
+            text-align: center;
+            width: 100%;
         }
     }
 
