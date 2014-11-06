@@ -2,8 +2,16 @@
 // @todo find a better solution
 global $fossil;
 ?>
+<h3>
+    Location
+    <i style="display: none" class="fa fa-fw fa-circle-o-notch fa-spin"
+            id="fossil-location-loading"></i>
+    <i style="display: none" class="fa fa-fw fa-check"
+            id="fossil-location-success"></i>
+    <i style="display: none" class="fa fa-fw fa-warning"
+            id="fossil-location-error"></i>
+</h3>
 
-<h3>Location</h3>
 <?php if ( $fossil->location->latitude && $fossil->location->longitude ): ?>
     <div id="map-container" class="hidden-xs hidden-sm col-md-6 col-lg-6" style="height: 300px">
     </div>

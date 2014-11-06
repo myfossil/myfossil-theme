@@ -5,24 +5,24 @@
         </div>
         <div class="edit-fossil-body">
             <form class="form">
-                <div class="form-group">
+                <div class="form-group" id="form-group-dimension-length">
                     <label class="control-label">Length</label>
                     <div class="input-group">
-                        <input class="form-control" type="text" id="fossil-dimension-length" />
+                        <input class="form-control" type="text" id="edit-fossil-dimension-length" />
                         <span class="input-group-addon">cm</span>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" id="form-group-dimension-width">
                     <label class="control-label">Width</label>
                     <div class="input-group">
-                        <input class="form-control" type="text" id="fossil-dimension-width" />
+                        <input class="form-control" type="text" id="edit-fossil-dimension-width" />
                         <span class="input-group-addon">cm</span>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" id="form-group-dimension-height">
                     <label class="control-label">Height</label>
                     <div class="input-group">
-                        <input class="form-control" type="text" id="fossil-dimension-height" />
+                        <input class="form-control" type="text" id="edit-fossil-dimension-height" />
                         <span class="input-group-addon">cm</span>
                     </div>
                 </div>

@@ -3,7 +3,15 @@
 global $fossil;
 ?>
 
-<h3>Geochronology</h3>
+<h3>
+    Geochronology
+    <i style="display: none" class="fa fa-fw fa-circle-o-notch fa-spin"
+            id="fossil-geochronology-loading"></i>
+    <i style="display: none" class="fa fa-fw fa-check"
+            id="fossil-geochronology-success"></i>
+    <i style="display: none" class="fa fa-fw fa-warning"
+            id="fossil-geochronology-error"></i>
+</h3>
 <table class="table">
     <?php foreach ( array( 'era', 'period', 'epoch', 'age' ) as $n => $k ): ?>
         <tr>

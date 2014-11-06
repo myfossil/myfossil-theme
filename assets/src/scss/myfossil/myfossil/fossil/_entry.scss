@@ -4,19 +4,27 @@
         width: 100%;
         text-transform: uppercase;
         padding: 0 0 5px 0;
-        margin: 10px 0;
+        margin: 10px 0 0 0;
         font-size: 1.5em;
         color: $color-secondary;
     }
 
     table {
+        vertical-align: middle;
         border: none;
+        margin: 0; padding: 0;
 
         tbody {
+            vertical-align: middle;
+            margin: 0; padding: 0;
+
             tr {
+                margin: 0; padding: 0;
+                vertical-align: middle;
                 border-bottom: 1px solid #eee;
 
                 td {
+                    vertical-align: middle;
                     border-top: none !important;
 
                     &.fossil-property {
@@ -51,6 +59,8 @@
                         @extend .col-sm-2;
                         @extend .col-lg-2;
 
+                        padding: 6px 0 0 0;
+                        margin: 0;
                         text-align: left;
                         font-size: 1.4em;
 
