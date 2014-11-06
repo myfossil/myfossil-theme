@@ -14,9 +14,9 @@
 get_header(); 
 
 if ( $page ):
-    get_template_part( 'content-fossil-single' );
+    get_template_part( 'fossils/single/index' );
 else:
-    get_template_part( 'content-fossil-list' );
+    get_template_part( 'fossils/index' );
 endif;
 
 get_footer();
