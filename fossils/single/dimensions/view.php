@@ -20,13 +20,15 @@ global $fossil;
     <?php foreach ( array( 'length', 'width', 'height' ) as $k ) { ?>
         <tr>
             <td class="fossil-property"><?=ucwords( $k ) ?></td>
-            <td class="fossil-property-value" id="fossil-dimension-<?=$k ?>">
-                <?php if ( $v = $fossil->dimension->{ $k } * 100 ): ?>
+            <?php if ( $v = $fossil->dimension->{ $k } * 100 ): ?>
+                <td class="fossil-property-value" id="fossil-dimension-<?=$k ?>" value="<?=$v ?>">
                     <?=$v ?> cm
-                <?php else: ?>
+                </td>
+            <?php else: ?>
+                <td class="fossil-property-value" id="fossil-dimension-<?=$k ?>">
                     <span class="unknown">Unknown</span>
-                <?php endif; ?>
-            </td>
+                </td>
+            <?php endif; ?>
             <td class="fossil-property-options">
                 <a class="edit-fossil-dimensions_open" data-popup-ordinal="1">
                     <i class="ion-compose"></i>

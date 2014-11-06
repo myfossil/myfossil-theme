@@ -25,14 +25,16 @@ global $fossil;
 <?php endif; ?>
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
     <table class="table">
-        <?php
-        foreach ( array( 'country', 'state', 'county', 'latitude',
-                    'longitude', 'notes' ) as $k ) {
-            if ( $v = $fossil->location->{ $k } ) { ?>
+        <?php foreach ( array( 'country', 'state', 'county', 'latitude',
+                    'longitude', 'notes' ) as $k ): ?>
                 <tr>
                     <td class="fossil-property"><?=ucwords( $k ) ?></td>
                     <td class="fossil-property-value" id="fossil-location-<?=$k ?>">
-                        <?=$v ?>
+                        <?php if ( $v = $fossil->location->{ $k } ): ?>
+                            <?=$v ?>
+                        <?php else: ?>
+                            <span class="unknown">Unknown</span>
+                        <?php endif; ?>
                     </td>
                     <td class="fossil-property-options">
                         <a class="edit-fossil-location_open" data-popup-ordinal="1">
@@ -40,8 +42,6 @@ global $fossil;
                         </a>
                     </td>
                 </tr>
-                <?php
-            }
-        } ?>
+        <?php endforeach; ?>
     </table>
 </div>
