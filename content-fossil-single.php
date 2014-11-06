@@ -13,6 +13,9 @@ $fossil = new Fossil( $page );
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
                     <h1>Fossil <?=sprintf( "%06d", $fossil->id ) ?></h1>
+                    <input type="hidden" id="post_id" value="<?=$fossil->id ?>" />
+                    <input type="hidden" id="myfossil_specimen_nonce" 
+                            value="<?=wp_create_nonce( 'myfossil_specimen' ) ?>" />
                     <dl class="inline fossil-header">
                         <dt>Author</dt>
                         <dd>
@@ -39,18 +42,7 @@ $fossil = new Fossil( $page );
     <div id="buddypress" class="container page-styling site-main" role="main">
         <div class="row clearfix">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <h2>Classification</h2>
-                    </div>
-
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-right">
-                        <button class="btn btn-default edit-fossil-taxon_open" data-popup-ordinal="1">
-                            <i class="fa fa-fw fa-edit"></i>
-                            Edit Classification
-                        </button>
-                    </div>
-                </div>
+                <h3>Classification</h3>
 
                 <div id="edit-fossil-taxon" class="edit-fossil-popup">
                     <div class="edit-fossil">
@@ -73,68 +65,76 @@ $fossil = new Fossil( $page );
 
                 <input type="hidden" id="taxon-name" value="<?=$fossil->taxon->name ?>" />
 
-                <table class="table table-hover table-condensed">
+                <table class="table">
                     <tr class="sr-only">
                         <th>Taxonomy Level</th>
                         <th>Value</th>
+                        <th>Options</th>
                     </tr>
                     <?php foreach ( array( 'phylum', 'class', 'order', 'family', 'genus', 'species' ) as $k ): ?>
                         <tr>
-                            <td><?=ucwords( $k ) ?></td>
-                            <?php if ( 1 == 2 && $v = $fossil->{ $k }->name ): ?>
-                                <td><?=$v ?></td>
-                            <?php else: ?>
-                                <td id="taxon-<?=$k ?>">
-                                    <span class="text-muted">Unknown</span>
-                                </td>
-                            <?php endif; ?>
+                            <td class="fossil-property"><?=ucwords( $k ) ?></td>
+                            <td class="fossil-property-value" id="taxon-<?=$k ?>">
+                                <?php if ( 1 == 2 && $v = $fossil->{ $k }->name ): ?>
+                                    <?=$v ?>
+                                <?php else: ?>
+                                    <span class="unknown">Unknown</span>
+                                <?php endif; ?>
+                            </td>
+                            <td class="fossil-property-options">
+                                <a class="edit-fossil-taxon_open" data-popup-ordinal="1">
+                                    <i class="ion-compose"></i>
+                                </a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </table>
 
-                <h2>Dimensions</h2>
-                <table class="table table-hover table-condensed">
+                <h3>Dimensions</h3>
+                <table class="table">
                     <tr class="sr-only">
                         <th>Dimension</th>
                         <th>Value</th>
                     </tr>
                     <?php foreach ( array( 'length', 'width', 'height' ) as $k ) { ?>
                         <tr>
-                            <td><?=ucwords( $k ) ?></td>
+                            <td class="fossil-property"><?=ucwords( $k ) ?></td>
                             <?php if ( $v = $fossil->{ $k } ): ?>
-                                <td><?=$v ?></td>
+                                <td class="fossil-property-value"><?=$v ?></td>
                             <?php else: ?>
-                                <td><span class="text-muted">Unknown</span></td>
+                                <td class="fossil-property-value"><span class="unknown">Unknown</span></td>
                             <?php endif; ?>
+                            <td class="fossil-property-options"></td>
                         </tr>
                     <?php } ?>
                 </table>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-                <h2>Images</h2>
+                <h3>Images</h3>
                 <img class="img-responsive" src="<?=$fossil->image ?>" />
             </div>
         </div>
 
-        <h2>Location</h2>
+        <h3>Location</h3>
         <div class="row">
             <?php if ( $fossil->location->latitude && $fossil->location->longitude ): ?>
                 <div id="map-container" class="hidden-xs hidden-sm col-md-6 col-lg-6" style="height: 300px">
                 </div>
             <?php else: ?>
                 <div id="map-container" class="hidden-xs hidden-sm col-md-6 col-lg-6" style="height: 300px; background-color: #eee;">
-                    <p class="text-muted" style="position: absolute; top: 45%; width: 100%; text-align: center">Insufficient information available to create map</p>
+                    <p class="unknown" style="position: absolute; top: 45%; width: 100%; text-align: center">Insufficient information available to create map</p>
                 </div>
             <?php endif; ?>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <table class="table table-hover table-condensed">
+                <table class="table">
                     <?php
                     foreach ( array( 'country', 'state', 'county', 'latitude',
                                 'longitude', 'notes' ) as $k ) {
                         if ( $v = $fossil->location->{ $k } ) { ?>
                             <tr>
-                                <td><?=ucwords( $k ) ?></td>
-                                <td><?=$v ?></td>
+                                <td class="fossil-property"><?=ucwords( $k ) ?></td>
+                                <td class="fossil-property-value"><?=$v ?></td>
+                                <td class="fossil-property-options"></td>
                             </tr>
                             <?php
                         }
@@ -145,17 +145,18 @@ $fossil = new Fossil( $page );
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <h2>Geochronology</h2>
+                <h3>Geochronology</h3>
                 <span id="geochronology" class="sr-only"><?=$fossil->time_interval->name ?></span>
-                <table class="table table-hover table-condensed">
+                <table class="table">
                     <?php
                     foreach ( array( 'era', 'period', 'epoch', 'age' ) as $n => $k ):
                         ?>
                         <tr>
-                            <td><?=ucwords( $k ) ?></td>
-                            <td id="geochronology-<?=($n + 1) ?>">
-                                <span class="text-muted">Unknown</span>
+                            <td class="fossil-property"><?=ucwords( $k ) ?></td>
+                            <td class="fossil-property-value" id="geochronology-<?=($n + 1) ?>">
+                                <span class="unknown">Unknown</span>
                             </td>
+                            <td class="fossil-property-options"></td>
                         </tr>
                         <?php
                     endforeach; 
@@ -163,19 +164,22 @@ $fossil = new Fossil( $page );
                 </table>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <h2>Lithostratigraphy</h2>
-                <table class="table table-hover table-condensed">
+                <h3>Lithostratigraphy</h3>
+                <table class="table">
                     <?php
                     foreach ( array( 'group', 'formation', 'member', 'notes' ) as $n => $k ):
                         ?>
                         <tr>
-                            <td><?=ucwords( $k ) ?></td>
-                            <td id="lithostratigraphy-<?=($n + 1 ) ?>">
-                            <?php if ( $fossil->stratum->level == $k ): ?>
-                                <span><?=$fossil->stratum->name ?></span>
-                            <?php else: ?>
-                                <span class="text-muted">Unknown</span>
-                            <?php endif; ?> 
+                            <td class="fossil-property"><?=ucwords( $k ) ?></td>
+                            <td class="fossil-property-value" 
+                                    id="lithostratigraphy-<?=($n + 1 ) ?>">
+                                <?php if ( $fossil->stratum->level == $k ): ?>
+                                    <?=$fossil->stratum->name ?>
+                                <?php else: ?>
+                                    <span class="unknown">Unknown</span>
+                                <?php endif; ?> 
+                            </td>
+                            <td class="fossil-property-options">
                             </td>
                         </tr>
                         <?php
@@ -187,7 +191,7 @@ $fossil = new Fossil( $page );
         <?php if ( comments_open() || '0' != get_comments_number() ): ?>
         <div class="row">
             <div class="col-lg-12">
-                <h2>Comments</h2>
+                <h3>Comments</h3>
 				<?php bp_activity_comments() ?>
             </div>
         </div>
@@ -230,12 +234,20 @@ $fossil = new Fossil( $page );
 ( function( $ ) {
     'use strict';
 
+    function reset_taxa() {
+        var ranks = ['phylum', 'class', 'order', 'family', 'genus', 'species'];
+        
+        $.map( ranks, function( rank ) {
+                $( '#taxon-' + rank ).html( '<span class="unknown">Unknown</span>' );
+            }
+        );
+    }
+
     function load_taxa() {
-        var url = "http://paleobiodb.org/data1.1/taxa/list.json?name=";
+        var url = "http://paleobiodb.org/data1.1/taxa/list.json?name="
+                + $( '#taxon-name' ).val() + "&rel=all_parents&vocab=pbdb";
 
-        url += $( '#taxon-name' ).val() + "&rel=all_parents&vocab=pbdb";
-
-        console.warn( url );
+        reset_taxa();
 
         $.ajax({
             type: 'post',
@@ -244,9 +256,7 @@ $fossil = new Fossil( $page );
             success: function( resp ) {
                 resp.records.forEach( 
                     function( taxon ) {
-                        console.log( taxon );
                         taxon = normalize_taxon( taxon );
-                        console.info( taxon );
                         $( '#taxon-' + taxon.rank ).text( taxon.taxon_name );
                     }
                 );
@@ -341,7 +351,34 @@ $fossil = new Fossil( $page );
     function set_taxon( taxon ) {
         $( '#taxon-name' ).val( taxon.taxon_name );
         $( 'td#taxon-' + taxon.taxon_rank ).text( taxon.taxon_name );
+
+        var post_id = parseInt( $( '#post_id' ).val() );
+        update_taxon( post_id, taxon );
         load_taxa();
+    }
+
+    function update_taxon( post_id, taxon ) {
+        var nonce = $( '#myfossil_specimen_nonce' ).val(); 
+
+        $.ajax({
+            async: false,
+            type: 'post',
+            url: ajaxurl,
+            data: { 
+                    'action': 'myfossil_update_taxon',
+                    'nonce': nonce,
+                    'post_id': post_id,
+                    'taxon': taxon
+                },
+            dataType: 'json',
+            success: function( data ) {
+                    console.log( data );
+                },
+            error: function ( err ) {
+                    console.log( err );
+                }
+        });
+
     }
 
     function autocomplete_taxon() {
@@ -355,7 +392,7 @@ $fossil = new Fossil( $page );
 
         // @todo Make the PBDB URL some kind of constant.
         var url = "http://paleobiodb.org/data1.1/taxa/auto.json"
-                + "?limit=5&vocab=pbdb&name="
+                + "?limit=20&vocab=pbdb&name="
                 + $( this ).val();
 
         // Query the PBDB with the current taxon name partial.

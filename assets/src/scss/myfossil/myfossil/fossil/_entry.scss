@@ -1,3 +1,81 @@
+#fossil {
+    h3 {
+        border-bottom: 1px solid #eee;
+        width: 100%;
+        text-transform: uppercase;
+        padding: 0 0 5px 0;
+        margin: 10px 0;
+        font-size: 1.5em;
+        color: $color-secondary;
+    }
+
+    table {
+        border: none;
+
+        tbody {
+            tr {
+                border-bottom: 1px solid #eee;
+
+                td {
+                    border-top: none !important;
+
+                    &.fossil-property {
+                        @extend .col-xs-4;
+                        @extend .col-sm-3;
+                        @extend .col-lg-2;
+
+                        font-weight: lighter;
+                        color: $color-secondary-dark;
+                        text-transform: uppercase;
+                        font-family: $font-family-sans-serif;
+                    }
+
+                    &.fossil-property-value {
+                        @extend .col-xs-6;
+                        @extend .col-sm-7;
+                        @extend .col-lg-8;
+
+                        font-weight: bold;
+                        font-size: 1.1em;
+                        color: $black;
+
+                        span.unknown {
+                            color: $gray-light;
+                            font-weight: lighter;
+                        }
+
+                    }
+
+                    &.fossil-property-options {
+                        @extend .col-xs-2;
+                        @extend .col-sm-2;
+                        @extend .col-lg-2;
+
+                        text-align: left;
+                        font-size: 1.4em;
+
+                        a {
+                            color: $gray-light;
+
+                            &:hover {
+                                color: $color-secondary;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+
 dl.fossil-header {
 
     a {
