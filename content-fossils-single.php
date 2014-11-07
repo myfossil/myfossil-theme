@@ -7,7 +7,7 @@ $fossil = new Fossil( $page );
 ?>
 <div id="fossil" class="content-area">
 
-    <?php get_template_part( 'fossils/single/header' ); ?>
+    <?php fossil_header( $fossil ); ?>
 
     <div id="buddypress" class="container page-styling site-main" role="main">
         <div class="row clearfix">
