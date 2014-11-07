@@ -170,31 +170,6 @@ button.edit-fossil-taxon_open {
 
 }
 
-/**
- * Taxon Rank Labels for Edit Form
- */
-.label-taxon-rank {
-    @extend .label-default;
-}
-
-$taxon-rank-levels: sub super infra;
-
-@each $taxon-rank, $taxon-color in $taxon-rank-colors {
-
-    .label-taxon-rank-#{$taxon-rank} {
-        background-color: $taxon-color;
-        color: $black;
-    }
-
-    @each $taxon-rank-level in $taxon-rank-levels {
-        .label-taxon-rank-#{$taxon-rank-level}#{$taxon-rank} {
-            background-color: $taxon-color;
-            color: $black;
-        }
-    }
-
-}
-
 img.phylopic {
     width: 30px;
     height: auto;

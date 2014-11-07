@@ -14,7 +14,7 @@ $fossil = new Fossil( $page );
 
             <!-- Classification -->
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
-                <?php get_template_part( 'fossils/single/classification/view' ) ?>
+                <?php fossil_taxonomy( $fossil ); ?>
             </div>
 
             <!-- Image(s) -->
@@ -25,7 +25,7 @@ $fossil = new Fossil( $page );
 
             <!-- Dimensions -->
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-8">
-                <?php get_template_part( 'fossils/single/dimensions/view' ) ?>
+                <?php fossil_dimensions( $fossil ); ?>
             </div>
 
         </div>
@@ -35,7 +35,7 @@ $fossil = new Fossil( $page );
         
             <!-- Location -->
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <?php get_template_part( 'fossils/single/location/view' ) ?>
+                <?php fossil_location( $fossil ); ?>
             </div>
 
         </div>
@@ -45,12 +45,12 @@ $fossil = new Fossil( $page );
         
             <!-- Geochronology -->
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <?php get_template_part( 'fossils/single/geochronology/view' ) ?>
+                <?php fossil_geochronology( $fossil ); ?>
             </div>
 
             <!-- Lithostratigraphy -->
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <?php get_template_part( 'fossils/single/lithostratigraphy/view' ) ?>
+                <?php fossil_lithostratigraphy( $fossil ); ?>
             </div>
 
         </div>
@@ -61,24 +61,10 @@ $fossil = new Fossil( $page );
 
             <!-- Comments -->
             <div class="col-lg-12">
-                <?php get_template_part( 'fossils/single/comments/view' ) ?>
+                <?php fossil_comments( $fossil ); ?>
             </div>
         </div>
         <?php endif; ?>
      
     </div><!-- #main -->
 </div><!-- #primary -->
-
-<!-- Edit Templates -->
-<?php get_template_part( 'fossils/single/classification/edit' ) ?>
-<?php get_template_part( 'fossils/single/dimensions/edit' ) ?>
-<?php get_template_part( 'fossils/single/location/edit' ) ?>
-<?php get_template_part( 'fossils/single/geochronology/edit' ) ?>
-<?php get_template_part( 'fossils/single/lithostratigraphy/edit' ) ?>
-
-<!-- Variables -->
-<?php get_template_part( 'fossils/single/classification/vars' ) ?>
-<?php get_template_part( 'fossils/single/dimensions/vars' ) ?>
-<?php get_template_part( 'fossils/single/location/vars' ) ?>
-<?php get_template_part( 'fossils/single/geochronology/vars' ) ?>
-<?php get_template_part( 'fossils/single/lithostratigraphy/vars' ) ?>
