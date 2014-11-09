@@ -30,7 +30,7 @@ $fossils = new WP_Query( $wp_query_args );
             </div><!-- #item-header-content -->
 
             <div class="col-sm-12 col-md-3">
-                <button class="btn btn-default disabled">
+                <button class="btn btn-default disabled" id="fossil-create-new">
                     Create New Fossil
                 </button>
             </div>
@@ -97,14 +97,6 @@ $fossils = new WP_Query( $wp_query_args );
 
     </main><!-- #main -->
 </div><!-- #primary -->
-<script type="text/javascript">
-    jQuery( function() {
-        jQuery( 'tr' ).on( 'click', function() {
-                if( jQuery( this ).data( 'href' ) !== undefined ) 
-                    document.location = jQuery( this ).data( 'href' );
-            }
-        );
-    });
-</script>
+
 <?php
 wp_reset_query(); 
