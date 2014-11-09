@@ -24,6 +24,8 @@ $fossils = new WP_Query( $wp_query_args );
 
             <div id="item-header-content" class="col-md-9">
                 <h1>Fossils</h1>
+                <input type="hidden" id="myfossil_specimen_nonce" 
+                        value="<?=wp_create_nonce( 'myfossil_specimen' ) ?>" />
 
                 <?php do_action( 'template_notices' ); ?>
 
