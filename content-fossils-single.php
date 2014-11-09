@@ -19,8 +19,7 @@ $fossil = new Fossil( $page );
 
             <!-- Image(s) -->
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-                <h3>Images</h3>
-                <img class="img-responsive" src="<?=$fossil->image ?>" />
+                <?php fossil_images( $fossil ); ?>
             </div>
 
             <!-- Dimensions -->
