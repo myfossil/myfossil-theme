@@ -95,6 +95,11 @@ get_header();
   </div>
 </div>
 
+<!-- END MODAL -->
+<button type="button" class="btn btn-primary" id="clear-filters">
+  Clear Filters
+</button>
+
 
 <!-- {{{ places template -->
 <script id="tpl-places" type="text/x-handlebars-template">
