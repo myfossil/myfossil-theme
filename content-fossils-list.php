@@ -3,13 +3,16 @@ use myFOSSIL\Plugin\Specimen\Fossil;
 
 $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 
-$fossils = new WP_Query( 
-        array( 
-            'post_type' => 'myfs_fossil', 
-            'posts_per_page' => 10,
-            'paged' => $paged,
-        ) 
+$wp_query_args = array( 
+        'post_type' => Fossil::POST_TYPE,
+        'posts_per_page' => 10,
+        'paged' => $paged,
     );
+
+if ( bp_displayed_user_id() ) 
+    $wp_query_args['author'] = bp_displayed_user_id();
+
+$fossils = new WP_Query( $wp_query_args );
 
 ?>
 

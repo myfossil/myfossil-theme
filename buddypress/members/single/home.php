@@ -46,6 +46,9 @@
 		elseif ( bp_is_user_settings() ) :
 			bp_get_template_part( 'members/single/settings' );
 
+        elseif ( bp_is_current_component( 'fossils' ) ) :
+			bp_get_template_part( 'members/single/fossils' );
+
 		// If nothing sticks, load a generic template
 		else :
 			bp_get_template_part( 'members/single/plugins'  );
