@@ -9,6 +9,12 @@
 get_header(); 
 ?>
 
+<!-- Clear filters -->
+<button type="button" class="btn btn-primary" id="clear-filters">
+  Clear Filters
+</button>
+
+
 <!-- {{{ events template -->
 <script id="tpl-events" type="text/x-handlebars-template">
 {{#each events}}
