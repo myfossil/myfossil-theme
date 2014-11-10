@@ -1,6 +1,7 @@
 <?php do_action('bp_before_activity_loop'); ?>
 
-<?php if (bp_has_activities(bp_ajax_querystring('activity'))): ?>
+<?php if ( bp_has_activities( bp_ajax_querystring( 'activity' ).'&object=groups,friends,status,blogs' ) ) : ?>
+
 	<?php if (empty($_POST['page'])): ?>
 		<ul id="activity-stream" class="activity-list item-list">
 	<?php endif; ?>
