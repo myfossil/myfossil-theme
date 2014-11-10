@@ -2,6 +2,8 @@
 use Rocketeer\Facades\Rocketeer;
 
 Rocketeer::after( 'deploy', array(
-    'npm install',
-    'gulp build'
+    'composer self-update',
+    'composer install',
+    'npm install --cache',
+    'gulp build --production'
 ));

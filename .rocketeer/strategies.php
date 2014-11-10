@@ -14,7 +14,7 @@ return array(
 	'check'        => 'Php',
 
 	// Which strategy to use to create a new release
-	'deploy'       => 'Clone',
+	'deploy'       => 'Sync',
 
 	// Which strategy to use to test your application
 	'test'         => 'Phpunit',
@@ -23,7 +23,7 @@ return array(
 	'migrate'      => 'Artisan',
 
 	// Which strategy to use to install your application's dependencies
-	'dependencies' => 'Polyglot',
+	// 'dependencies' => 'Polyglot',
 
 	// Execution hooks
 	//////////////////////////////////////////////////////////////////////

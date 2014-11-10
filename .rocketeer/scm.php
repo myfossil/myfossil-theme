@@ -8,7 +8,7 @@
 
 	// The SSH/HTTPS address to your repository
 	// Example: https://github.com/vendor/website.git
-	'repository' => 'git@github.com:myfossil/myfossil-specimen.git',
+	'repository' => 'git@github.com:myfossil/myfossil-theme.git',
 
 	// The repository credentials : you can leave those empty
 	// if you're using SSH or if your repository is public
