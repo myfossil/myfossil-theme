@@ -1,0 +1,16 @@
+.event {
+    @extend .panel;
+    @extend .panel-default;
+
+    .event-heading {
+        @extend .panel-heading;
+    }
+
+    .event-body {
+        @extend .panel-body;
+    }
+
+    .event-footer {
+        @extend .panel-footer;
+    }
+}

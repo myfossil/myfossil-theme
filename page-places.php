@@ -96,10 +96,10 @@ get_header();
 <!-- {{{ places template -->
 <script id="tpl-places" type="text/x-handlebars-template">
 {{#each places}}
-    <div class="panel panel-default col-xs-12 col-sm-12 col-md-6"
+    <div class="place col-xs-12 col-sm-12 col-md-6"
             data-place-state="{{ state }}"
             data-place-type="{{ type }}">
-        <div class="panel-body">
+        <div class="place-body">
             <h5>{{ title }}</h5>
             <p>{{ content }}</p>
             <table class="table">
