@@ -8,8 +8,6 @@
  */
 get_header();
 
-use myFOSSIL\Plugin\Resources;
-
 // Add modal
 myfossil_places_modal();
 

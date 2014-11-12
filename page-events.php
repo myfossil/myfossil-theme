@@ -7,64 +7,27 @@
  * @package myFOSSIL
  */
 get_header(); 
+
+myfossil_events_template();
 ?>
-
-<!-- Clear filters -->
-<button type="button" class="btn btn-primary" id="clear-filters">
-  Clear Filters
-</button>
-
-
-<!-- {{{ events template -->
-<script id="tpl-events" type="text/x-handlebars-template">
-{{#each events}}
-    <div class="event col-xs-12 col-sm-12 col-md-6" 
-            data-event-state="{{ state }}"
-            data-event-type="{{ type }}"
-            data-event-date="{{ month_year }}">
-        <div class="event-body">
-            <h5 class="pull-left">{{ title }}</h5>
-            <p class="pull-right">
-                <i class="fa fa-fw fa-clock-o"></i> 
-                {{ starts_at }} to {{ ends_at }}
-            </p>
-            <div class="clearfix" />
-            <p>{{ content }}</p>
-        </div>
-    </div>
-{{/each}}
-</script>
-<!-- }}} -->
 
 <div id="primary" class="container content-area">
     <main id="main" class="site-main" role="main">
         <h1>Events</h1>
-	<div class="row">
-	  <div class="hidden-xs hidden-sm col-md-12" 
-	       style="margin: 0 0 20px 0; height: 600px;"
-	       id="map-canvas" />
-	</div>
+        <div class="row">
+            <?php myfossil_resources_map(); ?>
+        </div>
 	
         <div class="row">
 	    <div class="col-sm-12 col-md-4 col-lg-3">
-              <h3>Filters</h3>
-              
-              <form role="form" id="filters">
-                <?php wp_nonce_field( 'myfr_filter', 'myfr_filter_nonce' ); ?>
-                <h4>State</h4>
-                <select class="form-control" id="state"></select>
-
-                <h4>When</h4>
-                <select class="form-control" id="month-year"> </select>
-
-                <h4>Type</h4>
-                <div id="types-selected"></div>
-
-              </form>
-            </div>
+            <h3>Filters</h3>
+            <?php myfossil_events_filter_form(); ?>
+        </div>
           
-            <div class="col-sm-12 col-md-8 col-lg-9" id="events-list" />
+        <div class="col-sm-12 col-md-8 col-lg-9">
+            <?php myfossil_events_list(); ?>
         </div>
     </main>
 </div>
+
 <?php get_footer(); ?>
