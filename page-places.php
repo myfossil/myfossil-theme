@@ -10,18 +10,14 @@ get_header();
 ?>
 
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  New Place
-</button>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="placesModal" tabindex="-1" role="dialog" aria-labelledby="placesModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Create New Place</h4>
+        <h4 class="modal-title" id="placesModalLabel">Create New Place</h4>
       </div>
       <div class="modal-body">
   <form id="new-place-form" role="form">
@@ -96,10 +92,6 @@ get_header();
 </div>
 
 <!-- END MODAL -->
-<button type="button" class="btn btn-primary" id="clear-filters">
-  Clear Filters
-</button>
-
 
 <!-- {{{ places template -->
 <script id="tpl-places" type="text/x-handlebars-template">
@@ -172,7 +164,7 @@ get_header();
 
 <div id="primary" class="container content-area">
     <main id="main" class="site-main" role="main">
-        <h1>find fossils</h1>
+        <h1>Places</h1>
         <div class="row">
             <div class="hidden-xs hidden-sm col-md-12"
                     style="margin: 0 0 20px 0; height:600px;"
@@ -180,9 +172,11 @@ get_header();
         </div>
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-3">
-                <h3>filters</h3>
+                <h3>Filters</h3>
+
                 <form role="form" id="filters">
                     <?php wp_nonce_field( 'myfr_filter', 'myfr_filter_nonce' ); ?>
+
                     <h4>State</h4>
                     <select class="form-control" id="state-filter">
                     </select>
@@ -191,9 +185,21 @@ get_header();
                     <div id="types-selected">
                     </div>
                 </form>
+
+                <button type="button" class="btn btn-default" id="clear-filters">
+                    Reset Filters
+                </button>
+
             </div>
             <?php wp_nonce_field( 'myfr_filter', 'myfr_filter_nonce' ); ?>
-            <div class="col-sm-12 col-md-8 col-lg-9" id="places-list" />
+            <div class="col-sm-12 col-md-8 col-lg-9 text-right">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#placesModal">
+                  Create Place
+                </button>
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-9" id="places-list">
+            </div>
         </div>
     </main>
 </div>
