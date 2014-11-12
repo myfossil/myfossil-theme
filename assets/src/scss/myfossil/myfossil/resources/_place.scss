@@ -1,0 +1,16 @@
+.place {
+    @extend .panel;
+    @extend .panel-default;
+
+    .place-heading {
+        @extend .panel-heading;
+    }
+
+    .place-body {
+        @extend .panel-body;
+    }
+
+    .place-footer {
+        @extend .panel-footer;
+    }
+}
