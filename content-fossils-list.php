@@ -24,17 +24,21 @@ $fossils = new WP_Query( $wp_query_args );
 
             <div id="item-header-content" class="col-md-9">
                 <h1>Fossils</h1>
-                <input type="hidden" id="myfossil_specimen_nonce" 
-                        value="<?=wp_create_nonce( 'myfossil_specimen' ) ?>" />
 
                 <?php do_action( 'template_notices' ); ?>
 
             </div><!-- #item-header-content -->
 
             <div class="col-sm-12 col-md-3">
-                <button class="btn btn-default disabled" id="fossil-create-new">
-                    Create New Fossil
-                </button>
+
+                <?php if ( is_user_logged_in() ) : ?>
+                    <input type="hidden" id="myfossil_specimen_nonce" 
+                            value="<?=wp_create_nonce( 'myfossil_specimen' ) ?>" />
+                    <button class="btn btn-default disabled" id="fossil-create-new">
+                        Create New Fossil
+                    </button>
+                <?php endif; ?>
+
             </div>
         </div>
 
