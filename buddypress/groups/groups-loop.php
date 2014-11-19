@@ -1,5 +1,7 @@
 <?php
 
+use myFOSSIL\Plugin\Specimen\Fossil;
+
 /**
  * BuddyPress - Groups Loop
  *
@@ -21,7 +23,6 @@
 	<table id="groups-list" class="table item-list" role="main">
         <tr>
             <th colspan="2">Name</th>
-            <th>Fossils</th>
             <th>Members</th>
             <th>&nbsp;</th>
         </tr>
@@ -51,9 +52,6 @@
 
             <td>
                 <?php do_action( 'bp_directory_groups_item' ); ?>
-            </td>
-
-            <td>
                 <?php bp_group_member_count(); ?>
             </td>
 
