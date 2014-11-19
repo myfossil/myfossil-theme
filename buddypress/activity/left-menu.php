@@ -71,7 +71,7 @@
                             <li class="separator"></li>
 
                             <li>
-                                <a href="#" class="disabled">
+                                <a href="<?=bp_loggedin_user_domain(); ?>/fossils">
                                     My Fossils
                                 </a>
                             </li>
