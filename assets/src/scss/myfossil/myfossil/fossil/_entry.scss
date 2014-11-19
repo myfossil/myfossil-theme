@@ -110,6 +110,23 @@ dl.fossil-header {
     max-width: 600px;
 }
 
+.alert-save {
+    @extend .alert;
+    @extend .alert-danger;
+
+    margin: 5px;
+
+    .message {
+        @extend .pull-left;
+        padding-top: 5px;
+    }
+
+    .actions {
+        @extend .text-right;
+    }
+
+}
+
 button.edit-fossil-taxon_open {
     margin: 22px 0;
 }
