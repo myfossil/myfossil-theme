@@ -9,13 +9,17 @@ $wp_query_args = array(
         'paged' => $paged,
     );
 
-if ( bp_displayed_user_id() ) 
+if ( bp_displayed_user_id() ) {
     $wp_query_args['author'] = bp_displayed_user_id();
+    if ( bp_displayed_user_id() == bp_loggedin_user_id() )
+        $wp_query_args['post_status'] = 'any';
+}
 
 $fossils = new WP_Query( $wp_query_args );
 
 ?>
 
+<?php if ( ! bp_displayed_user_id() ): ?>
 <div id="buddypress-header">
 
     <div id="item-header" role="complementary" class="container">
@@ -48,16 +52,22 @@ $fossils = new WP_Query( $wp_query_args );
         </div><!-- .item-list-tabs -->
     </div>
 </div>
+<?php endif; ?>
 
+<?php if ( ! bp_displayed_user_id() ): ?>
 <div id="buddypress" class="container page-styling no-border-top">
+<?php endif; ?>
+
     <main id="main" class="site-main" role="main">
-        <?php myfossil_list_fossils_table( $fossils ); ?>
+        <?php myfossil_list_fossils_table( $fossils, bp_is_my_profile() ); ?>
         <div class="row-centered">
             <?=myfossil_paginate_links( $fossils ) ?>
         </div>
-
     </main><!-- #main -->
+
+<?php if ( ! bp_displayed_user_id() ): ?>
 </div><!-- #primary -->
+<?php endif; ?>
 
 <?php
 wp_reset_query(); 
