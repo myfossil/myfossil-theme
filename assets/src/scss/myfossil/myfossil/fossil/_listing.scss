@@ -1,3 +1,28 @@
 .hover-hand {
     cursor: pointer;
 }
+
+.fossil-property {
+    font-weight: lighter;
+    color: $color-secondary-dark;
+    text-transform: uppercase;
+    font-family: $font-family-sans-serif;
+}
+
+span.unknown {
+    color: $gray-light;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-family: $font-family-sans-serif;
+    text-align: center;
+    width: 100%;
+}
+
+p.author {
+    color: $gray;
+
+    a {
+        color: $gray;
+    }
+
+}
