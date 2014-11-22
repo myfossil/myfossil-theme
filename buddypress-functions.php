@@ -315,7 +315,7 @@ if (!class_exists('BP_Legacy')):
                 'unsaved_changes' => __('Your profile has unsaved changes. If you leave the page, the changes will be lost.', 'buddypress') ,
                 'view' => __('View', 'buddypress') ,
             ));
-            //wp_localize_script($asset['handle'], 'BP_Theme', $params);
+            wp_localize_script($asset['handle'], 'BP_DTheme', $params);
 
             // Maybe enqueue comment reply JS
             if (is_singular() && bp_is_blog_page() && get_option('thread_comments')) {
