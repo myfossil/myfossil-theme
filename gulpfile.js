@@ -47,7 +47,7 @@ gulp.task('plugins', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(['assets/src/js/*.js', '!assets/src/js/plugins.js'])
+  return gulp.src(['assets/src/js/**/*.js'])
       .pipe(plugins.jshint('.jshintrc'))
       .pipe(plugins.jshint.reporter('default'))
       //.pipe(plugins.concat(project+'.js'))

@@ -131,6 +131,66 @@ button.edit-fossil-taxon_open {
     margin: 22px 0;
 }
 
+#fossil-taxon-phylum, #fossil-stratum-group, #fossil-geochronology-era {
+}
+
+#fossil-taxon-class, #fossil-stratum-formation, #fossil-geochronology-period {
+    &:before {
+        @extend .hidden-xs;
+        @extend .hidden-sm;
+        color: #eee;
+        font-family: Ionicons;
+        content: "\f1b3";
+        padding-right: 5px;
+    }
+}
+
+#fossil-taxon-order, #fossil-stratum-member, #fossil-geochronology-epoch {
+    &:before {
+        @extend .hidden-xs;
+        @extend .hidden-sm;
+        color: #eee;
+        font-family: Ionicons;
+        content: "\f1b3 \f1b3";
+        padding-right: 5px;
+    }
+}
+
+#fossil-taxon-family, #fossil-geochronology-age {
+    &:before {
+        @extend .hidden-xs;
+        @extend .hidden-sm;
+        color: #eee;
+        font-family: Ionicons;
+        content: "\f1b3 \f1b3 \f1b3";
+        padding-right: 5px;
+    }
+}
+
+#fossil-taxon-genus {
+    &:before {
+        @extend .hidden-xs;
+        @extend .hidden-sm;
+        color: #eee;
+        font-family: Ionicons;
+        content: "\f1b3 \f1b3 \f1b3 \f1b3";
+        padding-right: 5px;
+    }
+}
+
+#fossil-taxon-species {
+    &:before {
+        @extend .hidden-xs;
+        @extend .hidden-sm;
+        color: #eee;
+        font-family: Ionicons;
+        content: "\f1b3 \f1b3 \f1b3 \f1b3 \f1b3"; 
+        font-weight: lighter !important;
+        padding-right: 5px;
+    }
+}
+
+
 .edit-fossil {
     @extend .panel;
     @extend .panel-default;
