@@ -100,7 +100,7 @@
             <?php if ( ! is_user_logged_in() ): ?>
                 <!-- anonymous user, show login -->
                 <li>
-                    <a href="<?=wp_login_url(); ?>"><span>Login</span></a>
+                    <a href="<?=wp_login_url( get_permalink() ); ?>"><span>Login</span></a>
                 </li>
             <?php endif; ?>
           </ul>
