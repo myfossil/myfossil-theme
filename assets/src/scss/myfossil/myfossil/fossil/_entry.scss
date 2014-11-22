@@ -136,6 +136,8 @@ button.edit-fossil-taxon_open {
 
 #fossil-taxon-class, #fossil-stratum-formation, #fossil-geochronology-period {
     &:before {
+        @extend .hidden-xs;
+        @extend .hidden-sm;
         color: #eee;
         font-family: Ionicons;
         content: "\f1b3";
@@ -145,6 +147,8 @@ button.edit-fossil-taxon_open {
 
 #fossil-taxon-order, #fossil-stratum-member, #fossil-geochronology-epoch {
     &:before {
+        @extend .hidden-xs;
+        @extend .hidden-sm;
         color: #eee;
         font-family: Ionicons;
         content: "\f1b3 \f1b3";
@@ -154,6 +158,8 @@ button.edit-fossil-taxon_open {
 
 #fossil-taxon-family, #fossil-geochronology-age {
     &:before {
+        @extend .hidden-xs;
+        @extend .hidden-sm;
         color: #eee;
         font-family: Ionicons;
         content: "\f1b3 \f1b3 \f1b3";
@@ -163,6 +169,8 @@ button.edit-fossil-taxon_open {
 
 #fossil-taxon-genus {
     &:before {
+        @extend .hidden-xs;
+        @extend .hidden-sm;
         color: #eee;
         font-family: Ionicons;
         content: "\f1b3 \f1b3 \f1b3 \f1b3";
@@ -172,6 +180,8 @@ button.edit-fossil-taxon_open {
 
 #fossil-taxon-species {
     &:before {
+        @extend .hidden-xs;
+        @extend .hidden-sm;
         color: #eee;
         font-family: Ionicons;
         content: "\f1b3 \f1b3 \f1b3 \f1b3 \f1b3"; 
