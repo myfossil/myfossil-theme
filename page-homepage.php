@@ -24,11 +24,11 @@ if ( is_user_logged_in() && is_front_page() )
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="/wp-content/themes/myfossil/static/css/ie/html5shiv.js"></script><![endif]-->
 		<script src="/wp-content/themes/myfossil/static/js/jquery.min.js"></script>
-		<script src="/wp-content/themes/myfossil/static/js/jquery.dropotron.min.js"></script>
-		<script src="/wp-content/themes/myfossil/static/js/jquery.scrollgress.min.js"></script>
-		<script src="/wp-content/themes/myfossil/static/js/skel.min.js"></script>
-		<script src="/wp-content/themes/myfossil/static/js/skel-layers.min.js"></script>
-		<script src="/wp-content/themes/myfossil/static/js/init.min.js"></script>
+		<script src="/wp-content/themes/myfossil/static/js/landing/jquery.dropotron.min.js"></script>
+		<script src="/wp-content/themes/myfossil/static/js/landing/jquery.scrollgress.min.js"></script>
+		<script src="/wp-content/themes/myfossil/static/js/landing/skel.min.js"></script>
+		<script src="/wp-content/themes/myfossil/static/js/landing/skel-layers.min.js"></script>
+		<script src="/wp-content/themes/myfossil/static/js/landing/init.min.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="/wp-content/themes/myfossil/static/css/skel.min.css" />
 			<link rel="stylesheet" href="/wp-content/themes/myfossil/static/css/style-homepage.min.css" />
@@ -48,7 +48,7 @@ if ( is_user_logged_in() && is_front_page() )
 		<!-- Header -->
 			<header id="header" class="alt">
 				<h1>
-                    <a href="index.html">
+                    <a href="/">
                         <img src="/wp-content/themes/myfossil/static/img/myfossil-logo-white-small.png" alt="myFOSSIL" />
                     </a>
                 </h1>
@@ -206,6 +206,7 @@ if ( is_user_logged_in() && is_front_page() )
 
                 <?php
                     // get fossil listing
+                    /*
                     global $wpdb;
                     use \myFOSSIL\Plugin\Specimen\FossilOccurence;
 
@@ -229,9 +230,11 @@ if ( is_user_logged_in() && is_front_page() )
                     }
 
                     printf( 'fossils = %s', json_encode( $fossils ) );
+                    */
                 ?>
 
                 // Add a marker for each place on the map.
+                /*
                 fossils.forEach(
                     function( fossil ) {
                         // Produce the marker on the map.
@@ -264,6 +267,7 @@ if ( is_user_logged_in() && is_front_page() )
                         } )( marker, fossil );
                     }
                 );
+                */
             }
             // }}}
 

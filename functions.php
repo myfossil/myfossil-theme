@@ -131,16 +131,12 @@ function myfossil_scripts()
             '/static/js/bbpress-reply.min.js' );
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() .
             '/static/js/bootstrap.min.js' );
-    wp_enqueue_script( 'bootstrap-helpers', get_template_directory_uri() .
-            '/static/js/bootstrap-formhelpers.min.js' );
     wp_enqueue_script( 'myfossil', get_template_directory_uri() .
             '/static/js/myfossil.min.js' );
     wp_enqueue_script( 'comment-reply', get_template_directory_uri() .
             '/static/js/comment-reply.min.js' );
     wp_enqueue_script( 'html5', get_template_directory_uri() .
             '/static/js/html5.min.js' );
-    wp_enqueue_script( 'password-verify', get_template_directory_uri() .
-            '/static/js/password-verify.min.js' );
     wp_enqueue_script( 'respond', get_template_directory_uri() .
             '/static/js/respond.min.js' );
     wp_enqueue_script( 'jquery-ui', get_template_directory_uri() .
