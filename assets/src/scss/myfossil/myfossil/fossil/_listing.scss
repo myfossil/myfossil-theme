@@ -2,6 +2,18 @@
     cursor: pointer;
 }
 
+.editable {
+    cursor: pointer;
+
+    &:after {
+        font-family: Ionicons;
+        content: "\f12c";
+        color: #eee;
+        margin-left: 5px;
+    }
+
+}
+
 .fossil-property {
     font-weight: lighter;
     color: $color-secondary-dark;
