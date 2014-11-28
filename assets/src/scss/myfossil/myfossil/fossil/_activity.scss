@@ -1,0 +1,66 @@
+.fossil-change {
+    $arrow-size: 30px;
+    
+    $from-color: lighten( $brand-danger, 50% );
+    $to-color: lighten( $brand-success, 40% );
+
+    @extend .row;
+
+    margin: 0;
+    margin-bottom: 10px;
+
+    div {
+        @extend .col-sm-12;
+        @extend .col-md-6;
+        position: relative;
+        float: left;
+        padding: 20px;
+        border: 1px solid #eee;
+
+        h5 {
+            @extend .visible-sm;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+    }
+
+    .from {
+        background-color: $from-color;
+
+        &:after {
+            content: " ";
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: $arrow-size solid transparent;
+            border-bottom: $arrow-size solid transparent;
+            border-left: 20px solid $from-color;
+            position: absolute;
+            top: 50%;
+            margin-top: -$arrow-size;
+            left: 100%;
+            z-index: 3;
+        }
+
+        &:before {
+            content: " ";
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: $arrow-size solid transparent;
+            border-bottom: $arrow-size solid transparent;
+            border-left: 20px solid $gray-light;
+            position: absolute;
+            top: 50%;
+            margin-top: -$arrow-size;
+            left: 100%;
+            z-index: 3;
+        }
+    }
+
+    .to {
+        background-color: $to-color;
+        border-left: none;
+    }
+}        
