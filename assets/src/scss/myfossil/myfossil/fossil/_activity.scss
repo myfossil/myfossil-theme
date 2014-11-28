@@ -9,6 +9,12 @@
     margin: 0;
     margin-bottom: 10px;
 
+    h4, h5 {
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+
     div {
         @extend .col-sm-12;
         @extend .col-md-6;
@@ -19,9 +25,12 @@
 
         h5 {
             @extend .visible-sm;
-            margin: 0;
-            padding: 0;
-            border: none;
+        }
+
+        table, tr, th, td {
+            background-color: $white;
+            text-align: center;
+            border: none !important;
         }
     }
 
