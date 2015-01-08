@@ -85,7 +85,7 @@
 
                             <li>
                                 <a href="<?php echo bp_loggedin_user_domain(); ?>/groups">
-                                    My Organizations
+                                    My Groups
                                 </a>
                             </li>
                             <li>

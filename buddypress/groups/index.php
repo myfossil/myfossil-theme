@@ -6,7 +6,7 @@
         <div class="row" id="groups-header">
 
             <div id="item-header-content" class="col-sm-12 col-md-9">
-                <h1>Community</h1>
+                <h1>Groups</h1>
 
                 <?php do_action( 'template_notices' ); ?>
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * List members for the side-bar on the Organizations page
+ * List members for the side-bar on the Groups page
  */
 $n_members_to_show = 5;
 $n_members_shown = 0;

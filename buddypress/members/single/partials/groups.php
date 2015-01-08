@@ -11,7 +11,7 @@ $n_groups_shown = 0;
 
 ?>
 <?php if ( bp_has_groups( 'user_id=' . bp_displayed_user_id() ) ): ?>
-    <h5 class="side-header">Organizations</h5>  
+    <h5 class="side-header">Groups</h5>
     <div id="side-organizations">
         <ul id="group-list" class="item-list" role="main">
             <?php while ( bp_groups() ) : bp_the_group(); ?>
