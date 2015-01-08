@@ -38,11 +38,6 @@
 
                         <ul id="nav-user">
                             <li>
-                                <a href="/activity">
-                                    What's New
-                                </a>
-                            </li>
-                            <li>
                                 <a href="<?php echo bp_loggedin_user_domain(); ?>">
                                     Wall
                                 </a>
@@ -72,25 +67,25 @@
 
                             <li>
                                 <a href="<?=bp_loggedin_user_domain(); ?>/fossils">
-                                    My Fossils
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="disabled">
-                                    My Resources
+                                    Fossils
                                 </a>
                             </li>
                             
-                            <li class="separator"></li>
+                            <li>
+                                <a href="<?php echo bp_loggedin_user_domain(); ?>/friends">
+                                    Friends
+                                </a>
+                            </li>
 
                             <li>
                                 <a href="<?php echo bp_loggedin_user_domain(); ?>/groups">
-                                    My Groups
+                                    Groups
                                 </a>
                             </li>
+
                             <li>
-                                <a href="<?php echo bp_loggedin_user_domain(); ?>/friends">
-                                    My Friends
+                                <a href="<?php echo bp_loggedin_user_domain(); ?>/forums">
+                                    Forums
                                 </a>
                             </li>
 
@@ -98,7 +93,7 @@
 
                             <li>
                                 <a href="<?php echo bp_loggedin_user_domain(); ?>/profile">
-                                    Edit Profile
+                                    Profile
                                 </a>
                             </li>
                             <li>
