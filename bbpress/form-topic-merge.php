@@ -69,7 +69,7 @@
 								<?php if ( bbp_is_subscriptions_active() ) : ?>
 
 									<input name="bbp_topic_subscribers" id="bbp_topic_subscribers" type="checkbox" value="1" checked="checked" tabindex="<?php bbp_tab_index(); ?>" />
-									<label for="bbp_topic_subscribers"><?php _e( 'Merge topic subscribers', 'myfossil' ); ?></label><br />
+									<label for="bbp_topic_subscribers"><?php _e( 'Merge topic followers', 'myfossil' ); ?></label><br />
 
 								<?php endif; ?>
 

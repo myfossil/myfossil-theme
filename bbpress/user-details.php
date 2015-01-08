@@ -46,7 +46,7 @@
 
 					<?php if ( bbp_is_subscriptions_active() ) : ?>
 						<li class="<?php if ( bbp_is_subscriptions() ) :?>current active<?php endif; ?>">
-								<a href="<?php bbp_subscriptions_permalink(); ?>" title="<?php printf( esc_attr__( "%s's Subscriptions", 'myfossil' ), bbp_get_displayed_user_field( 'display_name' ) ); ?>"><?php _e( 'Subscriptions', 'myfossil' ); ?></a>
+								<a href="<?php bbp_subscriptions_permalink(); ?>" title="<?php printf( esc_attr__( "%s's Follows", 'myfossil' ), bbp_get_displayed_user_field( 'display_name' ) ); ?>"><?php _e( 'Following', 'myfossil' ); ?></a>
 						</li>
 					<?php endif; ?>
 

@@ -302,3 +302,19 @@ add_action( 'wp_enqueue_scripts', 'myfossil_login_remove_styles', 0 );
  */
 require get_template_directory() . '/buddypress/groups/filters.php';
 require get_template_directory() . '/buddypress/members/filters.php';
+
+/**
+ * bbPress
+ */
+function myfossil_bbp_get_topic_subscribe_link( $html, $params=null ) {
+    return str_replace( 'Subscribe', 'Follow', str_replace( 'Unsubscribe', 'Unfollow', $html ) );
+}
+add_filter( 'bbp_get_topic_subscribe_link', 'myfossil_bbp_get_topic_subscribe_link' );
+add_filter( 'bbp_get_user_subscribe_link', 'myfossil_bbp_get_topic_subscribe_link' );
+
+function myfossil_bbp_admin_get_settings_fields( $settings ) {
+    $settings['bbp_settings_features']['_bbp_enable_subscriptions']['title'] = __( 'Followers' );
+    $settings['bbp_settings_user_slugs']['_bbp_user_subs_slug']['title'] = __( 'Topic Followers' );
+    return $settings;
+}
+add_filter( 'bbp_admin_get_settings_fields', 'myfossil_bbp_admin_get_settings_fields' );
