@@ -49,7 +49,7 @@
                 bp_get_template_part( 'members/single/partials/members' );
 
                 /*
-                 * Display some of the User's organizations that they belong to, if any
+                 * Display some of the User's groups that they belong to, if any
                  */
                 bp_get_template_part( 'members/single/partials/groups' );
 

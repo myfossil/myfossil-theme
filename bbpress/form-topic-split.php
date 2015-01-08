@@ -73,7 +73,7 @@
 								<?php if ( bbp_is_subscriptions_active() ) : ?>
 
 									<input name="bbp_topic_subscribers" id="bbp_topic_subscribers" type="checkbox" value="1" checked="checked" tabindex="<?php bbp_tab_index(); ?>" />
-									<label for="bbp_topic_subscribers"><?php _e( 'Copy subscribers to the new topic', 'myfossil' ); ?></label><br />
+									<label for="bbp_topic_subscribers"><?php _e( 'Copy followers to the new topic', 'myfossil' ); ?></label><br />
 
 								<?php endif; ?>
 

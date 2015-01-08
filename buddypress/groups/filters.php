@@ -5,8 +5,8 @@
  * @see myfossil/includes/filters.php
  */
 function filter_bp_group_join_button( $btn ) {
-    $btn_txt_leave = 'Leave Organization';
-    $btn_txt_join = 'Join Organization';
+    $btn_txt_leave = 'Leave Group';
+    $btn_txt_join = 'Join Group';
     $is_member = $btn['link_text'] == 'Leave Group';
 
     $btn['must_be_logged_in'] = true;

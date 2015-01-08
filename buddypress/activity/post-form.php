@@ -15,7 +15,7 @@
 
 		<div class="status-update">
             <div class="status-update-heading">
-                <h4>Update Status</h4>
+                <?php if ( bp_is_my_profile() ): ?><h4>Update Status</h4><?php endif; ?>
 
                 <?php if ( bp_is_active( 'groups' ) && ! bp_is_my_profile() && ! bp_is_group() ): ?>
                     <div id="whats-new-post-in-box" class="post-in">
@@ -52,7 +52,7 @@
                 <div id="whats-new-options">
                     <div id="whats-new-submit">
                         <button type="submit" class="btn btn-default" name="aw-whats-new-submit" id="aw-whats-new-submit">
-                            <?php esc_attr_e('Post Update', 'buddypress'); ?>
+                            <?php esc_attr_e('Post', 'buddypress'); ?>
                         </button>
                     </div>
                 </div><!-- #whats-new-options -->
