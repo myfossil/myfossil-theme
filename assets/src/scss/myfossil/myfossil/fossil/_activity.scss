@@ -1,30 +1,44 @@
 .fossil-change {
-    $arrow-size: 30px;
+    $arrow-size: 8px;
     
-    $from-color: lighten( $brand-danger, 50% );
-    $to-color: lighten( $brand-success, 40% );
+    $from-color:    desaturate( $brand-danger, 10% );
+    $to-color:      desaturate( $brand-success, 30% );
 
     @extend .row;
 
     margin: 0;
-    margin-bottom: 10px;
+    text-align: center;
 
     h4, h5 {
         margin: 0;
         padding: 0;
         border: none;
+        margin-top: 10px;
+    }
+
+    h4
+    {
+        width: 100%;
+        text-align: center;
     }
 
     div {
+        display: inline-block;
         @extend .col-sm-12;
         @extend .col-md-6;
         position: relative;
         float: left;
-        padding: 20px;
-        border: 1px solid #eee;
+        padding: 10px;
 
         h5 {
             @extend .visible-sm;
+        }
+
+        .fossil-property
+        {
+            display: inline-block;
+            width: 100%;
+            color: $color-gray-medium !important;
         }
 
         table, tr, th, td {
@@ -32,24 +46,33 @@
             text-align: center;
             border: none !important;
         }
+
+        p
+        {
+            display: inline;
+            text-align: left !important;
+        }
     }
 
     .from {
-        background-color: $from-color;
 
-        &:after {
-            content: " ";
-            display: block;
-            width: 0;
-            height: 0;
-            border-top: $arrow-size solid transparent;
-            border-bottom: $arrow-size solid transparent;
-            border-left: 20px solid $from-color;
-            position: absolute;
-            top: 50%;
-            margin-top: -$arrow-size;
-            left: 100%;
-            z-index: 3;
+        padding-right: $arrow-size * 4;
+
+        p+p
+        {
+            color: $from-color;
+            text-decoration: line-through;
+        }
+        
+    }
+
+    .to {
+
+        padding-left: $arrow-size * 5;
+
+        p+p
+        {
+            color: $to-color;
         }
 
         &:before {
@@ -59,17 +82,60 @@
             height: 0;
             border-top: $arrow-size solid transparent;
             border-bottom: $arrow-size solid transparent;
-            border-left: 20px solid $gray-light;
+            border-left: $arrow-size * 2 solid $color-gray-light;
             position: absolute;
             top: 50%;
             margin-top: -$arrow-size;
-            left: 100%;
+            left: 0%;
             z-index: 3;
         }
     }
 
-    .to {
-        background-color: $to-color;
-        border-left: none;
+    // Targets < sm breakpoint
+    @media (min-width: $screen-sm-max) {
+
+        h4
+        {
+            text-align: center;
+        }
+
+        .from,
+        .from p
+        {
+            text-align: right !important;
+        }
+
+        .to,
+        .to p
+        {
+            text-align: left !important;
+        }
+
+    }
+
+    // Targets > sm breakpoint
+    @media (max-width: $screen-sm-max) {
+
+        h4
+        {
+            text-align: left;
+        }
+
+        div
+        {
+            width: 100%;
+            text-align: left !important;
+
+            p
+            {
+                text-align: left !important;
+            }
+        }
+
+        .to
+        {
+            border-top: 1px solid $color-gray-lighter;
+        }
+        
     }
 }        
