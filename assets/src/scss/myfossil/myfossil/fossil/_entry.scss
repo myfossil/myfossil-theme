@@ -1,11 +1,11 @@
 #fossil {
     h3 {
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid $color-gray-light;
         width: 100%;
         text-transform: uppercase;
         padding: 0 0 5px 0;
-        margin: 10px 0 0 0;
-        font-size: 1.5em;
+        margin: 30px 0 20px 0 !important;
+        font-size: 1.25em;
         color: $color-secondary;
     }
 
@@ -21,7 +21,7 @@
             tr {
                 margin: 0; padding: 0;
                 vertical-align: middle;
-                border-bottom: 1px solid #eee;
+                border-bottom: 1px solid $color-gray-lighter;
 
                 td {
                     vertical-align: middle;
@@ -33,9 +33,11 @@
                         @extend .col-lg-2;
 
                         font-weight: lighter;
-                        color: $color-secondary-dark;
+                        color: $color-secondary-dark !important;
                         text-transform: uppercase;
                         font-family: $font-family-sans-serif;
+
+                        padding-left: 0;
                     }
 
                     &.fossil-property-value {
@@ -134,14 +136,24 @@ button.edit-fossil-taxon_open {
 #fossil-taxon-phylum, #fossil-stratum-group, #fossil-geochronology-era {
 }
 
+@mixin indent( $num )
+{
+    color: $color-gray-lighter;
+    padding-right: 5px;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    font-size: 0.75em;
+
+    $indent : "";
+    @for $i from 1 through $num*3 { $indent : $indent + "\2022 "; }
+    content : "#{$indent}";
+}
+
 #fossil-taxon-class, #fossil-stratum-formation, #fossil-geochronology-period {
     &:before {
         @extend .hidden-xs;
         @extend .hidden-sm;
-        color: #eee;
-        font-family: Ionicons;
-        content: "\f1b3";
-        padding-right: 5px;
+        @include indent( 1 );
     }
 }
 
@@ -149,10 +161,7 @@ button.edit-fossil-taxon_open {
     &:before {
         @extend .hidden-xs;
         @extend .hidden-sm;
-        color: #eee;
-        font-family: Ionicons;
-        content: "\f1b3 \f1b3";
-        padding-right: 5px;
+        @include indent( 2 );
     }
 }
 
@@ -160,10 +169,7 @@ button.edit-fossil-taxon_open {
     &:before {
         @extend .hidden-xs;
         @extend .hidden-sm;
-        color: #eee;
-        font-family: Ionicons;
-        content: "\f1b3 \f1b3 \f1b3";
-        padding-right: 5px;
+        @include indent( 3 );
     }
 }
 
@@ -171,10 +177,7 @@ button.edit-fossil-taxon_open {
     &:before {
         @extend .hidden-xs;
         @extend .hidden-sm;
-        color: #eee;
-        font-family: Ionicons;
-        content: "\f1b3 \f1b3 \f1b3 \f1b3";
-        padding-right: 5px;
+        @include indent( 4 );
     }
 }
 
@@ -182,11 +185,7 @@ button.edit-fossil-taxon_open {
     &:before {
         @extend .hidden-xs;
         @extend .hidden-sm;
-        color: #eee;
-        font-family: Ionicons;
-        content: "\f1b3 \f1b3 \f1b3 \f1b3 \f1b3"; 
-        font-weight: lighter !important;
-        padding-right: 5px;
+        @include indent( 5 );
     }
 }
 
@@ -212,7 +211,7 @@ button.edit-fossil-taxon_open {
             margin: 0;
             padding: 0;
             border: none;
-            font-weight: lighter;
+            font-weight: bold;
             text-align: center;
             width: 100%;
         }
@@ -224,6 +223,11 @@ button.edit-fossil-taxon_open {
         background-color: $white;
         border: none !important;
         padding: 0;
+
+        label
+        {
+            font-weight: lighter;
+        }
     }
 
     .edit-fossil-footer {

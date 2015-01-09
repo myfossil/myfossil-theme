@@ -8,8 +8,9 @@
     &:after {
         font-family: Ionicons;
         content: "\f12c";
-        color: #eee;
-        margin-left: 5px;
+        color: lighten( $color-gray-light, 10% );
+        margin-left: 1em;
+        font-weight: lighter;
     }
 
 }
