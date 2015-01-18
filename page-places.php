@@ -27,9 +27,6 @@ myfossil_places_template();
                 <?php myfossil_places_filter_form(); ?>
             </div>
             <?php wp_nonce_field( 'myfr_filter', 'myfr_filter_nonce' ); ?>
-            <div class="col-sm-12 col-md-8 col-lg-9 text-right">
-                <?php myfossil_places_create_button(); ?>
-            </div>
             <div class="col-sm-12 col-md-8 col-lg-9"> 
                 <?php myfossil_places_list(); ?>
             </div>
