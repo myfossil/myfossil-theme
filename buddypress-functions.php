@@ -305,10 +305,10 @@ if (!class_exists('BP_Legacy')):
                 'close' => __('Close', 'buddypress') ,
                 'comments' => __('comments', 'buddypress') ,
                 'leave_group_confirm' => __('Are you sure you want to leave this group?', 'buddypress') ,
-                'mark_as_fav' => __('Favorite', 'buddypress') ,
-                'my_favs' => __('My Favorites', 'buddypress') ,
+                'mark_as_fav' => __('Like', 'buddypress') ,
+                'my_favs' => __('My Likes', 'buddypress') ,
                 'rejected' => __('Rejected', 'buddypress') ,
-                'remove_fav' => __('Remove Favorite', 'buddypress') ,
+                'remove_fav' => __('Unlike', 'buddypress') ,
                 'show_all' => __('Show all', 'buddypress') ,
                 'show_all_comments' => __('Show all comments for this thread', 'buddypress') ,
                 'show_x_comments' => __('Show all %d comments', 'buddypress') ,
@@ -964,8 +964,8 @@ function bp_legacy_theme_mark_activity_favorite()
 
     // Bail if not a POST action
     if ('POST' !== strtoupper($_SERVER['REQUEST_METHOD'])) return;
-    if (bp_activity_add_user_favorite($_POST['id'])) _e('Remove Favorite', 'buddypress');
-    else _e('Favorite', 'buddypress');
+    if (bp_activity_add_user_favorite($_POST['id'])) _e('Unlike', 'buddypress');
+    else _e('Like', 'buddypress');
     exit;
 }
 
@@ -980,8 +980,8 @@ function bp_legacy_theme_unmark_activity_favorite()
 
     // Bail if not a POST action
     if ('POST' !== strtoupper($_SERVER['REQUEST_METHOD'])) return;
-    if (bp_activity_remove_user_favorite($_POST['id'])) _e('Favorite', 'buddypress');
-    else _e('Remove Favorite', 'buddypress');
+    if (bp_activity_remove_user_favorite($_POST['id'])) _e('Like', 'buddypress');
+    else _e('Unlike', 'buddypress');
     exit;
 }
 

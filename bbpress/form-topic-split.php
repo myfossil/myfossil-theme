@@ -78,7 +78,7 @@
 								<?php endif; ?>
 
 								<input name="bbp_topic_favoriters" id="bbp_topic_favoriters" type="checkbox" value="1" checked="checked" tabindex="<?php bbp_tab_index(); ?>" />
-								<label for="bbp_topic_favoriters"><?php _e( 'Copy favoriters to the new topic', 'myfossil' ); ?></label><br />
+								<label for="bbp_topic_favoriters"><?php _e( 'Copy likers to the new topic', 'myfossil' ); ?></label><br />
 
 								<?php if ( bbp_allow_topic_tags() ) : ?>
 

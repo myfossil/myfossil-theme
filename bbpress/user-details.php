@@ -38,7 +38,7 @@
 
 				<?php if ( bbp_is_favorites_active() ) : ?>
 					<li class="<?php if ( bbp_is_favorites() ) :?>current active<?php endif; ?>">
-							<a href="<?php bbp_favorites_permalink(); ?>" title="<?php printf( esc_attr__( "%s's Favorites", 'myfossil' ), bbp_get_displayed_user_field( 'display_name' ) ); ?>"><?php _e( 'Favorites', 'myfossil' ); ?></a>
+							<a href="<?php bbp_favorites_permalink(); ?>" title="<?php printf( esc_attr__( "%s's Likes", 'myfossil' ), bbp_get_displayed_user_field( 'display_name' ) ); ?>"><?php _e( 'Liked', 'myfossil' ); ?></a>
 					</li>
 				<?php endif; ?>
 
