@@ -1,0 +1,69 @@
+/**
+ * myFOSSIL, places
+ */
+
+$place-top-border-width: 3px;
+
+$place-colors: (
+    other: $color-gray-medium,
+    group: $color-blue-light,
+    organization: $color-blue,
+    fossil-club: $color-blue-dark,
+    city-park: $color-brown-light,
+    state-park: $color-brown,
+    national-park: $color-brown-dark,
+    museum: $color-primary,
+    collecting-site: $color-secondary
+);
+
+.place {
+    @extend .row;
+
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+
+    @each $place-type, $place-type-color in $place-colors {
+        &.place-#{$place-type} {
+            border-top: $place-top-border-width solid $place-type-color;
+
+            .place-icon {
+                @extend .hidden-sm;
+                @extend .col-md-1;
+
+                color: $place-type-color;
+                font-size: 4em;
+                margin: 20px 0;
+                text-align: center;
+            }
+
+            .place-body {
+                @extend .col-sm-12;
+                @extend .col-md-11;
+
+                color: $gray;
+
+                span {
+                    margin: 0; 
+                    padding: 0;
+                    color: $place-type-color;
+                    text-transform: uppercase;
+                    font-family: $font-family-sans-serif;
+                    font-weight: $headings-font-weight;
+                }
+
+                h5 {
+                    border: none;
+                    color: $black;
+                    text-transform: capitalize;
+                    padding: 0;
+                    margin: 0 0 5px 0;
+                    font-family: $font-family-sans-serif;
+                    font-weight: $headings-font-weight;
+                    font-size: 1.6em;
+                }
+            }
+        }
+    }
+
+}
