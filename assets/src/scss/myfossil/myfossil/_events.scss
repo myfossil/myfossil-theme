@@ -18,6 +18,45 @@ $event-colors: (
     padding: 20px;
     margin: 20px 0;
 
+    border-top: $event-top-border-width solid #333333;
+
+    .event-icon {
+        @extend .hidden-sm;
+        @extend .col-md-1;
+
+        color: #333333;
+        font-size: 4em;
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .event-body {
+        @extend .col-sm-12;
+        @extend .col-md-11;
+
+        color: $gray;
+
+        span {
+            margin: 0; 
+            padding: 0;
+            color: #333333;
+            text-transform: uppercase;
+            font-family: $font-family-sans-serif;
+            font-weight: $headings-font-weight;
+        }
+
+        h5 {
+            border: none;
+            color: $black;
+            text-transform: capitalize;
+            padding: 0;
+            margin: 0 0 5px 0;
+            font-family: $font-family-sans-serif;
+            font-weight: $headings-font-weight;
+            font-size: 1.6em;
+        }
+    }
+
     @each $event-type, $event-type-color in $event-colors {
         &.event-#{$event-type} {
             border-top: $event-top-border-width solid $event-type-color;
