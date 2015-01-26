@@ -1,6 +1,6 @@
 <?php do_action('bp_before_activity_loop'); ?>
 
-<?php if ( bp_has_activities( bp_ajax_querystring( 'activity' ) . '&object=activity,bbpress,groups,friends,profile,status,blogs' ) ) : ?>
+<?php if ( bp_has_activities( bp_ajax_querystring( 'activity' ) . '&object=activity,bbpress,groups,friends,profile,status,blogs,myfossil' ) ) : ?>
 
 	<?php if (empty($_POST['page'])): ?>
 		<ul id="activity-stream" class="activity-list item-list">
