@@ -6,14 +6,9 @@ $event-top-border-width: 3px;
 
 $event-colors: (
     other: $color-gray-medium,
-    group: $color-blue-light,
-    organization: $color-blue,
-    fossil-club: $color-blue-dark,
-    city-park: $color-brown-light,
-    state-park: $color-brown,
-    national-park: $color-brown-dark,
-    museum: $color-primary,
-    collecting-site: $color-secondary
+    meeting: $color-gray-medium,
+    workshop: $color-gray-medium,
+    lecture: $color-gray-medium
 );
 
 .event {

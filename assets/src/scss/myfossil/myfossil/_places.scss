@@ -5,15 +5,15 @@
 $place-top-border-width: 3px;
 
 $place-colors: (
-    other: $color-gray-medium,
-    group: $color-blue-light,
-    organization: $color-blue,
-    fossil-club: $color-blue-dark,
-    city-park: $color-brown-light,
-    state-park: $color-brown,
-    national-park: $color-brown-dark,
-    museum: $color-primary,
-    collecting-site: $color-secondary
+    other: #333333,
+    group: #2121b3,
+    organization: #b32121,
+    fossil-club: #00bfbf,
+    city-park: #b3b321,
+    state-park: #6ab321,
+    national-park: #1e611e,
+    museum: #216ab3,
+    collecting-site: #b36a21
 );
 
 .place {
