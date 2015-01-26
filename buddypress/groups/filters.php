@@ -24,20 +24,14 @@ add_filter( 'bp_get_group_join_button', 'filter_bp_group_join_button' );
  */
 function filter_bp_directory_groups_search_form( $html ) {
     return <<<EOT
-        <form action="" method="get" id="search-groups-form" _lpchecked="1" class="form">
-            <label class="sr-only">
-                Search query
-            </label>
-            <div class="input-group">
-                <input type="text" name="s" id="groups_search" class="form-control" placeholder="Search Groups..." />
-                <span class="input-group-btn">
-                    <button type="submit" id="groups_search_submit" name="groups_search_submit" class="btn btn-default">
-                        <i class="fa fa-fw fa-search"></i>
-                        <span class="sr-only">Search</span>
-                    </button>
-                </span>
-            </div>
-        </form>
+        <div id="group-dir-search" class="dir-search section pull-right" role="search">
+            <form action="" method="get" id="search-groups-form" _lpchecked="1" class="form">
+                <div class="form-group">
+                    <label><input type="text" name="s" id="groups_search" placeholder="Search Groups..." class="form-control"></label>
+                    <input type="submit" id="groups_search_submit" name="groups_search_submit" value="Search" class="btn btn-default" style="margin-top: -5px">
+                </div>
+            </form>
+        </div>
 EOT;
 }
 add_filter( 'bp_directory_groups_search_form', 'filter_bp_directory_groups_search_form');
