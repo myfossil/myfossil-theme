@@ -19,14 +19,13 @@ myfossil_events_template();
         </div>
 	
         <div class="row">
-	    <div class="col-sm-12 col-md-4 col-lg-3">
-            <h3>Filters</h3>
-            <?php myfossil_events_filter_form(); ?>
-        </div>
-          
-        <div class="col-sm-12 col-md-8 col-lg-9">
-            <?php myfossil_events_list(); ?>
-        </div>
+            <div class="col-sm-12 col-md-4 col-lg-3 pull-right">
+                <h3>Filters</h3>
+                <?php myfossil_events_filter_form(); ?>
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-9">
+                <?php myfossil_events_list(); ?>
+            </div>
     </main>
 </div>
 
