@@ -15,7 +15,7 @@ myfossil_events_template();
     <main id="main" class="site-main" role="main">
         <h1>Events</h1>
         <div class="row">
-            <?php myfossil_resources_map(); ?>
+            <?php // myfossil_resources_map(); ?>
         </div>
 	
         <div class="row">
