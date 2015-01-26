@@ -1,10 +1,10 @@
 /**
- * myFOSSIL, events
+ * myFOSSIL, places
  */
 
-$event-top-border-width: 3px;
+$place-top-border-width: 3px;
 
-$event-colors: (
+$place-colors: (
     other: $color-gray-medium,
     group: $color-blue-light,
     organization: $color-blue,
@@ -16,28 +16,28 @@ $event-colors: (
     collecting-site: $color-secondary
 );
 
-.event {
+.place {
     @extend .row;
 
     background-color: #fff;
     padding: 20px;
     margin: 20px 0;
 
-    @each $event-type, $event-type-color in $event-colors {
-        &.event-#{$event-type} {
-            border-top: $event-top-border-width solid $event-type-color;
+    @each $place-type, $place-type-color in $place-colors {
+        &.place-#{$place-type} {
+            border-top: $place-top-border-width solid $place-type-color;
 
-            .event-icon {
+            .place-icon {
                 @extend .hidden-sm;
                 @extend .col-md-1;
 
-                color: $event-type-color;
+                color: $place-type-color;
                 font-size: 4em;
                 margin: 20px 0;
                 text-align: center;
             }
 
-            .event-body {
+            .place-body {
                 @extend .col-sm-12;
                 @extend .col-md-11;
 
@@ -46,7 +46,7 @@ $event-colors: (
                 span {
                     margin: 0; 
                     padding: 0;
-                    color: $event-type-color;
+                    color: $place-type-color;
                     text-transform: uppercase;
                     font-family: $font-family-sans-serif;
                     font-weight: $headings-font-weight;

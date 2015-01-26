@@ -8,9 +8,6 @@
  */
 get_header();
 
-// Add modal
-myfossil_places_modal();
-
 // Add handlebars.js template
 myfossil_places_template();
 
