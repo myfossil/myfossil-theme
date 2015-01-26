@@ -34,19 +34,7 @@ return array(
 		'{path.storage}/sessions',
 	),
 
-	// Execution
-	//////////////////////////////////////////////////////////////////////
-
-	// If enabled will force a shell to be created
-	// which is required for some tools like RVM or NVM
-	'shell'          => false,
-
-	// An array of commands to run under shell
-	'shelled'        => ['which', 'ruby', 'npm', 'bower', 'bundle', 'grunt', 'gulp'],
-
 	// Permissions$
-	////////////////////////////////////////////////////////////////////
-
 	'permissions'    => array(
 
 		// The folders and files to set as web writable
