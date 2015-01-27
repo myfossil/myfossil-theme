@@ -79,8 +79,20 @@
         <!-- nav links themselves -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right" id="nav-main">
-            <?php $items = wp_get_nav_menu_items('primary'); ?>
-            <?php foreach ($items as $item): ?>
+            <?php
+                $menu_items = array();
+                foreach ( wp_get_nav_menu_items( 'primary' ) as $item ) {
+                    if ( $item->menu_item_parent ) {
+                        if ( ! property_exists( $menu_items[$item->menu_item_parent], 'sub' ) ) {
+                            $menu_items[$item->menu_item_parent]->sub = array();
+                        }
+                        $menu_items[$item->menu_item_parent]->sub[] = $item;
+                    } else {
+                        $menu_items[$item->ID] = $item;
+                    }
+                }
+            ?>
+            <?php foreach ( $menu_items as $item ) : ?>
               <li>
                 <?php 
                 $page_array = get_option( 'bp-pages' );
@@ -92,9 +104,25 @@
                 if ( array_key_exists( strtolower( $item->title ), $page_array ) ) {
                     $item->object_id = $page_array[strtolower( $item->title )];
                 }
+
                 $class = ( $item->object_id == $post->ID || strtolower( $item->title ) == strtolower( $post->post_title ) ) ? ' class="selected"' : null;
+
                 ?>
-                <a href="<?php echo $item->url; ?>"<?=$class ?>><span><?php echo $item->title; ?></span></a>
+                <?php if ( $item->sub ) : ?>
+                        <a id="dropdown<?=$item->ID ?>" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                            <?=$item->title ?>
+                            <i class="fa fa-fw fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown<?=$item->ID ?>">
+                            <?php foreach ( $item->sub as $sub_item ) : ?>
+                                <li> 
+                                    <a href="<?php echo $sub_item->url; ?>"<?=$class ?>><span><?php echo $sub_item->title; ?></span></a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                <?php else: ?>
+                    <a href="<?php echo $item->url; ?>"<?=$class ?>><span><?php echo $item->title; ?></span></a>
+                <?php endif; ?>
               </li>
             <?php endforeach; ?>
             <?php if ( ! is_user_logged_in() ): ?>
