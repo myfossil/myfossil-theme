@@ -1,12 +1,4 @@
 <?php do_action('bp_before_activity_loop'); ?>
-<?php /*
-            '&object=activity,bbpress,groups,friends,profile,status,blogs,myfossil&action=
-            new_member,new_avatar,updated_profile,activity_comment,
-            activity_update,new_blog_post,new_blog_comment,
-            friendship_created,friendship_accepted,group_details_updated,
-            joined_group,created_group,bbp_reply_create,bbp_topic_create,
-            uploaded_image' ) ) : ?>
-    */ ?>
 
 <?php if ( bp_has_activities() ) : ?>
 
