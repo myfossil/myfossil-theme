@@ -7,7 +7,7 @@
 .activity-entry {
     @extend .panel;
     @extend .panel-default;
-	@include box-shadow( 0px 1px 2px 0px rgba( 0,0,0, 0.25 ) );
+	@include box-shadow( 0px 1px 2px 0px rgba( 0, 0, 0, 0.25 ) );
 	border: 1px solid $color-gray-lighter;
     padding: 0;
     background-color: $white;
@@ -17,8 +17,8 @@
         background-color: $white;
         font-size: 12px;
         border-bottom: 1px solid $color-gray-lighter;
-        padding: 10px 0px 10px 0px;
-        min-height: 45px;
+        padding: 10px 0px;
+        // min-height: 45px;
         color: $gray;
         margin-left: 15px;
         margin-right: 15px;
@@ -46,11 +46,13 @@
     .activity-body .activity-inner{
         padding-left: 15px;
     }
+
     .activity-footer,
     .activity-footer .acomment-options {
         padding-left: 30px !important;
         min-height: 10px;
     }
+
     .activity-comments .activity-entry .activity-footer 
     {
         // For nested comments, removes body/footer indentation for wrapping footer. 
@@ -69,8 +71,6 @@
         .acomment .acomment-content{
             font-size: 18px !important;
         }
-
-
 
         p {
             margin: 0;
@@ -130,10 +130,9 @@
         padding: 10px;
         border-top: 1px solid $color-gray-lighter;
 
-        &, 
-        a,
-        span.badge 
-        { font-size: 12px; }
+        &, a, span.badge {
+            font-size: 12px; 
+        }
 
         span.badge {
             background-color: $link-color;

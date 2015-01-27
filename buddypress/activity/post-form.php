@@ -14,10 +14,10 @@
 	<div id="whats-new-content">
 
 		<div class="status-update">
+            <?php /* 
             <div class="status-update-heading">
                 <?php if ( bp_is_my_profile() ): ?><h4>Update Status</h4><?php endif; ?>
-
-                <?php if ( bp_is_active( 'groups' ) && ! bp_is_my_profile() && ! bp_is_group() ): ?>
+                    if ( bp_is_active( 'groups' ) && ! bp_is_my_profile() && ! bp_is_group() ): ?>
                     <div id="whats-new-post-in-box" class="post-in">
                         <div class="form-group">
                             <label for="whats-new-post-in"><?php _e('Post in...', 'buddypress'); ?></label>
@@ -32,14 +32,17 @@
                             </select>
                         </div>
                     </div>
+                    <input type="hidden" id="whats-new-post-in" name="whats-new-post-in" value="0" />
                     <input type="hidden" id="whats-new-post-object" name="whats-new-post-object" value="groups" />
-                <?php elseif (bp_is_group_home()): ?>
+            </div>
+            */
+            ?>
+
+            <div class="status-update-body">
+                <?php if (bp_is_group_home()): ?>
                     <input type="hidden" id="whats-new-post-object" name="whats-new-post-object" value="groups" />
                     <input type="hidden" id="whats-new-post-in" name="whats-new-post-in" value="<?php bp_group_id(); ?>" />
                 <?php endif; ?>
-            </div>
-
-            <div class="status-update-body">
                 <div id="whats-new-user-avatar">
                     <?php bp_loggedin_user_avatar('width=50&height=50' ); ?>
                 </div>
