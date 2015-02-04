@@ -21,18 +21,8 @@
 
     <div class="activity" role="main">
         <?php 
-        do_action( 'bp_before_member_activity_post_form' );
-
-        if ( is_user_logged_in() && bp_is_my_profile() && 
-                ( !bp_current_action() || bp_is_current_action( 'just-me' ) ) )
-            bp_get_template_part( 'activity/post-form' );
-
-        do_action( 'bp_after_member_activity_post_form' );
-
         do_action( 'bp_before_member_activity_content' ); 
-
         bp_get_template_part( 'activity/activity-loop' ); 
-
         ?>
     </div><!-- .activity -->
 

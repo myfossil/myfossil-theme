@@ -49,6 +49,9 @@
         elseif ( bp_is_current_component( 'fossils' ) ) :
 			bp_get_template_part( 'members/single/fossils' );
 
+        elseif ( bp_is_current_component( 'wall' ) ) :
+			bp_get_template_part( 'members/single/wall' );
+
 		// If nothing sticks, load a generic template
 		else :
 			bp_get_template_part( 'members/single/plugins'  );

@@ -43,7 +43,7 @@ $fossils = new WP_Query( $wp_query_args );
     <div id="item-nav" class="container">
         <div class="item-list-tabs" role="navigation">
             <ul class="nav nav-tabs">
-                <li class="selected active">
+                <li class="selected current active">
                     <a>
                         <?php printf( __( 'All Fossils', 'buddypress' ) ); ?>
                     </a>

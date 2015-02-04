@@ -1487,3 +1487,4 @@ function myfossil_group_creation_tabs() {
 
     do_action( 'groups_creation_tabs' );
 }
+
