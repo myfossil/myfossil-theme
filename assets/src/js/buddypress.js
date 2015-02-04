@@ -221,12 +221,14 @@ jq(document).ready(function() {
                     activity_last_recorded = 0;
                 }
 
+                /*
                 jq('#whats-new-options').animate({
                     height: '0px'
                 });
                 jq('#whats-new-form textarea').animate({
                     height: '20px'
                 });
+                */
                 jq('#aw-whats-new-submit').prop('disabled', true).removeClass('loading');
             });
 
