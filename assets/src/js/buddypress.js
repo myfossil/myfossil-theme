@@ -32,6 +32,7 @@ jq(document).ready(function() {
     if ($whats_new.length && bp_get_querystring('r')) {
         var $member_nicename = $whats_new.val();
 
+        /*
         jq('#whats-new-options').animate({
             height: '40px'
         });
@@ -44,6 +45,7 @@ jq(document).ready(function() {
             offset: -125,
             easing: 'swing'
         });
+        */
 
         $whats_new.val('').focus().val($member_nicename);
     }
@@ -96,7 +98,7 @@ jq(document).ready(function() {
 					height:'20px'
 				});
                 */
-                jq('#aw-whats-new-submit').prop('disabled', true);
+                //jq('#aw-whats-new-submit').prop('disabled', true);
             }
         }
     });
@@ -126,7 +128,15 @@ jq(document).ready(function() {
         firstrow = jq('#buddypress ul.activity-list li').first();
         activity_row = firstrow;
         timestamp = null;
-
+        var post_action;
+        
+        // Set custom action if available
+        if ( jq('#whats-new-action').length ) {
+            post_action = jq('#whats-new-action').val();
+        } else {
+            post_action = 'post_update';
+        }
+        
         // Checks if at least one activity exists
         if (firstrow.length) {
 
@@ -147,7 +157,7 @@ jq(document).ready(function() {
         }
 
         jq.post(ajaxurl, {
-                action: 'post_update',
+                action: post_action,
                 'cookie': bp_get_cookies(),
                 '_wpnonce_post_update': jq('#_wpnonce_post_update').val(),
                 'content': content,
@@ -157,7 +167,6 @@ jq(document).ready(function() {
                 '_bp_as_nonce': jq('#_bp_as_nonce').val() || ''
             },
             function(response) {
-
                 form.children().each(function() {
                     if (jq.nodeName(this, 'textarea') || jq.nodeName(this, 'input')) {
                         jq(this).prop('disabled', false);

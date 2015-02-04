@@ -54,7 +54,6 @@ function myfossil_bbp_get_breadcrumb($r){
 }
 
 
-
 add_filter ( 'bbp_get_topic_class', 'myfossil_social_bbp_get_topic_class', 10, 2);
 function myfossil_social_bbp_get_topic_class ($classes, $topic_id) {
 	$bbp       = bbpress();
@@ -88,9 +87,11 @@ function myfossil_social_bbp_replies_pagination($array){
 
 
 function myfossil_social_bbp_get_reply_class_modal($reply_id = 0) {
-/*	$bbp       = bbpress();
-	$reply_id  = bbp_get_reply_id( $reply_id );
-	$count     = isset( $bbp->reply_query->current_post ) ? $bbp->reply_query->current_post : 1;*/
+    /*	
+ 	 * $bbp       = bbpress();
+	 * $reply_id  = bbp_get_reply_id( $reply_id );
+	 * $count     = isset( $bbp->reply_query->current_post ) ? $bbp->reply_query->current_post : 1;
+     */
 	global $myfossil_bbpress_count;
 	$myfossil_bbpress_count++;
 	$class = 	( (int) $myfossil_bbpress_count % 2 ) ? 'panel-footer' : 'panel-body';
@@ -410,7 +411,7 @@ function myfossil_bbp_get_dropdown( $_, $args = '' ) {
             $retval .= '<select name="' . $name . '" id="' . $select_id . '"' . $tab  . $disabled . ' class="form-control">' . "\n";
         }
 
-        $retval .= !empty( $show_none ) ? "\t<option value=\"\" class=\"level-0\">" . $show_none . '</option>' : '';
+        $retval .= ! empty( $show_none ) ? "\t<option value=\"\" class=\"level-0\">" . $show_none . '</option>' : '';
         $retval .= walk_page_dropdown_tree( $posts, 0, $r );
 
         if ( empty( $options_only ) )

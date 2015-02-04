@@ -43,6 +43,10 @@
                     <input type="hidden" id="whats-new-post-object" name="whats-new-post-object" value="groups" />
                     <input type="hidden" id="whats-new-post-in" name="whats-new-post-in" value="<?php bp_group_id(); ?>" />
                 <?php endif; ?>
+                <?php if ( bp_displayed_user_id() ) : ?>
+                    <input type="hidden" id="whats-new-action" name="whats-new-action" value="post_to_wall" />
+                    <input type="hidden" id="whats-new-post-in" name="whats-new-post-in" value="<?php echo bp_displayed_user_id() ?>" />
+                <?php endif; ?>
                 <div id="whats-new-user-avatar">
                     <?php bp_loggedin_user_avatar('width=50&height=50' ); ?>
                 </div>

@@ -80,7 +80,7 @@ function filter_nav_item( $bp_tpl_contents ) {
 
     // We use the word "Wall" instead of "Home"
     if ( $nav_item_name == 'Home' || $nav_item_name == 'Activity' ) 
-        $nav_item_name = 'Wall';
+        $nav_item_name = 'Activity';
 
     // Put it all back together
     return $tpl . "<a href=\"" . $nav_item_link . "\">" . $nav_item_name . "</a></li>";
@@ -132,6 +132,8 @@ add_filter( 'bp_get_options_nav_friends-my-friends', 'filter_nav_item', 10, 1 );
 add_filter( 'bp_get_options_nav_requests', 'filter_nav_item', 10, 1 );
 add_filter( 'bp_get_options_nav_groups-my-groups', 'filter_nav_item_no_count', 10, 1 );
 add_filter( 'bp_get_options_nav_invites', 'filter_nav_item', 10, 1 );
+add_filter( 'bp_get_options_nav_wall', 'filter_nav_item_no_count', 10, 1 );
+add_filter( 'bp_get_options_nav_fossil', 'filter_nav_item_no_count', 10, 1 );
 add_filter( 'bp_get_options_nav_home', 'filter_nav_item', 10, 1 );
 add_filter( 'bp_get_options_nav_members', 'filter_nav_item_no_count', 10, 1 );
 add_filter( 'bp_get_options_nav_invite', 'filter_nav_item', 10, 1 );

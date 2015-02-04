@@ -135,6 +135,7 @@ function myfossil_highlight_search_results(){
 	<?php
 }
 add_action( 'bbp_template_after_search_results', "myfossil_bbpress_highlight_search_results");
+
 function myfossil_bbpress_highlight_search_results(){
 	myfossil_highlight_search_results();
 	// Get search terms
@@ -142,3 +143,118 @@ function myfossil_bbpress_highlight_search_results(){
 	echo "<script>jQuery('#bbp-search-results').highlight('" . $search_terms . "');</script>";
 	
 }
+
+function myfossil_bp_register_wall_action() {
+    $component_id = 'activity';
+    $type         = 'wall_post';
+    $description  = 'Wall post';
+    $label        = 'Wall post';
+    $format_cb    = null; // 'bp_activity_format_activity_action_activity_update';
+
+    bp_activity_set_action( $component_id, $type, $description, $format_cb,
+            $label );
+}
+add_action( 'bp_register_activity_actions', 'myfossil_bp_register_wall_action' );
+
+function bp_are_friends( $other_id, $user_id ) {
+    $friend_status = friends_check_friendship_status( $user_id, $other_id );
+    return ( $friend_status == 'is_friend' );
+}
+
+function myfossil_bp_wall_ajax_handler() {
+    // -- begin buddypress code --
+    $bp = buddypress();
+
+    // Bail if not a POST action
+    if ('POST' !== strtoupper($_SERVER['REQUEST_METHOD'])) return;
+
+    // Check the nonce
+    check_admin_referer('post_update', '_wpnonce_post_update');
+    if (!is_user_logged_in()) exit('-1');
+    if (empty($_POST['content'])) exit('-1<div id="message" class="error"><p>' . __('Please enter some content to post.', 'buddypress') . '</p></div>');
+
+    // -- end buddypress code --
+
+    $wall_user_id = bp_displayed_user_id();
+    $logged_in_user_id = bp_loggedin_user_id();
+
+    // Check if posting user is friend of the wall owner...
+    if ( ! bp_are_friends( $wall_user_id, $logged_in_user_id ) ) {
+        // User should not be able to post to wall, bail out!
+        exit( '-1' );
+    }
+
+    // Setup Activity post...
+    $action = sprintf( "%s posted on %s's wall", 
+            bp_core_get_userlink( $logged_in_user_id ), 
+            bp_core_get_userlink( $wall_user_id ) );
+    $content = $_POST['content'];
+    $component = 'activity';
+    $type = 'wall_post';
+    $item_id = $logged_in_user_id;
+    $secondary_item_id = $wall_user_id;
+    $hide_sitewide = true;
+    $activity_args = array(
+        'type' => $type,
+        'action' => $action,
+        'content' => $content,
+        'component' => $component,
+        'user_id' => $wall_user_id,
+        'item_id' => $logged_in_user_id 
+    );
+
+    $activity_id = bp_activity_add( $activity_args );
+
+    // -- begin buddypress code --
+    if ( empty( $activity_id ) ) 
+        exit('-1<div id="message" class="error"><p>' . __('There was a problem posting your update; please try again.', 'buddypress') . '</p></div>');
+
+    $last_recorded = !empty($_POST['since']) ? date('Y-m-d H:i:s', intval($_POST['since'])) : 0;
+    if ($last_recorded) {
+        $activity_args = array(
+            'since' => $last_recorded
+        );
+        $bp->activity->last_recorded = $last_recorded;
+        add_filter('bp_get_activity_css_class', 'bp_activity_newest_class', 10, 1);
+    }
+    else {
+        $activity_args = array(
+            'include' => $activity_id
+        );
+    }
+    if (bp_has_activities($activity_args)) {
+        while (bp_activities()) {
+            bp_the_activity();
+            bp_get_template_part('activity/entry');
+        }
+    }
+    if (!empty($last_recorded)) {
+        remove_filter('bp_get_activity_css_class', 'bp_activity_newest_class', 10, 1);
+    }
+    exit;
+
+}
+add_action( 'wp_ajax_post_to_wall', 'myfossil_bp_wall_ajax_handler' );
+
+function myfossil_member_wall() {
+    bp_core_load_template('member/single/wall');
+}
+
+function bp_add_member_wall_nav_items()
+{
+    global $bp;
+
+    bp_core_new_nav_item(
+        array(
+            'name' => 'Wall',
+            'slug' => 'wall',
+            'default_subnav_slug' => 'wall',
+            'parent_url' => bp_displayed_user_domain(),
+            'parent_slug' => $bp->members->slug . bp_displayed_user_id(),
+            'position' => 0,
+            'show_for_displayed_user' => true,
+            'screen_function' => 'myfossil_member_wall'
+        )
+    );
+}
+add_action( 'bp_setup_nav', 'bp_add_member_wall_nav_items', 10 );
