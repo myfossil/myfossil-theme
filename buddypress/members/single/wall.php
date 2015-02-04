@@ -10,7 +10,6 @@
 <div class="row">
 
     <div class="activity" role="main">
-        <h1>Wall</h1>
 
         <?php 
         do_action( 'bp_before_member_activity_post_form' );

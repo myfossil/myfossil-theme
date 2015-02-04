@@ -158,7 +158,7 @@ add_action( 'bp_register_activity_actions', 'myfossil_bp_register_wall_action' )
 
 function bp_are_friends( $other_id, $user_id ) {
     $friend_status = friends_check_friendship_status( $user_id, $other_id );
-    return ( $friend_status == 'is_friend' );
+    return ( ( $friend_status == 'is_friend' ) || ( $user_id == $other_id ) );
 }
 
 function myfossil_bp_wall_ajax_handler() {
@@ -188,6 +188,10 @@ function myfossil_bp_wall_ajax_handler() {
     $action = sprintf( "%s posted on %s's wall", 
             bp_core_get_userlink( $logged_in_user_id ), 
             bp_core_get_userlink( $wall_user_id ) );
+    if ( $logged_in_user_id == $wall_user_id ) {
+        $action = sprintf( "%s posted on their own wall", bp_core_get_userlink(
+                    $logged_in_user_id ) );
+    }
     $content = $_POST['content'];
     $component = 'activity';
     $type = 'wall_post';
