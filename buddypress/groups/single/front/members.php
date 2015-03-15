@@ -27,7 +27,7 @@ if ( bp_group_has_members( bp_ajax_querystring( 'group_members' ) ) )
     printf('</ul>');
 
     if ( $n_members > $n_members_to_show ) {
-        printf("<div class=\"pull-right clearfix\"><a href=\"members\">Sell all %d</a></div>", $n_members );
+        printf("<div class=\"pull-right clearfix\"><a href=\"members\">See all %d</a></div>", $n_members );
     }
 
 } 

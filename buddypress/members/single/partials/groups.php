@@ -34,7 +34,7 @@ $n_groups_shown = 0;
         <?php
         $n_groups = $n_groups_shown;
         if ( $n_groups > $n_groups_to_show ) {
-            printf("<div class=\"pull-right clearfix\"><a href=\"groups\">Sell all %d</a></div>", $n_groups );
+            printf("<div class=\"pull-right clearfix\"><a href=\"groups\">See all %d</a></div>", $n_groups );
         }
         ?>
     </div>

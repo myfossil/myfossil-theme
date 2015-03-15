@@ -32,7 +32,7 @@ $n_members_shown = 0;
         <?php
         $n_members = $n_members_shown;
         if ( $n_members > $n_members_to_show ) {
-            printf("<div class=\"pull-right clearfix\"><a href=\"members\">Sell all %d</a></div>", $n_members );
+            printf("<div class=\"pull-right clearfix\"><a href=\"members\">See all %d</a></div>", $n_members );
         }
         ?>
     </div>
