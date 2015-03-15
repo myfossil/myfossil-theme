@@ -8,40 +8,39 @@
     "packages": [
         {
             "name": "anahkiasen/rocketeer",
-            "version": "2.0.3",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rocketeers/rocketeer.git",
-                "reference": "36e46f60c1e767bf0912a96564ef499452c1e6f8"
+                "reference": "40c344ebba53c6ed3afaf73e00c4ecd805ffe15e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rocketeers/rocketeer/zipball/36e46f60c1e767bf0912a96564ef499452c1e6f8",
-                "reference": "36e46f60c1e767bf0912a96564ef499452c1e6f8",
+                "url": "https://api.github.com/repos/rocketeers/rocketeer/zipball/40c344ebba53c6ed3afaf73e00c4ecd805ffe15e",
+                "reference": "40c344ebba53c6ed3afaf73e00c4ecd805ffe15e",
                 "shasum": ""
             },
             "require": {
+                "d11wtq/boris": "~1.0.8",
                 "illuminate/config": "~4.2",
                 "illuminate/console": "~4.2",
-                "illuminate/container": "~4.2",
+                "illuminate/container": "^4.2.7",
                 "illuminate/events": "~4.2",
                 "illuminate/filesystem": "~4.2",
                 "illuminate/log": "~4.2",
                 "illuminate/remote": "~4.2",
-                "illuminate/support": "~4.2",
+                "illuminate/support": "^4.2.7",
                 "kzykhys/parallel": "~0.1.0",
                 "patchwork/utf8": "~1.1",
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "d11wtq/boris": "~1.0.8",
-                "herrera-io/box": "~1.5.3",
+                "fabpot/php-cs-fixer": "2.0.*@dev",
                 "johnkary/phpunit-speedtrap": "dev-master",
-                "mockery/mockery": "~0.9",
+                "mockery/mockery": "^0.9.1",
                 "nesbot/carbon": "~1.4",
                 "phpseclib/phpseclib": "~0.3.5",
-                "phpunit/phpunit": "~4.0",
-                "raveren/kint": "~0.9.1"
+                "phpunit/phpunit": "~4.0"
             },
             "suggest": {
                 "anahkiasen/rocketeer-campfire": "Campfire plugin to create deployments notifications",
@@ -82,21 +81,57 @@
                 "ssh",
                 "task"
             ],
-            "time": "2014-11-12 12:51:09"
+            "time": "2015-03-10 22:54:59"
+        },
+        {
+            "name": "d11wtq/boris",
+            "version": "v1.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/borisrepl/boris.git",
+                "reference": "31055b15e2d3fe47f31f6aa8e277f8f3fc7eb483"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/borisrepl/boris/zipball/31055b15e2d3fe47f31f6aa8e277f8f3fc7eb483",
+                "reference": "31055b15e2d3fe47f31f6aa8e277f8f3fc7eb483",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcntl": "*",
+                "ext-posix": "*",
+                "ext-readline": "*",
+                "php": ">=5.3.0"
+            },
+            "bin": [
+                "bin/boris"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Boris": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A tiny, but robust REPL (Read-Evaluate-Print-Loop) for PHP.",
+            "time": "2015-03-01 08:05:19"
         },
         {
             "name": "illuminate/config",
-            "version": "v4.2.9",
+            "version": "v4.2.17",
             "target-dir": "Illuminate/Config",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/config.git",
-                "reference": "811117b696b6cbc3c7974ffd615ece3d19e0d322"
+                "reference": "24b9e07a7c0245eb25574688bef49f873b904385"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/config/zipball/811117b696b6cbc3c7974ffd615ece3d19e0d322",
-                "reference": "811117b696b6cbc3c7974ffd615ece3d19e0d322",
+                "url": "https://api.github.com/repos/illuminate/config/zipball/24b9e07a7c0245eb25574688bef49f873b904385",
+                "reference": "24b9e07a7c0245eb25574688bef49f873b904385",
                 "shasum": ""
             },
             "require": {
@@ -125,21 +160,21 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2014-09-11 01:18:00"
+            "time": "2014-11-15 19:22:33"
         },
         {
             "name": "illuminate/console",
-            "version": "v4.2.9",
+            "version": "v4.2.17",
             "target-dir": "Illuminate/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/console.git",
-                "reference": "d52fd2d8debdcb7e1ebf931581fe518ae865db0a"
+                "reference": "e066bba708b7e72e84ddb8d3458da66ca8b037ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/console/zipball/d52fd2d8debdcb7e1ebf931581fe518ae865db0a",
-                "reference": "d52fd2d8debdcb7e1ebf931581fe518ae865db0a",
+                "url": "https://api.github.com/repos/illuminate/console/zipball/e066bba708b7e72e84ddb8d3458da66ca8b037ea",
+                "reference": "e066bba708b7e72e84ddb8d3458da66ca8b037ea",
                 "shasum": ""
             },
             "require": {
@@ -167,21 +202,21 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2014-09-05 17:27:06"
+            "time": "2015-01-27 20:51:43"
         },
         {
             "name": "illuminate/container",
-            "version": "v4.2.9",
+            "version": "v4.2.17",
             "target-dir": "Illuminate/Container",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
-                "reference": "5c43bd3bd5eea2ed2061cd0dd57d72404aceb978"
+                "reference": "bf0be54be5f10cfa66deba5666db68922452d587"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/container/zipball/5c43bd3bd5eea2ed2061cd0dd57d72404aceb978",
-                "reference": "5c43bd3bd5eea2ed2061cd0dd57d72404aceb978",
+                "url": "https://api.github.com/repos/illuminate/container/zipball/bf0be54be5f10cfa66deba5666db68922452d587",
+                "reference": "bf0be54be5f10cfa66deba5666db68922452d587",
                 "shasum": ""
             },
             "require": {
@@ -208,21 +243,21 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2014-09-11 19:02:16"
+            "time": "2015-01-29 16:04:27"
         },
         {
             "name": "illuminate/events",
-            "version": "v4.2.9",
+            "version": "v4.2.17",
             "target-dir": "Illuminate/Events",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
-                "reference": "19f93bcd692a52b39f1bd125f6f112eda0c1b8b0"
+                "reference": "a8471d3f6c3e87c50e25e18f13908fffaef159df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/events/zipball/19f93bcd692a52b39f1bd125f6f112eda0c1b8b0",
-                "reference": "19f93bcd692a52b39f1bd125f6f112eda0c1b8b0",
+                "url": "https://api.github.com/repos/illuminate/events/zipball/a8471d3f6c3e87c50e25e18f13908fffaef159df",
+                "reference": "a8471d3f6c3e87c50e25e18f13908fffaef159df",
                 "shasum": ""
             },
             "require": {
@@ -251,21 +286,21 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2014-08-17 14:08:00"
+            "time": "2014-10-02 19:49:50"
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v4.2.9",
+            "version": "v4.2.17",
             "target-dir": "Illuminate/Filesystem",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
-                "reference": "501dc63c876ec0e0634ddb596890faec9d2f71e4"
+                "reference": "9127fb58eb6b721d98d2f7077df6cb8004da24c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/filesystem/zipball/501dc63c876ec0e0634ddb596890faec9d2f71e4",
-                "reference": "501dc63c876ec0e0634ddb596890faec9d2f71e4",
+                "url": "https://api.github.com/repos/illuminate/filesystem/zipball/9127fb58eb6b721d98d2f7077df6cb8004da24c0",
+                "reference": "9127fb58eb6b721d98d2f7077df6cb8004da24c0",
                 "shasum": ""
             },
             "require": {
@@ -294,21 +329,21 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2014-08-10 10:16:38"
+            "time": "2014-12-29 18:11:33"
         },
         {
             "name": "illuminate/log",
-            "version": "v4.2.9",
+            "version": "v4.2.17",
             "target-dir": "Illuminate/Log",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/log.git",
-                "reference": "4255f0cb3bf72afad0ad59234b65b57e275e208f"
+                "reference": "1931016cf034b32772d93d50121618f14d9288e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/log/zipball/4255f0cb3bf72afad0ad59234b65b57e275e208f",
-                "reference": "4255f0cb3bf72afad0ad59234b65b57e275e208f",
+                "url": "https://api.github.com/repos/illuminate/log/zipball/1931016cf034b32772d93d50121618f14d9288e1",
+                "reference": "1931016cf034b32772d93d50121618f14d9288e1",
                 "shasum": ""
             },
             "require": {
@@ -340,21 +375,21 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2014-08-07 11:28:31"
+            "time": "2015-01-27 20:51:43"
         },
         {
             "name": "illuminate/remote",
-            "version": "v4.2.9",
+            "version": "v4.2.16",
             "target-dir": "Illuminate/Remote",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/remote.git",
-                "reference": "71be566531234cbed6c9ca3dcf39343d1ac68a9f"
+                "reference": "8e679fae83ad3322236b6cdf96ae357b15125a22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/remote/zipball/71be566531234cbed6c9ca3dcf39343d1ac68a9f",
-                "reference": "71be566531234cbed6c9ca3dcf39343d1ac68a9f",
+                "url": "https://api.github.com/repos/illuminate/remote/zipball/8e679fae83ad3322236b6cdf96ae357b15125a22",
+                "reference": "8e679fae83ad3322236b6cdf96ae357b15125a22",
                 "shasum": ""
             },
             "require": {
@@ -387,29 +422,29 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2014-08-08 14:37:26"
+            "time": "2014-09-20 13:19:26"
         },
         {
             "name": "illuminate/support",
-            "version": "v4.2.9",
+            "version": "v4.2.17",
             "target-dir": "Illuminate/Support",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "b6716d34afce6e69523725f2534a5c3a54dba964"
+                "reference": "db61f3f6d507ce417ca993e1f93585db7efd8b12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/b6716d34afce6e69523725f2534a5c3a54dba964",
-                "reference": "b6716d34afce6e69523725f2534a5c3a54dba964",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/db61f3f6d507ce417ca993e1f93585db7efd8b12",
+                "reference": "db61f3f6d507ce417ca993e1f93585db7efd8b12",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "jeremeamia/superclosure": "~1.0",
-                "patchwork/utf8": "1.1.*"
+                "jeremeamia/superclosure": "~1.0.1",
+                "patchwork/utf8": "~1.1"
             },
             "type": "library",
             "extra": {
@@ -435,7 +470,7 @@
                     "email": "taylorotwell@gmail.com"
                 }
             ],
-            "time": "2014-09-12 21:42:43"
+            "time": "2015-01-27 20:51:43"
         },
         {
             "name": "kzykhys/parallel",
@@ -475,16 +510,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.11.0",
+            "version": "1.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "ec3961874c43840e96da3a8a1ed20d8c73d7e5aa"
+                "reference": "c31a2c4e8db5da8b46c74cf275d7f109c0f249ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/ec3961874c43840e96da3a8a1ed20d8c73d7e5aa",
-                "reference": "ec3961874c43840e96da3a8a1ed20d8c73d7e5aa",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c31a2c4e8db5da8b46c74cf275d7f109c0f249ac",
+                "reference": "c31a2c4e8db5da8b46c74cf275d7f109c0f249ac",
                 "shasum": ""
             },
             "require": {
@@ -498,9 +533,10 @@
                 "aws/aws-sdk-php": "~2.4, >2.4.8",
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
-                "phpunit/phpunit": "~3.7.0",
+                "phpunit/phpunit": "~4.0",
                 "raven/raven": "~0.5",
                 "ruflin/elastica": "0.90.*",
+                "swiftmailer/swiftmailer": "~5.3",
                 "videlalvaro/php-amqplib": "~2.4"
             },
             "suggest": {
@@ -517,7 +553,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11.x-dev"
+                    "dev-master": "1.13.x-dev"
                 }
             },
             "autoload": {
@@ -543,20 +579,20 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-09-30 13:30:58"
+            "time": "2015-03-09 09:58:04"
         },
         {
             "name": "patchwork/utf8",
-            "version": "v1.1.26",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tchwork/utf8.git",
-                "reference": "6b8e46603b49ee87ad6bceb314da94cc04ffcdce"
+                "reference": "01f0ed1628db7794e2d4e336f55a09daef4248a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tchwork/utf8/zipball/6b8e46603b49ee87ad6bceb314da94cc04ffcdce",
-                "reference": "6b8e46603b49ee87ad6bceb314da94cc04ffcdce",
+                "url": "https://api.github.com/repos/tchwork/utf8/zipball/01f0ed1628db7794e2d4e336f55a09daef4248a5",
+                "reference": "01f0ed1628db7794e2d4e336f55a09daef4248a5",
                 "shasum": ""
             },
             "require": {
@@ -566,12 +602,13 @@
             "suggest": {
                 "ext-iconv": "Use iconv for best performance",
                 "ext-intl": "Use Intl for best performance",
-                "ext-mbstring": "Use Mbstring for best performance"
+                "ext-mbstring": "Use Mbstring for best performance",
+                "ext-wfio": "Use WFIO for UTF-8 filesystem access on Windows"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -599,30 +636,30 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2014-11-08 10:13:25"
+            "time": "2015-01-29 08:36:50"
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "0.3.9",
+            "version": "0.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "c6e88ca6e81bc5a2d7161658e16a95b7ef8d6ad1"
+                "reference": "d15bba1edcc7c89e09cc74c5d961317a8b947bf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/c6e88ca6e81bc5a2d7161658e16a95b7ef8d6ad1",
-                "reference": "c6e88ca6e81bc5a2d7161658e16a95b7ef8d6ad1",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/d15bba1edcc7c89e09cc74c5d961317a8b947bf4",
+                "reference": "d15bba1edcc7c89e09cc74c5d961317a8b947bf4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.0.0"
             },
             "require-dev": {
-                "phing/phing": "2.7.*",
-                "phpunit/phpunit": "4.0.*",
-                "sami/sami": "1.*",
-                "squizlabs/php_codesniffer": "1.*"
+                "phing/phing": "~2.7",
+                "phpunit/phpunit": "~4.0",
+                "sami/sami": "~2.0",
+                "squizlabs/php_codesniffer": "~1.5"
             },
             "suggest": {
                 "ext-gmp": "Install the GMP (GNU Multiple Precision) extension in order to speed up arbitrary precision integer arithmetic operations.",
@@ -697,7 +734,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-11-10 03:08:59"
+            "time": "2015-01-28 21:50:33"
         },
         {
             "name": "psr/log",
@@ -739,17 +776,17 @@
         },
         {
             "name": "symfony/console",
-            "version": "v2.5.7",
+            "version": "v2.5.10",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "61b13c27c9258e97009249d4ef193c964bf346b7"
+                "reference": "f41807e67f00244f013bb96a66ac02f778a31209"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/61b13c27c9258e97009249d4ef193c964bf346b7",
-                "reference": "61b13c27c9258e97009249d4ef193c964bf346b7",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/f41807e67f00244f013bb96a66ac02f778a31209",
+                "reference": "f41807e67f00244f013bb96a66ac02f778a31209",
                 "shasum": ""
             },
             "require": {
@@ -790,21 +827,21 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2014-11-20 13:22:25"
+            "time": "2015-01-25 04:37:39"
         },
         {
             "name": "symfony/finder",
-            "version": "v2.5.7",
+            "version": "v2.5.10",
             "target-dir": "Symfony/Component/Finder",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Finder.git",
-                "reference": "743aabbf4958663ef626e10ae3a6c7b17a0fa3bd"
+                "reference": "e527ebf47ff912a45e148b7d0b107b80ec0b3cc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Finder/zipball/743aabbf4958663ef626e10ae3a6c7b17a0fa3bd",
-                "reference": "743aabbf4958663ef626e10ae3a6c7b17a0fa3bd",
+                "url": "https://api.github.com/repos/symfony/Finder/zipball/e527ebf47ff912a45e148b7d0b107b80ec0b3cc2",
+                "reference": "e527ebf47ff912a45e148b7d0b107b80ec0b3cc2",
                 "shasum": ""
             },
             "require": {
@@ -837,7 +874,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "http://symfony.com",
-            "time": "2014-10-26 07:41:27"
+            "time": "2015-01-03 08:01:13"
         }
     ],
     "packages-dev": [],
@@ -845,6 +882,7 @@
     "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
 }
