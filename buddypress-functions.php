@@ -322,6 +322,7 @@ if (!class_exists('BP_Legacy')):
                 wp_enqueue_script('comment-reply');
             }
 
+            /*
             // Maybe enqueue password verify JS (register page or user settings page)
             if (bp_is_register_page() || (function_exists('bp_is_user_settings_general') && bp_is_user_settings_general())) {
 
@@ -334,6 +335,7 @@ if (!class_exists('BP_Legacy')):
                 // Enqueue script
                 wp_enqueue_script($asset['handle'] . '-password-verify', $asset['location'], $dependencies, $this->version);
             }
+            */
         }
 
         /**
