@@ -61,7 +61,6 @@
                 ?>
             </div>
 
-
 		<?php endif; ?>
 
 	<?php endwhile; ?>
