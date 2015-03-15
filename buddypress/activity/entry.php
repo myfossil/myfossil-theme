@@ -102,14 +102,14 @@ global $activities_template;
 
                 <?php if (bp_activity_can_favorite()): ?>
                     <?php if (!bp_get_activity_is_favorite()): ?>
-                        <a href="<?php bp_activity_favorite_link(); ?>" class=" button fav bp-secondary-action" title="<?php esc_attr_e('Like', 'buddypress'); ?>">
+                        <a href="<?php bp_activity_favorite_link(); ?>" class=" button fav bp-secondary-action" title="<?php esc_attr_e('Favorite', 'buddypress'); ?>">
                             <i class="fa fa-fw fa-star-o"></i>
-                            <?php _e('Like', 'buddypress'); ?>
+                            <?php _e('Favorite', 'buddypress'); ?>
                         </a>
                     <?php else: ?>
-                        <a href="<?php bp_activity_unfavorite_link(); ?>" class=" button unfav bp-secondary-action" title="<?php esc_attr_e('Unlike', 'buddypress'); ?>">
+                        <a href="<?php bp_activity_unfavorite_link(); ?>" class=" button unfav bp-secondary-action" title="<?php esc_attr_e('Remove Favorite', 'buddypress'); ?>">
                             <i class="fa fa-fw fa-star"></i>
-                            <?php _e('Unlike', 'buddypress'); ?></a>
+                            <?php _e('Unfavorite', 'buddypress'); ?></a>
                     <?php endif; ?>
                 <?php endif; ?>
                 <?php 
