@@ -7,7 +7,7 @@ var gulp      = require('gulp')
   , plugins   = require('gulp-load-plugins')({ camelize: true })
   , lr        = require('tiny-lr')
   , server    = lr()
-  , sass      = require('gulp-ruby-sass')
+  , sass      = require('gulp-sass')
   , build     = './static/'
 ;
 
