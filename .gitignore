@@ -3,3 +3,4 @@ node_modules
 *.swp
 vendor
 .sass-cache
+.DS_Store
