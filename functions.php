@@ -127,8 +127,10 @@ function myfossil_scripts()
             '//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css' );
 
     /* Scripts */
+    /*
     wp_enqueue_script( 'bbpress-reply', get_template_directory_uri() .
             '/static/js/bbpress-reply.min.js' );
+    */
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() .
             '/static/js/bootstrap.min.js' );
     wp_enqueue_script( 'myfossil', get_template_directory_uri() .
@@ -188,7 +190,7 @@ require get_template_directory() . '/includes/jetpack.php';
 /**
  * Load bbPress compatibility file.
  */
-require get_template_directory() . '/includes/bbpress.php';
+// require get_template_directory() . '/includes/bbpress.php';
 
 
 function parse_meta( $meta ) {
