@@ -25,7 +25,7 @@ function auto_link_text_callback($matches) {
     $url_short = '';
 
     $myfossil_hosts = array( 'myfossil.org', 'dev.myfossil.org',
-                             'myfossil.local', 'myfossil.wpengine',
+                             'myfossil.local', 'myfossil.wpengine.com',
                              'myfossil.staging.wpengine.com' );
     $parts = parse_url($url_full);
     if ( ( strpos( $url_full, '/fossils/' ) === false ) 
