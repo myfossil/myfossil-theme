@@ -987,6 +987,11 @@ function bp_legacy_theme_unmark_activity_favorite()
     exit;
 }
 
+function filter_bp_activity_excerpt_length() {
+    return 1e+10;
+}
+add_filter( 'bp_activity_excerpt_length', 'filter_bp_activity_excerpt_length');
+
 /**
  * Fetches full an activity's full, non-excerpted content via a POST request.
  * Used for the 'Read More' link on long activity items.

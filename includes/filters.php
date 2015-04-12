@@ -1,5 +1,16 @@
 <?php
 
+/* Remove random BuddyPress activity filters */
+remove_filter( 'bp_get_activity_content_body',          'bp_activity_truncate_entry', 0 );
+remove_filter( 'bp_get_activity_content',               'bp_activity_truncate_entry', 0 );
+remove_filter( 'bp_get_activity_action',                'convert_chars' );
+remove_filter( 'bp_get_activity_content_body',          'convert_chars' );
+remove_filter( 'bp_get_activity_content',               'convert_chars' );
+remove_filter( 'bp_get_activity_parent_content',        'convert_chars' );
+remove_filter( 'bp_get_activity_latest_update',         'convert_chars' );
+remove_filter( 'bp_get_activity_latest_update_excerpt', 'convert_chars' );
+
+
 function auto_link_text($text) {
     $pattern  = '#\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#';
     return preg_replace_callback($pattern, 'auto_link_text_callback', $text);
@@ -70,8 +81,9 @@ function auto_link_text_callback($matches) {
 function filter_bp_get_activity_content_body( $content ) {
     return auto_link_text( $content );
 }
-add_filter( 'bp_get_activity_content_body', 'filter_bp_get_activity_content_body', 100 );
+add_filter( 'bp_get_activity_content_body', 'filter_bp_get_activity_content_body' );
 remove_filter( 'bp_get_activity_content_body', 'make_clickable', 9 );
+remove_filter( 'bp_get_activity_content_body', 'bp_activity_truncate_entry', 0 );
 
 /**
  * Fix BuddyPress directories.
