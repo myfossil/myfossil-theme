@@ -28,6 +28,23 @@ jq(document).ready(function() {
     /* Object filter and scope set. */
     bp_init_objects(objects);
 
+
+    /*image bug fix */
+   var images = jq('.activity-inner').find('p').has('img');
+
+
+   jq.each( images, function( key, value ) {
+    
+        var splitted = value.innerHTML.split(">");
+        var first = splitted[0].substring(0, splitted[0].indexOf('"'));
+        splitted[1] = splitted[1].replace('/&gt;', '/>');
+        var result = first + '"' + splitted[1];
+        value.innerHTML = result;
+        
+    });
+
+
+
     /* @mention Compose Scrolling */
     if ($whats_new.length && bp_get_querystring('r')) {
         var $member_nicename = $whats_new.val();
@@ -193,6 +210,8 @@ jq(document).ready(function() {
                     if (!last_date_recorded) {
                         jq('#activity-stream li:first').addClass('new-update just-posted');
                     }
+
+                    alert('test2');
 
                     if (0 !== jq('#latest-update').length) {
                         var l = jq('#activity-stream li.new-update .activity-content .activity-inner p').html(),
