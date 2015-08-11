@@ -211,9 +211,7 @@ jq(document).ready(function() {
                         jq('#activity-stream li:first').addClass('new-update just-posted');
                     }
 
-                    alert('test2');
-
-                    if (0 !== jq('#latest-update').length) {
+		   if (0 !== jq('#latest-update').length) {
                         var l = jq('#activity-stream li.new-update .activity-content .activity-inner p').html(),
                             v = jq('#activity-stream li.new-update .activity-content .activity-header p a.view').attr('href'),
                             ltext = jq('#activity-stream li.new-update .activity-content .activity-inner p').text(),
