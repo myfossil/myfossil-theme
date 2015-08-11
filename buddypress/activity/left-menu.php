@@ -83,6 +83,12 @@
                                 </a>
                             </li>
 
+                            <li>
+                                <a href="<?php echo bp_loggedin_user_domain(); ?>/forums">
+                                    Forums
+                                </a>
+                            </li>							
+							
                             <li class="separator"></li>
 
                             <li>
