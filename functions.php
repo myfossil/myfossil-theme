@@ -146,6 +146,8 @@ function myfossil_scripts()
     wp_enqueue_script( 'jquery-popup-overlay', get_template_directory_uri() .
             '/static/js/jquery.popupoverlay.min.js' );
 
+	wp_enqueue_script ( 'buddypress', get_template_directory_uri () . '/static/js/buddypress.min.js' );
+
     if ( is_singular() && comments_open() && get_option('thread_comments') ) {
         wp_enqueue_script('comment-reply');
     }
