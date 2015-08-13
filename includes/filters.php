@@ -81,8 +81,8 @@ function auto_link_text_callback($matches) {
 function filter_bp_get_activity_content_body( $content ) {
     return auto_link_text( $content );
 }
-add_filter( 'bp_get_activity_content_body', 'filter_bp_get_activity_content_body' );
-remove_filter( 'bp_get_activity_content_body', 'make_clickable', 9 );
+//add_filter( 'bp_get_activity_content_body', 'filter_bp_get_activity_content_body' );
+//remove_filter( 'bp_get_activity_content_body', 'make_clickable', 9 );
 remove_filter( 'bp_get_activity_content_body', 'bp_activity_truncate_entry', 0 );
 
 /**
