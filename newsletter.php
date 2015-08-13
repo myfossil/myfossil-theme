@@ -16,7 +16,7 @@ get_header ();
 
 <div id="newsletter_primary" class="content-area">
 	<main id="newsletter_content" class="site-main" role="main">
-
+				<h1 id="header-title"> </h1>
 			
 
 
@@ -41,3 +41,15 @@ get_header ();
 <!-- #primary -->
 
 <?php get_footer(); ?>
+
+<script>
+	jq( document ).ready(function() {
+   
+	var text =	jq(document).find("title").text();
+	var splitted = text.split("|");
+    jq('#header-title').text(splitted[0]);
+});
+
+
+</script>
+
