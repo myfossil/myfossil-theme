@@ -11,7 +11,7 @@
     <div id="user-info" class="row section hidden-xs hidden-sm">
         <div class="col-xs-12 col-sm-12 col-lg-12">
             <a href="<?php echo bp_loggedin_user_domain(); ?>">
-                <?php bp_loggedin_user_avatar('width=150&height=150' ); ?>
+                <?php bp_loggedin_user_avatar('type=full&width=150&height=150' ); ?>
             </a>
         </div>
         <div class="col-xs-12 col-sm-12 col-lg-12" style="text-align: center">
@@ -38,7 +38,7 @@
 
                         <ul id="nav-user">
                             <li>
-                                <a href="<?php echo bp_loggedin_user_domain(); ?>">
+                                <a href="<?php echo bp_loggedin_user_domain(); ?>wall">
                                     Wall
                                 </a>
                             </li>
