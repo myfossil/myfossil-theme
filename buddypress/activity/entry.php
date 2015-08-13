@@ -70,8 +70,8 @@ global $activities_template;
                                     </button>
                                     <!-- <a href="#" class="ac-reply-cancel btn btn-danger">
                                         <i class="fa fa-fw fa-trash"></i>
-                                        <?php _e('Cancel', 'buddypress'); ?></a>
-                                    <input type="hidden" name="comment_form_id" value="<?php bp_activity_id(); ?>" /> -->
+                                        <?php _e('Cancel', 'buddypress'); ?></a> -->
+                                    <input type="hidden" name="comment_form_id" value="<?php bp_activity_id(); ?>" /> 
                                 </div>
 
                                 <?php do_action('bp_activity_entry_comments'); ?>
