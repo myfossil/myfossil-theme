@@ -34,20 +34,22 @@
             </div>
 
             <div>
+            <!--
                 <div class="item-list-tabs no-ajax pull-right" id="subnav" role="navigation">
                     <ul>
                         <li id="activity-filter-select" class="last">
                             <form class="form-inline">
-                                <label for="activity-filter-by"><?php _e('Showing...', 'buddypress'); ?></label>
+                                <label for="activity-filter-by"><?php //_e('Showing...', 'buddypress'); ?></label>
                                 <select id="activity-filter-by" class="form-control">
-                                    <option value="-1"><?php _e('Everything', 'buddypress'); ?></option>
-                                    <?php bp_activity_show_filters(); ?>
-                                    <?php do_action('bp_activity_filter_options'); ?>
+                                    <option value="-1"><?php //_e('Everything', 'buddypress'); ?></option>
+                                    <?php //bp_activity_show_filters(); ?>
+                                    <?php //do_action('bp_activity_filter_options'); ?>
                                 </select>
                             </form>
                         </li>
                     </ul>
-                </div><!-- .item-list-tabs -->
+                </div>--><!-- .item-list-tabs -->
+                
 
                 <div class="clearfix"></div>
 
