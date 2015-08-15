@@ -50,13 +50,13 @@
                             </a>
                         </td>
                         <td>
-                            <a class="btn btn-sm btn-default button confirm mod-promote-to-admin" 
-                                    href="<?php bp_group_member_promote_admin_link( array( 'user_id' => bp_get_member_user_id() ) ); ?>" 
+                            <a class="btn btn-sm btn-default button confirm mod-promote-to-admin"
+                                    href="<?php bp_group_member_promote_admin_link( array( 'user_id' => bp_get_member_user_id() ) ); ?>"
                                     title="<?php esc_attr_e( 'Promote to Admin', 'buddypress' ); ?>">
                                 <i class="fa fa-fw fa-angle-double-up"></i>
                                 <?php _e( 'Make Admin', 'buddypress' ); ?>
                             </a>
-                            <a class="btn btn-sm btn-default button confirm mod-demote-to-member" 
+                            <a class="btn btn-sm btn-default button confirm mod-demote-to-member"
                                     href="<?php bp_group_member_demote_link( bp_get_member_user_id() ); ?>">
                                 <i class="fa fa-fw fa-angle-down"></i>
                                 <?php _e( 'Make Member', 'buddypress' ); ?>
@@ -104,33 +104,33 @@
                         </td>
                         <td>
                             <?php if ( bp_get_group_member_is_banned() ) : ?>
-                                <a href="<?php bp_group_member_unban_link(); ?>" 
-                                        class="btn btn-sm btn-default button confirm member-unban" 
+                                <a href="<?php bp_group_member_unban_link(); ?>"
+                                        class="btn btn-sm btn-default button confirm member-unban"
                                         title="<?php esc_attr_e( 'Unban this member', 'buddypress' ); ?>">
                                     <i class="fa fa-fw fa-circle-o"></i>
                                     <?php _e( 'Unban', 'buddypress' ); ?>
                                 </a>
                             <?php else : ?>
-                                <a href="<?php bp_group_member_remove_link(); ?>" 
-                                        class="btn btn-sm btn-default button confirm" 
+                                <a href="<?php bp_group_member_remove_link(); ?>"
+                                        class="btn btn-sm btn-default button confirm"
                                         title="<?php esc_attr_e( 'Remove this member', 'buddypress' ); ?>">
                                     <i class="fa fa-fw fa-trash-o"></i>
                                     <?php _e( 'Kick', 'buddypress' ); ?>
                                 </a>
-                                <a href="<?php bp_group_member_ban_link(); ?>" 
-                                        class="btn btn-sm btn-default button confirm member-ban" 
+                                <a href="<?php bp_group_member_ban_link(); ?>"
+                                        class="btn btn-sm btn-default button confirm member-ban"
                                         title="<?php esc_attr_e( 'Kick and ban this member', 'buddypress' ); ?>">
                                     <i class="fa fa-fw fa-ban"></i>
                                     <?php _e( 'Ban', 'buddypress' ); ?>
                                 </a>
-                                <a href="<?php bp_group_member_promote_admin_link(); ?>" 
-                                        class="btn btn-sm btn-default button confirm member-promote-to-admin" 
+                                <a href="<?php bp_group_member_promote_admin_link(); ?>"
+                                        class="btn btn-sm btn-default button confirm member-promote-to-admin"
                                         title="<?php esc_attr_e( 'Promote to Admin', 'buddypress' ); ?>">
                                     <i class="fa fa-fw fa-angle-double-up"></i>
                                     <?php _e( 'Make Admin', 'buddypress' ); ?>
                                 </a>
-                                <a href="<?php bp_group_member_promote_mod_link(); ?>" 
-                                        class="btn btn-sm btn-default button confirm member-promote-to-mod" 
+                                <a href="<?php bp_group_member_promote_mod_link(); ?>"
+                                        class="btn btn-sm btn-default button confirm member-promote-to-mod"
                                         title="<?php esc_attr_e( 'Promote to Mod', 'buddypress' ); ?>">
                                     <i class="fa fa-fw fa-angle-up"></i>
                                     <?php _e( 'Make Mod', 'buddypress' ); ?>

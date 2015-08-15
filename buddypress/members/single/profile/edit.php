@@ -40,7 +40,7 @@ if ( bp_has_profile( 'profile_group_id=' . bp_get_current_profile_group_id() ) )
                         ?>
                         <?php if ( bp_current_user_can( 'bp_xprofile_change_field_visibility' ) ) : ?>
                             <div class="field-visibility-settings-toggle" id="field-visibility-settings-toggle-<?php bp_the_profile_field_id() ?>">
-                                <?php printf( $privacy_tpl, bp_get_the_profile_field_visibility_level_label() ) ?> 
+                                <?php printf( $privacy_tpl, bp_get_the_profile_field_visibility_level_label() ) ?>
                                 <a href="#" class="btn btn-primary visibility-toggle-link"><?php _e( 'Change', 'buddypress' ); ?></a>
                             </div>
 
@@ -53,7 +53,7 @@ if ( bp_has_profile( 'profile_group_id=' . bp_get_current_profile_group_id() ) )
                             </div>
                         <?php else : ?>
                             <div class="field-visibility-settings-notoggle" id="field-visibility-settings-toggle-<?php bp_the_profile_field_id() ?>">
-                                <?php printf( $privacy_tpl, bp_get_the_profile_field_visibility_level_label() ) ?> 
+                                <?php printf( $privacy_tpl, bp_get_the_profile_field_visibility_level_label() ) ?>
                             </div>
                         <?php endif ?>
                     </div>

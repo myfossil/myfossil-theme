@@ -82,7 +82,7 @@ if ( is_user_logged_in() && is_front_page() )
 
         <!-- Main -->
             <section id="main" class="container">
-        
+
                 <section class="box special">
                     <header class="major">
                         <h2>We're building a community of
@@ -98,7 +98,7 @@ if ( is_user_logged_in() && is_front_page() )
                         <div id="map-canvas" style="width: 100%; height: 600px;" />
                     </div>-->
                 </section>
-                        
+
                 <a name="learn-more"></a>
                 <section class="box special features">
                     <div class="features-row">
@@ -152,15 +152,15 @@ if ( is_user_logged_in() && is_front_page() )
                             </div>
                         </div>
                     </div>
-                    </section>    
+                    </section>
             </section>-->
-            
+
         <!-- CTA -->
           <!--  <section id="cta" style="display: none">
-                
+
                 <h2>Sign up for our newsletter</h2>
                 <p>We'll keep you posted.</p>
-                
+
                 <form>
                     <div class="row uniform half collapse-at-2">
                         <div class="8u">
@@ -171,9 +171,9 @@ if ( is_user_logged_in() && is_front_page() )
                         </div>
                     </div>
                 </form>
-                
+
             </section> -->
-            
+
         <!-- Footer -->
         <footer id="footer">
             <ul class="icons">
@@ -194,8 +194,8 @@ if ( is_user_logged_in() && is_front_page() )
             // {{{ init_map
             function init_map() {
                 var mapOptions = {
-                        center: { 
-                            lat: 39.50, 
+                        center: {
+                            lat: 39.50,
                             lng: -98.35
                         },
                         zoom: 4
@@ -220,7 +220,7 @@ if ( is_user_logged_in() && is_front_page() )
                         $fossil->taxon_id = $fp->taxon_id;
                         $fossil->location_id = $fp->location_id;
 
-                        $fossils[] = ( 
+                        $fossils[] = (
                                 array(
                                     'name' => $fossil->taxon->name,
                                     'latitude' =>  $fossil->location->latitude,
@@ -256,9 +256,9 @@ if ( is_user_logged_in() && is_front_page() )
 
                         // Show additional information when clicked.
                         ( function( marker, fossil ) {
-                            google.maps.event.addListener( marker, 'click', 
+                            google.maps.event.addListener( marker, 'click',
                                     function() {
-                                        info.setContent( 
+                                        info.setContent(
                                             '<h3>' + fossil.name + '</h3>'
                                         ),
                                         info.open( map, marker );

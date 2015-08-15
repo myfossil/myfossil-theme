@@ -20,9 +20,9 @@
 <div class="row">
 
     <div class="activity" role="main">
-        <?php 
-        do_action( 'bp_before_member_activity_content' ); 
-        bp_get_template_part( 'activity/activity-loop' ); 
+        <?php
+        do_action( 'bp_before_member_activity_content' );
+        bp_get_template_part( 'activity/activity-loop' );
         ?>
     </div><!-- .activity -->
 

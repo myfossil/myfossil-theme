@@ -11,14 +11,14 @@
  *
  * @package myfossil
  */
-get_header(); 
+get_header();
 
 $req = array_key_exists( 'fossil_id', $wp_query->query_vars ) ? 'single' : 'list';
 
 if ( $req == 'single' ):
     $fossil_id = $wp_query->query_vars['fossil_id'];
     $view = $wp_query->query_vars['fossil_view'];
-    
+
     myfossil_fossil_render_single( $fossil_id, $view );
 else:
     include_once( 'content-fossils-list.php' );

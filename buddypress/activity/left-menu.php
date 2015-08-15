@@ -19,7 +19,7 @@
             <span class="username">@<?=bp_get_loggedin_user_username(); ?></span>
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-lg-12">
             <nav class="nav" role="navigation">
@@ -46,20 +46,20 @@
                                 <a href="<?php echo bp_loggedin_user_domain(); ?>messages">
                                     Messages
                                 </a>
-                                <?php 
+                                <?php
                                 if ( $nm = bp_get_total_unread_messages_count( bp_loggedin_user_id() ) ):
                                     printf( '<span class="badge">%d</span>', $nm );
-                                endif; 
+                                endif;
                                 ?>
                             </li>
-                            <li> 
+                            <li>
                                 <a href="<?php echo bp_loggedin_user_domain(); ?>notifications">
                                     Notifications
                                 </a>
-                                <?php 
+                                <?php
                                 if ( $nn = bp_notifications_get_unread_notification_count( bp_loggedin_user_id() ) ):
                                     printf( '<span class="badge">%d</span>', $nn );
-                                endif; 
+                                endif;
                                 ?>
                             </li>
 
@@ -70,7 +70,7 @@
                                     Fossils
                                 </a>
                             </li>
-                            
+
                             <li>
                                 <a href="<?php echo bp_loggedin_user_domain(); ?>/friends">
                                     Friends
@@ -87,8 +87,8 @@
                                 <a href="<?php echo bp_loggedin_user_domain(); ?>/forums">
                                     Forums
                                 </a>
-                            </li>							
-							
+                            </li>
+
                             <li class="separator"></li>
 
                             <li>
@@ -104,7 +104,7 @@
 
                         </ul>
 
-                    </div> 
+                    </div>
                 </div>
             </nav>
         </div>

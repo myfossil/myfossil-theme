@@ -6,8 +6,8 @@
             <div class="row" id="nav">
                 <div class="col-sm-12 col-lg-8">
                     <div class="row">
-                        <img 
-                            src="<?=get_template_directory_uri() ?>/static/img/myfossil-logo-white-small.png" 
+                        <img
+                            src="<?=get_template_directory_uri() ?>/static/img/myfossil-logo-white-small.png"
                             alt="myFOSSIL Logo" />
                     </div>
                     <div class="row">
@@ -15,7 +15,7 @@
                             <?php $items = wp_get_nav_menu_items('primary'); ?>
                             <?php foreach ($items as $item): ?>
                                 <li>
-                                    <?php 
+                                    <?php
                                     $page_array = get_option( 'bp-pages' );
                                     if ( $post->post_title == "Site-Wide Activity" ) {
                                         $post->post_title = 'Activity';
@@ -27,7 +27,7 @@
 
                                     $class = ( $item->object_id == $post->ID ||
                                             strtolower( $item->title ) ==
-                                            strtolower( $post->post_title ) ) 
+                                            strtolower( $post->post_title ) )
                                             ? 'class="selected"' : null;
                                     ?>
                                     <a href="<?php echo $item->url; ?>"<?=$class ?>>
@@ -61,7 +61,7 @@
             </div><!-- .row -->
 
             <div class="row">
-                <div id="footer-disclaimer" class="col-xs-12 col-lg-12"> 
+                <div id="footer-disclaimer" class="col-xs-12 col-lg-12">
                     <p>
                     Development of myFOSSIL is based upon work largely
                     supported by the National Science Foundation under Grant

@@ -14,7 +14,7 @@
 	<div id="whats-new-content">
 
 		<div class="status-update">
-            <?php /* 
+            <?php /*
             <div class="status-update-heading">
                 <?php if ( bp_is_my_profile() ): ?><h4>Update Status</h4><?php endif; ?>
                     if ( bp_is_active( 'groups' ) && ! bp_is_my_profile() && ! bp_is_group() ): ?>
@@ -51,8 +51,8 @@
                     <?php bp_loggedin_user_avatar('width=50&height=50' ); ?>
                 </div>
                 <div id="whats-new-textarea" class="form-group">
-                    <textarea 
-                            class="form-control bp-suggestions" 
+                    <textarea
+                            class="form-control bp-suggestions"
                             name="whats-new" id="whats-new"><?php if (isset($_GET['r'])): ?> @<?php echo esc_textarea($_GET['r']); ?> <?php endif; ?></textarea>
                 </div>
 

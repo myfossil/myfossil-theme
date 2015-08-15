@@ -1,7 +1,7 @@
 <?php
 /**
  * Modifies leave/join group button template
- * 
+ *
  * @see myfossil/includes/filters.php
  */
 function filter_bp_group_join_button( $btn ) {

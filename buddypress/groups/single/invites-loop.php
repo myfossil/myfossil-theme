@@ -51,8 +51,8 @@
                 </td>
                 <td>
                     <div class="action">
-                        <a class="button remove btn btn-danger" 
-                                href="<?php bp_group_invite_user_remove_invite_url(); ?>" 
+                        <a class="button remove btn btn-danger"
+                                href="<?php bp_group_invite_user_remove_invite_url(); ?>"
                                 id="<?php bp_group_invite_item_id(); ?>">
                             <i class="fa fa-fw fa-trash"></i>
                             <?php _e( 'Remove Invite', 'buddypress' ); ?>

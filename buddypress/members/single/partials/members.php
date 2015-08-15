@@ -11,7 +11,7 @@ $n_members_shown = 0;
 
 ?>
 <?php if ( bp_has_members( 'user_id=' . bp_displayed_user_id() ) ): ?>
-    <h5 class="side-header">Friends</h5>  
+    <h5 class="side-header">Friends</h5>
     <div id="side-resources">
         <ul id="member-list" class="item-list" role="main">
             <?php while ( bp_members() ) : bp_the_member(); ?>

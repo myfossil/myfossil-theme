@@ -200,5 +200,5 @@ function parse_meta( $meta ) {
     foreach ( $meta as $k => $v )
         if ( !( strpos( $k, '_', 0) === 0 ) )
             $parsed_meta[ $k ] = $v[0];
-    return $parsed_meta; 
+    return $parsed_meta;
 }

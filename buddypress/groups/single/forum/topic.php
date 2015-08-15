@@ -4,49 +4,49 @@
 	<div class="item-list-tabs no-ajax" id="subnav" role="navigation">
 		<ul class="nav nav-pills">
 			<?php if ( is_user_logged_in() ) : ?>
-	
+
 				<li>
 					<a href="<?php bp_forum_topic_new_reply_link(); ?>" class="new-reply-link"><?php _e( 'New Reply', 'myfossil' ); ?></a>
 				</li>
-	
+
 			<?php endif; ?>
-	
+
 			<?php if ( bp_forums_has_directory() ) : ?>
-	
+
 				<li>
 					<a href="<?php bp_forums_directory_permalink(); ?>"><?php _e( 'Forum Directory', 'myfossil' ); ?></a>
 				</li>
-	
+
 			<?php endif; ?>
-	
+
 		</ul>
 	</div>
-	
+
 	<div id="topic-meta">
 		<h3 class="page-header"><?php bp_the_topic_title(); ?> (<?php bp_the_topic_total_post_count(); ?>)</h3>
-	
+
 		<?php if ( bp_forum_topic_has_tags() ) : ?>
-	
+
 			<div class="topic-tags">
-	
+
 				<?php _e( 'Topic tags:', 'myfossil' ); ?> <?php bp_forum_topic_tag_list(); ?>
-	
+
 			</div>
-	
+
 		<?php endif; ?>
-	
+
 		<?php if ( bp_group_is_admin() || bp_group_is_mod() || bp_get_the_topic_is_mine() ) : ?>
-	
+
 			<div class="pull-right form-inline last admin-links">
-	
+
 				<?php bp_the_topic_admin_links(); ?>
-	
+
 			</div>
-	
+
 		<?php endif; ?>
-	
+
 		<?php do_action( 'bp_group_forum_topic_meta' ); ?>
-	
+
 	</div>
 
 
@@ -95,7 +95,7 @@
 
 						<a href="#post-<?php bp_the_topic_post_id(); ?>" title="<?php esc_attr_e( 'Permanent link to this post', 'myfossil' ); ?>">#</a>
 					</div>
-                 </div></div>    
+                 </div></div>
 				</li>
 
 			<?php endwhile; ?>
@@ -116,11 +116,11 @@
 		</div>
 
 	<?php else: ?>
-	
+
 		<div class="clearfix"></div><div id="message" class="info alert alert-info">
 			<p><?php _e( 'There are no posts for this topic.', 'myfossil' ); ?></p>
 		</div>
-	
+
 	<?php endif;?>
 
 	<?php if ( ( is_user_logged_in() && 'public' == bp_get_group_status() ) || bp_group_is_member() ) : ?>

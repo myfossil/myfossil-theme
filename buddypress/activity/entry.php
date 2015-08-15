@@ -9,7 +9,7 @@
  * @subpackage theme
  */
 
-do_action('bp_before_activity_entry'); 
+do_action('bp_before_activity_entry');
 
 global $activities_template;
 ?>
@@ -38,8 +38,8 @@ global $activities_template;
 
                     <?php if (bp_get_activity_type() == 'activity_comment'): ?>
                     <div class="activity-meta">
-                        <a href="<?php bp_activity_thread_permalink(); ?>" 
-                                class="button view bp-secondary-action" 
+                        <a href="<?php bp_activity_thread_permalink(); ?>"
+                                class="button view bp-secondary-action"
                                 title="<?php esc_attr_e('View Conversation', 'buddypress'); ?>">
                             <?php _e('View Conversation', 'buddypress'); ?>
                         </a>
@@ -71,7 +71,7 @@ global $activities_template;
                                     <!-- <a href="#" class="ac-reply-cancel btn btn-danger">
                                         <i class="fa fa-fw fa-trash"></i>
                                         <?php _e('Cancel', 'buddypress'); ?></a> -->
-                                    <input type="hidden" name="comment_form_id" value="<?php bp_activity_id(); ?>" /> 
+                                    <input type="hidden" name="comment_form_id" value="<?php bp_activity_id(); ?>" />
                                 </div>
 
                                 <?php do_action('bp_activity_entry_comments'); ?>
@@ -112,7 +112,7 @@ global $activities_template;
                             <?php _e('Unfavorite', 'buddypress'); ?></a>
                     <?php endif; ?>
                 <?php endif; ?>
-                <?php 
+                <?php
                 if ( bp_activity_user_can_delete() ):
                     printf( '<div class="pull-right">' );
                     bp_activity_delete_link();

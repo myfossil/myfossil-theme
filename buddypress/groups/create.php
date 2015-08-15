@@ -64,7 +64,7 @@
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" name="group-status" value="private"<?php if ( 'private' == bp_get_new_group_status() ) { ?> checked="checked"<?php } ?> /> 
+                                <input type="radio" name="group-status" value="private"<?php if ( 'private' == bp_get_new_group_status() ) { ?> checked="checked"<?php } ?> />
                                 <strong><?php _e( 'This is a private group', 'buddypress' ); ?></strong>
                                 <ul>
                                     <li><?php _e( 'Only users who request membership and are accepted can join the group.', 'buddypress' ); ?></li>
@@ -76,7 +76,7 @@
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" name="group-status" value="hidden"<?php if ( 'hidden' == bp_get_new_group_status() ) { ?> checked="checked"<?php } ?> /> 
+                                <input type="radio" name="group-status" value="hidden"<?php if ( 'hidden' == bp_get_new_group_status() ) { ?> checked="checked"<?php } ?> />
                                 <strong><?php _e( 'This is a hidden group', 'buddypress' ); ?></strong>
                                 <ul>
                                     <li><?php _e( 'Only users who are invited can join the group.', 'buddypress' ); ?></li>
@@ -131,8 +131,8 @@
                                 <p><?php printf( __( '<strong>Attention Site Admin:</strong> Group forums require the <a href="%s">correct setup and configuration</a> of a bbPress installation.', 'buddypress' ), bp_core_do_network_admin() ? network_admin_url( 'settings.php?page=bb-forums-setup' ) :  admin_url( 'admin.php?page=bb-forums-setup' ) ); ?></p>
 
                             <?php endif; ?>
-                            
-                            <hr /> 
+
+                            <hr />
                         <?php endif; ?>
 
                         <?php do_action( 'bp_after_group_settings_creation_step' ); ?>

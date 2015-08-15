@@ -133,7 +133,7 @@ function myfossil_paginate_links( $wp_query ) {
                 'next_text'    => $next_text,
                 'type'         => 'array',
             )
-        ); 
+        );
 
     if ( is_array( $pages ) ) {
         $paged = get_query_var( 'paged' ) ? 1 : get_query_var( 'paged' );

@@ -10,7 +10,7 @@
 
 <div class="checkbox">
     <label>
-        <input type="checkbox" name="delete-group-understand" id="delete-group-understand" value="1" onclick="if(this.checked) { document.getElementById('delete-group-button').disabled = ''; } else { document.getElementById('delete-group-button').disabled = 'disabled'; }" /> 
+        <input type="checkbox" name="delete-group-understand" id="delete-group-understand" value="1" onclick="if(this.checked) { document.getElementById('delete-group-button').disabled = ''; } else { document.getElementById('delete-group-button').disabled = 'disabled'; }" />
         <?php _e( 'I understand the consequences of deleting this group.', 'buddypress' ); ?>
     </label>
 </div>

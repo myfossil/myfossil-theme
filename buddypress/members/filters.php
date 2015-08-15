@@ -42,9 +42,9 @@ function filter_bp_button_members( $btn ) {
             'public_message' => "fa-comment-o"
         );
 
-    $btn['link_text'] = sprintf( '<i class="fa fa-fw %s"></i> %s', 
+    $btn['link_text'] = sprintf( '<i class="fa fa-fw %s"></i> %s',
             $map_btn_link_text_icons[$btn['id']],
-            $map_btn_link_text[$btn['id']] 
+            $map_btn_link_text[$btn['id']]
         );
 
     $btn['link_class'] .= " btn-block";
@@ -63,7 +63,7 @@ add_filter( 'bp_get_send_public_message_button', '__return_null' );
  */
 function filter_bp_profile_edit_fields( $r, $class ) {
     $classes = "form-control col-sm-10";
-    if ( array_key_exists( 'class', $r ) ) 
+    if ( array_key_exists( 'class', $r ) )
         $r['class'] .= " " . $classes;
     else
         $r['class'] = $classes;

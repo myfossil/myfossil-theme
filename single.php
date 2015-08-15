@@ -15,7 +15,7 @@ get_header(); ?>
 
 			<?php myfossil_post_nav(); ?>
 
-			<?php 
+			<?php
             // If comments are open or we have at least one comment, load up the comment template
             if (comments_open() || '0' != get_comments_number()):
                 comments_template();
