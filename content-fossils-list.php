@@ -3,7 +3,7 @@ use myFOSSIL\Plugin\Specimen\Fossil;
 
 $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 
-$wp_query_args = array( 
+$wp_query_args = array(
         'post_type' => Fossil::POST_TYPE,
         'posts_per_page' => 10,
         'paged' => $paged,
@@ -70,4 +70,4 @@ $fossils = new WP_Query( $wp_query_args );
 <?php endif; ?>
 
 <?php
-wp_reset_query(); 
+wp_reset_query();

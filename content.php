@@ -6,7 +6,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title(sprintf('<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url(get_permalink())) , '</a></h1>'); ?> 
+		<?php the_title(sprintf('<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url(get_permalink())) , '</a></h1>'); ?>
 		<?php if ('post' == get_post_type()): ?>
             <div class="entry-meta">
                 <?php myfossil_posted_on(); ?>
@@ -16,7 +16,7 @@
 
 	<div class="entry-content">
 		<?php the_content(__('Continue reading <span class="meta-nav">&rarr;</span>', 'myfossil')); ?>
-		<?php 
+		<?php
             wp_link_pages(
                 array(
                     'before' => '<div class="page-links">' . __('Pages:', 'myfossil') ,
@@ -27,7 +27,7 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php 
+		<?php
         if ('post' == get_post_type()): // Hide category and tag text for pages on Search
 
             /* translators: used between list items, there is a space after the comma */

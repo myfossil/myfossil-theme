@@ -54,7 +54,7 @@ if (!function_exists('myfossil_header_style')):
         }
 
         // If we get this far, we have custom styles. Let's do this.
-        
+
 ?>
 	<style type="text/css">
 	<?php
@@ -144,4 +144,3 @@ if (!function_exists('myfossil_header_style')):
         }
     endif; // myfossil_admin_header_image
 
-    

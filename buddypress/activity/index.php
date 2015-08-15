@@ -3,7 +3,7 @@
 <div class="container">
 
 	<?php do_action('bp_before_directory_activity_content'); ?>
-    
+
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2">
             <?php if (is_user_logged_in()): ?>

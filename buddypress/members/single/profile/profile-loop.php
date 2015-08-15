@@ -10,7 +10,7 @@
 
 			<div class="bp-widget <?php bp_the_profile_group_slug(); ?> col-xs-12 col-sm-12 col-md-8 col-lg-9">
 
-                <h5 class="side-header">General Information</h5>  
+                <h5 class="side-header">General Information</h5>
 
 				<table class="table" style="border: 0">
                     <tr class="sr-only">
@@ -42,7 +42,7 @@
 			<?php do_action( 'bp_after_profile_field_content' ); ?>
 
             <div id="right-side" class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
-                <?php 
+                <?php
                 /*
                  * Display some of the User's friends, if they have any
                  */

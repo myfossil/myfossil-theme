@@ -96,8 +96,8 @@
         <p><?php printf( __( '<strong>Attention Site Admin:</strong> Group forums require the <a href="%s">correct setup and configuration</a> of a bbPress installation.', 'buddypress' ), bp_core_do_network_admin() ? network_admin_url( 'settings.php?page=bb-forums-setup' ) :  admin_url( 'admin.php?page=bb-forums-setup' ) ); ?></p>
 
     <?php endif; ?>
-    
-    <hr /> 
+
+    <hr />
 <?php endif; ?>
 
 <?php do_action( 'bp_after_group_settings_admin' ); ?>

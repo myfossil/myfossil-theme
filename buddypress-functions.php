@@ -31,7 +31,7 @@ if (!class_exists('BP_Legacy')):
      * @package BuddyPress
      * @subpackage BP_Theme_Compat
      */
-    
+
     class BP_Legacy extends BP_Theme_Compat
     {
 
@@ -108,7 +108,7 @@ if (!class_exists('BP_Legacy')):
                 'head_scripts'
             )); // Output some extra JS in the <head>
 
-            
+
 
             /** Body no-js Class ********************************************************/
             add_filter('body_class', array(
@@ -253,7 +253,7 @@ if (!class_exists('BP_Legacy')):
             foreach ($bp_stylesheets as $wp_style_name => $css_filename) {
                 $is_enqueued = wp_style_is($wp_style_name, 'enqueued');
                 $is_registered = wp_style_is($wp_style_name, 'registered');
-                
+
                 $asset = $this->locate_asset_in_stack($css_filename);
 
                 if ( isset($asset['location']) ) {
@@ -490,7 +490,7 @@ if (!class_exists('BP_Legacy')):
          */
         function secondary_avatars($action, $activity)
         {
-            
+
             switch ($activity->component) {
             case 'groups':
             case 'friends':
@@ -712,7 +712,7 @@ function bp_legacy_theme_activity_template_loader()
     if (!empty($_POST['scope'])) $scope = $_POST['scope'];
 
     // We need to calculate and return the feed URL for each scope
-    
+
     switch ($scope) {
     case 'friends':
         $feed_url = bp_loggedin_user_domain() . bp_get_activity_slug() . '/friends/feed/';
@@ -1047,7 +1047,7 @@ function bp_legacy_theme_ajax_invite_user()
             $user_status = 'is_pending';
 
             // Create the user invitation
-            
+
         }
         else if (groups_invite_user(array(
             'user_id' => $friend_id,
@@ -1056,7 +1056,7 @@ function bp_legacy_theme_ajax_invite_user()
             $user_status = 'is_invited';
 
             // Miscellaneous failure
-            
+
         }
         else {
             return;
@@ -1122,7 +1122,7 @@ function bp_legacy_theme_ajax_addremove_friend()
         }
 
         // Trying to request friendship
-        
+
     }
     elseif ('not_friends' == BP_Friends_Friendship::check_is_friend(bp_loggedin_user_id() , $friend_id)) {
         check_ajax_referer('friends_add_friend');
@@ -1134,7 +1134,7 @@ function bp_legacy_theme_ajax_addremove_friend()
         }
 
         // Trying to cancel pending request
-        
+
     }
     elseif ('pending' == BP_Friends_Friendship::check_is_friend(bp_loggedin_user_id() , $friend_id)) {
         check_ajax_referer('friends_withdraw_friendship');
@@ -1146,7 +1146,7 @@ function bp_legacy_theme_ajax_addremove_friend()
         }
 
         // Request already pending
-        
+
     }
     else {
         echo __('Request Pending', 'buddypress');
@@ -1229,7 +1229,7 @@ function bp_legacy_theme_ajax_joinleave_group()
                 }
 
                 // Otherwise, it's a Request Membership button
-                
+
             }
             else {
                 check_ajax_referer('groups_request_membership');
@@ -1474,12 +1474,12 @@ function myfossil_group_creation_tabs() {
         } else {
             $tpl = "<li>";
         }
-        
+
         if ( $is_enabled ) {
-            $tpl .= sprintf( '<a href="%s/%s/create/step/%s">%s</a>', 
-                    bp_get_root_domain(), 
-                    bp_get_groups_root_slug(), 
-                    $slug, 
+            $tpl .= sprintf( '<a href="%s/%s/create/step/%s">%s</a>',
+                    bp_get_root_domain(),
+                    bp_get_groups_root_slug(),
+                    $slug,
                     $step['name'] );
         } else {
             $tpl .= sprintf( '<a>%s</a>', $step['name'] );

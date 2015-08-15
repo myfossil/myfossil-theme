@@ -1,5 +1,5 @@
 <div id="buddypress" class="container">
-	
+
 	<?php
 do_action('bp_before_directory_forums'); ?>
 
@@ -186,5 +186,5 @@ do_action('bp_after_new_topic_form'); ?>
 
 	<?php
 do_action('bp_after_directory_forums_content'); ?>
-	
+
 </div>

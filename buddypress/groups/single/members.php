@@ -13,7 +13,7 @@
         </tr>
 
 		<?php while ( bp_group_members() ) : bp_group_the_member(); ?>
-        
+
         <tr>
             <td class="avatar">
 				<a href="<?php bp_group_member_domain(); ?>">

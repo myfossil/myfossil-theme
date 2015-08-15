@@ -11,7 +11,7 @@
 
     <div class="activity" role="main">
 
-        <?php 
+        <?php
         do_action( 'bp_before_member_activity_post_form' );
 
         if ( bp_are_friends( bp_displayed_user_id(), bp_loggedin_user_id() ) )
@@ -21,8 +21,8 @@
 
         ?>
 
-        <?php if ( bp_has_activities( array( 
-                            'scope' => 'activity', 
+        <?php if ( bp_has_activities( array(
+                            'scope' => 'activity',
                             'action' => 'wall_post' ) ) ) : ?>
             <?php if ( empty( $_POST['page'] ) ) : ?>
                 <ul id="activity-stream" class="activity-list item-list">

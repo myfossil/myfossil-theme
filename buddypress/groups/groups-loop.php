@@ -58,7 +58,7 @@ use myFOSSIL\Plugin\Specimen\Fossil;
             <td class="action">
                 <?php do_action( 'bp_directory_groups_actions' ); ?>
             </td>
-            
+
 
 		</tr>
 

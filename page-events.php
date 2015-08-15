@@ -6,7 +6,7 @@
  *
  * @package myFOSSIL
  */
-get_header(); 
+get_header();
 
 myfossil_events_template();
 ?>
@@ -17,7 +17,7 @@ myfossil_events_template();
         <div class="row">
             <?php // myfossil_resources_map(); ?>
         </div>
-	
+
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-3 pull-right">
                 <h3>Filters</h3>

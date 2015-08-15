@@ -5,14 +5,14 @@
 $n_members_to_show = 5;
 $n_members_shown = 0;
 
-if ( bp_group_has_members( bp_ajax_querystring( 'group_members' ) ) ) 
+if ( bp_group_has_members( bp_ajax_querystring( 'group_members' ) ) )
 {
     printf('<h5 class="side-header">Members</h5>');
-	printf('<ul id="member-list" class="item-list">'); 
+	printf('<ul id="member-list" class="item-list">');
 
-    while ( bp_group_members() ) 
+    while ( bp_group_members() )
     {
-        bp_group_the_member(); 
+        bp_group_the_member();
 
         // limit number of members to show in the list
         if ( $n_members_shown < $n_members_to_show ) {
@@ -20,7 +20,7 @@ if ( bp_group_has_members( bp_ajax_querystring( 'group_members' ) ) )
         }
 
         $n_members_shown++;
-    } 
+    }
 
     $n_members = $n_members_shown + 1;
 
@@ -30,4 +30,4 @@ if ( bp_group_has_members( bp_ajax_querystring( 'group_members' ) ) )
         printf("<div class=\"pull-right clearfix\"><a href=\"members\">See all %d</a></div>", $n_members );
     }
 
-} 
+}

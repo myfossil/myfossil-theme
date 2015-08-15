@@ -16,9 +16,9 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-			<?php 
+			<?php
                 while (have_posts()) {
-                    the_post(); 
+                    the_post();
                     get_template_part('content', 'page');
 
                     // If comments are open or we have at least one comment, load

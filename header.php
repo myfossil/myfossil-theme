@@ -45,7 +45,7 @@
                 <?php
                 if ( $nn = bp_notifications_get_unread_notification_count( bp_loggedin_user_id() ) ): ?>
                     <li>
-                        <a href="<?=bp_core_get_user_domain( bp_loggedin_user_id() ); ?>/notifications" 
+                        <a href="<?=bp_core_get_user_domain( bp_loggedin_user_id() ); ?>/notifications"
                                 id="notifications">
                             <i class="fa fa-bell-o"></i>
                             <div class="unread">
@@ -55,9 +55,9 @@
                     </li>
                 <?php else: ?>
                     <li>
-                        <a href="<?=bp_core_get_user_domain( bp_loggedin_user_id() ); ?>/notifications" 
+                        <a href="<?=bp_core_get_user_domain( bp_loggedin_user_id() ); ?>/notifications"
                                 id="notifications">
-                            <div> 
+                            <div>
                                 <i class="fa fa-bell-o"></i>
                             </div>
                         </a>
@@ -94,7 +94,7 @@
             ?>
             <?php foreach ( $menu_items as $item ) : ?>
               <li>
-                <?php 
+                <?php
                 $page_array = get_option( 'bp-pages' );
                 if ( $post->post_title == "Site-Wide Activity" ) {
                     $post->post_title = 'Activity';
@@ -115,7 +115,7 @@
                         </a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown<?=$item->ID ?>">
                             <?php foreach ( $item->sub as $sub_item ) : ?>
-                                <li> 
+                                <li>
                                     <a href="<?php echo $sub_item->url; ?>"<?=$class ?>><span><?php echo $sub_item->title; ?></span></a>
                                 </li>
                             <?php endforeach; ?>
@@ -132,10 +132,10 @@
                 </li>
             <?php endif; ?>
           </ul>
-          
-          
 
-        </div> 
+
+
+        </div>
       </div>
     </div>
   </nav>

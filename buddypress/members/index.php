@@ -55,7 +55,7 @@
 		
 		<?php do_action( 'bp_before_directory_members_tabs' ); ?>
 
-		
+
 
 	        <!-- Member Listing Filters -->
 			<div class="item-list-tabs section" id="subnav" role="navigation">
@@ -86,7 +86,7 @@
 
 
 	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 page-padding next-to-right-sidebar">
-		<!-- Member Listing --> 
+		<!-- Member Listing -->
 		<div id="members-dir-list" class="members dir-list">
 			<?php bp_get_template_part( 'members/members-loop' ); ?>
 		</div><!-- #members-dir-list -->

@@ -1,0 +1,133 @@
+/**
+ * myFOSSIL, newsletter
+ */
+
+
+
+#newsletter_primary{
+
+background: #fafafa;
+font-size:14px;
+font-family: Verdana;
+
+
+
+#newsletter_content{
+
+  color: #000000;
+  width: 940px;
+  margin: auto;
+	
+  
+
+  
+	
+	h1, h2,h3,h4,h5 {
+  		
+  			color: #B2774E;
+  font-family: Verdana;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 37px;
+margin-bottom: 30px;
+    border-bottom: 1px solid #eeeeee;
+		
+		}	
+
+		strong{
+
+		 	font-size:12pt;
+		 	font-family: Verdana;
+  			font-style: normal;
+
+  			
+  			display: block;
+		}
+
+.alignleft{
+  
+  float:left;
+  margin-right: 20px;
+
+}
+
+.alignright
+{
+  float: right;
+  margin-left: 20px;
+}
+
+.aligncenter{
+  
+  display:block;
+  margin: 0 auto 0 auto;
+}
+
+.entry-title{
+  
+  border-bottom:none;
+}
+
+hr{
+  
+  border-top: 5px solid rgba(90, 90, 90, 0.5);
+}
+
+em{
+  
+  font-style:italic;
+}
+
+table {
+  background-color: transparent;
+  border-bottom: 5px solid rgba(90, 90, 90, 0.5);
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 14px;
+  line-height: 2;
+  margin: 0 0 20px;
+  width: 100%;
+  }
+
+		.wp-caption-text{
+
+			margin-bottom:20px;
+      font-style: italic;
+      font-size: 12px;
+    font-size: 12px;
+    line-height: 1.3em;
+    color: #757575;
+
+		}
+
+    #comments{
+
+      clear:both;
+    }
+
+
+}
+}
+
+ @media (min-width: 1200px){
+
+#newsletter_primary{
+#newsletter_content{
+  width: 1170px;
+  
+}
+}
+
+}
+
+
+ @media (max-width: 900px){
+
+#newsletter_primary{
+#newsletter_content{
+  width: auto !important;
+  margin: 0 10px 0 10px;
+}
+}
+
+}
