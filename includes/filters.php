@@ -407,3 +407,20 @@ function myfossil_bbp_admin_get_settings_fields( $settings ) {
     return $settings;
 }
 add_filter( 'bbp_admin_get_settings_fields', 'myfossil_bbp_admin_get_settings_fields' );
+
+
+
+
+function myfossil_member_customer_search_form( $html ) {
+    $search_value = !empty( $_REQUEST['s'] ) ? stripslashes( $_REQUEST['s'] ) : "Search by name";
+    return '<form action="" method="get" id="search-members-form">
+        <div class="form-group">
+            <label class="sr-only" for="members_search">Search Members</label>
+            <input type="text" name="s" id="members_search" class="form-control" placeholder="'. esc_attr( $search_value ) .'"/>
+        </div>
+        <button class="form-control btn btn-default" type="submit" id="members_search_submit" name="members_search_submit">
+            Search Members
+        </button>
+	</form>';
+}
+add_filter( 'bp_directory_members_search_form', 'myfossil_member_customer_search_form' );
