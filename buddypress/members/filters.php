@@ -1,6 +1,6 @@
 <?php
 // Disable directory search form
-add_filter( 'bp_directory_members_search_form', '__return_null' );
+//add_filter( 'bp_directory_members_search_form', '__return_null' );
 
 // Displayed member in member navigation Bootstrap-ify
 add_filter( 'bp_get_displayed_user_nav_activity', 'filter_nav_item', 10, 1 );

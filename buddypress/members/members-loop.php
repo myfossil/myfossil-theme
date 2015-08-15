@@ -57,9 +57,16 @@
 				<?php do_action( 'bp_directory_members_actions' ); ?>
 			</td> */ ?>
 
-            <td>Fossils: 0</td>
+            <td>Fossils: <?php // function is in myfossil/functions.php
+            echo mf_member_fossil_count( bp_get_member_user_id() ); ?></td>
 
-            <td>Location: Unknown</td>
+			<?php 
+			$location = bp_get_member_profile_data( 'field=Location' );
+
+			if( $location == NULL ) 
+				$location = 'Unknown'; 
+			?>
+            <td><?php echo $location; ?></td>
 
 		</tr>
 

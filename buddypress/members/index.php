@@ -33,6 +33,7 @@
                     </li>
 				<?php endif; ?>
 
+
 				<?php do_action( 'bp_members_directory_member_types' ); ?>
 
 			</ul>
@@ -47,10 +48,11 @@
 	<?php do_action( 'bp_before_directory_members_content' ); ?>
 
 	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 sidebar sidebar-right page-padding pull-right">
-		<div id="members-dir-search" class="dir-search section" role="search">
-			<?php bp_directory_members_search_form(); ?>
-		</div><!-- #members-dir-search -->
+		
+		<?php bp_directory_members_search_form(); ?>
 
+		<br/>
+		
 		<?php do_action( 'bp_before_directory_members_tabs' ); ?>
 
 
@@ -91,10 +93,12 @@
 
 		<?php do_action( 'bp_directory_members_content' ); ?>
 
+
 		<?php wp_nonce_field( 'directory_members', '_wpnonce-member-filter' ); ?>
 
 		<?php do_action( 'bp_after_directory_members_content' ); ?>
 	</div>
+
 
 </div><!-- #buddypress -->
 

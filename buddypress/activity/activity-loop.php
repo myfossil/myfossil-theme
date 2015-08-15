@@ -1,6 +1,20 @@
 <?php do_action('bp_before_activity_loop'); ?>
 
-<?php if ( bp_has_activities( bp_ajax_querystring( 'activity') ) ) : ?>
+<?php
+
+// check if viewing main activity page or profile > activity
+// adjust bp_has_activities() parameters accordingly
+
+if( ! bp_is_user() )
+	$params = '&scope=just-me,friends';
+else
+	$params = '';
+
+?>
+
+<?php if ( bp_has_activities( bp_ajax_querystring( 'activity') . $params ) ) : ?>
+
+
     <?php if (empty($_POST['page'])): ?>
         <ul id="activity-stream" class="activity-list item-list">
     <?php endif; ?>

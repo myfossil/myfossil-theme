@@ -62,29 +62,7 @@
                                 </ul>
                             </label>
                         </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="group-status" value="private"<?php if ( 'private' == bp_get_new_group_status() ) { ?> checked="checked"<?php } ?> />
-                                <strong><?php _e( 'This is a private group', 'buddypress' ); ?></strong>
-                                <ul>
-                                    <li><?php _e( 'Only users who request membership and are accepted can join the group.', 'buddypress' ); ?></li>
-                                    <li><?php _e( 'This group will be listed in the groups directory and in search results.', 'buddypress' ); ?></li>
-                                    <li><?php _e( 'Group content and activity will only be visible to members of the group.', 'buddypress' ); ?></li>
-                                </ul>
-                            </label>
-
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" name="group-status" value="hidden"<?php if ( 'hidden' == bp_get_new_group_status() ) { ?> checked="checked"<?php } ?> />
-                                <strong><?php _e( 'This is a hidden group', 'buddypress' ); ?></strong>
-                                <ul>
-                                    <li><?php _e( 'Only users who are invited can join the group.', 'buddypress' ); ?></li>
-                                    <li><?php _e( 'This group will not be listed in the groups directory or search results.', 'buddypress' ); ?></li>
-                                    <li><?php _e( 'Group content and activity will only be visible to members of the group.', 'buddypress' ); ?></li>
-                                </ul>
-                            </label>
-                        </div>
+ 
 
                         <hr />
 

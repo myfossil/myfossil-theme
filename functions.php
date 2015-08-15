@@ -146,6 +146,8 @@ function myfossil_scripts()
     wp_enqueue_script( 'jquery-popup-overlay', get_template_directory_uri() .
             '/static/js/jquery.popupoverlay.min.js' );
 
+	//wp_enqueue_script ( 'buddypress', get_template_directory_uri () . '/static/js/buddypress.min.js' );
+
     if ( is_singular() && comments_open() && get_option('thread_comments') ) {
         wp_enqueue_script('comment-reply');
     }
@@ -202,3 +204,85 @@ function parse_meta( $meta ) {
             $parsed_meta[ $k ] = $v[0];
     return $parsed_meta;
 }
+
+
+// change Notification labels
+function mf_gettext_with_context( $translated, $text, $context, $domain ) {
+
+	if ( 'buddypress' !== $domain )  
+        return $translated; 
+        
+	switch ( $text ) {
+
+        case 'Read':
+            if( $context == 'Notification screen nav' )
+                return 'Viewed';
+			elseif( $context == 'Notification screen action' )
+				return 'Mark as Viewed';
+			else
+                return 'Read';		
+	
+        case 'Unread':
+            if( $context == 'Notification screen nav' )
+                return 'Not Viewed';
+			elseif( $context == 'Notification screen action' )
+				return 'Mark as Not Viewed';
+			else
+				return 'Unread';
+			
+        default:
+            return $translated;
+    }
+
+    return $translated;
+}
+add_filter( 'gettext_with_context', 'mf_gettext_with_context', 20, 4 );
+
+// change Notification feedback messages
+function mf_gettext( $translated_text, $text, $domain ) {
+	
+	if ( 'buddypress' !== $domain )  
+        return $translated_text; 
+        
+	switch ( $text ) {
+	
+		case 'Notification successfully marked read.':
+			return 'Notification successfully marked as Viewed.';
+	
+		case 'Notification successfully marked unread.':
+			return 'Notification successfully marked as Not Viewed.';		
+		
+        default:
+            return $translated_text;	
+	
+	}
+}
+add_filter( 'gettext', 'mf_gettext', 21, 3 );
+
+// even more change Notification labels -required because BP is inconsistent re gettext usage
+function mf_change_notification_mark_link( $retval ) {
+	$retval = str_replace('Read', 'Mark as Viewed', $retval);
+	return $retval;
+}
+add_filter('bp_get_the_notification_mark_link', 'mf_change_notification_mark_link', 22, 1);
+
+function mf_remove_xprofile_links() {
+    remove_filter( 'bp_get_the_profile_field_value', 'xprofile_filter_link_profile_data', 9, 2 );
+}
+add_action('bp_setup_globals', 'mf_remove_xprofile_links'); 
+
+
+// return an int of the number of Fossils for a specific member
+// called in \myfossil-theme\buddypress\members\members-loop.php
+function mf_member_fossil_count( $user_id ) {
+	global $wpdb; 
+	
+	$fossil_count = $wpdb->get_var( "SELECT COUNT(ID) FROM $wpdb->posts WHERE post_type = 'myfossil_fossil' AND post_author = $user_id AND post_status = 'publish'" );	
+	
+	if( $fossil_count == NULL )
+		$fossil_count = 0;
+	
+	return $fossil_count; 
+	
+}
+
