@@ -12,8 +12,7 @@ remove_filter( 'bp_get_activity_latest_update_excerpt', 'convert_chars' );
 
 
 function auto_link_text($text) {
-    // $pattern  = '#\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#';
-    $pattern  = '/((http[s]?:|www[.])[^\s()<>]*)/i';
+    $pattern  = '#\b(([\w-]+://?|www[.])[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/)))#';
     return preg_replace_callback($pattern, 'auto_link_text_callback', $text);
 }
 
@@ -22,8 +21,6 @@ function auto_link_text_callback($matches) {
     $max_depth_if_over_length = 2;
     $ellipsis = '&hellip;';
 
-    // print_r($matches);
-
     $url_full = $matches[0];
     $url_short = '';
 
@@ -31,10 +28,9 @@ function auto_link_text_callback($matches) {
                              'myfossil.local', 'myfossil.wpengine.com',
                              'myfossil.staging.wpengine.com' );
     $parts = parse_url($url_full);
-
-    if ( ( strpos( $url_full, '/fossils/' ) === false )
+    if ( ( strpos( $url_full, '/fossils/' ) === false ) 
             || ( ! in_array( $parts['host'], $myfossil_hosts ) ) ) {
-        return $url_full;
+        return make_clickable( $url_full );
     }
 
     if (strlen($url_full) > $max_url_length) {
@@ -72,9 +68,9 @@ function auto_link_text_callback($matches) {
 
     $url_parts = explode( "/", $url_full );
     $fossil_num = (int) array_pop( $url_parts );
-    if ( $fossil_num <= 0 )
+    if ( $fossil_num <= 0 ) 
         $fossil_num = (int) array_pop( $url_parts );
-
+        
 
     return sprintf( '<a rel="nofollow" href="%s">Fossil #%06d</a>', $url_full, $fossil_num );
 }
@@ -85,9 +81,9 @@ function auto_link_text_callback($matches) {
 function filter_bp_get_activity_content_body( $content ) {
     return auto_link_text( $content );
 }
+add_filter( 'bp_get_activity_content_body', 'filter_bp_get_activity_content_body' );
 remove_filter( 'bp_get_activity_content_body', 'make_clickable', 9 );
 remove_filter( 'bp_get_activity_content_body', 'bp_activity_truncate_entry', 0 );
-add_filter( 'bp_get_activity_content_body', 'filter_bp_get_activity_content_body', 11 );
 
 /**
  * Fix BuddyPress directories.
@@ -106,7 +102,7 @@ function bootstrap_render_message() {
     if ( !empty( $bp->template_message ) ) {
         $type = ( 'success' === $bp->template_message_type ) ? 'success' : 'danger';
         $content = apply_filters( 'bp_core_render_message_content', $bp->template_message, $type );
-
+        
         $tpl  = "<div class=\"alert alert-%s\" role=\"alert\">%s</div>";
 
         printf($tpl, $type, $content);
@@ -128,7 +124,7 @@ add_action( 'bp_actions', 'remove_core_render_message' );
 
 /**
  * Modifies Member nav list item
- *
+ * 
  * @see includes/extras.php
  * @param bp_tpl_contents the default contents of the nav item from BP core template
  * @param nav_item the nav item
@@ -169,7 +165,7 @@ function filter_nav_item( $bp_tpl_contents ) {
     }
 
     // We use the word "Wall" instead of "Home"
-    if ( $nav_item_name == 'Home' || $nav_item_name == 'Activity' )
+    if ( $nav_item_name == 'Home' || $nav_item_name == 'Activity' ) 
         $nav_item_name = 'Activity';
 
     // Put it all back together
@@ -325,7 +321,7 @@ add_filter( 'bp_get_send_message_button_args', 'filter_bp_button' );
  */
 function bootstrapify_pagination_links( $html ) {
     $tpl = "<ul class=\"pagination\">";
-
+    
     foreach( explode( PHP_EOL, $html ) as $link_html ) {
         $tpl .= sprintf( "<li>%s</li>", $link_html );
     }
