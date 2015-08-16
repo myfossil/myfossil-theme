@@ -3,9 +3,12 @@ use myFOSSIL\Plugin\Specimen\Fossil;
 
 $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 
+$fossil_search_query = array_key_exists("fossil_search", $_REQUEST)
+    && $_REQUEST["fossil_search"] ? $_REQUEST["fossil_search"] : null;
+
 $wp_query_args = array(
         'post_type' => Fossil::POST_TYPE,
-        'posts_per_page' => 10,
+        'posts_per_page' => $fossil_search_query ? -1 : 10,
         'paged' => $paged,
     );
 
@@ -17,8 +20,6 @@ if ( bp_displayed_user_id() ) {
 
 $fossils = new WP_Query( $wp_query_args );
 
-$fossil_search_query = array_key_exists("fossil_search", $_REQUEST)
-    && $_REQUEST["fossil_search"] ? $_REQUEST["fossil_search"] : null;
 ?>
 
 <?php if ( ! bp_displayed_user_id() ): ?>
@@ -82,8 +83,8 @@ $fossil_search_query = array_key_exists("fossil_search", $_REQUEST)
         </div>
 
     <main id="main" class="site-main" role="main">
+        <?php myfossil_list_fossils_table( $fossils, $fossil_search_query ); ?>
 
-        <?php myfossil_list_fossils_table( $fossils, bp_is_my_profile() ); ?>
         <div class="row-centered">
             <?=myfossil_paginate_links( $fossils ) ?>
         </div>
