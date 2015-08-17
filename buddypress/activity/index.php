@@ -13,8 +13,30 @@
 
         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10" style="border-left: 1px solid #eee;">
             <div id="announcements" class="separate">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3 pull-right">
+          <ul class="pull-right activity-search-dropdown" style="width:100%">
+            <li class="dropdown">
+            <a class="btn btn-primary active" role="button" data-toggle="dropdown" href="#"><span class="fa-stack">                        
+                                <i class="fa fa-search fa-stack-1x fa-inverse"></i>
+                            </span>Search <span class="caret"></span></a>
+            <ul id="menu1" class="dropdown-menu" role="menu">
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="/fossils/">Fossils</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/members/">Members</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="/groups/">Groups</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="/forums/">Forums</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="/documents/">Documents</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 pull-left">
                 <h4>Announcements</h4>
-                <ul>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10" style="border-left: 1px solid #eee;">
+      <ul>
                     <li>
                         <span class="fa-stack">
                             <i class="fa fa-circle fa-stack-2x"></i>
@@ -23,7 +45,9 @@
                         Welcome to the myFOSSIL development site. Breaking changes, data loss and downtime <strong>will</strong> happen!
                     </li>
                 </ul>
-            </div>
+  </div>
+  </div>
+</div>
             <div>
                 <?php if (is_user_logged_in()): ?>
                     <?php bp_get_template_part('activity/post-form'); ?>

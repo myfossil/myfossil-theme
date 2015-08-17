@@ -1,0 +1,33 @@
+/**
+ * Activity Search Button.
+ *
+ */
+
+.activity-search-dropdown {
+
+  .btn {
+    background-color: $color-brown;
+    color: $white;
+    text-transform: none;
+    width: 100%;
+    
+    :hover {
+      background-color: $color-brown;
+      color:#fff;
+  
+    }
+
+  }
+
+  a {
+       text-decoration:none !important;
+    }
+
+  #menu1 {
+    width:100%;
+
+    li {
+      padding: 8px 3px;
+    }
+  }
+}
