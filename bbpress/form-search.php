@@ -17,3 +17,10 @@
 		<input tabindex="<?php bbp_tab_index(); ?>" class="button" type="submit" id="bbp_search_submit" value="<?php esc_attr_e( 'Search', 'bbpress' ); ?>" />
 	</div>
 </form>
+
+<script type="text/javascript">
+jQuery(document).ready(function($) { 
+	if (window.location.search.indexOf('mfs=1') > -1)
+		jQuery('#bbp_search').focus(); 
+});
+</script>	
