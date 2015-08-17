@@ -26,8 +26,8 @@
                 <div class="row">
                     <div class="navbar-header panel hidden-md hidden-lg" style="background-color: #fff; text-align: center">
                         <h4 class="no-margin">
-                            <a class="collapsed" data-toggle="collapse" data-target="#navbar-user">
-                                What's New
+                            <a class="collapsed" href="#" data-toggle="collapse" data-target="#navbar-user">
+                                Menu
                                 <i class="fa fa-caret-down"></i>
                             </a>
                         </h4>
