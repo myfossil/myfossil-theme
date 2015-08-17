@@ -125,12 +125,19 @@
                 <?php endif; ?>
               </li>
             <?php endforeach; ?>
-            <?php if ( ! is_user_logged_in() ): ?>
+ 
+<?php if ( ! is_user_logged_in() ): ?>
                 <!-- anonymous user, show login -->
-                <li>
-                    <a href="<?=wp_login_url( get_permalink() ); ?>"><span>Login</span></a>
-                </li>
+							<li><a href="<?=wp_login_url( get_permalink() ); ?>"><span>Login</span></a>
+							</li>
+			<?php else: ?>
+              <!-- logged user, show logout (mobile devices) -->
+							<li><a class="logout-mobile" href="<?=wp_logout_url( bp_get_root_domain() ); ?>"><span>Log out</span></a>
+							</li>
             <?php endif; ?>
+
+
+
           </ul>
 
 

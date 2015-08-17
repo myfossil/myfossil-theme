@@ -53,6 +53,25 @@ a.navbar-brand
 	}
 }
 
+.logout-mobile{
+	
+	  
+ 
+  display: none !important;
+ 
+}
+
+  @media (max-width: 992px) {
+
+  		.logout-mobile{
+
+  			display:block !important;
+  		}
+  }
+
+ 
+
+
 /**
  * Logged-in View
  * ~~~~~~~~~~~~~~
