@@ -10,22 +10,7 @@
 get_header(); ?>
 
 
-<?php 
 
-$backup_query = $wp_query;
-$wp_query = new WP_Query(array('post_type' => 'post'));
-
-
-
- register_nav_menus(array(
-            'primary' => __('Primary Menu', 'myfossil') ,
-        ));
-
-$wp_query = $backup_query;
-
-
-
-?>
 
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
