@@ -109,7 +109,7 @@
 
                 ?>
                 <?php if ( $item->sub ) : ?>
-                        <a id="dropdown<?=$item->ID ?>" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                        <a href="#" id="dropdown<?=$item->ID ?>" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                             <?=$item->title ?>
                             <i class="fa fa-fw fa-caret-down"></i>
                         </a>
