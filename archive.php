@@ -9,13 +9,31 @@
  */
 get_header(); ?>
 
+
+<?php 
+
+$backup_query = $wp_query;
+$wp_query = new WP_Query(array('post_type' => 'post'));
+
+
+
+ register_nav_menus(array(
+            'primary' => __('Primary Menu', 'myfossil') ,
+        ));
+
+$wp_query = $backup_query;
+
+
+
+?>
+
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
+		<div class="container documents-container archives-container container-no-padding page-styling no-border-top">
 		<?php if (have_posts()): ?>
 
 			<header class="page-header">
-				<h1 class="page-title">
+				<h2 class="page-title">
 					<?php
                         if (is_category()):
                             single_cat_title();
@@ -51,7 +69,7 @@ get_header(); ?>
                             _e('Archives', 'myfossil');
                         endif;
                     ?>
-				</h1>
+				</h2>
 				<?php
                     // Show an optional term description.
                     $term_description = term_description();
@@ -79,7 +97,7 @@ get_header(); ?>
 			<?php get_template_part('content', 'none'); ?>
 
 		<?php endif; ?>
-
+    </div>
 		</main><!-- #main -->
 	</section><!-- #primary -->
 

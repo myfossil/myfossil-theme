@@ -35,3 +35,34 @@
 }
 
 }
+
+#main{
+	
+	.documents-container{
+
+	article{
+
+	  margin-bottom: 20px;
+	}
+
+	padding:30px !important;
+
+		.page-title{
+
+		border-bottom: 1px solid #cccccc !important;
+		margin: 0 !important;
+		padding-bottom: 10px;
+		}
+
+		h1.entry-title{
+
+		  font-size: 27px;
+		  border-bottom:none !important;
+		}
+
+		.page-header{
+
+		margin: 0px !important;
+		}
+	}
+}
