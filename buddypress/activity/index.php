@@ -21,11 +21,11 @@
                                 <i class="fa fa-search fa-stack-1x fa-inverse"></i>
                             </span>Search <span class="caret"></span></a>
             <ul id="menu1" class="dropdown-menu" role="menu">
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="/fossils/">Fossils</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/members/">Members</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="/groups/">Groups</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="/forums/">Forums</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" href="/documents/">Documents</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="/fossils?mfs=1">Fossils</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="/members?mfs=1">Members</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="/groups?mfs=1">Groups</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="/forums?mfs=1">Forums</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="/documents?mfs=1">Documents</a></li>
             </ul>
           </li>
         </ul>
