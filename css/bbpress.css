@@ -254,6 +254,7 @@ li.bbp-header div.bbp-reply-content span#favorite-toggle {
 	padding: 0;
 	margin: 12px auto 0 auto;
 	float: none;
+	
 }
 
 #bbpress-forums div.bbp-forum-author a.bbp-author-name,
@@ -1071,8 +1072,11 @@ div.bbp-template-notice a {
 #bbpress-forums .widget_display_topics img.avatar,
 #bbpress-forums .widget_display_replies img.avatar {
 	float: none;
-	margin-bottom: -7px;
+	/*margin-bottom: -7px;*/
 	border: 3px double #ddd;
+	width:30px;
+	height:auto;
+	
 }
 
 fieldset div.avatar {
