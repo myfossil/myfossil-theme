@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template for displaying the Events Loop
+ * Template for displaying the Dcouments Loop
  * You can copy this file to your-theme
  * and then edit the layout.
  */
@@ -20,8 +20,7 @@ $args = array(
 $wp_query = new WP_Query( $args );
 ?>
 
-
-	<div class="container container-no-padding page-styling no-border-top">
+	<div class="container documents-container container-no-padding page-styling no-border-top">
 
 		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 sidebar sidebar-right page-padding pull-right">
 
@@ -34,8 +33,6 @@ $wp_query = new WP_Query( $args );
 				</form>
 			</div>
 
-			<br/>&nbsp;<br/>
-
 			<div>
 				<h3>Categories</h3>
 				<?php echo mf_documents_cats_list(); ?>
@@ -43,14 +40,13 @@ $wp_query = new WP_Query( $args );
 
 		</div>
 
-
 		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 page-padding next-to-right-sidebar">
 
-			<h2 class="entry-title">All Documents</h2>
+			<h1 class="entry-title">All Documents</h1>
 
 			<?php if ( $wp_query->have_posts() ) : ?>
 
-				<div class="entry-content"><br/>
+				<div class=""><br/>
 					<?php //echo mf_pagination( $wp_query ); // use some existing function for pagination? ?>
 				</div>
 
@@ -74,14 +70,14 @@ $wp_query = new WP_Query( $args );
 						?>
 
 						<br/>
-						Category: <?php the_category(', ') ?>
+						<strong>Category: </strong> <?php the_category(', ') ?>
 
 
 					</div><!-- .entry-content -->
 
 			<?php endwhile; ?>
 
-			<div class="entry-content"><br/>
+			<div class=""><br/>
 				<?php //echo mf_pagination( $wp_query ); ?>
 			</div>
 

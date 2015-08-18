@@ -63,7 +63,7 @@
 			<?php 
 			$location = bp_get_member_profile_data( 'field=Location' );
 
-			if( $location == NULL ) 
+			if( $location == NULL || $location == false ) 
 				$location = 'Unknown'; 
 			?>
             <td><?php echo $location; ?></td>

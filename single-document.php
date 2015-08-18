@@ -1,6 +1,3 @@
-
-
-
 <?php
 
  /**
@@ -12,11 +9,8 @@
 get_header();
 ?>
 
-
 <div id="buddypress" class="container documents-container page-styling site-main" role="main">
 
-
-	
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
@@ -51,7 +45,6 @@ get_header();
 			?>
 		<div class="entry-content">
 			<?php the_content(); ?>
-			treś jakaś tam bla bla hejże hola dsjksdjksdkjsd sdkjsdsdkj skjsdjksd skjdskjsd sdkjdsds
 		</div>
 			<br/>
 		
