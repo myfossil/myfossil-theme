@@ -184,6 +184,18 @@ if ( is_user_logged_in() && is_front_page() )
             <ul class="copyright">
                 <li>&copy; myFOSSIL. All rights reserved.</li>
             </ul>
+            <div class="row">
+                <div id="footer-disclaimer" class="col-xs-12 col-lg-12" style="margin:35px 35px">
+                    <p style="font-size:12px;line-height:1.8em">
+                    Development of myFOSSIL is based upon work largely
+                    supported by the National Science Foundation under Grant
+                    No. DRL-1322725. Any opinions, findings, and conclusions or
+                    recommendations expressed in this material are those of the
+                    authors and do not necessarily reflect the views of the
+                    National Science Foundation.
+                    </p>
+                </div><!-- column -->
+            </div><!-- .row --> 
         </footer>
 
         <!-- Google Maps -->
