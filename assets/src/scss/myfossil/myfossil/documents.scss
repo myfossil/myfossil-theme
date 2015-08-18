@@ -15,10 +15,27 @@
 		border-bottom: 1px solid #cccccc !important;
 	}
 
-	.entry-content{
+	.entry-content, .entry-summary{
 
 		  background-color: #f7f7f7;
- 			padding:10px;
+ 			
+ 			margin-bottom: 20px;
+	}
+
+	.entry-content{
+
+		padding:10px;
+	}
+
+	.entry-summary{
+
+		  margin-bottom: 5px !important;
+  		  margin-top: 10px;
+
+
+		p{
+			margin: 0;
+		}
 	}
 
 	h3{
@@ -43,6 +60,13 @@
 	article{
 
 	  margin-bottom: 20px;
+	  padding:10px;
+	  background-color: #f7f7f7;
+
+	  .entry-content{
+
+	  	padding: 10px 0 0 0;
+	  }
 	}
 
 	padding:30px !important;
@@ -57,7 +81,7 @@
 		h1.entry-title{
 
 		  font-size: 27px;
-		  border-bottom:none !important;
+		  
 		}
 
 		.page-header{
