@@ -1,5 +1,5 @@
 
-body:not(.buddypress)
+body:not(.buddypress):not(.bbpress)
 {
 
 	#default_container:after {
@@ -40,6 +40,18 @@ body:not(.buddypress)
 
 .documents-container{
 
+
+form[role=search]
+{
+	
+
+	 input{
+
+		width:100%;
+		margin-top:10px;
+
+	}
+}
 	.page-title{
 		display: block !important;
 		border-bottom: 1px solid #cccccc !important;
