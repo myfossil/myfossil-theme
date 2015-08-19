@@ -13,9 +13,11 @@
  */
 get_header(); ?>
 
+
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
+         <div id="default_container" class="documents-container">
+            <h1 class="page-title" style="display:none;"> <?php the_title(); ?> </h1>
             <?php
             while (have_posts()) {
                 the_post();
@@ -27,9 +29,12 @@ get_header(); ?>
                 }
             }
             ?>
-
+        </div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
+
+
+
