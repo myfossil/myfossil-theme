@@ -42,7 +42,7 @@
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-info fa-stack-1x fa-inverse"></i>
                         </span>
-                        Welcome to the myFOSSIL Beta Test. To send feedback, click on the button at the botom of the screen labeled "Send Feedback". Thanks!
+                        Welcome to the myFOSSIL Beta Test. Please use the orange "Send Feedback" widget in the bottom right corner of the site to report any issues or feedback. Thanks!
                     </li>
                 </ul>
   </div>
