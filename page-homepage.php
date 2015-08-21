@@ -75,7 +75,7 @@ if ( is_user_logged_in() && is_front_page() )
                 <h2>Social Paleontology</h2>
                 <p>Building connections in the paleontological community.</p>
                 <ul class="actions">
-                    <li><a href="<?=wp_login_url( '/activity' ) ?>" class="button">Sign In</a></li>
+                    <li><a href="<?=wp_login_url() ?>" class="button">Sign In</a></li>
                     <li><a href="#learn-more" class="button">Learn More</a></li>
                 </ul>
             </section>
