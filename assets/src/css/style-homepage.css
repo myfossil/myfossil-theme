@@ -1243,7 +1243,7 @@
 		background-repeat: repeat,							no-repeat;
 		background-size: auto,							cover;
 		color: #fff;
-		padding: 12em 0 20em 0;
+		padding: 8em 0 4em 0;
 		text-align: center;
 	}
 
@@ -1302,7 +1302,7 @@
 /* Main */
 
 	#main {
-		padding: 4em 0;
+		padding: 2em 0;
 	}
 
 		#main > header {
@@ -1324,9 +1324,9 @@
 				padding: 1em 0 1.25em 0;
 			}
 
-	body.landing #main {
+/*	body.landing #main {
 		margin-top: -14em;
-	}
+	} */
 
 /* Footer */
 

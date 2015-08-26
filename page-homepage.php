@@ -104,12 +104,12 @@ if ( is_user_logged_in() && is_front_page() )
                     <div class="features-row">
                         <section>
                             <span class="icon major fa-map-marker fa-fw accent2"></span>
-                            <h3>Explore</h3>
+                            <h3>Fossils</h3>
                             <p>Find out whats in your backyard or just start digging.</p>
                         </section>
                         <section>
-                            <span class="icon major fa-share fa-fw accent3"></span>
-                            <h3>Share</h3>
+                            <a href="/activity" style="text-decoration:none;"><span class="icon major fa-share fa-fw accent3"></span></a>
+                            <a href="/activity"><h3>Community</h3></a>
                             <p>Digitize your personal fossil collection and discuss with the community.</p>
                         </section>
                     </div>
@@ -121,7 +121,7 @@ if ( is_user_logged_in() && is_front_page() )
                         </section>
                         <section>
                             <span class="icon major fa-graduation-cap fa-fw accent5"></span>
-                            <h3>Learn</h3>
+                            <h3>Resources</h3>
                             <p>Expand your knowledge with our educational resources, workshops, and events.</p>
                         </section>
                     </div>
