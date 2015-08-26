@@ -78,6 +78,10 @@ if ( is_user_logged_in() && is_front_page() )
                     <li><a href="<?=wp_login_url() ?>" class="button">Sign In</a></li>
                     <li><a href="#learn-more" class="button">Learn More</a></li>
                 </ul>
+
+                <p style="background:#000;opacity:0.75;padding:25px;">We are currently in the beta-testing phase of website development.  If you would like to help us with beta-testing, please contact the FOSSIL Project Coordinator, Eleanor Gardner, at <a href="mailto:fossil@flmnh.ufl.edu">fossil@flmnh.ufl.edu</a></p>
+
+
             </section>
 
         <!-- Main -->
