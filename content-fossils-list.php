@@ -75,9 +75,11 @@ $fossils = new WP_Query( $wp_query_args );
                             placeholder="By name, species, etc."
                         />
                     </div>
-                    <button class="btn btn-default btn-sm" type="submit">
-                        Search Fossils
-                    </button>
+                   
+
+                       <button type="submit" class="btn btn-primary btn-search"  ><span class="fa-stack">                        
+                                <i class="fa fa-search fa-stack-1x fa-inverse"></i>
+                            </span>Search fossils</button>
                 </form>
             </div>
         </div>

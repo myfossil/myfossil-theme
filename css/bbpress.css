@@ -496,6 +496,7 @@ div.bbp-topic-tags {
 
 #bbpress-forums #bbp-search-form {
 	clear: left;
+	margin-bottom: 10px;
 }
 
 	#bbpress-forums #bbp-search-form .hidden {
@@ -510,6 +511,7 @@ div.bbp-topic-tags {
 	#bbpress-forums #bbp-search-form #bbp_search {
 		display: inline-block;
 		width: auto;
+		
 	}
 
 #bbpress-forums div.bbp-search-form {
@@ -1231,7 +1233,7 @@ body.my-account #bbpress-forums {
 	div.bbp-search-form input,
 	div.bbp-search-form button {
 		/*font-size: 11px;*/
-		padding: 2px;
+		/*padding: 2px;*/
 	}
 	li.bbp-forum-info,
 	li.bbp-topic-title {

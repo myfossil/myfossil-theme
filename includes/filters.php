@@ -418,9 +418,11 @@ function myfossil_member_customer_search_form( $html ) {
             <label class="sr-only" for="members_search">Search Members</label>
             <input type="text" name="s" id="members_search" class="form-control" placeholder="'. esc_attr( $search_value ) .'"/>
         </div>
-        <button class="form-control btn btn-default" type="submit" id="members_search_submit" name="members_search_submit">
-            Search Members
-        </button>
+
+                   <button class="btn btn-primary btn-search" type="submit" role="button" ><span class="fa-stack">                        
+                                <i class="fa fa-search fa-stack-1x fa-inverse"></i>
+                            </span>Search members </button>
+      
 	</form>';
 }
 add_filter( 'bp_directory_members_search_form', 'myfossil_member_customer_search_form' );
