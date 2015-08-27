@@ -107,20 +107,20 @@ if ( is_user_logged_in() && is_front_page() )
                 <section class="box special features">
                     <div class="features-row">
                         <section>
-                            <span class="icon major fa-map-marker fa-fw accent2"></span>
-                            <h3>Fossils</h3>
+                            <a href="/fossils" style="border-bottom:none"><span class="icon major fa-map-marker fa-fw accent2" style="cursor:pointer;"></span></a>
+                            <a href="/fossils"><h3>Fossils</h3></a>
                             <p>Find out whats in your backyard or just start digging.</p>
                         </section>
                         <section>
-                            <a href="/activity" style="text-decoration:none;"><span class="icon major fa-share fa-fw accent3"></span></a>
+                            <a href="/activity" style="border-bottom:none"><span class="icon major fa-share fa-fw accent3" style="cursor:pointer;"></span></a>
                             <a href="/activity"><h3>Community</h3></a>
                             <p>Digitize your personal fossil collection and discuss with the community.</p>
                         </section>
                     </div>
                     <div class="features-row">
                         <section>
-                            <span class="icon major fa-group fa-fw accent4"></span>
-                            <h3>Collaborate</h3>
+                            <a href="/members" style="border-bottom:none"><span class="icon major fa-group fa-fw accent4" style="cursor:pointer;"></span></a>
+                            <a href="/members"><h3>Collaborate</h3></a>
                             <p>Opportunities to improve our understanding of natural history.</p>
                         </section>
                         <section>
@@ -128,6 +128,7 @@ if ( is_user_logged_in() && is_front_page() )
                             <span class="icon major fa-graduation-cap fa-fw accent5"></span>
                             <h3>Resources</h3>
                             </div>
+
                             <p>Expand your knowledge with our educational resources, workshops, and events.</p>
 
                               <ul style="display:none;" id="resources_popup" class="dropdown-menu dropotron">
