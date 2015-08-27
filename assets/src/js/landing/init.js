@@ -263,6 +263,33 @@
 
         }
 
+            $(document).mouseup(function (e)
+                {
+                    var popup = $("#resources_popup");
+                    var resources = $("#resources");
+
+                    if ((!popup.is(e.target) // if the target of the click isn't the container...
+                        && popup.has(e.target).length === 0)  )// ... nor a descendant of the container
+                    {
+                        popup.hide();
+                    }
+                });
+
+
+                $('#resources').click(function(){
+                        $('#resources_popup').fadeIn();
+                });
+
+                  $('#workshops').hover(function(){
+                        $('.arrow').css('background-color', '#eba047');
+                }, function(){
+
+                     $('.arrow').css('background-color', 'white');
+                });
+
+
+
+
     });
 
 })(jQuery);

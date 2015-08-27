@@ -124,9 +124,20 @@ if ( is_user_logged_in() && is_front_page() )
                             <p>Opportunities to improve our understanding of natural history.</p>
                         </section>
                         <section>
+                           <div  id="resources"> 
                             <span class="icon major fa-graduation-cap fa-fw accent5"></span>
                             <h3>Resources</h3>
+                            </div>
                             <p>Expand your knowledge with our educational resources, workshops, and events.</p>
+
+                              <ul style="display:none;" id="resources_popup" class="dropdown-menu dropotron">
+                                <li class="arrow"></li>
+                                <li><a href="http://www.myfossil.org/resources/find-fossils/">Find Fossils</a></li>
+                                <li><a href="http://www.myfossil.org/fossil-parks/">Fossil Parks</a></li>
+                                <li id="workshops"><a href="http://www.myfossil.org/resources/workshops/">Workshops</a></li>
+                                <li><a href="http://www.myfossil.org/resources/field-opportunities/">Field Opportunities</a></li>
+                                <li><a href="http://www.myfossil.org/resources/national-fossil-day/">National Fossil Day</a></li>
+                            </ul>
                         </section>
                     </div>
                 </section>
@@ -289,6 +300,7 @@ if ( is_user_logged_in() && is_front_page() )
 
             // Load up Google map with markers.
             $( function() {
+
                 google.maps.event.addDomListener( window, 'load', init_map );
             });
         </script>
