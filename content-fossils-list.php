@@ -96,5 +96,12 @@ $fossils = new WP_Query( $wp_query_args );
 </div><!-- #primary -->
 <?php endif; ?>
 
+<script type="text/javascript">
+jQuery(document).ready(function($) { 
+	if (window.location.search.indexOf('mfs=1') > -1)
+		jQuery('#fossils_search').focus(); 
+});
+</script>	
+
 <?php
 wp_reset_query();

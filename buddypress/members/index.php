@@ -103,3 +103,11 @@
 </div><!-- #buddypress -->
 
 <?php do_action( 'bp_after_directory_members_page' ); ?>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function($) { 
+	if (window.location.search.indexOf('mfs=1') > -1)
+		jQuery('#members_search').focus(); 
+});
+</script>	

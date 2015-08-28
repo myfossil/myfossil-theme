@@ -11,10 +11,25 @@
  *
  * @package myfossil
  */
-
-if ( is_user_logged_in() && is_front_page() )
-    wp_redirect( '/activity' );
 ?>
+
+<?php 
+if ( is_user_logged_in() && is_front_page() ) {
+
+	get_header(); 
+?>
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+	
+	            <?php bp_get_template_part( 'activity/index' ); ?>
+	
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+	<?php get_footer(); ?>
+	
+<?php } 
+else {  ?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -307,3 +322,4 @@ if ( is_user_logged_in() && is_front_page() )
         </script>
     </body>
 </html>
+<?php } ?>

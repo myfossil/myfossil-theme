@@ -125,6 +125,9 @@ function myfossil_scripts()
             '/static/css/jquery-ui.structure.min.css');
     wp_enqueue_style('ionicons',
             '//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css' );
+    wp_enqueue_style('mentions', get_template_directory_uri() .
+            '/static/css/bp-activity-mentions.min.css');       
+            
 
     /* Scripts */
     /*
@@ -151,6 +154,10 @@ function myfossil_scripts()
     if ( is_singular() && comments_open() && get_option('thread_comments') ) {
         wp_enqueue_script('comment-reply');
     }
+    
+    wp_enqueue_script ( 'buddypress', get_template_directory_uri() . '/static/js/jquery.atwho.min.js' );    
+    wp_enqueue_script ( 'bpcar', get_template_directory_uri() . '/static/js/jquery.caret.min.js' );
+    wp_enqueue_script ( 'bpmen', get_template_directory_uri() . '/static/js/mentions.min.js' );
 }
 add_action('wp_enqueue_scripts', 'myfossil_scripts');
 

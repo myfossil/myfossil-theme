@@ -71,8 +71,32 @@ get_header(); ?>
                  * If you want to override this in a child theme, then include a file
                  * called content-___.php (where ___ is the Post Format name) and that will be used instead.
                 */
-                get_template_part('content', get_post_format());
-                ?>
+                //get_template_part('content', get_post_format());
+               
+				?>
+					<div class="entry-content">
+
+						<h4 class="entry-title">
+							<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
+							<?php the_title(); ?></a>
+						</h4>
+
+						<?php the_excerpt(); ?>
+
+
+						<?php
+						if ( has_post_thumbnail() ) {
+							the_post_thumbnail( 'thumbnail' );
+							echo '<br/>';
+						}
+						?>
+
+						<br/>
+						<strong>Category: </strong> <?php the_category(', ') ?>
+
+
+					</div><!-- .entry-content -->               
+                
 			<?php endwhile; ?>
 
 			<?php myfossil_paging_nav(); ?>

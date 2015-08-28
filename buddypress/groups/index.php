@@ -99,3 +99,11 @@
 </div><!-- #buddypress -->
 
 <?php do_action( 'bp_after_directory_groups_page' ); ?>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function($) { 
+	if (window.location.search.indexOf('mfs=1') > -1)
+		jQuery('#groups_search').focus(); 
+});
+</script>	

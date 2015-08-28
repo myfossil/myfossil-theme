@@ -14,14 +14,16 @@
 			<p><?php _e( 'Click below to select a JPG, GIF or PNG format photo from your computer and then click \'Upload Image\' to proceed.', 'buddypress' ); ?></p>
 
             <div class="form-group">
+               
                 <p id="avatar-upload">
-                    <span class="file-input btn btn-default btn-file">
-                        Browse
-                        <input type="file" name="file" id="file" />
-                    </span>
+
+                    <span class="btn btn-default">
+                    <input type="file" name="file" id="file" /></span>
                     <input class="btn btn-default" type="submit" name="upload" id="upload" value="<?php esc_attr_e( 'Upload Image', 'buddypress' ); ?>" />
+                    
                     <input type="hidden" name="action" id="action" value="bp_avatar_upload" />
                 </p>
+				
             </div>
 
 			<?php if ( bp_get_user_has_avatar() ) : ?>
