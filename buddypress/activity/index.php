@@ -17,7 +17,6 @@
         <div class="col-xs-12 col-sm-12 col-md-3 pull-right">
           <ul class="pull-right activity-search-dropdown" style="width:100%">
             <li class="dropdown">
-            <a class="btn btn-primary active" role="button" data-toggle="dropdown" href="#"><span class="fa-stack"><i class="fa fa-search fa-stack-1x fa-inverse"></i></span>Search <span class="caret"></span></a>
             <ul id="menu1" class="dropdown-menu" role="menu">
               <li role="presentation"><a role="menuitem" tabindex="-1" href="/fossils?mfs=1">Fossils</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="/members?mfs=1">Members</a></li>
@@ -35,12 +34,12 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-10" style="border-left: 1px solid #eee;">
       <ul>
-                    <li>
+                    <li style="text-align:center;margin-top:20px;">
                         <span class="fa-stack">
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-info fa-stack-1x fa-inverse"></i>
                         </span>
-                        Welcome to the myFOSSIL development site. Breaking changes, data loss and downtime <strong>will</strong> happen!
+                        Welcome to the myFOSSIL Beta Test. Please use the orange "Send Feedback" widget in the bottom right corner of the site to report any issues or feedback. Thanks!
                     </li>
                 </ul>
   </div>

@@ -71,6 +71,7 @@
  * myfossil/forum
  */
 @import "myfossil/forum/entry";
+@import "myfossil/forum/forum_request";
 
 .current {
     @extend .active;

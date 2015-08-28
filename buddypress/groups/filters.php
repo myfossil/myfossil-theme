@@ -28,7 +28,12 @@ function filter_bp_directory_groups_search_form( $html ) {
             <form action="" method="get" id="search-groups-form" _lpchecked="1" class="form">
                 <div class="form-group">
                     <label><input type="text" name="s" id="groups_search" placeholder="Search Groups..." class="form-control"></label>
-                    <input type="submit" id="groups_search_submit" name="groups_search_submit" value="Search" class="btn btn-default" style="margin-top: -5px">
+                    
+
+                     <button class="btn btn-primary btn-search" role="button" ><span class="fa-stack">                        
+                                <i class="fa fa-search fa-stack-1x fa-inverse"></i>
+                            </span>Search groups</button>
+
                 </div>
             </form>
         </div>

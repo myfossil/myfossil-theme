@@ -324,6 +324,7 @@ jq(document).ready(function() {
                     target.fadeOut(200, function() {
                         jq(this).html(response);
                         jq(this).attr('title', 'fav' === type ? BP_DTheme.remove_fav : BP_DTheme.mark_as_fav);
+                         jq(this).prepend(jq(this).hasClass('fav') ? '<i class="fa fa-fw fa-star-o">  </i>' : '<i class="fa fa-fw fa-star">  </i>');
                         jq(this).fadeIn(200);
                     });
 

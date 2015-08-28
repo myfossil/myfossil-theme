@@ -109,7 +109,7 @@ global $activities_template;
                     <?php else: ?>
                         <a href="<?php bp_activity_unfavorite_link(); ?>" class=" button unfav bp-secondary-action" title="<?php esc_attr_e('Remove Favorite', 'buddypress'); ?>">
                             <i class="fa fa-fw fa-star"></i>
-                            <?php _e('Unfavorite', 'buddypress'); ?></a>
+                            <?php _e('Remove Favorite', 'buddypress'); ?></a>
                     <?php endif; ?>
                 <?php endif; ?>
                 <?php

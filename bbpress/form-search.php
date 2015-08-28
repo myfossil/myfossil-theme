@@ -13,8 +13,11 @@
 	<div>
 		<label class="screen-reader-text hidden" for="bbp_search"><?php _e( 'Search for:', 'bbpress' ); ?></label>
 		<input type="hidden" name="action" value="bbp-search-request" />
-		<input tabindex="<?php bbp_tab_index(); ?>" type="text" value="<?php echo esc_attr( bbp_get_search_terms() ); ?>" name="bbp_search" id="bbp_search" />
-		<input tabindex="<?php bbp_tab_index(); ?>" class="button" type="submit" id="bbp_search_submit" value="<?php esc_attr_e( 'Search', 'bbpress' ); ?>" />
+		<input tabindex="<?php bbp_tab_index(); ?>" class="form-control" type="text" value="<?php echo esc_attr( bbp_get_search_terms() ); ?>" name="bbp_search" id="bbp_search" />
+		<button id="bbp_search_submit" type="submit" class="btn btn-primary btn-search" ><span class="fa-stack">                        
+                                <i class="fa fa-search fa-stack-1x fa-inverse"></i>
+                            </span>Search forums</button>
+
 	</div>
 </form>
 

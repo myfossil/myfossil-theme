@@ -6,13 +6,9 @@
 .activity-search-dropdown {
 
   .btn {
-    background-color: $color-brown;
-    color: $white;
-    text-transform: none;
     width: 100%;
     
     :hover {
-      background-color: $color-brown;
       color:#fff;
   
     }
@@ -31,3 +27,34 @@
     }
   }
 }
+
+.btn-search{
+
+   width:100%;
+   margin-top:10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+
+}
+
+.form-inline, #bbp-search-form{
+
+  .btn-search{
+
+    width:auto !important;
+    margin-top: 0px;
+
+  }
+
+  
+}
+
+
+
+.input-sm{
+
+  height:44px !important;
+}
+
+

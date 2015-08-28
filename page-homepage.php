@@ -93,6 +93,10 @@ else {  ?>
                     <li><a href="<?=wp_login_url() ?>" class="button">Sign In</a></li>
                     <li><a href="#learn-more" class="button">Learn More</a></li>
                 </ul>
+
+                <p style="background:#000;opacity:0.75;padding:25px;">We are currently in the beta-testing phase of website development.  If you would like to help us with beta-testing, please contact the FOSSIL Project Coordinator, Eleanor Gardner, at <a href="mailto:fossil@flmnh.ufl.edu">fossil@flmnh.ufl.edu</a></p>
+
+
             </section>
 
         <!-- Main -->
@@ -118,26 +122,38 @@ else {  ?>
                 <section class="box special features">
                     <div class="features-row">
                         <section>
-                            <span class="icon major fa-map-marker fa-fw accent2"></span>
-                            <h3>Explore</h3>
+                            <a href="/fossils" style="border-bottom:none"><span class="icon major fa-map-marker fa-fw accent2" style="cursor:pointer;"></span></a>
+                            <a href="/fossils"><h3>Fossils</h3></a>
                             <p>Find out whats in your backyard or just start digging.</p>
                         </section>
                         <section>
-                            <span class="icon major fa-share fa-fw accent3"></span>
-                            <h3>Share</h3>
+                            <a href="/activity" style="border-bottom:none"><span class="icon major fa-share fa-fw accent3" style="cursor:pointer;"></span></a>
+                            <a href="/activity"><h3>Community</h3></a>
                             <p>Digitize your personal fossil collection and discuss with the community.</p>
                         </section>
                     </div>
                     <div class="features-row">
                         <section>
-                            <span class="icon major fa-group fa-fw accent4"></span>
-                            <h3>Collaborate</h3>
+                            <a href="/members" style="border-bottom:none"><span class="icon major fa-group fa-fw accent4" style="cursor:pointer;"></span></a>
+                            <a href="/members"><h3>Collaborate</h3></a>
                             <p>Opportunities to improve our understanding of natural history.</p>
                         </section>
                         <section>
+                           <div  id="resources"> 
                             <span class="icon major fa-graduation-cap fa-fw accent5"></span>
-                            <h3>Learn</h3>
+                            <h3>Resources</h3>
+                            </div>
+
                             <p>Expand your knowledge with our educational resources, workshops, and events.</p>
+
+                              <ul style="display:none;" id="resources_popup" class="dropdown-menu dropotron">
+                                <li class="arrow"></li>
+                                <li><a href="http://www.myfossil.org/resources/find-fossils/">Find Fossils</a></li>
+                                <li><a href="http://www.myfossil.org/fossil-parks/">Fossil Parks</a></li>
+                                <li id="workshops"><a href="http://www.myfossil.org/resources/workshops/">Workshops</a></li>
+                                <li><a href="http://www.myfossil.org/resources/field-opportunities/">Field Opportunities</a></li>
+                                <li><a href="http://www.myfossil.org/resources/national-fossil-day/">National Fossil Day</a></li>
+                            </ul>
                         </section>
                     </div>
                 </section>
@@ -199,6 +215,18 @@ else {  ?>
             <ul class="copyright">
                 <li>&copy; myFOSSIL. All rights reserved.</li>
             </ul>
+            <div class="row">
+                <div id="footer-disclaimer" class="col-xs-12 col-lg-12" style="margin:35px 35px">
+                    <p style="font-size:12px;line-height:1.8em">
+                    Development of myFOSSIL is based upon work largely
+                    supported by the National Science Foundation under Grant
+                    No. DRL-1322725. Any opinions, findings, and conclusions or
+                    recommendations expressed in this material are those of the
+                    authors and do not necessarily reflect the views of the
+                    National Science Foundation.
+                    </p>
+                </div><!-- column -->
+            </div><!-- .row --> 
         </footer>
 
         <!-- Google Maps -->
@@ -288,6 +316,7 @@ else {  ?>
 
             // Load up Google map with markers.
             $( function() {
+
                 google.maps.event.addDomListener( window, 'load', init_map );
             });
         </script>
