@@ -132,7 +132,7 @@
 							</li>
 			<?php else: ?>
               <!-- logged user, show logout (mobile devices) -->
-							<li><a class="logout-mobile" href="<?=wp_logout_url( bp_get_root_domain() ); ?>"><span>Log out</span></a>
+							<li><a  href="<?=wp_logout_url( bp_get_root_domain() ); ?>"><span>Log out</span></a>
 							</li>
             <?php endif; ?>
 
