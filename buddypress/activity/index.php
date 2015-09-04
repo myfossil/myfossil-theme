@@ -34,11 +34,9 @@
   </div>
   <div class="row">
     <div class="col-xs-12" style="border-left: 1px solid #eee;">
-      <ul>
-                    <li style="text-align:center;margin-top:20px;line-height: 1.5;background-color: #eee;padding: 10px;color: #222;">
-                        Welcome to the myFOSSIL Beta Test. Please use the orange "Send Feedback" widget in the bottom right corner of the site to report any issues or feedback. If you are unable to use the feedback button, then please send email to fossil@flmnh.ufl.edu. Thanks!
-                    </li>
-                </ul>
+      <?php if ( bp_is_active( 'messages' ) ) : ?>
+        <?php bp_message_get_notices(); ?>
+    <?php endif; ?>
   </div>
   </div>
 </div>
