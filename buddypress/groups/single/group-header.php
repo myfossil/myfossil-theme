@@ -56,7 +56,7 @@
 		<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
 
         <div id="item-meta">
-            <?php // bp_group_description(); ?>
+            <?php  bp_group_description(); ?>
 
             <div id="item-buttons">
                 <?php // do_action( 'bp_group_header_actions' ); ?>
