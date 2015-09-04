@@ -3,6 +3,14 @@
  *
  * Primary menu located at the bottom of every page.
  */
+
+ #colophon{
+
+    padding-top: 20px;    
+
+}
+
+
 #nav-footer {
     a {
         padding-top: 20px;
@@ -19,14 +27,18 @@
     }
 }
 
+
+
 #footer-disclaimer{
     font-size: 0.7em;
     color: $color-gray-medium;
     text-align: left;
+     padding-left: 0px;
 }
 
 #footer-logos {
     text-align: right;
+    float:right;
     
     .row {
         text-align: center;
@@ -36,6 +48,7 @@
         @extend .img-responsive;
         max-height: 60px;
         margin-top: 10px;
+        float:right;
     }
 }
 
@@ -45,8 +58,88 @@
     padding: 50px;
     text-align: center;
 
+    .top{
+
+        #fossil-logo{
+
+              padding-top: 35px;
+        }
+    }
+
     #nav {
         text-align: left;
+
+        .navbar-collapse{
+
+            padding-left: 0px;
+        }
+
+
     }
+
+    .footer-submenu{
+
+      margin-left: 15px;
+      font-size: 13px;
+
+     
+
+        li{
+            a{
+                padding-top:0px !important;
+            }
+
+            a:hover{
+
+                 background-color: initial;
+            color: #808080 !important;
+            text-decoration: none;
+            }
+        }
+      
+}
+
+.dropdown-toggle{
+
+    padding-bottom: 0px;
+    margin-bottom: 5px;
+}
+
+.nav{
+
+     margin-bottom: 20px;
+
+li{ 
+       
+       &:first-child{
+
+            a{
+                padding-left: 0px;
+            }
+
+       }
+
+       a{
+
+            padding-top: 20px;
+       }
+
+        a:hover
+        {
+            background-color: initial;
+            color: #808080 !important;
+            text-decoration: none;
+
+            &.dropdown-toggle{
+
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+
+
 }
 
