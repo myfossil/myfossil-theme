@@ -79,7 +79,7 @@
 
     .footer-submenu{
 
-      margin-left: 15px;
+      margin-left: 25px;
       font-size: 13px;
 
      
@@ -87,6 +87,7 @@
         li{
             a{
                 padding-top:0px !important;
+                 text-transform: none !important;
             }
 
             a:hover{
@@ -122,6 +123,8 @@ li{
        a{
 
             padding-top: 20px;
+            text-decoration: none !important;
+
        }
 
         a:hover
