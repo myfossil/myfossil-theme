@@ -102,13 +102,13 @@ dl.fossil-header {
 }
 
 .edit-fossil-popup {
-    opacity: 1; 
-    visibility: visible; 
-    display: inline-block; 
-    outline: none; 
-    text-align: left; 
-    position: relative; 
-    vertical-align: middle; 
+    opacity: 1;
+    visibility: visible;
+    display: inline-block;
+    outline: none;
+    text-align: left;
+    position: relative;
+    vertical-align: middle;
     max-width: 600px;
 }
 
@@ -149,7 +149,7 @@ button.edit-fossil-taxon_open {
     content : "#{$indent}";
 }
 
-#fossil-taxon-class, #fossil-stratum-formation, #fossil-geochronology-period {
+#fossil-taxon-phylum, #fossil-stratum-formation, #fossil-geochronology-period {
     &:before {
         @extend .hidden-xs;
         @extend .hidden-sm;
@@ -157,7 +157,7 @@ button.edit-fossil-taxon_open {
     }
 }
 
-#fossil-taxon-order, #fossil-stratum-member, #fossil-geochronology-epoch {
+#fossil-taxon-class, #fossil-stratum-member, #fossil-geochronology-epoch {
     &:before {
         @extend .hidden-xs;
         @extend .hidden-sm;
@@ -165,7 +165,7 @@ button.edit-fossil-taxon_open {
     }
 }
 
-#fossil-taxon-family, #fossil-geochronology-age {
+#fossil-taxon-order, #fossil-geochronology-age {
     &:before {
         @extend .hidden-xs;
         @extend .hidden-sm;
@@ -173,7 +173,7 @@ button.edit-fossil-taxon_open {
     }
 }
 
-#fossil-taxon-genus {
+#fossil-taxon-family{
     &:before {
         @extend .hidden-xs;
         @extend .hidden-sm;
@@ -181,7 +181,7 @@ button.edit-fossil-taxon_open {
     }
 }
 
-#fossil-taxon-species {
+#fossil-taxon-genus {
     &:before {
         @extend .hidden-xs;
         @extend .hidden-sm;
@@ -189,6 +189,13 @@ button.edit-fossil-taxon_open {
     }
 }
 
+#fossil-taxon-species {
+    &:before {
+        @extend .hidden-xs;
+        @extend .hidden-sm;
+        @include indent( 6 );
+    }
+}
 
 .edit-fossil {
     @extend .panel;
