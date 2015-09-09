@@ -83,7 +83,7 @@
                     clickToHide: true,
                     height: '100%',
                     hidden: true,
-                    html: '<div data-action="navList" data-args="nav"></div>',
+                    html: '<div data-action="navList" data-args="left_nav"></div>',
                     orientation: 'vertical',
                     position: 'top-left',
                     side: 'left',
@@ -259,9 +259,12 @@
                     }
                 });
 
+
             });
 
         }
+
+
 
             $(document).mouseup(function (e)
                 {
@@ -286,6 +289,10 @@
 
                      $('.arrow').css('background-color', 'white');
                 });
+
+
+
+                
 
 
 

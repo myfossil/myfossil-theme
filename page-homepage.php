@@ -64,16 +64,49 @@ else {  ?>
             <header id="header" class="alt">
                 <h1>
                     <a href="/">
-                        <img src="/wp-content/themes/myfossil/static/img/myfossil-logo-white-small.png" alt="myFOSSIL" />
+                        <img id="fossil-logo" src="/wp-content/themes/myfossil/static/img/myfossil-logo-white.png" alt="myFOSSIL" />
                     </a>
                 </h1>
                 <nav id="nav">
+                    <ul>
+                        <li><a href="/activity"><span class="icon major fa-share fa-fw accent3"></span>
+                        <div class="description">
+                            <span>Community</span>
+                            <p class="test"> Digitize your personal fossil collection and discuss with the community. </p>
+                        </div></a></li>
+                       <li><a href="/fossils"><span class="icon major fa-map-marker fa-fw accent2"></span>
+                        <div class="description">
+                            <span>Fossils</span>
+                            <p> Find out whats in your backyard or just start digging.</p>
+                        </div></a></li>
+                        <li><a href="/members"><span class="icon major fa-group fa-fw accent4"></span>
+                        <div class="description">
+                            <span>Collaborate</span>
+                            <p> Opportunities to improve our understanding of natural history.</p>
+                        </div></a></li>
+                          <li><a id="resources" href="#"><span class="icon major fa-graduation-cap fa-fw accent5"></span>
+                        <div class="description">
+                            <span>Resources</span>
+                            <p> Expand your knowledge with our educational resources, workshops, and events.</p>
+                        </div></a>
+                            <ul class="resources-menu">
+                                <li><a href="http://www.myfossil.org/resources/find-fossils/">Find Fossils</a></li>
+                                <li><a href="http://www.myfossil.org/fossil-parks/">Fossil Parks</a></li>
+                                <li><a href="http://www.myfossil.org/resources/workshops/">Workshops</a></li>
+                                <li><a href="http://www.myfossil.org/resources/field-opportunities/">Field Opportunities</a></li>
+                                <li><a href="http://www.myfossil.org/resources/national-fossil-day/">National Fossil Day</a></li>
+                            </ul>
+                        </li>
+                       
+                    </ul>
+                </nav>
+                <nav style="display:none" id="left_nav">
                     <ul>
                         <li><a href="/activity">Community</a></li>
                         <li><a href="/fossils">Fossils</a></li>
                         <li><a href="/members">Collaborate</a></li>
                         <li><a href="#">Resources</a>
-                            <ul class="dropdown-menu">
+                            <ul>
                                 <li><a href="http://www.myfossil.org/resources/find-fossils/">Find Fossils</a></li>
                                 <li><a href="http://www.myfossil.org/fossil-parks/">Fossil Parks</a></li>
                                 <li><a href="http://www.myfossil.org/resources/workshops/">Workshops</a></li>
@@ -83,16 +116,17 @@ else {  ?>
                         </li>
                     </ul>
                 </nav>
+
+
             </header>
 
         <!-- Banner -->
             <section id="banner">
                 <h2>Social Paleontology</h2>
-                <p>Building connections in the paleontological community.</p>
-                <ul class="actions">
-                    <li><a href="<?=wp_login_url() ?>" class="button">Sign In</a></li>
-                    <li><a href="#learn-more" class="button">Learn More</a></li>
-                </ul>
+                <p id="statement">Building connections in the paleontological community.</p>
+                <div class="sign-in">
+                    <a href="<?=wp_login_url() ?>" class="button">Sign In</a>
+                </div>
 
                 <p style="background:#000;opacity:0.75;padding:25px;">We are currently in the beta-testing phase of website development.  If you would like to help us with beta-testing, please contact the FOSSIL Project Coordinator, Eleanor Gardner, at <a href="mailto:fossil@flmnh.ufl.edu">fossil@flmnh.ufl.edu</a></p>
 
@@ -119,92 +153,6 @@ else {  ?>
                 </section>
 
                 <a name="learn-more"></a>
-                <section class="box special features">
-                    <div class="features-row">
-                        <section>
-                            <a href="/fossils" style="border-bottom:none"><span class="icon major fa-map-marker fa-fw accent2" style="cursor:pointer;"></span></a>
-                            <a href="/fossils"><h3>Fossils</h3></a>
-                            <p>Find out whats in your backyard or just start digging.</p>
-                        </section>
-                        <section>
-                            <a href="/activity" style="border-bottom:none"><span class="icon major fa-share fa-fw accent3" style="cursor:pointer;"></span></a>
-                            <a href="/activity"><h3>Community</h3></a>
-                            <p>Digitize your personal fossil collection and discuss with the community.</p>
-                        </section>
-                    </div>
-                    <div class="features-row">
-                        <section>
-                            <a href="/members" style="border-bottom:none"><span class="icon major fa-group fa-fw accent4" style="cursor:pointer;"></span></a>
-                            <a href="/members"><h3>Collaborate</h3></a>
-                            <p>Opportunities to improve our understanding of natural history.</p>
-                        </section>
-                        <section>
-                           <div  id="resources"> 
-                            <span class="icon major fa-graduation-cap fa-fw accent5"></span>
-                            <h3>Resources</h3>
-                            </div>
-
-                            <p>Expand your knowledge with our educational resources, workshops, and events.</p>
-
-                              <ul style="display:none;" id="resources_popup" class="dropdown-menu dropotron">
-                                <li class="arrow"></li>
-                                <li><a href="http://www.myfossil.org/resources/find-fossils/">Find Fossils</a></li>
-                                <li><a href="http://www.myfossil.org/fossil-parks/">Fossil Parks</a></li>
-                                <li id="workshops"><a href="http://www.myfossil.org/resources/workshops/">Workshops</a></li>
-                                <li><a href="http://www.myfossil.org/resources/field-opportunities/">Field Opportunities</a></li>
-                                <li><a href="http://www.myfossil.org/resources/national-fossil-day/">National Fossil Day</a></li>
-                            </ul>
-                        </section>
-                    </div>
-                </section>
-             <!--   <section class="special">
-                    <div class="row uniform half collapse-at-2">
-                        <div class="6u">
-                            <h3>Sign in</h3>
-                            <div class="box">
-                                <?php wp_login_form(); ?>
-                            </div>
-                        </div>
-                        <div class="6u">
-                            <div class="updates">
-                                <h3>Recent Activity</h3>
-                                <ul>
-                                <?php if ( bp_has_activities( 'display_comments=false&per_page=8' ) ) : ?>
-                                    <?php while ( bp_activities() ) : bp_the_activity(); ?>
-                                        <li class="box">
-                                            <?php bp_activity_avatar(); ?>
-                                            <span class="update">
-                                                <?=$activities_template->activity->action; ?>
-                                            </span>
-                                        </li>
-                                    <?php endwhile; ?>
-                                <?php endif; ?>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    </section>
-            </section>-->
-
-        <!-- CTA -->
-          <!--  <section id="cta" style="display: none">
-
-                <h2>Sign up for our newsletter</h2>
-                <p>We'll keep you posted.</p>
-
-                <form>
-                    <div class="row uniform half collapse-at-2">
-                        <div class="8u">
-                            <input type="email" name="email" id="email" placeholder="Email Address" />
-                        </div>
-                        <div class="4u">
-                            <input type="submit" value="Sign Up" class="fit" />
-                        </div>
-                    </div>
-                </form>
-
-            </section> -->
-
         <!-- Footer -->
         <footer id="footer">
             <ul class="icons">
