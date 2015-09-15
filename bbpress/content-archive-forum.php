@@ -24,8 +24,8 @@
 	<?php bbp_breadcrumb(); ?>
 
 		<div class="row">
-			<div class="col-xs-10 col-xs-offset-1" id="forum-request-instructions">
-				<p>To reduce confusion, we have a formal process for adding new forums. To request a new Forum, please send an email with a detailed explanation to the myFOSSIL webmaster at <a href="mailto:fossil@flmnh.ufl.edu">fossil@flmnh.ufl.edu</a>.</p>
+			<div class="col-xs-8 col-xs-offset-2" id="forum-request-instructions">
+				<p>To reduce confusion, we have a formal process for adding forums. To request a new forum, please post your idea in <a href="/forums/forum/2-ideas-for-new-forums/">Forum #2, Ideas for New Forums</a>. Thanks!</p>
 			</div>
 		</div>
 
