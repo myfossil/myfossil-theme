@@ -63,6 +63,10 @@
 
 				<?php endif; ?>
 
+				<div class="bbp-template-notice">
+					<p><?php _e( '<b>Image Upload Instructions</b><br /> Click "Choose File" under the ATTACHMENTS heading below and select your image.  The image will ulpoad when you submit your topic.', 'bbpress' ); ?></p>
+				</div>
+
 				<?php do_action( 'bbp_template_notices' ); ?>
 
 				<div>
