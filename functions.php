@@ -301,3 +301,13 @@ function bbp_enable_visual_editor( $args = array() ) {
 }
 add_filter( 'bbp_after_get_the_content_parse_args', 'bbp_enable_visual_editor' );
 
+
+//limit access to wp-admin to admins only
+add_action( 'init', 'blockusers_init' );
+function blockusers_init() {
+    if ( is_admin() && ! current_user_can( 'administrator' ) && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+        wp_redirect( home_url() );
+        exit;
+    }
+}
+
