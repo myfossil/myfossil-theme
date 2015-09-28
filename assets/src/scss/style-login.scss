@@ -4,6 +4,23 @@
 @import "bootstrap/bootstrap";
 @import "myfossil/myfossil";
 
+
+body{
+
+   background-image: url("/wp-content/themes/myfossil/static/img/overlay.png"), url("/wp-content/themes/myfossil/static/img/banner.jpg");
+background-position: top left, center center;
+  background-repeat: repeat,    no-repeat;
+  background-size: auto,    cover;
+}
+
+.login #backtoblog a, .login #nav a{
+
+  color: white !important;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+
 .button, .button-primary, .button-large
 {
     background: none !important;
