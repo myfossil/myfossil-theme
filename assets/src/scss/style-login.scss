@@ -11,6 +11,7 @@ body{
 background-position: top left, center center;
   background-repeat: repeat,    no-repeat;
   background-size: auto,    cover;
+  overflow: scroll;
 }
 
 .login #backtoblog a, .login #nav a{
