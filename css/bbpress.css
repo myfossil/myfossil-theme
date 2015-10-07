@@ -526,7 +526,7 @@ span.bbp-admin-links {
 	color: #ddd;
 }
 span.bbp-admin-links a {
-	color: #bbb;
+	  color: #666;
 	font-weight: normal;
 	font-size: 10px;
 	text-transform: uppercase;
@@ -548,7 +548,7 @@ td.bbp-topic-counts {
 .bbp-reply-header a.bbp-reply-permalink {
 	float: right;
 	margin-left: 10px;
-	color: #ccc;
+	color: #666;
 }
 
 /* =Toggles
