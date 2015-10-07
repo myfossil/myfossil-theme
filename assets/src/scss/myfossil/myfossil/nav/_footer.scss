@@ -20,6 +20,7 @@
         text-decoration: none;
         text-transform: uppercase !important;
 
+
         &:hover {
             background-color: $black;
             text-decoration: underline;
@@ -127,7 +128,7 @@ li{
 
             padding-top: 20px;
             text-decoration: none !important;
-
+            background-color: #333333;
             &.selected,  &.selected:hover,{
 
             color: #EEE !important;
