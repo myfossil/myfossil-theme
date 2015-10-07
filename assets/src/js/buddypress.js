@@ -30,18 +30,18 @@ jq(document).ready(function() {
 
 
     /*image bug fix */
-   var images = jq('.activity-inner').find('p').has('img');
+   // var images = jq('.activity-inner').find('p').has('img');
 
 
-   jq.each( images, function( key, value ) {
+   // jq.each( images, function( key, value ) {
     
-        var splitted = value.innerHTML.split(">");
-        var first = splitted[0].substring(0, splitted[0].indexOf('"'));
-        splitted[1] = splitted[1].replace('/&gt;', '/>');
-        var result = first + '"' + splitted[1];
-        value.innerHTML = result;
+   //      var splitted = value.innerHTML.split(">");
+   //      var first = splitted[0].substring(0, splitted[0].indexOf('"'));
+   //      splitted[1] = splitted[1].replace('/&gt;', '/>');
+   //      var result = first + '"' + splitted[1];
+   //      value.innerHTML = result;
         
-    });
+   //  });
 
 
 
