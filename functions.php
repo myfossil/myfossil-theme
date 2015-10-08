@@ -311,3 +311,12 @@ function blockusers_init() {
     }
 }
 
+
+function mf_joined_group_action( $action, $activity ) {
+    
+    $action = str_replace ( 'joined the group', 'followed the group', $action );
+
+    return $action;
+    
+}
+add_filter( 'bp_groups_format_activity_action_joined_group', 'mf_joined_group_action', 25, 2 );
