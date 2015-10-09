@@ -11,7 +11,13 @@ body{
 background-position: top left, center center;
   background-repeat: repeat,    no-repeat;
   background-size: auto,    cover;
-  overflow: scroll;
+  background-attachment: fixed;
+  min-height: 850px;
+}
+
+.mobile #login{
+
+  padding: 0 !important;
 }
 
 .login #backtoblog a, .login #nav a{
